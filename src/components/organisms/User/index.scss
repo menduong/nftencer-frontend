@@ -1,0 +1,267 @@
+.o-section1 {
+  margin-bottom: 250px;
+  border-radius: 20px;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  min-height: 400px;
+  position: relative;
+
+  @include tab {
+    padding: 25px 30px;
+  }
+
+  @include sp {
+    padding: 32px 15px;
+    margin-bottom: 250px;
+  }
+
+  &-usediv {
+    box-shadow: none;
+  }
+
+  &-nobackground {
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  &-nopadding {
+    padding: 0;
+  }
+
+  &-nomargin {
+    margin: 0;
+  }
+
+  
+  .font-id {
+    font-family: NotoSans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    color: #323232;
+    margin-left: 20px;
+    margin-right: 10px;
+    text-align: center;
+      @include sp {
+        font-size: 12px;
+        line-height: 17px;
+        margin-left: 0px;
+      }
+  }
+
+  .bio {
+    font-family: NotoSans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: #797979;
+
+  }
+  .button-handle{
+    margin-top: 0px;
+  }
+  .font-name {
+    font-family: NotoSans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 44px;
+    color: #323232;
+    ;
+
+  }
+  .i-icon{
+    margin-bottom: 10px;
+  }
+  .span-icon{
+    margin-top: 10px;
+  }
+  .IconCopy {
+    background-color: #797979;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+
+  }
+
+  .Change-avatar {
+    position: absolute;
+    bottom: 1px;
+    right: 1px;
+    transition: transform 250ms;
+    z-index: 99;
+
+  }
+
+  .avatar-user {
+    position: absolute;
+    top: 80%;
+
+  }
+
+  .uploadBut {
+    background-color: linear-gradient(100.93deg, #D565C3 -13.26%, #ABD3EA 101.12%);
+    border-radius: 9px;
+    align-items: center;
+  }
+
+  .Profile-containt {
+    background-color: none;
+  }
+ 
+  .avatar-display-none {
+    background-image: url('assets/images/avatar-none.svg');
+    background-color: #F4F4F4;
+    left: 48%;
+    top: 50px;
+    width: 150px;
+    height: 150px;
+    border: 1px solid white;
+    border-radius:50% 50% 50% 50%;  
+    background-size: cover;
+  }
+  .user-button {
+    background: #F8F8F8;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 21px;
+    font-family: NotoSans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    width: 100px;
+    height: 42px;
+    color: #000000;
+  }
+
+  .uploadim {
+    background-image: url('assets/images/card.png');
+    width: 150px;
+    height: 150px;
+    border: dashed;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .buttonedit {
+    flex-basis: 0%;
+
+  }
+
+  .a-link {
+    text-decoration: none;
+    color: $COLOR-WHITE;
+  }
+}
+.hidden {
+  display: none;
+}
+
+.App {
+  height: 150px;
+  weight:150px;
+  background: white;
+  display: none;
+}
+
+.container {
+  margin: auto;
+  width: 100%;
+  min-width: 410px;
+}
+
+.errorMsg {
+  color: red;
+  font-size: 24px;
+  margin: 3px 0;
+}
+
+.imgPreview {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+
+.input[type="file" i] {
+  display: none;
+}
+
+.customFileUpload {
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  height: 100%;
+  width: 100%;
+  background-image: url('assets/images/icon/icon-uploadim.svg');
+  background-repeat: no-repeat;
+}
+.span-icon{
+  margin-top: 20px;
+}
+.limitletter{
+  position: relative;
+  display:flex;
+  justify-content: flex-end;
+}
+.ImgReview{
+  height: 200px;
+  width: 200px;
+}
+.share-button{
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  padding: 15px 20px;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border: none;
+  width: 100%;
+  &:hover  {
+    background-color: $COLOR-WHITE;
+    box-shadow: 0 3px 14px 0.2px rgb(0 0 0 / 20%);
+    transition: 0.2s box-shadow ease-in-out;
+  }
+
+}
+.button_copied{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+    padding-right: 15px;
+    padding-left: 0px;
+    background: white;
+    color: $COLOR-WHITE;
+    min-width: 108px;
+    height: 36px;
+    border-radius: 20px;
+  
+}
+.icon-copied{
+  @include sp{
+  background-image: url('assets/images/icon/icon-copiedwhite.svg');
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  }
+}
+.font-idhidden{
+  display:hidden!important;
+}
+.o-section1 .font-idhidden {
+  display: hidden;
+}

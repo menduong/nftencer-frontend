@@ -1,0 +1,15 @@
+.o-exploremenu {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  &_category {
+    display: flex;
+  }
+
+  &_tab {
+    @include sp {
+      overflow: auto;
+      margin-left: 10px;
+    }
+  }
+}

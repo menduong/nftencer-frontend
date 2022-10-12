@@ -1,0 +1,282 @@
+.o-productcard {
+  position: relative;
+  max-width: 200px; //test 200 350
+  min-height: 350px;
+  padding: 18px;
+  background-color: $COLOR-WHITE;
+  box-shadow: 0 2px 4.75px 0.25px $BOXSHADOW-BASIC;
+  border-radius: 20px;
+  transition: 0.2s box-shadow ease-in-out;
+
+  @include tab {
+    padding: 18px 18px 18px;
+  }
+  @include sp {
+    min-width: 275px;
+    min-height: 420px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+  }
+  @include smd {
+    min-width: 522px;
+    min-height: 800px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    padding: 20px!important;
+  }
+  &:hover {
+    box-shadow: 0 3px 14px 0.2px rgb(0 0 0 / 20%);
+  }
+
+  &-preview {
+    box-shadow: none;
+    border: 1px solid $BORDER-TEXTFIELD-COLOR;
+    cursor: auto;
+    height: 375px!important;
+    width: 340px!important;
+
+    &:hover {
+      box-shadow: none;
+    }
+  }
+  &_reportButton{
+  background-color: black; /* Green */
+  border-radius: 5px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  }
+  &_media {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 8px 0 14px;
+    @include sp {
+      height: 320px!important;
+      }
+      @include smd {
+        height: 650px!important;
+        
+      }
+  }
+
+  &_share {
+    position: absolute;
+    top: 5px;
+    right: 0;
+    margin: 0;
+
+  }
+
+  &_like {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.63);
+    border: 1px solid rgba(255, 255, 255, 0.51);
+    box-sizing: border-box;
+    backdrop-filter: blur(10px);
+    border-radius: 22px;
+    width: 80px;
+    height: 28px;
+    bottom: 17%;
+    right: 2%;
+    margin: 0;
+    font-size: 16px;
+    font-family: NotoSans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    @include smd {
+      bottom: 14%;
+      
+    }
+    .a-icon {
+      width: 18px;
+      height: 18px;
+      margin-bottom: 1%;
+    }
+
+  }
+  &_likeitem {
+    background: #f1f1f1;
+    border: 1px solid rgba(255, 255, 255, 0.51);
+    box-sizing: border-box;
+    backdrop-filter: blur(10px);
+    border-radius: 22px;
+    align-items:center;
+    padding:10px;
+    font-size: 16px;
+    font-family: NotoSans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    .a-icon {
+      width: 18px;
+      height: 18px;
+      margin-bottom: 1%;
+    }
+    @include sp {
+      background:#F5F5F5;
+      
+    }
+  }
+
+  &_likeitemView {
+    background: #f1f1f1;
+    border: 1px solid rgba(255, 255, 255, 0.51);
+    box-sizing: border-box;
+    backdrop-filter: blur(10px);
+    border-radius: 22px;
+    width: 80px;
+    height: 39px;
+    margin: 0;
+    margin-right:15px!important;
+    margin-left:15px!important;
+    font-size: 16px;
+    font-family: NotoSans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    .a-icon {
+      width: 18px;
+      height: 18px;
+      margin-bottom: 1%;
+    }
+    @include sp {
+      background:#F5F5F5;
+      
+    }
+  }
+
+  &_view {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    margin: 0;
+    color: white;
+    @include smd {
+      left: 18px;
+      
+    }
+  }
+
+  &_info {
+    .m-heading {
+      margin-bottom: 0;
+
+      .a-text {
+        margin-right: 0;
+      }
+    }
+
+    .a-text {
+      margin-right: 7px;
+
+      .a-text {
+        margin: 0 0 0 3px;
+      }
+    }
+  }
+
+  &_heading {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  &_lead {
+    display: flex;
+    align-items: baseline;
+    width: 100%;
+    margin-bottom: 8px;
+
+    @include sp {
+      width: 100%;
+    }
+
+    .a-link {
+      display: flex;
+      // NOTE: This style for heading with collection.
+      max-width: 100%;
+
+      @include sp {
+        max-width: 100%;
+      }
+    }
+
+    .m-heading {
+      display: inline-block;
+      vertical-align: baseline;
+
+      @include ellipsisInline;
+    }
+  }
+
+  &_userlist {
+    display: flex;
+    margin-right: -10px;
+  }
+
+  &_user {
+    position: relative;
+
+    @for $i from 1 through 2 {
+      &-#{$i} {
+        transform: translateX(calc(-5px * #{$i}));
+      }
+    }
+  }
+
+  &_bmp {
+    display: flex;
+    justify-content: space-between;
+
+    .a-toggleiconbutton {
+      padding: 3px;
+    }
+
+    .a-icon {
+      width: 15px;
+    }
+  }
+
+  &_control {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &_dropdown {
+    .m-dropdown_trigger {
+      .a-icon {
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+    .m-dropdown_items {
+      width: 170px;
+
+      .m-dropdownmenu {
+        padding: 15px 20px 15px;
+      }
+    }
+
+    .a-checkinput {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
+}

@@ -1,0 +1,421 @@
+.o-header {
+  $root: &;
+
+  width: 100%;
+  height: $HEADER-PC-HEIGHT;
+  margin: $HEADER-PC-MARGIN 0;
+  border-bottom: 1px solid #0000001A;
+  &.u-sticky {
+    position: fixed;
+    z-index: z('header');
+    left: 0;
+    top: 0;
+    margin: 0;
+    display: flex;
+    padding: 0 $PADDING-PC;
+
+    @include sp {
+      padding: 0 $PADDING-SP;
+      width: 100%;
+    }
+
+    @include tab {
+      padding: 0 $PADDING-TAB;
+    }
+
+    .m-heading {
+      margin: 0 10px 0 0;
+    }
+
+    &:before {
+      content: '';
+      background-color: white;
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: block;
+      width: calc(100% + 15px);
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: -15px;
+      z-index: z('back');
+
+      @include sp {
+        width: calc(100% + #{$PADDING-SP} * 2);
+        left: -#{$PADDING-SP};
+      }
+
+      @include tab {
+        width: calc(100% + #{$PADDING-TAB} * 2);
+        left: -#{$PADDING-TAB};
+      }
+    }
+  }
+
+  &:before {
+    content: '';
+  }
+  &_button-menuItem{
+    font-family: NotoSans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    color: #323232;
+  }
+  &_main {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: flex-end;
+    position: relative;
+    right:10px;
+    @include mld {
+      width: 82%;
+      left: 10px;
+      }
+  }
+
+  &_a-logo {
+    display: inline-block;
+    width: 37px;
+    height: 45px;
+    position: relative;
+    top: 10px;
+    right: 7px;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: contain;
+    background-image: url('assets/images/icon/icon-NFT-2.svg');
+  }
+
+  &_b-logo {
+    display: inline-block;
+    width: 157px;
+    height: 75px;
+    position: relative;
+    right: 22%;
+    image-rendering: pixelated;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-image: url('assets/images/ccnglobal_logo_ver1.png');
+    object-fit: cover;
+    @include sp {
+    width: 160px;
+    height: 50px;
+    right: 3%;
+    top: 10px;
+    }
+    @include mld {
+      width: 140px;
+      height: 75px;
+      right: 0px;
+      }
+  }
+
+  &_icon-coming-soon {
+    position: relative;
+    left: 2px;
+    bottom: 2px;
+
+    .coming-soon {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      vertical-align: middle;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      background-image: url('assets/images/icon/icon-coming-soon.svg');
+      animation: blinker 2.5s linear infinite;
+
+      @keyframes blinker {
+        50% {
+          opacity: 0;
+        }
+      }
+    }
+
+  }
+
+  &_menulist {
+    text-decoration: none;
+    font-family: NotoSans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    color: #323232;
+    
+   
+  }
+
+  &_link-text {
+    text-decoration: none;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    color: #757575;
+
+    a {
+      text-decoration: none;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 19px;
+      color: #757575;
+
+    }
+  }
+
+  &_search {
+    width: 260px;
+    height: 37px;
+
+    @include tab {
+      width: 600px;
+    }
+
+    @include sp {
+      position: relative;
+      height: 30px;
+      width: 100%;
+      margin-right: 8px;
+      right:10px;
+    }
+  }
+  &_searchmobile {
+    display:none;
+
+    @include tab {
+      width: 600px;
+    }
+
+    @include sp {
+      width: 200px;
+      height: 37px;
+      margin-right: 8px;
+      display: block;
+    }
+  }
+
+  &_menu {
+    margin-right: 10px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    width: 117px;
+    text-align: center;
+    font-family: NotoSans;
+   
+    ul {
+      list-style-type: none;
+      background-color: #F6F6F6;
+    }
+
+    .a-link {
+      text-decoration: none;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 19px;
+      color: #323232;
+      padding-bottom: 6px;
+      @include u-fz(16, 25);
+      @include u-fw-b();
+    }
+
+    @include sp {
+      display: none;
+
+      #{$root}_hambugermenu & {
+        display: flex;
+        margin: 40px 0;
+      }
+    }
+  }
+
+  &_buttons {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+
+    >.a-button {
+      margin-right: 14px;
+
+      &:last-child {
+        margin: 0;
+        width: 165px;
+        justify-content: center;
+
+        @include tab {
+          width: 140px;
+        }
+      }
+    }
+
+    @include sp {
+      display: none;
+
+      #{$root}_hambugermenu & {
+        display: flex;
+        justify-content: center;
+        border-top: 1px solid $COLOR-WHITE;
+        padding: 20px 0;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        width: calc(100% - #{$PADDING-SP} * 2);
+      }
+    }
+  }
+
+  &_hambuger {
+    display: none;
+
+    @include sp {
+      display: block;
+      z-index: 99;
+      .a-icon {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+  
+  &_hambugermenu {
+    display: none;
+
+    @include sp {
+      background-image: url('assets/images/mainbackground.png')!important;
+      background-size: cover;
+    background-repeat: no-repeat;
+      width: 100%;
+      min-height: 360px;
+      display: block;
+      position: absolute;
+      z-index: 100;
+      left: 0;
+      top: 70px;
+      padding: $PADDING-SP $PADDING-SP 71px $PADDING-SP;
+
+      .a-icon {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+  &_connect-mobile{
+    @include sp {
+      display: flex;
+      justify-content: center;
+      margin-top: 50px;
+      margin-bottom: 30px;
+    }
+  }
+  &_head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    & .m-heading {
+      margin: 0;
+    }
+  }
+
+  .m-dropdown {
+    @include sp {
+      display: none;
+    }
+
+    &+.a-button {
+      display: none;
+
+      @include sp {
+        display: block;
+      }
+    }
+  }
+}
+
+.o-noti {
+  &_header {
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.22);
+  }
+  &_containt {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+.MuiBadge-dot {
+  background: red;
+  }
+
+  .carousel_containt {
+    height: 100%;
+  object-fit: fill;
+  width: 100%;
+  height: 300px;
+  img {
+      width: 100%;
+      height: 300px;
+      object-fit: fill;
+      border-radius: 10px;
+  }
+}
+.carousel {
+  width:100%!important;
+  overflow:visible!important;
+ 
+  
+}
+.css-1f8sh1y {
+  height: 300px;
+}
+.css-1m9128y{
+  position: relative;
+  bottom: 32px;
+  right:10px;
+  font-size: 10px!important;
+  color:white;
+  display: flex;
+  justify-content: flex-end;
+  z-index: 99;
+    svg {
+      height: 11px;
+      width: 11px;
+    }
+}
+
+.b-logo{
+  width: 157px;
+  height: 40px;
+  position: relative;
+  top: 15px;
+  right: 22%;
+  @include sp {
+    width: 210px;
+    height: 50px;
+    right: 3%;
+    top: 10px;
+    }
+    @include mld {
+      width: 190px;
+      height: 40px;
+      right: 0px;
+      }
+      @include lg {
+        width: 210px;
+        height: 50px;
+        right: 27%;
+        top:10px;
+        }
+}

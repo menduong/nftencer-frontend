@@ -1,0 +1,601 @@
+.a-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  padding: 0 15px;
+  color: $COLOR-CYAN;
+  background-color: $COLOR-WHITE;
+  border-radius: 15px;
+  text-decoration: none;
+  @include u-fw-b;
+  @include u-fz(16, 25, 1);
+  @include sp {
+    color:black;
+    text-decoration: none;
+  }
+  @include spFixedContent {
+    @include u-fz(14, 25, 0.5);
+  }
+
+  &-black {
+    background:black!important;
+  }
+  &-secondary {
+    color: $COLOR-LIGHTBLUE;
+    @include u-fz(16, 25);
+  }
+  &-bellcont {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  &-bell {
+    padding: 0 5px;
+    margin-right: 10px!important;
+    margin-left : 20px;
+  }
+  &-term {
+    width:100%;
+    font-family: NotoSans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #323232;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+  }
+
+  &-asText {
+    width: 100%;
+    height: auto;
+    color: $COLOR-UTILITY-TXT-BASE;
+    background-color: transparent;
+    border: 0;
+    letter-spacing: 0;
+    @include u-fw-lb;
+  }
+
+  &-icon {
+    border-radius: 50%;
+    padding: 5px;
+    height: 100%;
+
+    &:hover {
+    }
+  }
+
+  &-noti {
+    border-radius: 50%;
+    padding: 8px;
+    height: 100%;
+    border: 2px solid rgba(50, 50, 50, 0.26);
+
+    &:hover {
+      background-color: $COLOR-PALEBLUE;
+    }
+  }
+
+  &-buy {
+    background: $COLOR-CYAN;
+    color: $COLOR-WHITE;
+    min-width: 108px;
+    height: 36px;
+    border-radius: 20px;
+  }
+  &-payment {
+    background: linear-gradient(61.78deg, #D565C3 0.4%, #FF5EC8 86.72%), linear-gradient(104.51deg, #ABD3EA 20.65%, #D565C3 101.12%);
+    color: $COLOR-WHITE;
+    min-width: 108px;
+    height: 36px;
+    width:180px !important;
+    border-radius: 20px;
+    
+  }
+  &-cancelpayment {
+    background: #E9E9E9;
+    color: #323232;
+    min-width: 108px;
+    height: 36px;
+    width:180px !important;
+    border-radius: 20px;
+  }
+  &-review {
+    position: absolute;
+    left:10px;
+    top:10px;
+    font-size: 10px;
+    padding: 0 10px;
+    color: #D465C3;
+    height: 20px;
+  }
+  &-connect{
+    background: #323232;
+    color: $COLOR-WHITE;
+    min-width: 108px;
+    height: 36px;
+    border-radius: 20px;
+  }
+
+  &-buycolor {
+    background: #111111;
+    width: 100%;
+    height: 47px;
+    border-radius: 10px;
+    padding:0;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15);
+  }
+
+  &-history {
+    background:white;
+    padding:40px;
+    border: 1px solid #EDEDED;
+    border-radius: 26px;
+    text-decoration: none;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    text-transform: capitalize;
+
+color: #000000;
+  }
+  &-resell {
+    background: linear-gradient(98.22deg, #D565C3 -21.52%, #ABD3EA 104.38%);
+    min-width: 108px;
+    height: 36px;
+    border-radius: 20px;
+    font-family: NotoSans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: #323232;
+  }
+
+  &-bid {
+    background: $COLOR-PALEBLUE;
+    color: $COLOR-CYAN;
+    min-width: 108px;
+    height: 36px;
+    border-radius: 20px;
+  }
+
+  &-CCNmember {
+    background:linear-gradient(101.28deg, #A7D445 2.93%, #FF005C 72.66%);
+    border-radius:15px!important;
+    color: #F4F4F4;
+    min-width: 190px;
+    height: 30px;
+    margin-left:10px;
+    border-radius:0px;
+    font-family: NotoSans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    padding: 0 20px;
+    @include sp{
+      display: none;
+    }
+    @include lg {
+      min-width: 190px!important;
+    }
+  }
+
+  &-create {
+    background: #A7D545;
+    color: #F4F4F4;
+    min-width: 118px;
+    height: 30px;
+    margin-right:10px;
+    margin-left:10px;
+    border-radius: 20px;
+    font-family: NotoSans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    @include sp{
+      display: none;
+    }
+  }
+  &-totalClaim {
+    display:block;
+    background-color: #0099cc;
+    color: #000000;
+    min-width: 140px;
+    height: 30px;
+    margin-right:auto;
+    margin-left:auto;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    border-radius: 20px;
+    font-family: NotoSans;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 19px;
+    @include sp{
+      display: none;
+    }
+  }
+  &-getCoin {
+    background: linear-gradient(114.77deg, #FFE14B -53.24%, #DD8383 97.13%),
+    linear-gradient(95.31deg, #D94096 -1.89%, #4286CC 54.43%, #2BCAFF 104.42%);
+    width: 100%;
+    height: 40px;
+    margin-bottom:14px;
+    border-radius: 20px;
+    font-family: NotoSans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    color:black;
+  }
+  &-claim {
+    background:linear-gradient(103.79deg, rgba(71, 75, 255, 0.9) -43.28%, rgba(217, 64, 150, 0.9) 54.46%), #FFFFFF;
+    color: #F4F4F4;
+    width: 100%;
+    height: 45px;
+    padding-bottom: 0px!important;
+    border-radius: 20px;
+    font-family: NotoSans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 15px;
+    position: relative;
+    span {
+      margin-right: 10px;
+    }
+    @include sp{
+      display: none;
+    }
+  }
+  &-bigDone {
+    background:linear-gradient(284.54deg, #A365D5 1.09%, #FF5EC8 100.81%),
+linear-gradient(90deg, #7B61FF 0%, #C628FD 170.93%);
+    color: #F4F4F4;
+    min-width: 350px;
+    height: 40px;
+    margin-right:15px;
+    margin-left:18px;
+    margin-bottom:80px;
+    border-radius: 20px;
+    font-family: NotoSans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    @include sp{
+      display: none;
+    }
+  }
+  &-noticeCreate {
+    background:black;
+    color: #F4F4F4;
+    width: 100%;
+    height: 30px;
+    margin-top: 10px;
+    border-radius: 20px;
+    font-family: NotoSans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    @include sp{
+      display: none;
+    }
+  }
+  &-createbig {
+    background: linear-gradient(61.78deg, #D565C3 0.4%, #FF5EC8 86.72%),
+linear-gradient(100.93deg, #D565C3 -13.26%, #ABD3EA 101.12%);
+    color: black;
+    min-width: 145px;
+    height: 49px;
+    border-radius: 10px;
+    font-family: NotoSans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+  }
+  &-connectmobile{
+    background: black;
+    color: white;
+    min-width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    font-family: NotoSans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  &-postcomment {
+    position: absolute;
+    background-color: transparent;
+    top:10px;
+    right:25px;
+    color:#323232;
+    font-family: NotoSans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+  }
+  &-posticon {
+    position: absolute;
+    background-color: transparent;
+    top:10px;
+    right:70px;
+    color:#323232;
+    font-family: NotoSans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+  }
+  &-more {
+    color: #323232;
+    background: #E4E4E48F;
+
+
+  }
+  &-expanded{
+    
+    @include sp {
+    position: absolute;
+    color: #323232;
+    background-color: white;
+    border: 2px solid #323232;
+    color: black;
+    min-width: 125px;
+    height: 36px;
+    border-radius: 20px;
+    font-family: NotoSans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    z-index: 99;
+    left:320px;
+    bottom:12px;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 5px;
+    }
+  }
+  &-showmore {
+    position: absolute;
+    color: #323232;
+    right: 20px;
+    bottom: 12px;
+    background-color: #f4f4f4;
+    border: 1px solid #323232;
+    z-index: 99;
+    @include sp {
+      display: none;
+    }
+
+    &:focus {
+      color: $COLOR-BLUE;
+      float: left;
+      width: auto;
+      height: 30px;
+      display: block;
+      background: #2A2A2A;
+      font-family: NotoSans;
+      font-style: normal;
+      font-weight: 500;
+      color: white;
+      text-align: center;
+      padding: 0 20px;
+      border-radius: 15px;
+
+    }
+
+    &:hover {}
+  }
+
+  &-iconshare {
+    position: absolute;
+    right: 3%;
+    top: 2%;
+    background-color: #f4f4f4;
+    z-index: 99;
+    padding: 8px;
+    height: 25px;
+    width:25px;
+    border-radius: 50%;
+
+    @include smd {
+      right: 3%;
+      height: 35px;
+      width:35px;
+      
+    }
+    &:hover {
+      background: linear-gradient(103.07deg, #D565C3 2.04%, #ABD3EA 94.02%);
+      
+    }
+  }
+  &-sharemain {
+    background-color: #f4f4f4;
+    padding: 11px;
+    height: 40px;
+    border-radius: 100%;
+    @include  sp {  
+      height: 15px;
+      margin-bottom: 4px;
+    }
+    &:hover {
+      background: linear-gradient(103.07deg, #D565C3 2.04%, #ABD3EA 94.02%);
+      
+    }
+  }
+  
+  &-marginbottom {
+    margin-bottom: 13px;
+  }
+
+  &-category{
+    background-color: none;
+    border: 1px solid #616161;
+    font-family: NotoSans;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 15px;
+    color: #616161!important;
+    padding: 15px!important;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    margin: 6px 10px 6px 2px;
+    border-radius: 33px;
+    cursor: pointer;
+  }
+
+  &-exploreMenu {
+    background-color: black;
+    color: white!important;
+    align-items: center;
+    justify-content: center;
+    width:65px;
+    height: 65px;
+    border-radius: 100%;
+    padding:10px!important;
+    &:hover {
+      background: #636363;
+      color:black!important;
+      p {
+        color:black!important;
+      }
+      
+    }
+  }
+
+  &-inline {
+    display: inline!important;
+    margin-right: 6px;
+  }
+  &-iconshareitem {
+    position: absolute;
+    right: 3%;
+    background-color: #f4f4f4;
+    padding: 11px;
+    height: 40px;
+    border-radius: 100%;
+    @include  sp {  
+      height: 15px;
+      right:0px;
+      margin-bottom: 4px;
+    }
+    &:hover {
+      background: linear-gradient(103.07deg, #D565C3 2.04%, #ABD3EA 94.02%);
+      
+    }
+  }
+  &-iconshareitemView{
+    background-color: #f4f4f4;
+    padding: 11px;
+    height: 18px;
+    border-radius: 100%;
+    @include  sp {  
+      height: 15px;
+      right:0px;
+      margin-bottom: 4px;
+    }
+    &:hover {
+      background: linear-gradient(103.07deg, #D565C3 2.04%, #ABD3EA 94.02%);
+      
+    }
+  }
+
+  &-asLink {
+    height: 0;
+    padding: 0;
+    @include u-fz(16, 25);
+  }
+  &-marginRight{
+    margin-right:15px;
+  }
+  &-noPadding {
+    padding: 0;
+  }
+
+  &-noBackground {
+    color: #323232;
+    background-color: transparent;
+    border: 2px solid #323232;
+
+    &:hover {
+      background-color: black;
+      color: white;
+    }
+  }
+  &-reportExplore {
+    color: #dc2525;
+    background-color: transparent;
+    border: 1px solid #dc2525;
+    position: relative;
+    right:1rem;
+    top:1rem;
+
+    &:hover {
+      background-color: black;
+      color: white;
+    }
+  }
+  &-transparent {
+    background-color: transparent;
+  }
+  &-noBackgroundBorder {
+    color: #323232;
+    background-color: transparent;
+    width: 100%;
+    margin-top: 10px;
+    &:hover {
+      background: #E4E4E48F;
+    }
+  }
+  &-connectwallet{
+    width:159px;
+    font-family: NotoSans;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: left;
+
+  }
+
+  &-filter {
+    background-color: transparent;
+
+    &:hover {}
+  }
+
+  &-noBorder {
+    border: 0;
+    padding: 0 0;
+  }
+
+  &:disabled {
+    background-color: $COLOR-LIGHTGRAY;
+    color: $COLOR-WHITE;
+    cursor: auto;
+  }
+}

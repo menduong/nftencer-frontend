@@ -1,0 +1,260 @@
+.p-create {
+  &_main {
+    padding: 40px 59px;
+
+    @include sp {
+      padding: 20px;
+    }
+
+    & > .m-heading {
+      margin-bottom: 30px;
+      @include sp {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  &_form {
+    display: flex;
+    justify-content: space-between;
+
+    @include spFixedContent {
+      flex-flow: column-reverse;
+    }
+  }
+  &_img {
+    width:100%;
+  }
+  &_imgFade {
+    width:100%;
+    z-index: 99;
+	position: relative;
+	bottom: 100px;
+  }
+  &_imgGuilde {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+  &_imgGuilde2 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    padding-bottom:10px;
+  }
+  &_imgGuilde_top {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    padding-bottom:10px;
+    bottom:100px;
+  }
+
+  &_imgConnect {
+    width:100%;
+    margin-bottom: 20px;
+  }
+  &_inputs {
+    width: 100%;
+    max-width: 540px;
+    min-width: 400px;
+    margin-right: 50px;
+
+    @include spFixedContent {
+      max-width: 100%;
+      margin: 0;
+    }
+
+    @include sp {
+      min-width: 100%;
+    }
+  }
+  &_guilde {
+    width: 100%;
+
+    @include spFixedContent {
+      max-width: 100%;
+      margin: 0;
+    }
+
+    @include sp {
+      min-width: 100%;
+    }
+  }
+
+  &_instantsale {
+    .a-select {
+      width: 30%;
+      min-width: 90px;
+    }
+  }
+
+  &_description {
+    .a-textarea {
+      height: 130px;
+    }
+  }
+
+  &_review {
+    position: relative;
+    padding-right:40px;
+  }
+  &_reviewGuilde {
+    position: relative;
+
+  }
+  &_reviewcontent{
+    position: sticky;
+    top: calc(#{$HEADER-PC-HEIGHT} + 40px);
+    left: 0;
+    right:30px;
+    width:400px;
+  }
+  &_reviewbox {
+
+    display:flex;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #E9E9E9;
+    border-radius: 25px;
+    margin-bottom:40px;
+    @include spFixedContent {
+      position: initial;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+
+    @include sp {
+      margin-bottom: 20px;
+    }
+  }
+
+  &_review3 {
+    display:flex;
+    flex-wrap: wrap;
+  }
+  &_reviewcheckbox {
+   margin-top: 20px;
+  }
+
+  &_buttonDone{
+    display:flex;
+    margin-top:50px;
+    justify-content: space-around;
+  }
+
+  &_noticebox {
+    position: sticky;
+    top: calc(#{$HEADER-PC-HEIGHT} + 40px);
+    width:150px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 15px;
+    letter-spacing: 0.02em;
+    @include spFixedContent {
+      position: initial;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+
+    @include sp {
+      margin-bottom: 20px;
+    }
+  }
+  &_userguildeBox {
+    position: sticky;
+    top: calc(#{$HEADER-PC-HEIGHT} + 40px);
+    width:370px;
+    padding: 20px;
+    margin-left: 40px;
+    background-color: white;
+    border-radius: 15px;
+    overflow-wrap: break-word;
+   
+    letter-spacing: 0.02em;
+    @include spFixedContent {
+      position: initial;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+
+    @include sp {
+      margin-bottom: 20px;
+    }
+  }
+
+  &_noticelist {
+    list-style-type: disc;
+    font-family: NotoSans;
+    padding: 10px;
+    font-size: 16px;
+  }
+  &_textlistnone {
+    list-style-type: none;
+    padding-left: 10px;
+    font-family: NotoSans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 22px;
+  }
+  &_textlist{
+    padding: 10px 10px 10px 10px;
+    font-size: 18px;
+    line-height: 140%;
+  }
+
+  &_collections {
+    display: flex;
+
+    .m-collection {
+      width: 80px;
+      height: 80px;
+      margin-right: 10px;
+    }
+  }
+
+  &_addcollection {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    border: 1px solid $BORDER-TEXTFIELD-COLOR;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+
+    > span {
+      color: $COLOR-CYAN;
+      @include u-fw-b();
+
+      &:first-child {
+        @include u-fz(18, 25);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        background-color: $COLOR-WHITE;
+        box-shadow: 0 1px 4.85px 0.15px rgba(0, 0, 0, 0.15);
+        width: 30px;
+        height: 30px;
+        margin-bottom: 5px;
+      }
+    }
+  }
+}
+.addresshidden{
+  display:none;
+}
+.MuiFormControlLabel-root {
+  align-items: flex-start !important;
+}

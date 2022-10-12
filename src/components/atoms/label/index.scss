@@ -1,0 +1,8 @@
+.a-label {
+  color: $COLOR-UTILITY-TXT-BASE;
+  @include u-fz(16, 25);
+  @include u-fw-b;
+  @include spFixedContent {
+    @include u-fz(15, 25);
+  }
+}

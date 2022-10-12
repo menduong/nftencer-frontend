@@ -1,0 +1,14 @@
+.o-steps {
+  .m-stepitem {
+    &:last-child {
+      margin-bottom: 0;
+
+      .m-stepitem_process {
+        &:before,
+        &:after {
+          display: none;
+        }
+      }
+    }
+  }
+}

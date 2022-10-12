@@ -1,0 +1,35 @@
+.a-fileinputcreatt {
+  border-radius: 10px;
+  height: 180px;
+  width: 100%;
+  border: 1px dotted $BORDER-TEXTFIELD-COLOR;
+  padding: 10px;
+
+  &_input {
+    display: none;
+  }
+
+  &_handle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & .a-text {
+      margin-right: 4px;
+    }
+  }
+
+  & .a-image {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+  }
+
+  & .a-text {
+    text-align: center;
+  }
+
+  .m-fieldrow-error & {
+    border-color: $COLOR-ERROR;
+  }
+}

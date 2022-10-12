@@ -1,0 +1,36 @@
+.m-userrank {
+  display: flex;
+  align-items: center;
+
+  &_number {
+    margin-right: 10px;
+    @include u-fw-b;
+
+    @include tab {
+      margin-right: 5px;
+
+      .a-icon {
+        width: 26px;
+        height: 26px;
+      }
+    }
+  }
+
+  .m-useravatar {
+    margin-right: 10px;
+
+    @include tab {
+      margin-right: 8px;
+    }
+  }
+
+  &_info {
+    .a-text {
+      @include u-fz(16, 20);
+
+      & + .a-text {
+        @include u-fz(12, 20);
+      }
+    }
+  }
+}

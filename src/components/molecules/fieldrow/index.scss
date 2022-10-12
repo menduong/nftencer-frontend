@@ -1,0 +1,37 @@
+.m-fieldrow {
+  width: 100%;
+  margin-bottom: 18px;
+
+  &_head {
+    margin-bottom: 7px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &_lead {
+    margin: -5px 0 3px;
+  }
+
+  &_error {
+    color: $COLOR-ERROR;
+    @include u-fz(11, 22);
+  }
+
+  &_body {
+    display: flex;
+
+    .a-textfield {
+      margin-right: 15px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.fieldname{
+  background-color: red;
+  width: 100%;
+}

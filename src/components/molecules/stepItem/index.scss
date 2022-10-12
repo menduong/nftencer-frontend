@@ -1,0 +1,61 @@
+.m-stepitem {
+  display: flex;
+  align-items: center;
+  height: 90px;
+  $root: &;
+
+  &_process {
+    background-color: $COLOR_WHITE;
+    border-radius: 50%;
+    border: 1px solid $BORDER-TEXTFIELD-COLOR;
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 24px;
+    position: relative;
+    transition: 0.2s border-color ease-in-out;
+
+    &:before,
+    &:after {
+      position: absolute;
+      width: 2px;
+      height: 60px;
+      top: calc(100% + 1px);
+      content: '';
+      background-color: $COLOR-LIGHTGRAY;
+    }
+
+    &:after {
+      transition: 0.3s height ease-in-out;
+      height: 0;
+      background-color: $COLOR-CYAN;
+    }
+
+    .a-icon,
+    .a-spinner > span {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &-tick-success {
+    #{$root}_process {
+      border-color: $COLOR-CYAN;
+      border-width: 2px;
+
+      &:after {
+        height: 60px;
+      }
+    }
+  }
+
+  &-try-again {
+    #{$root}_process {
+      border-color: $COLOR-PURPLE;
+      cursor: pointer;
+    }
+  }
+}

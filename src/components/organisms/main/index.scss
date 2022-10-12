@@ -1,0 +1,10 @@
+.o-main {
+  box-sizing: content-box;
+  margin: 0 auto;
+  padding-top: 40px;
+  padding-bottom: 120px;
+  @include sp {
+    padding-top: 40px;
+    padding-bottom: 0px;
+  }
+}

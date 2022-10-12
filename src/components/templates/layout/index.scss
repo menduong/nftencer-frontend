@@ -1,0 +1,62 @@
+.t-layout {
+  width: 100%;
+  height: 100%;
+  padding: 0 $PADDING-PC;
+  background-image: url('assets/images/mainbackground.png')!important;
+    background-size: cover;
+    background-repeat: no-repeat;
+  margin-top: calc(#{$HEADER-PC-HEIGHT} + #{$HEADER-PC-MARGIN} * 2);
+  &.u-sticky {
+    margin-top: calc(#{$HEADER-PC-HEIGHT} + #{$HEADER-PC-MARGIN} * 2);
+    background-image: url('assets/images/mainbackground.png')!important;
+    background-size: cover;
+    background-repeat: no-repeat;
+  
+    &:before {
+      opacity: 0;
+    }
+  }
+
+  @include sp {
+  }
+  @include tab {
+    padding-left: $PADDING-TAB;
+    padding-right: $PADDING-TAB;
+  }
+
+  > .o-modal {
+    width: 300px;
+  }
+}
+.t-layoutEx {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 100px;
+  padding: 0 $PADDING-PCEX;
+  background-size: cover;
+  background-repeat: no-repeat;
+  // margin-top: calc(#{$HEADER-PC-HEIGHT} + #{$HEADER-PC-MARGIN} * 2);
+  &.u-sticky {
+    margin-top: calc(#{$HEADER-PC-HEIGHT} + #{$HEADER-PC-MARGIN} * 2);
+    background-image: url('assets/images/mainbackground.png')!important;
+    background-size: cover;
+    background-repeat: no-repeat;
+  
+    &:before {
+      opacity: 0;
+    }
+  }
+
+  @include sp {
+
+  }
+  @include tab {
+    padding-left: $PADDING-TAB;
+    padding-right: $PADDING-TAB;
+  }
+
+  > .o-modal {
+    width: 300px;
+  }
+}
+

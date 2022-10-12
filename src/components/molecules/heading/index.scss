@@ -1,0 +1,136 @@
+.m-heading {
+  display: inline-flex;
+  align-items: top;
+  margin: 0 0 10px;
+  // margin-bottom: 30px;
+  text-overflow: ellipsis;
+  overflow: hidden; 
+  color: $COLOR-UTILITY-TXT-BASE;
+  font-family: NotoSans;
+  @include u-fw-b;
+  @include u-fz(22, 25);
+  @include sp {
+    font-size: 12px;
+    }
+  &-white {
+    color: $COLOR-WHITE;
+  }
+  &-nomargin {
+    margin-bottom:0px;
+  }
+  &-pinkheader {
+    color: #E23987;
+    margin-left:15px;
+    @include sp {
+       display:none;
+     }
+  }
+  &-explore {
+    color: black;
+    margin-left:15px;
+    font-family: NotoSans;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 10px;
+    @include sp {
+       display:none;
+     }
+  }
+  &-pink {
+    color: #E23987;
+    @include sp {
+     }
+  }
+  &-title {
+   height: 60px;
+  }
+  &-center {
+    text-align:center;
+    font-family: NotoSans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+  }
+  &-left {
+    text-align:left;
+    font-family: NotoSans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 19px;
+    margin-top:9px!important;
+    margin-left: 2px;
+  }
+
+  &-titleEncer {
+    text-transform: capitalize;
+    background: linear-gradient(107.46deg, #A7D445 16%, #FF047D 110.52%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    font-family: NotoSans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 44px;
+  }
+  &-right {
+    text-align:right;
+    font-family: NotoSans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color:#E1E1E1;
+  }
+  &-underline {
+    position: relative;
+    padding: 0 4px 5px;
+
+    &:after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      content: '';
+      background-color: $COLOR-UTILITY-TXT-BASE;
+      border-radius: 1.5px;
+    }
+
+    &.m-heading-white:after {
+      background-color: $COLOR-WHITE;
+    }
+  }
+
+  &-nomargin {
+    margin: 0;
+  }
+  &-marginBot {
+    margin-bottom: 30px!important;
+  }
+}
+/* stylelint-disable-next-line selector-no-qualifying-type */
+h1.m-heading {
+  @include u-fz(24, 25);
+}
+/* stylelint-disable-next-line selector-no-qualifying-type */
+h3.m-heading {
+  @include u-fz(20, 25);
+}
+/* stylelint-disable-next-line selector-no-qualifying-type */
+h4.m-heading {
+  @include u-fz(18, 25);
+}
+
+.p-explore_totalvolume .m-heading {
+  @include sp {
+    font-size: 9px!important;
+  }
+}
+
+.servicefee {
+  text-decoration: line-through;
+}

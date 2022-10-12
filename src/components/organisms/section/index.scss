@@ -1,0 +1,56 @@
+.o-section {
+  margin-top: 30px;
+  background-color: $COLOR-WHITE;
+  border-radius: 20px;
+  box-shadow: 0 6px 9.8px 0.2px $BOXSHADOW-SECTION;
+  padding: 15px 42px 15px 42px;
+&_mainsub {
+    display: flex;
+    flex-direction: column;
+    background-color: #F6F6F6;
+    z-index: 110;
+    .menu{
+      position: relative;
+      
+    }
+    @include sp {
+      background-color: white;
+      overflow: hidden;
+      columns: 2 auto;
+    }
+  }
+  @include tab {
+    padding: 25px 30px;
+  }
+
+  @include sp {
+    padding: 0px 15px 32px 15px;
+  }
+
+  &-usediv {
+    box-shadow: none;
+    padding-bottom:30px;
+  }
+  &-checkout {
+    background-color: #f6f6f6 !important;
+  }
+  &-report {
+    background-color: #f6f6f6 !important;
+  }
+
+  &-nobackground {
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  &-nopadding {
+    padding: 0;
+  }
+
+  &-nomargin {
+    margin: 0;
+  }
+}
+
+
+

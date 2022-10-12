@@ -1,0 +1,23 @@
+.m-dropdown {
+  position: relative;
+  display: flex;
+  outline: none;
+  align-items: flex-start ;
+  justify-content: flex-end;
+ 
+  $root: &;
+
+  &_trigger {
+    display: flex;
+    z-index: 999;
+  }
+
+  &_flex-end {
+    align-items: flex-start ;
+  }
+
+  &_items {
+    position: absolute;
+    right:50px;
+  }
+}

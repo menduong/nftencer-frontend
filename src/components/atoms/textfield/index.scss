@@ -1,0 +1,121 @@
+.a-textfield {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  $root: &;
+
+  &_input {
+    width: 100%;
+   
+    .a-button {
+      height: auto;
+      position: absolute;
+      height: auto;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      visibility: hidden;
+      transition-property: visibility;
+      transition-duration: 0.1s;
+      transition-delay: 0.1s;
+
+      &:hover {
+        border-color: $BORDER-TEXTFIELD-COLOR;
+        opacity: 0.7;
+      }
+    }
+
+    .a-icon {
+      width: 10px;
+      height: 10px;
+    }
+  }
+
+  input {
+    cursor: text;
+    width: 100%;
+    height: $TEXTFIELD-HEIGHT;
+    padding: 0px;
+    background-color: $COLOR-WHITE;
+    border: 1px solid $BORDER-TEXTFIELD-COLOR;
+    border-radius: 5px;
+
+    @include ellipsisInline;
+    @include u-fz(16, 25);
+
+    .m-fieldrow-error & {
+      border-color: $COLOR-ERROR;
+    }
+
+    &::placeholder {
+      color: $COLOR-LIGHTGRAY;
+    }
+
+    &:focus {
+      border: 2px solid $COLOR-GRAY;
+      outline: none;
+
+      & + .a-button {
+        transition-delay: 0;
+        visibility: visible;
+      }
+    }
+
+    &:read-only {
+      background-color: $COLOR-PALEBLUE;
+      pointer-events: none;
+    }
+  }
+
+  &-search {
+    // position: relative;
+    margin-bottom: 30px;
+    // width:102%;
+    &:after {
+      position: relative;
+      right: 36px;
+      display: block;
+      width: 15px;
+      height: 15px;
+      content: '';
+      background-image: url('assets/images/icon/icon-search.svg');
+    }
+
+    input {
+      padding: 0 30px 0 25px;
+      border: 2px solid rgba(68, 68, 68, 0.6);
+      // border-radius: 18px;
+      display:flex;
+      margin: auto;
+      height: 37px;
+      width: 50%;
+      @include sp {
+        width:  100%;
+        height: 40px;
+        align-items: center;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  &_unit {
+    margin-left: 12px;
+    @include u-fw-b;
+    @include u-fz(16, 25);
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    /* stylelint-disable-next-line property-no-vendor-prefix */
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  /* Firefox */
+  /* stylelint-disable-next-line selector-no-qualifying-type */
+  input[type='number'] {
+    /* stylelint-disable-next-line property-no-vendor-prefix */
+    -moz-appearance: textfield;
+  }
+}

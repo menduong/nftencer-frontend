@@ -1,0 +1,11 @@
+.o-exploremenu {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  &_category {
+    display: flex;
+    .m-heading {
+      margin-right: 20px;
+    }
+  }
+}

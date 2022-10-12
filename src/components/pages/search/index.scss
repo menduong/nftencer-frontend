@@ -1,0 +1,46 @@
+.p-search {
+  &_main {
+    min-height: calc(100vh - #{$HEADER-PC-MARGIN} * 2 - #{$HEADER-PC-HEIGHT} - 30px);
+    display: flex;
+    flex-direction: column;
+
+    & > .m-heading {
+      color: $COLOR-LIGHTGRAY;
+      margin-bottom: 20px;
+
+      span {
+        margin-left: 10px;
+        color: $COLOR-UTILITY-TXT-BASE;
+      }
+    }
+
+    @include sp {
+      min-height: auto;
+      height: auto;
+      margin-bottom: 0;
+      padding: 20px 20px 0;
+    }
+  }
+
+  &_tabs {
+    margin-bottom: 30px;
+
+    .m-tabbutton {
+      margin-right: 20px;
+    }
+
+    .a-button {
+      padding: 0 0 10px;
+    }
+  }
+
+  &_items {
+    display: flex;
+  }
+
+  &_products {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+}

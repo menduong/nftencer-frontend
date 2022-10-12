@@ -1,0 +1,161 @@
+.a-icon {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  $icons: 'arrow', 'arrow-down', 'bid', 'close', 'close-modal', 'cross', 'coin', 'hambuger','hamburger', 'heart', 'heart-active',
+    'more', 'search', 'search-not-found', 'share', 'tick', 'tick-step', 'tick-success', 'top1', 'top2', 'top3',
+    'try-again','sharelink','delete','report','resell','threedots', 'wallet', 'bell', 'filter','eye','plus', 'heartred', 'heartoutline', 'play', 'uploadim','redelete','shareicon','playpink','discord','twit','threedotNobackground','teleg','fb','copiedwhite','createitem','binance','metamask','c98' , 'dollar' ,'smile' ,'firetab', 'medaltab','newtab', 'cointab','tagtab','backtotop','censored','flagEN','flagKR','flagVN','logo2','multicircle','metamaskfox','down','logomini','arrowright', 'bellnoti','questionmark','dotgreen','ccn_logo','ioma','single','multi','instagram','medium','mediumb','twitterb','instagramb','telegramb','maint','done', 'messages';
+    @include sp {
+      width: 22px;
+      height: 22px;
+    }
+  &-small {
+    width: 20px;
+    height: 20px;
+
+    &:hover {
+      background-color: $COLOR-PALEBLUE;
+    }
+  }
+  &-large32 {
+    width: 42px!important;
+    height: 42px!important;
+    z-index: 1000;
+  }
+  &-large {
+    width: 50px!important;
+    height: 50px;
+  }
+  &-ultra {
+    width: 150px!important;
+    height: 150px;
+    display: table;
+    margin: 0 auto;
+  }
+  &-superlarge {
+    width: 90px!important;
+    height: 90px;
+  }
+  &-filterexplore{
+    margin-top: 6px;
+    margin-right: 6px;
+  }
+  &-marginLeft {
+    position: relative;
+    left: 15px;
+    bottom:3px;
+  }
+  &-32px {
+    position: relative;
+    width: 45px;
+    height: 45px;
+    bottom:2px;
+  }
+  &-dotgreen {
+    width: 10px!important;
+    height: 10px!important;
+    margin-right: 5px;
+
+  }
+  &-new {
+    width: 10px!important;
+    height: 10px!important;
+    position: relative;
+    right: 0px;
+
+  }
+  &-60px {
+    position:relative;
+    width: 85px;
+    height: 45px;
+    bottom: 10px;
+  }
+  &-mini {
+    width: 8px;
+    height: 8px;
+    @include sp {
+      width: 12px;
+      height: 12px;
+    }
+  }
+  &-medium {
+    width: 24px;
+    height: 24px;
+  }
+  &-custom {
+    width: 17px;
+    height: 17px;
+  }
+  &-logoClaim {
+    position: absolute;
+    right:2px;
+    top:2px;
+    width: 40px;
+    height: 40px;
+    margin-right: 0!important;
+  }
+
+  &-flex{
+    display:flex;
+    justify-self: center!important;
+  }
+  &-create {
+    width: 24px!important;
+    height: 24px!important;
+    margin-left: 20px !important;
+  }
+  &-middle {
+    position: relative;
+    margin-bottom: 30px;
+    z-index: 10;
+  }
+  &-flag {
+    width: 16px;
+    height: 16px;
+  }
+  &-tiny {
+    width: 17px;
+    height: 17px;
+
+    &:hover {
+    background-image: url('assets/images/icon/icon-whiteshare.svg') ;
+    }
+  }
+  &-ioma {
+    width: 17px;
+    height: 17px;
+
+    &:hover {
+    background-image: url('assets/images/icon/icon-ioma.svg') ;
+    }
+  }
+ &-colorResell{
+  width: 17px;
+  height: 17px;
+
+  &:hover {
+
+  background-image: url('assets/images/icon/icon-resellcolor.svg') ;
+  }
+
+ }
+ &-colorDelete{
+  width: 17px;
+  height: 17px;
+
+  &:hover {
+
+  background-image: url('assets/images/icon/icon-deletecolor.svg') ;
+  }
+
+ }
+  @each $icon in $icons {
+    &-#{$icon} {
+      background-image: url('assets/images/icon/icon-#{$icon}.svg');
+    }
+  }
+}

@@ -1,0 +1,30 @@
+.m-modalheader {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+
+  .a-icon {
+    width: 16px;
+    height: 16px;
+  }
+  &-report {
+    h3 {
+      font-family: NotoSans;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 18px;
+      line-height: 30px;
+    }
+  }
+}
+.modal_title {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+
+  .a-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+}

@@ -1,0 +1,336 @@
+.a-text {
+  color: $COLOR-UTILITY-TXT-BASE;
+  @include u-fz(16, 25);
+
+  @include spFixedContent {
+    @include u-fz(15, 25);
+  }
+
+  $root: &;
+
+  &_unit {
+    font-family: NotoSans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+
+    color: #323232;
+
+    @include u-fz(12, 25);
+
+    @include spFixedContent {
+      @include u-fz(11, 25);
+    }
+  }
+
+  &-12 {
+    @include u-fz(12, 18);
+
+    @include spFixedContent {
+      @include u-fz(11, 16);
+    }
+
+    >#{$root}_unit {
+      @include u-fz(8, 16);
+
+      @include spFixedContent {
+        @include u-fz(7, 14);
+      }
+    }
+  }
+
+  &-14 {
+    @include u-fz(14, 25);
+    margin-bottom: 0;
+
+    @include spFixedContent {
+      @include u-fz(13, 25);
+    }
+
+    >#{$root}_unit {
+      @include u-fz(10, 18);
+
+      @include spFixedContent {
+        @include u-fz(9, 16);
+      }
+    }
+  }
+
+  &-18 {
+    @include u-fz(18, 25);
+
+    @include spFixedContent {
+      @include u-fz(17, 25);
+    }
+    @include sp {
+      font-size: 14px;
+    }
+    >#{$root}_unit {
+      @include u-fz(14, 25);
+
+      @include spFixedContent {
+        @include u-fz(13, 25);
+      }
+    }
+    margin-bottom: 0!important;
+  }
+  &-22 {
+    @include u-fz(22, 25);
+
+    @include spFixedContent {
+      @include u-fz(22, 25);
+    }
+  }
+  &-24 {
+    @include u-fz(24, 35);
+
+    @include spFixedContent {
+      @include u-fz(24, 35);
+    }
+  }
+
+  &-28 {
+    @include u-fz(28, 35);
+    @include u-fz(27, 35);
+  }
+  &-servicefee {
+    font-style: italic;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    color: #A7D445;
+  }
+
+  &-Buynow {
+    font-style: italic;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 17px;
+    color: white;
+  }
+
+  &-Grand {
+    text-align: center;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 24px;
+    // line-height: 17px;
+    color: #A7D545;
+    background:  rgba(167, 213, 69, 0.35);
+    margin: 0 auto ;
+    width: 70%;
+  }
+  &-marketplace {
+    text-align: center;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 24px;
+    margin: 0 auto ;
+    width: 70%;
+    color: #000000;
+  }
+
+  &-flexstart {
+    display:flex;
+    text-align: left;
+  }
+
+  &-blue {
+    color: $COLOR-BLUE;
+  }
+  &-saleprice {
+    background: #A7D445;
+    -webkit-background-clip: text;
+    word-break: break-all;
+    -webkit-text-fill-color: transparent;
+    font-family: NotoSans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 22px;
+    
+    
+  }
+
+  &-term {
+    font-family: NotoSans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 27px;
+    text-decoration-line: underline;
+  }
+  &-Nodecor {
+    text-decoration-line: none;
+  }
+
+  &-black {
+    font-family: NotoSans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    margin-bottom: 5px;
+
+  }
+  &-noBold {
+    font-weight: normal;
+  }
+
+  &-inline {
+    display: inline;
+  }
+  &-titleNoti{
+    color:#5E5E5E;
+  }
+  &-blackCor {
+    color: black!important;
+    font-family: NotoSans;
+    font-style: normal;
+  }
+  &-censored {
+    font-family: NotoSans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 30px;
+    color: #000000;
+  }
+  &-report {
+    font-family: NotoSans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 26px;
+    color: #000000;
+    margin-bottom: 7px;
+    margin-top: 7px;
+  }
+
+  &-paddingTop {
+    padding-top : 15px;
+  }
+  &-textIndent{
+    text-indent: 15px;
+  }
+  &-linear {
+    font-family: NotoSans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    background: -webkit-linear-gradient(95.7deg, #D565C3 1.32%, #5BB6EA 86.11%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    ;
+
+  }
+
+  &-lightblue {
+    color: $COLOR-BLUE;
+  }
+
+  &-lightgray {
+    color: black;
+  }
+
+  &-comment {
+    color: #797979;
+  }
+
+  &-left {
+    text-align: left;
+    a{
+      color: inherit; ;
+  }
+  }
+
+  &-footer {
+    color: #797979;
+    font-family: NotoSans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  &-gray {
+    color: $COLOR-GRAY;
+  }
+  &-red {
+    color: red;
+  }
+  &-linethrough {
+    color: red;
+    text-decoration-line: line-through;
+  }
+
+  &-bold {
+    font-weight: bold!important;
+    overflow: auto;
+    @include u-fw-b;
+  }
+
+  &-noMargin {
+    margin:0!important;
+  }
+  &-balance {
+    position: relative;
+    right:20px;
+    @include u-fw-b;
+    margin-right:30px;
+    color: #797979;
+  }
+  &-checkout {
+    @include u-fw-b;
+    color: #797979;
+  }
+  &-checkoutDes {
+    @include u-fw-b;
+    font-weight: normal;
+  }
+  &-confirm {
+    @include u-fw-b;
+    font-weight: normal;
+    color:#797979;
+    font-size: 14px;
+    margin-left: 10px;
+  }
+
+  &-lightbold {
+    @include u-fw-lb;
+  }
+  &-marginleft {
+    margin-left: 10px;
+  }
+  &-active {
+    color: $COLOR-BLUE;
+    @include u-fw-b;
+  }
+
+  &-centerexplore {
+    text-align: center;
+    font-family: NotoSans!important;
+    margin-top:5px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color:white;
+    &:hover {
+  
+}
+
+  }
+  &-center {
+    text-align: center;
+    padding:3px;
+  }
+  &-explore {
+  }
+  &-error {
+    color: $COLOR-ERROR;
+    @include u-fw-b;
+  }
+}

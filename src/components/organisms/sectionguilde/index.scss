@@ -1,0 +1,66 @@
+.o-sectionguilde {
+  margin-top: 30px;
+  background-color: $COLOR-WHITE;
+  border-radius: 20px;
+  box-shadow: 0 6px 9.8px 0.2px $BOXSHADOW-SECTION;
+  padding: 15px 42px 15px 42px;
+  
+
+  @include tab {
+    padding: 25px 30px;
+  }
+
+  @include sp {
+    padding: 32px 15px;
+    width:100%;
+  }
+
+  &-usediv {
+    box-shadow: none;
+  }
+
+  &-nobackground {
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  &-nopadding {
+    padding: 0;
+  }
+  &-padding5 {
+    padding: 11px;
+  }
+
+  &-nomargin {
+    margin: 0;
+  }
+
+  &-height {
+    margin: 0;
+    height: 100%;
+    padding: 22px 32px;
+  }
+  &-howconnect {
+    margin-bottom: 7px;
+    height: 140px;
+    padding: 10px 15px;
+    background: url('assets/images/MetaMask_Fox1.png'),linear-gradient(265.97deg, #F3BA2F 4.44%, #FFDA7F 98.89%);
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    border-radius: 4px;
+    display:flex;
+  }
+  &-howsettup {
+    margin-top: 10px;
+    height: 140px;
+    padding: 10px 15px;
+    background: url('assets/images/Mask_ccn.png');
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: cover;
+    border-radius: 4px;
+    display:flex;
+  }
+
+}
+

@@ -1,0 +1,47 @@
+.o-profilecard {
+  position: relative;
+  height: 320px;
+  width: 220px;
+  background-color: $COLOR-WHITE;
+  box-shadow: 0 2px 4.75px 0.25px $BOXSHADOW-BASIC;
+  border-radius: 10px;
+  display: flex;
+  justify-content:center;
+  flex-direction: column;
+  overflow: hidden;
+  @include sp {
+    width:200px;
+  }
+  &_background {
+    height: 45%;
+
+    .a-image {
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .m-useravatar {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &_profile {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &-hasavatarborder {
+    .m-useravatar img {
+      border: 2px solid $COLOR-WHITE;
+    }
+  }
+}

@@ -1,0 +1,72 @@
+body {
+  margin: 0;
+  font-family: NotoSans;
+  color: $COLOR-UTILITY-TXT-BASE;
+  background-color: $COLOR-PALEBLUE;
+  font-family: NotoSans!important;
+  @include u-fw-lb;
+}
+@font-face {
+  font-family: 'NotoSans';
+  src :url('common/font/notosans.otf')
+}
+* {
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  padding: 0;
+  border: 0;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+button,
+input,
+a {
+  cursor: pointer;
+  background: none;
+}
+
+input,
+button,
+select {
+  font-family:NotoSans;
+}
+
+[role='button'],
+button {
+  cursor: pointer;
+
+  &:hover {
+  }
+}
+
+input {
+  // override sanitize.css definition to avoid weird behavior on Safari.
+  word-break: normal;
+}
+
+ul,
+ol {
+  padding: 0;
+  margin: 0;
+}
+
+.u-modal-open {
+  overflow: hidden;
+}

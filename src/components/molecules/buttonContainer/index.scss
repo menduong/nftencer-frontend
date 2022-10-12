@@ -1,0 +1,40 @@
+.m-buttoncontainer {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+
+  &_report {
+    display: flex;
+    justify-content:flex-end;
+  }
+  .a-button {
+    margin-right: 20px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &-column {
+    flex-direction: column;
+
+    .a-button {
+      margin: 0 0 10px 0;
+
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+}
+
+.buttoncontainer_report{
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  align-items: center;
+}
+.MuiIconButton-label{
+  color: #D465C3;
+}

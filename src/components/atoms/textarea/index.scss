@@ -1,0 +1,21 @@
+.a-textarea {
+  cursor: text;
+  width: 100%;
+  min-height: 80px;
+  padding: 12px;
+  background-color: $COLOR-WHITE;
+  border: 1px solid $BORDER-TEXTFIELD-COLOR;
+  border-radius: 5px;
+  resize: none;
+  @include u-fz(16, 25);
+  @include u-ff-basic;
+
+  &::placeholder {
+    color: $COLOR-LIGHTGRAY;
+  }
+
+  &:focus {
+    outline: none;
+    border: 2px solid $COLOR-GRAY;
+  }
+}

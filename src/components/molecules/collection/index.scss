@@ -1,0 +1,36 @@
+.m-collection {
+  $root: &;
+
+  input {
+    display: none;
+
+    &:checked + .m-collection_indicator {
+      border: 2px solid $COLOR-LIGHTBLUE;
+    }
+  }
+
+  &_indicator {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    border: 1px solid $BORDER-TEXTFIELD-COLOR;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .m-fieldrow-error & {
+      border-color: $COLOR-ERROR;
+    }
+  }
+
+  &_image {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 5px;
+
+    & img {
+      border-radius: 50%;
+    }
+  }
+}

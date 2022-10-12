@@ -1,0 +1,61 @@
+// .o-modal {
+//   z-index: z('modal');
+//   position: relative;
+
+//   &_overlay {
+//     background: $MODAL-OVERLAY;
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+//     width: 100vw;
+//     height: 100vh;
+//   }
+//   /* stylelint-disable-next-line selector-class-pattern */
+//   & .ReactModal__Content {
+//     width: 60%;
+//     max-width: 500px;
+//     transform: translate(-50%, -50%);
+
+//     @include spFixedContent {
+//       width: 90%;
+//     }
+//   }
+
+//   .o-section {
+//     position: relative;
+//     @include sp {
+//       padding: 32px 25px;
+//     }
+//   }
+
+//   &-overflowx {
+//     .o-section {
+//       overflow-x: auto;
+//       overflow-y: hidden;
+//     }
+//   }
+
+//   &-overflowy {
+//     .o-section {
+//       overflow-y: auto;
+//       overflow-x: hidden;
+//     }
+//   }
+
+//   &-overhidden {
+//     .o-section {
+//       overflow: hidden;
+//     }
+//   }
+
+//   &-error {
+//     /* stylelint-disable-next-line selector-class-pattern */
+//     & .ReactModal__Content {
+//       max-width: 380px;
+
+//       .m-buttoncontainer {
+//         margin-top: 15px;
+//       }
+//     }
+//   }
+// }

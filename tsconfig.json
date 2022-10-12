@@ -1,0 +1,43 @@
+{
+  "include": [
+    "src/**/*",
+    ".storybook/**/*",
+    "scripts/**/*",
+    "typings"
+  ],
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "commonjs",
+    "baseUrl": ".",
+    "paths": {
+      "*": [
+        "src/*"
+      ],
+      "component": [
+        "src/components/*"
+      ],
+      "root/*": [
+        "*"
+      ],
+      // "stream": ["./node_modules/readable-stream"]
+    },
+    "typeRoots": [
+      "typings",
+      "node_modules/@types"
+    ],
+    "jsx": "react",
+    "lib": [
+      "esnext",
+      "dom"
+    ],
+    "strict": true,
+    "resolveJsonModule": true,
+    "experimentalDecorators": false,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "allowJs": false,
+    "noImplicitAny": false,
+    "noImplicitThis": true,
+    "skipLibCheck": true
+  }
+}

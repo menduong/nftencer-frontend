@@ -1,0 +1,78 @@
+.m-useravatar {
+  width: 60px;
+  height: 60px;
+  position: relative;
+  $root: &;
+
+  .a-image img {
+    border-radius: 50%;
+  }
+
+  @include spFixedContent {
+    width: 40px;
+    height: 40px;
+  }
+
+  &_icon {
+    position: absolute;
+    bottom: 0;
+    right: -3px;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: $COLOR-PURPLE;
+    box-shadow: 0 3px 7px 0 $BOXSHADOW-AVATAR;
+
+    @include spFixedContent {
+      width: 14px;
+      height: 14px;
+    }
+
+    .a-icon {
+      width: 11px;
+      height: 8px;
+      @include spFixedContent {
+        width: 8px;
+        height: 8px;
+      }
+    }
+  }
+
+  &-small {
+    width: 25px;
+    height: 25px;
+
+    #{$root}_icon {
+      width: 8px;
+      height: 8px;
+      right: -1px;
+      box-shadow: 0 0 3px 0 $BOXSHADOW-AVATAR;
+
+      .a-icon {
+        width: 6px;
+        height: 4px;
+      }
+    }
+  }
+
+  &-mid {
+    width: 40px;
+    height: 40px;
+    object-fit: fill;
+    display:inline-block ;
+    #{$root}_icon {
+      width: 10px;
+      height: 10px;
+      right: -2px;
+      box-shadow: 0 1px 3px 0 $BOXSHADOW-AVATAR;
+   
+      .a-icon {
+        width: 6px;
+        height: 4px;
+      }
+    }
+  }
+}

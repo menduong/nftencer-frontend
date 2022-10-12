@@ -1,0 +1,55 @@
+.a-spinner {
+  display: flex;
+  flex-direction: column;
+
+  > span {
+    border-color: $COLOR-PURPLE;
+    border-bottom-color: transparent;
+    border-left-color: $COLOR-CYAN;
+    border-top-color: $COLOR-LIGHTBLUE;
+    opacity: 0.5;
+
+    .a-image-small & {
+      width: 15px;
+      height: 15px;
+    }
+
+    .a-image-big & {
+      width: 50px;
+      height: 50px;
+    }
+  }
+
+  &-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: $MODAL-OVERLAY;
+    justify-content: center;
+    align-items: center;
+    z-index: z('loading');
+
+    > span {
+      border-color: $COLOR-WHITE;
+      border-bottom-color: transparent;
+      opacity: 0.8;
+      border-width: 3px;
+      width: 50px;
+      height: 50px;
+    }
+
+    .a-text {
+      color: $COLOR-WHITE;
+      @include u-fz(16, 25, 1.5);
+    }
+  }
+
+  &-big {
+    > span {
+      width: 48px;
+      height: 48px;
+    }
+  }
+}

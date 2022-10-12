@@ -1,0 +1,41 @@
+.m-dropdownmenu {
+  padding: 22px;
+  background: #EEEEEE;
+  border-radius: 5px;
+  box-shadow: 0 2px 9px 1px $BOXSHADOW-BASIC;
+  right: 50px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  font-family: NotoSans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+
+  &-noti {
+    background: white;
+    width: 400px;
+    height: 550px;
+    overflow: auto;
+    position: relative;
+    border-radius: 20px;
+    scrollbar-width: none;
+    padding: 22px 10px !important;
+    box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.25);
+    @include customScrollbar();
+  }
+
+  }
+  
+.m-dropdownitem {
+  cursor: pointer;
+  @include u-fz(14, 25);
+  list-style-type: none;
+  &:hover {
+    color: $COLOR-BLUE;
+  }
+
+  &-active {
+    pointer-events: none;
+  }
+}

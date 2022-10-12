@@ -1,0 +1,53 @@
+// COLOR
+$COLOR-WHITE: #ffffff;
+$COLOR-BLUE: #375797;
+$COLOR-LIGHTBLUE: #476ebb;
+$COLOR-PALEBLUE: #e3effc;
+$COLOR-CYAN: #4a9bd6;
+$COLOR-GRAY: #525252;
+$COLOR-BALEGRAY: #ecebeb;
+$COLOR-LIGHTGRAY: #c4c2c2;
+$COLOR-PURPLE: #8458a8;
+$COLOR-UTILITY-TXT-BASE: #0c090a;
+$COLOR-DARK-BLUE: #5073a5;
+$COLOR-ERROR: #ff0000;
+
+//UTILITY COLOR
+$BORDER-TEXTFIELD-COLOR: #adacac;
+$DIALOG-COLOR: linear-gradient(rgba(255, 255, 255, 0.9), rgb(255, 255, 255));
+$HEADING-COLOR: linear-gradient(rgb(255, 255, 255), rgba(255, 255, 255, 0.9));
+$HEADER-COLOR: linear-gradient(to right, rgba(132, 88, 168, 0.96), rgba(55, 87, 151, 0.96));
+$MODAL-OVERLAY: rgba(12, 9, 10, 0.8);
+$RECEIPT-DETAIL-BACKGROUND-GRAY: #f5f5f5;
+// BOX SHADOW
+$BOXSHADOW-BASIC: rgba(0, 0, 0, 0.1);
+$BOXSHADOW-SECTION: rgba(0, 0, 0, 0.2);
+$BOXSHADOW-AVATAR: rgba(0, 0, 0, 0.5);
+$BOXSHADOW-VIEW: rgba(0, 0, 0, 0.05);
+/* FONT FAMILY
+--------------------------------------------------------- */
+
+$FONTFAMILY-BASIC: quicksand, 'Quicksand', sans-serif;
+$FONTFAMILY-CABIN: 'Cabin';
+/* TRANSITION
+--------------------------------------------------------- */
+$TRANSITION-BASIC: 0.3s;
+/* WIDTH
+--------------------------------------------------------- */
+$WIDTH-CONTENT: 1300px;
+$WIDTH-CONTENTEX: 1320px;
+// $WIDTH-CONTENT: 1145px;
+$WIDTH-XS: 768px;
+$WIDTH-LARGE-PC: 1366px;
+$WIDTH-PC: 1024px;
+/* LAYOUT
+--------------------------------------------------------- */
+$PADDING-TABLET: 15px;
+$HEADER-PC-HEIGHT: 70px;
+$HEADER-SP-HEIGHT: 64px;
+$HEADER-PC-MARGIN: 5px;
+$PADDING-TAB: 32px;
+$PADDING-SP: 16px;
+$PADDING-PC: calc((100% - #{$WIDTH-CONTENT}) / 2);
+$PADDING-PCEX: calc((100% - #{$WIDTH-CONTENTEX}) / 2);
+$TEXTFIELD-HEIGHT: 40px;

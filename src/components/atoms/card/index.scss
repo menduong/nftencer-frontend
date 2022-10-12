@@ -1,0 +1,56 @@
+.a-card {
+  background-image: url('assets/images/card-bnb.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 36px 19px 18px;
+  border-radius: 5px;
+  position: relative;
+
+  &:before {
+    content: 'BNB';
+    color: $COLOR-WHITE;
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    @include u-fz(18, 25, 1);
+    @include u-fw-b();
+  }
+
+  &-busd {
+    background-image: url('assets/images/card-busd.png');
+
+    &:before {
+      content: 'BUSD';
+    }
+  }
+
+  &-conut {
+    background-image: url('assets/images/card-cont.png');
+
+    &:before {
+      content: 'CONUT';
+    }
+  }
+
+  .a-text {
+    &:first-child {
+      font-size: 12px;
+    }
+
+    font-size: 18px;
+
+    &:last-child {
+      font-size: 12px;
+      margin-top: 10px;
+      max-width: 188px;
+
+      @include ellipsisInline;
+    }
+  }
+
+  @include tab {
+    padding: 40px 24px 20px;
+    min-height: 150px;
+  }
+}

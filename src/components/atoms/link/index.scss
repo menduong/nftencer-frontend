@@ -1,0 +1,47 @@
+.a-link {
+  padding: 0;
+  text-decoration: none;
+  // color: $COLOR-BLUE;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &-asText {
+    color: $COLOR-UTILITY-TXT-BASE;
+
+    &:hover {
+      color: $COLOR-BLUE;
+    }
+  }
+
+  &-font {
+    font-family: NotoSans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    color: #323232;
+    margin-left:25px;
+  }
+
+  &-avatar {
+    font-family: NotoSans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    color: #323232;
+  }
+  &-user {
+    color: $COLOR-GRAY;
+
+    @include u-fz(14, 25);
+    @include u-fw-b();
+
+    &:hover {
+      color: $COLOR-UTILITY-TXT-BASE;
+      opacity: 1;
+    }
+  }
+}

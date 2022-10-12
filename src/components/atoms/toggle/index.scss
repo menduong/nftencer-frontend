@@ -1,0 +1,52 @@
+.a-toggle {
+  $root: &;
+
+  &_indicator {
+    > span {
+      display: block;
+      background: $COLOR-WHITE;
+      box-shadow: 0 1px 4.9px 0.1px $BOXSHADOW-SECTION;
+      width: 40px;
+      height: 20px;
+      position: relative;
+      border-radius: 10px;
+      transition: 0.3s background ease;
+
+      &:after {
+        border-radius: 50%;
+        width: 13px;
+        height: 13px;
+        position: absolute;
+        content: '';
+        background: $COLOR-CYAN;
+        top: calc(50% - 13px / 2);
+        left: 4px;
+        transition: 0.3s background ease, 0.3s transform ease;
+      }
+    }
+  }
+
+  &_input {
+    display: none;
+
+    &:checked {
+      & + #{$root}_indicator > span {
+        background: $COLOR-CYAN;
+
+        &:after {
+          background: $COLOR-WHITE;
+          transform: translateX(calc(40px - 13px - 8px));
+        }
+      }
+    }
+  }
+
+  &-withlabel {
+    #{$root}_indicator {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}

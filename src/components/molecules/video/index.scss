@@ -1,0 +1,124 @@
+.video-product{
+  position: relative;
+  height: 100%;
+  border-radius: 20px;
+  @include sp {
+    width: 100%;
+  }
+  @include sml {
+    width: 100%;
+  }
+.m-video {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  video {
+    position: absolute;
+    top: 10px;
+    // left: 0;
+    // bottom: 0;
+    // right: 0;
+    // margin: auto;
+    width: 100%;
+    
+  }
+  .video__player {
+    // width: 70%;
+    height: 100%;
+    border-radius: 5px; 
+    overflow: hidden; 
+    object-fit: fill;
+   
+    @include sp {
+      width: 100%;
+    }
+    @include md {
+      width: 100%;
+    }
+    @include lg {
+      width: 91%;
+    }
+    @include lgland {
+      width: 91%;
+    }
+    @include mg {
+      width: 85%;
+    }
+    @include mgland {
+      width: 75%;
+    }
+  
+  }
+  @media (max-aspect-ratio: 16/9) {
+    .video__player {
+      width: 100%;
+      height: 100%;
+      border-radius: 17px; 
+      overflow: hidden; 
+     
+      @include sp {
+        width: 100%;
+      }
+      @include md {
+        width: 70%;
+      }
+      @include lg {
+        width: 91%;
+      }
+      @include lgland {
+        width: 91%;
+      }
+      @include mg {
+        width: 85%;
+      }
+      @include mgland {
+        width: 75%;
+      }
+    
+    }
+  }
+  .video__player_Inview {
+    height: 85%;
+    @include sp {
+      object-fit: fill;
+      }
+  }
+  .video__player_InviewMobile {
+
+    @include sp {
+      object-fit: fill;
+      width: 95%;
+    border-radius: 17px; 
+    overflow: hidden; 
+      }
+  }
+  .video__player_InviewMobileDetail {
+
+    @include sp {
+      width: 96%;
+      height: 350px;
+    border-radius: 17px; 
+    overflow: hidden; 
+      }
+  }
+  .video__player_fill {
+    object-fit: fill;
+    width: 100%;
+    height: 100%;
+    @include sp {
+      width: 270px;
+      }
+  }
+  .video__player_origin{
+    width: 100%;
+    height: 100%;
+  }
+  
+}
+}
+
+.censored {
+  width: 150px;
+  height: 40px;
+  background-image: url("assets/images/censored.png");
+}

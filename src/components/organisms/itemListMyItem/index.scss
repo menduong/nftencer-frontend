@@ -1,0 +1,86 @@
+.o-itemlistMyitem {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  .a-spinner {
+    margin: auto;
+    padding: 20px;
+  }
+
+  .infinite-scroll-component__outerdiv {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .infinite-scroll-component {
+    overflow: visible !important;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    @include sp {
+      overflow: visible !important;
+      display: flex;
+      flex-direction: column;
+      flex: 1 1;
+      align-items: center;
+      }
+  }
+
+  & > .a-button {
+    width: 100%;
+  }
+
+  &_wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1 1;
+    margin-bottom:50px;
+  }
+
+  &_item {
+    $sumMarginPerRow: 45px;
+    width: calc(100% / 4 - (#{$sumMarginPerRow} / 4));
+    margin: 0 calc(#{$sumMarginPerRow} / 3) 15px 0;
+    display: flex;
+    justify-content: center;
+
+    @include pc {
+      &:nth-child(4n) {
+        margin-right: 0;
+      }
+    }
+
+    @include tab {
+      width: calc(100% / 3 - #{$sumMarginPerRow} / 3);
+      margin: 15px calc(#{$sumMarginPerRow} / 2) 15px 0;
+
+      &:nth-child(3n) {
+        margin-right: 0;
+      }
+    }
+
+    @include sp {
+      width: 100%;
+      margin: 0 0 15px;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .o-productcard {
+      width: 100%;
+    }
+  }
+
+  &_noresult {
+    width: 100%;
+    text-align: center;
+    margin: auto;
+
+    > .a-icon {
+      width: 160px;
+      height: 160px;
+    }
+  }
+}

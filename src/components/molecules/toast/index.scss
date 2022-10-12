@@ -1,0 +1,19 @@
+.m-toast {
+  cursor: pointer;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  &_icon {
+    border-radius: 50%;
+    background-color: mediumspringgreen;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+  }
+}

@@ -1,0 +1,17 @@
+.a-select {
+  cursor: pointer;
+  width: 100%;
+  padding: 0 24px 0 12px;
+  border: 1px solid $BORDER-TEXTFIELD-COLOR;
+  border-radius: 5px;
+
+  @include ellipsisInline;
+  @include u-fz(16, 25);
+  /* stylelint-disable-next-line property-no-unknown */
+  webkit-appearance: none;
+  /* stylelint-disable-next-line property-no-vendor-prefix */
+  -moz-appearance: none;
+  appearance: none;
+  background: no-repeat url('assets/images/icon/icon-arrow-down.svg') $COLOR-WHITE calc(100% - 8px) 50%;
+  background-size: 14px;
+}

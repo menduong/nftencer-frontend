@@ -1,0 +1,96 @@
+.m-mywallet {
+  $root: &;
+
+  border-radius: 5px;
+  box-shadow: 0 6px 9.8px 0.2px $BOXSHADOW-BASIC;
+  width: 278px;
+  min-height: 260px;
+  background-color: $COLOR-WHITE;
+  padding: 12px;
+
+  .m-tablist {
+    margin-bottom: 5px;
+    justify-content: space-around;
+    margin-right: 0;
+
+    & .a-button {
+      padding: 0 0 10px;
+    }
+
+    & .m-tabbutton-active {
+      &:after {
+        @include sp {
+          background-color: $COLOR-WHITE;
+        }
+      }
+    }
+
+    & .a-text {
+      @include sp {
+        color: $COLOR-WHITE;
+      }
+    }
+  }
+
+  &_cards {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  &_cardwrapper {
+    overflow: hidden;
+    border-radius: 5px;
+  }
+
+  &_card {
+    position: relative;
+    transition: 0.2s transform ease-in-out;
+
+    #{$root}-bnb & {
+      transform: translateX(-100%);
+    }
+
+    .a-card-bnb {
+      left: 100%;
+      position: absolute;
+      top: 0;
+    }
+
+    #{$root}-conut & {
+      transform: translateX(-200%);
+    }
+
+    .a-card-conut {
+      left: 200%;
+      position: absolute;
+      top: 0;
+    }
+  }
+
+  &-open {
+    display: block;
+  }
+
+  &_disconnect {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+
+    > .a-button {
+      height: 30px;
+    }
+  }
+
+  &-fullwidth {
+    width: 100%;
+    min-height: 0;
+    background-color: transparent;
+    padding: 12px;
+    box-shadow: none;
+
+    .a-card {
+      padding: 40px 72px 42px 24px;
+    }
+  }
+}
