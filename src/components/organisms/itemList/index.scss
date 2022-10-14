@@ -59,8 +59,9 @@
     }
 
     @include tab {
-      width: calc(100% / 3 - #{$sumMarginPerRow} / 3);
-      margin: 15px calc(#{$sumMarginPerRow} / 2) 15px 0;
+      width: 100%;
+      // width: calc(100% / 3 - #{$sumMarginPerRow} / 3);
+      // margin: 15px calc(#{$sumMarginPerRow} / 2) 15px 0;
 
       &:nth-child(3n) {
         margin-right: 0;
@@ -92,8 +93,9 @@
     }
 
     @include tab {
-      width: calc(100% / 3 - #{$sumMarginPerRow} / 3);
-      margin: 15px calc(#{$sumMarginPerRow} / 2) 15px 0;
+      width: 50%;
+      // width: calc(100% / 3 - #{$sumMarginPerRow} / 3);
+      // margin: 15px calc(#{$sumMarginPerRow} / 2) 15px 0;
 
       &:nth-child(3n) {
         margin-right: 0;
