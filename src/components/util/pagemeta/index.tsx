@@ -11,7 +11,7 @@ export const Pagemeta: React.FC<Props> = ({ title }) => {
   return (
     <Helmet>
       <title>{title}</title>
-      <link rel="icon"  href={logo} sizes="16x16" />
+      <link rel="icon" sizes="16x16" />
       <meta name="naver-site-verification" content="fff5aa1d2ca09aa8ce9da616973fc4ef96f97734" ></meta>
       <meta name="title" content="NFTencerGlobal"></meta>
       <meta property="og:type" content="website"></meta>

@@ -120,9 +120,9 @@
 
     @include sp {
       background-color: white;
-      position: fixed;
+      position: relative;
+      // position: fixed;
       bottom: 0;
-      left: 0;
       border-radius: 0;
     }
   }

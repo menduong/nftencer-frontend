@@ -31,7 +31,7 @@ type BuyNFT = {
 const initialValue: BuyNFT = {
   isTrigger: false,
   isRefresh: false,
-  isSidebar: false,
+  isSidebar: true,
   isRefreshLang: false,
   isApproved: false,
   isSuccess: false,

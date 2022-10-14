@@ -241,10 +241,10 @@ export const Home: React.FC<RouteComponentProps> = props => {
           >
             <Grid justify="center" item xs={12} spacing={0}>
               <Heading modifiers="titleEncer">NFTencer</Heading>
-              <span style={{ fontSize: "30px" }}>&nbsp;&nbsp;- NFT Market place</span>
+              <span style={{ fontSize: "30px" }}>&nbsp;-NFT Market place</span>
             </Grid>
           </Grid>
-          <Layout title="NFTencer.Global">
+          <Layout title="NFTencer Marketplace">
             <ScrollToTop style={{ right: "20px", zIndex: "1000" }} easing="linear" showUnder={160}>
               <span><big><big>&uarr;</big></big></span>
             </ScrollToTop>
@@ -306,7 +306,6 @@ export const Home: React.FC<RouteComponentProps> = props => {
                                 </Sectionsub>
                               </button>
                             </Link>
-
                           </Grid>
                         </Grid>
                       </Grid>

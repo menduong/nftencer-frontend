@@ -524,7 +524,7 @@ export const userguilde: React.FC = () => {
                     </ul>
                     <Divider style={{ background: 'black' }} />
                     <ul className="p-create_noticelist">
-                      <li className="p-create_textlist">CONUT token: </li>
+                      <li className="p-create_textlist">NFTC token: </li>
                       <li className="p-create_textlistnone"><span>
                         0x323249642f3a4519134a0926cb7797077e49de76</span></li>
                       <li className="p-create_textlist">BUSD token: </li>

@@ -497,13 +497,13 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
                       )}
                       </>
                       <>
-                      <Link href={"/view?id="+ props.id}>
+                      {/* <Link href={"/view?id="+ props.id}> */}
                       <button
                         className="o-productcard_likeitem">
                           
                         <Icon iconName="messages" />
                       </button>
-                      </Link>
+                      {/* </Link> */}
                       </>
                       <>
                       <Button handleClick={() => setModalOpenShare(true)} modifiers={['sharemain']}><Icon modifiers={['tiny']} iconName='sharelink' /></Button>
