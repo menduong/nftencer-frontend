@@ -8,6 +8,7 @@ type Modifier = 'font'|'asText' | 'user' | 'avatar';
 interface Props {
   modifiers?: Modifier | Modifier[];
   href: string;
+  children:any;
   target?: string;
   handleClick?: () => void;
   external?: boolean;

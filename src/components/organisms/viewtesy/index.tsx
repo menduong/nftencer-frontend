@@ -515,7 +515,12 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
                       <span >Share</span>
                     </div>
                     <div style={{display:"flex",justifyContent:"space-around",padding:"40px",marginBottom:"30px"}}>
-                        <Button modifiers="history">History</Button>
+                        <Button modifiers="history">
+                          <div style={{display:"flex",alignItems:"center",flexDirection:"column"}}>
+                            <Icon iconName="history"/>
+                            <p>History</p>
+                          </div>
+                        </Button>
                     </div>
                     {/* <div className="p-view_detailheading">
                     <Tooltip key={props.title} title={props.title} placement="top-start">

@@ -11,6 +11,7 @@ interface Props {
   isOpen?: any;
   handleClose: () => void;
   checkout?: boolean;
+  children:any;
 }
 const customStyles = {
   content: {

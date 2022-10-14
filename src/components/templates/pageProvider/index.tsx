@@ -10,7 +10,8 @@ import { hot } from 'react-hot-loader/root';
 export const PageProvider: React.FC = props => {
   return (
     <UseWalletProvider
-      chainId={56} //Mainet
+      chainId={97} //testnet
+      // chainId={56} //Mainet
       connectors={{
         // This is how connectors get configured
         portis: { dAppId: 'my-dapp-id-123-xyz' },

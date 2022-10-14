@@ -8,7 +8,7 @@
   background-size: contain;
   $icons: 'arrow', 'arrow-down', 'bid', 'close', 'close-modal', 'cross', 'coin', 'hambuger','hamburger', 'heart', 'heart-active',
     'more', 'search', 'search-not-found', 'share', 'tick', 'tick-step', 'tick-success', 'top1', 'top2', 'top3',
-    'try-again','sharelink','delete','report','resell','threedots', 'wallet', 'bell', 'filter','eye','plus', 'heartred', 'heartoutline', 'play', 'uploadim','redelete','shareicon','playpink','discord','twit','threedotNobackground','teleg','fb','copiedwhite','createitem','binance','metamask','c98' , 'dollar' ,'smile' ,'firetab', 'medaltab','newtab', 'cointab','tagtab','backtotop','censored','flagEN','flagKR','flagVN','logo2','multicircle','metamaskfox','down','logomini','arrowright', 'bellnoti','questionmark','dotgreen','ccn_logo','ioma','single','multi','instagram','medium','mediumb','twitterb','instagramb','telegramb','maint','done', 'messages';
+    'try-again','sharelink','delete','report','resell','threedots', 'wallet', 'bell', 'filter','eye','plus', 'heartred', 'heartoutline', 'play', 'uploadim','redelete','shareicon','playpink','discord','twit','threedotNobackground','teleg','fb','copiedwhite','createitem','binance','metamask','c98' , 'dollar' ,'smile' ,'firetab', 'medaltab','newtab', 'cointab','tagtab','backtotop','censored','flagEN','flagKR','flagVN','logo2','multicircle','metamaskfox','down','logomini','arrowright', 'bellnoti','questionmark','dotgreen','ccn_logo','ioma','single','multi','instagram','medium','mediumb','twitterb','instagramb','telegramb','maint','done', 'messages','myitem','Sidemenu', 'explore' , 'faq' , 'moreMenu', 'history';
     @include sp {
       width: 22px;
       height: 22px;
@@ -36,6 +36,12 @@
     display: table;
     margin: 0 auto;
   }
+  &-SuperUltra {
+    width: 260px!important;
+    height: 120px;
+    display: table;
+    margin: 0 auto;
+  }
   &-superlarge {
     width: 90px!important;
     height: 90px;
@@ -54,6 +60,15 @@
     width: 45px;
     height: 45px;
     bottom:2px;
+  }
+
+  &-sideabar {
+    padding:20px;
+    // &:hover  {
+    //   background: #EDEDED;
+    //   opacity: 0.2;
+    // }
+
   }
   &-dotgreen {
     width: 10px!important;
@@ -125,14 +140,14 @@
     background-image: url('assets/images/icon/icon-whiteshare.svg') ;
     }
   }
-  &-ioma {
-    width: 17px;
-    height: 17px;
+  // &-ioma {
+  //   width: 17px;
+  //   height: 17px;
 
-    &:hover {
-    background-image: url('assets/images/icon/icon-ioma.svg') ;
-    }
-  }
+  //   &:hover {
+  //   background-image: url('assets/images/icon/icon-ioma.svg') ;
+  //   }
+  // }
  &-colorResell{
   width: 17px;
   height: 17px;

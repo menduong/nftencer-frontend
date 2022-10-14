@@ -8,7 +8,7 @@ import { hot } from 'react-hot-loader/root';
 import { useDispatch, useSelector } from 'react-redux';
 import { getBalanceStore, getBUSD, getCONT } from 'store/getBalance';
 import { useWallet } from 'use-wallet';
-import { getBuyStore } from 'store/buyNFT';
+import { getBuyStore,closeSidebar,openSidebar } from 'store/buyNFT';
 import { MenuChunk } from './chunk';
 import { Text } from 'components/atoms/text';
 import { ButtonContainer } from 'components/molecules/buttonContainer';
@@ -20,7 +20,7 @@ import List from '@material-ui/core/List';
 import clsx from 'clsx';
 import ListItem from '@material-ui/core/ListItem';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
-import logoGlobal from 'assets/images/ccnglobal_logo_ver1.png'
+import logoGlobal from 'assets/images/NFTencer/NFTENCER_logo.png'
 import { resetStore } from 'store/createNFT';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
@@ -28,14 +28,9 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import Typography from '@material-ui/core/Typography';
 import { useEthers } from "@usedapp/core";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import {
-  Menu,
-  MenuItem,
-  MenuButton,
-  SubMenu,
-} from '@szhsin/react-menu';
 import '@szhsin/react-menu/dist/index.css';
 import { makeStyles } from '@material-ui/core/styles';
+import { useMediaQuery } from 'react-responsive'
 
 const useStyles = makeStyles({
   list: {
@@ -93,14 +88,14 @@ export const Header: React.FC = () => {
   const dispatch = useDispatch();
   const [isSticky, setSticky] = useState(false);
   const { t } = useTranslation();
-  const { isKR} = useSelector(getBuyStore);
   const [openHambugerMenu, setOpenHambugerMenu] = useState(false);
   const [modalOpenShare, setModalOpenShare] = useState(false);
   const [modalmobile, setmodalmobile] = useState(false);
   const classes = useStyles();
-  const [reg, regSet] = useState(Array);
+  const isMobile = useMediaQuery({
+    query: '(max-width: 600px)'
+  })
   const [expanded, setExpanded] = React.useState<string | false>(false);
-  const {activateBrowserWallet, account } = useEthers();
   const handleChange = (panel: string) => (event: React.ChangeEvent<{}>, isExpanded: boolean) => {
     setExpanded(isExpanded ? panel : false);
   };
@@ -222,23 +217,11 @@ export const Header: React.FC = () => {
   }, [dispatch, modalmobile]);
 
 
-  useEffect(() => {
-    const handleScroll = throttle(() => {
-      const header = document.querySelector('.o-header');
-      const layout = document.querySelector('.t-layout');
-      const isSticky = (header && window.pageYOffset > header.getBoundingClientRect().top) || false;
-      const onTop = window.pageYOffset === 0;
-      setSticky(isSticky);
-      layout?.classList.toggle('u-sticky', isSticky && !onTop);
-    }, 150);
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
   return (
+    <>
     <header className={'o-header u-sticky'}>
+      {!isMobile && <button className="o-header_hamburgerMenu" onClick={()=> dispatch(openSidebar())}><Icon modifiers="sideabar" iconName="Sidemenu"/></button>
+      }
       <a href="/">
         <img className="b-logo" src={logoGlobal}/>
       </a>
@@ -255,53 +238,6 @@ export const Header: React.FC = () => {
           </Button>
           </ButtonContainer>
         </Modal>
-        <ul className="o-header_menu">
-          <li>
-            {wallet.status === 'connected'? (
-              <Link modifiers={['font']}
-                href={"/myitem?id=" + wallet.account}>
-                {t("mainMenu.Myitem")}</Link>
-            ) : (
-                <button className="o-header_button-menuItem"
-                  onClick={() => setModalOpenShare(true)}
-                >
-                   {t("mainMenu.Myitem")}</button>
-              )}
-          </li>
-        </ul>
-        <ul className="o-header_menu">
-        { isKR ? (
-          <a className="o-header_menulist" href="https://thankful-raclette-226.notion.site/FAQ-536073d3c70248e9a6998acf2a439e05
-          " target="_blank">FAQ</a>):(
-            <a className="o-header_menulist" href="https://thankful-raclette-226.notion.site/COCONUT-d5dc804f50564430a1d6482be1907571" target="_blank">FAQ</a>
-          )}
-
-        </ul>
-        <ul className="o-header_menu">
-          <Menu menuButton={<MenuButton className="o-header_menulist">{t("mainMenu.Community")} &#x276F;</MenuButton>}>
-            
-            <MenuItem className="o-header_link-text" href="https://twitter.com/Coconut_Global" target="_blank">Twitter</MenuItem>
-            <MenuItem className="o-header_link-text" href="https://www.instagram.com/coconut_global" target="_blank">Instagram</MenuItem>
-            <MenuItem className="o-header_link-text" href="https://t.me/Coconut_notice" target="_blank">Telegram</MenuItem>
-            <MenuItem className="o-header_link-text" href="https://coconut-global.medium.com" target="_blank">Medium</MenuItem>
-          </Menu>
-        </ul>
-        <ul className="o-header_menu">
-          <Menu menuButton={<MenuButton className="o-header_menulist">{t("mainMenu.More")} &#x276F;</MenuButton>}>
-            { isKR ? (
-              <MenuItem target="_blank" href="https://thankful-raclette-226.notion.site/CONUT-948323109be34a58bfec723c7b201787"  >{t("mainMenu.ConutToken")}</MenuItem>
-            ) : (
-            <MenuItem target="_blank" href="https://thankful-raclette-226.notion.site/CONUT-TOKEN-f751f8c45b6247d1a6434e8f88bf6a03"  >{t("mainMenu.ConutToken")}</MenuItem>
-             ) }
-            <SubMenu style={{ textDecoration: 'none' }} label={t("mainMenu.Contact")}>
-              <MenuItem href="mailto:support@coconut.global" className="o-header_link-text"> <a href="mailto:support@coconut.global" target="_blank">{t("mainMenu.Business")}</a></MenuItem>
-              <MenuItem href="mailto:support@coconut.global" className="o-header_link-text"> <a href="mailto:support@coconut.global" target="_blank">CS</a></MenuItem>
-            </SubMenu>
-            <MenuItem href="/notice">{t("mainMenu.Notice")}</MenuItem>
-            <MenuItem href="/termofservice">{t("mainMenu.Term")}</MenuItem>
-            <MenuItem href="/termofservice">{t("mainMenu.Policy")}</MenuItem>
-          </Menu>
-        </ul>
         <MenuChunk wallet={wallet} balanceBUSD={balance.BUSD} balanceCONT={balance.CONUT} />     
         <div className="o-header_hambuger">
           {(['top'] as Anchor[]).map((anchor) => (
@@ -337,6 +273,7 @@ export const Header: React.FC = () => {
           ))}
         </div>
       )}
+      
       <Modal modifiers="error" isOpen={modalmobile} handleClose={() => setmodalmobile(false)}>
         <ModalHeader title={t("View.Sorry")} handleClose={() => setmodalmobile(false)} />
         <Text modifiers={['bold', 'center']}>{t("View.SorryD")}</Text>
@@ -346,7 +283,9 @@ export const Header: React.FC = () => {
           </Button>
         </ButtonContainer>
       </Modal>
+     
     </header>
+    </>
   );
 };
 

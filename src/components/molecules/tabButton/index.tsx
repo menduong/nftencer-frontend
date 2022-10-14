@@ -11,6 +11,7 @@ interface Props {
   modifiers?: Modifier | Modifier[];
   explore?: boolean;
   category?: boolean;
+  children?: any;
   active?: boolean;
   handleClick?: () => void;
   useFormik?: boolean;

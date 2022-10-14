@@ -1,7 +1,7 @@
 import produce from 'immer';
 import { Reducer } from 'redux';
 import { isType } from 'typescript-fsa';
-import { approveBUSD, approveCONT, closeModal, getProduct, purchase, GetProductRes, openModal,openModalIn,closeModalIn, modalpurchase, videoMute,trigger, videoUnmute,refreshnoti,refreshLang,switchKR,switchEN,closeModalMaint,openModalMaint } from 'store/buyNFT';
+import { approveBUSD, approveCONT, closeModal, getProduct, purchase, GetProductRes, openModal,openModalIn,closeModalIn, modalpurchase, videoMute,trigger, videoUnmute,refreshnoti,refreshLang,switchKR,switchEN,closeSidebar,openSidebar } from 'store/buyNFT';
 import { DRAFTABLE } from 'immer/dist/internal';
 
 type BuyNFT = {
@@ -11,6 +11,7 @@ type BuyNFT = {
   isRefreshLang?: boolean;
   isTrigger?: boolean;
   isKR?: boolean;
+  isSidebar?: boolean;
   isMaint?: boolean;
   isSuccess: boolean;
   isGetDone: boolean;
@@ -30,6 +31,7 @@ type BuyNFT = {
 const initialValue: BuyNFT = {
   isTrigger: false,
   isRefresh: false,
+  isSidebar: false,
   isRefreshLang: false,
   isApproved: false,
   isSuccess: false,
@@ -53,6 +55,11 @@ const reducer: Reducer<BuyNFT> = (state = initialValue, action) => {
     });
   }
 
+  if (isType(action, openSidebar)) {
+    return produce(state, draft => {
+      draft.isSidebar = !draft.isSidebar;
+    });
+  }
   if (isType(action, openModal)) {
     return produce(state, draft => {
       draft.isApproved = true;
@@ -125,6 +132,11 @@ const reducer: Reducer<BuyNFT> = (state = initialValue, action) => {
     return produce(state, draft => {
       draft.isApproved = false;
       draft.active = false;
+    });
+  }
+  if (isType(action, closeSidebar)) {
+    return produce(state, draft => {
+      draft.isSidebar = false;
     });
   }
   if (isType(action, closeModalIn)) {

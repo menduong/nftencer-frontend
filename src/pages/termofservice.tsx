@@ -43,7 +43,7 @@ export const userguilde: React.FC = () => {
                           <ol className="p-explore_counterList">
                             <li>
                               <Text modifiers={['noBold', 'inline']}>
-                                Welcome to the Coconut website (“Site”), owned and operated by Coconut Limited. Coconut Limited is an established company and located in Vietnam. We follow all applicable local and international laws. d/b/a Coconut (“Coconut”, “we”, “us” or “our”). We at Coconut attempt to maintain the maximum level of compliance. These Terms of Service (“Terms”) govern users’ access to and use of the Site including without limitation:
+                                Welcome to the NFTencer website (“Site”), owned and operated by NFTencer Limited. NFTencer Limited is an established company and located in Vietnam. We follow all applicable local and international laws. d/b/a NFTencer (“NFTencer”, “we”, “us” or “our”). We at NFTencer attempt to maintain the maximum level of compliance. These Terms of Service (“Terms”) govern users’ access to and use of the Site including without limitation:
                                 </Text>
                               <ol className="p-explore_counterList">
                                 <li>
@@ -66,7 +66,7 @@ export const userguilde: React.FC = () => {
                             <Text modifiers={['noBold', 'inline']}>A detailed description of the Service is set out in section 3 below.</Text>
                             <li>
                               <Text modifiers={['noBold', 'inline']}>
-                                YOU SHALL READ THESE TERMS CAREFULLY BEFORE ACCESSING THE PLATFORM AND/OR USING THE SERVICE(S) AND REVIEW THE TERMS PERIODICALLY AND REGULARLY FOR CHANGES AND UPDATES. BY ACCESSING THE PLATFORM AND/OR USING THE SERVICE(S) YOU AGREE TO BE BOUND BY THESE TERMS AND AGREE THAT SUCH TERMS CONSTITUTE A LEGALLY BINDING AGREEMENT BETWEEN YOU AND US, Coconut. IF YOU DO NOT AGREE TO BE FULLY BOUND BY THESE TERMS YOU MUST NOT ACCESS THE PLATFORM AND/OR USE THE SERVICE(S).
+                                YOU SHALL READ THESE TERMS CAREFULLY BEFORE ACCESSING THE PLATFORM AND/OR USING THE SERVICE(S) AND REVIEW THE TERMS PERIODICALLY AND REGULARLY FOR CHANGES AND UPDATES. BY ACCESSING THE PLATFORM AND/OR USING THE SERVICE(S) YOU AGREE TO BE BOUND BY THESE TERMS AND AGREE THAT SUCH TERMS CONSTITUTE A LEGALLY BINDING AGREEMENT BETWEEN YOU AND US, NFTencer. IF YOU DO NOT AGREE TO BE FULLY BOUND BY THESE TERMS YOU MUST NOT ACCESS THE PLATFORM AND/OR USE THE SERVICE(S).
                                 </Text>
                             </li>
                             <li>
@@ -76,7 +76,7 @@ export const userguilde: React.FC = () => {
                             </li>
                             <li>
                               <Text modifiers={['noBold', 'inline']}>
-                                Coconut RESERVES THE RIGHT TO CHANGE OR MODIFY THESE TERMS FROM TIME TO TIME. IF WE MAKE CHANGES TO THESE TERMS, WE WILL NOT PROVIDE NOTICE OF SUCH CHANGES AND THE AMENDED TERMS SHALL HAVE IMMEDIATE EFFECT UPON BEING POSTED ON THE SITE, SUBJECT TO ANY APPLICABLE LAW. BY CONTINUING TO ACCESS THE PLATFORM AND/OR USE THE SERVICE(S), YOU CONFIRM YOUR ACCEPTANCE OF THE REVISED TERMS AND ALL OF THE TERMS INCORPORATED THEREIN BY REFERENCE. WE ENCOURAGE YOU TO REVIEW THE TERMS FREQUENTLY TO ENSURE THAT YOU UNDERSTAND THE TERMS AND CONDITIONS THAT APPLY WHEN YOU ACCESS THE PLATFORM AND/OR USE THE SERVICE(S). ALL USERS SHALL IMMEDIATELY DISCONTINUE THEIR USE OF THE SERVICE(S) SHOULD THEY DISAGREE TO BE FULLY BOUND BY THE AMENDED TERMS.
+                                NFTencer RESERVES THE RIGHT TO CHANGE OR MODIFY THESE TERMS FROM TIME TO TIME. IF WE MAKE CHANGES TO THESE TERMS, WE WILL NOT PROVIDE NOTICE OF SUCH CHANGES AND THE AMENDED TERMS SHALL HAVE IMMEDIATE EFFECT UPON BEING POSTED ON THE SITE, SUBJECT TO ANY APPLICABLE LAW. BY CONTINUING TO ACCESS THE PLATFORM AND/OR USE THE SERVICE(S), YOU CONFIRM YOUR ACCEPTANCE OF THE REVISED TERMS AND ALL OF THE TERMS INCORPORATED THEREIN BY REFERENCE. WE ENCOURAGE YOU TO REVIEW THE TERMS FREQUENTLY TO ENSURE THAT YOU UNDERSTAND THE TERMS AND CONDITIONS THAT APPLY WHEN YOU ACCESS THE PLATFORM AND/OR USE THE SERVICE(S). ALL USERS SHALL IMMEDIATELY DISCONTINUE THEIR USE OF THE SERVICE(S) SHOULD THEY DISAGREE TO BE FULLY BOUND BY THE AMENDED TERMS.
                                 </Text>
                             </li>
                           </ol>
@@ -102,7 +102,7 @@ export const userguilde: React.FC = () => {
                                 When you connect a wallet (as described in section 6 below), you represent and warrant (collectively referred to as the “
                                 </Text>
                               <Text modifiers={['inline']}>Representations and Warranties</Text>
-                              <Text modifiers={['noBold', 'inline']}>”) to Coconut that:</Text>
+                              <Text modifiers={['noBold', 'inline']}>”) to NFTencer that:</Text>
                               <ol className="p-explore_counterList">
                                 <li>
                                   <Text modifiers={['noBold', 'inline']}>
@@ -156,7 +156,7 @@ export const userguilde: React.FC = () => {
                                 </li>
                                 <li>
                                   <Text modifiers={['noBold', 'inline']}>
-                                    You have received or had access to all necessary independent legal and financial advice prior to using the Service(s) and have not relied and will not rely on any statements, announcements, notices, advertisements, materials and/or information as published by Coconut to enter into any Transaction; and
+                                    You have received or had access to all necessary independent legal and financial advice prior to using the Service(s) and have not relied and will not rely on any statements, announcements, notices, advertisements, materials and/or information as published by NFTencer to enter into any Transaction; and
                                     </Text>
                                 </li>
                                 <li>
@@ -171,12 +171,12 @@ export const userguilde: React.FC = () => {
                         </li>
                         <li>
                           <div className="p-explore_counterListLi">
-                            <Text modifiers={['inline', 'term']}> Coconut Service
+                            <Text modifiers={['inline', 'term']}> NFTencer Service
                               </Text>
                             <ol className="p-explore_counterList">
                               <li>
                                 <Text modifiers={['noBold', 'inline']}>
-                                  Coconut offers a decentralized social network, including an NFT marketplace platform for the creation, purchase, sale, exchange, or modification of unique non-fungible tokens (NFTs), implemented on the Binance Smart Chain blockchain (and other blockchains which will be integrated in the future) using smart contracts. Coconut only provides a Platform to facilitate Transactions between you and other users (customer to customer), but Coconut will not be storing or holding any Cryptoassets on behalf of any user. Users will be able to access Cryptoasset prices, trade information and utilize any trading agreements as made available on the Platform in order to conduct a Transaction. All Transactions are executed by the participating users in accordance with the terms and conditions of the smart contract between and as determined by the participating users.
+                                  NFTencer offers a decentralized social network, including an NFT marketplace platform for the creation, purchase, sale, exchange, or modification of unique non-fungible tokens (NFTs), implemented on the Binance Smart Chain blockchain (and other blockchains which will be integrated in the future) using smart contracts. NFTencer only provides a Platform to facilitate Transactions between you and other users (customer to customer), but NFTencer will not be storing or holding any Cryptoassets on behalf of any user. Users will be able to access Cryptoasset prices, trade information and utilize any trading agreements as made available on the Platform in order to conduct a Transaction. All Transactions are executed by the participating users in accordance with the terms and conditions of the smart contract between and as determined by the participating users.
                                   </Text>
                               </li>
                               <li>
@@ -186,12 +186,12 @@ export const userguilde: React.FC = () => {
                               </li>
                               <li>
                                 <Text modifiers={['noBold', 'inline']}>
-                                  The Service will only be accessible after the users have performed the Procedure (as defined in section 6.1). Users must comply with the Procedure, which we, Coconut, may change from time to time. Failure to do so may result in failure in accessing the Service(s).
+                                  The Service will only be accessible after the users have performed the Procedure (as defined in section 6.1). Users must comply with the Procedure, which we, NFTencer, may change from time to time. Failure to do so may result in failure in accessing the Service(s).
                                   </Text>
                               </li>
                               <li>
                                 <Text modifiers={['noBold', 'inline']}>
-                                  Coconut has no duty/responsibility and cannot control the quality of Cryptoassets (including NFTs) involved in any Transaction, the authenticity or accuracy of the Transaction information, or the ability of each party to a Transaction to fulfill each of their obligations in their agreement. You are responsible for double-checking and ensuring the accuracy of the trade details of all Transactions, your trading counterparty’s details, the price and nature of the Cryptoassets (including NFTs) and/or your own risk appetite prior to entering into any Transaction(s).
+                                  NFTencer has no duty/responsibility and cannot control the quality of Cryptoassets (including NFTs) involved in any Transaction, the authenticity or accuracy of the Transaction information, or the ability of each party to a Transaction to fulfill each of their obligations in their agreement. You are responsible for double-checking and ensuring the accuracy of the trade details of all Transactions, your trading counterparty’s details, the price and nature of the Cryptoassets (including NFTs) and/or your own risk appetite prior to entering into any Transaction(s).
                                   </Text>
                               </li>
                             </ol>
@@ -199,7 +199,7 @@ export const userguilde: React.FC = () => {
                         </li>
                         <li>
                           <div className="p-explore_counterListLi">
-                            <Text modifiers={['inline', 'term']}> Using Coconut service
+                            <Text modifiers={['inline', 'term']}> Using NFTencer service
                               </Text>
                             <ol className="p-explore_counterList">
                               <li>
@@ -219,7 +219,7 @@ export const userguilde: React.FC = () => {
                                   </li>
                                 </ol>
                                 <Text modifiers={['noBold', 'inline']}>Details of the Service Fees can be found at:</Text>
-                                <Text modifiers={['noBold', 'inline']}><a href="https://Coconut.medium.com/Coconut-service-fees-5f15f393a21c">https://Coconut.medium.com/Coconut-service-fees-5f15f393a21c</a> . Coconut reserves the right to make any changes to the Service Fees without prior notice. Users are responsible for checking the Fees of Coconut regularly before executing any Transaction that may incur Service Fees. The Service Fees will not include third party fees that may arise out of or in connection with the creation, sale or exchange of Cryptoassets.
+                                <Text modifiers={['noBold', 'inline']}><a href="https://NFTencer.medium.com/NFTencer-service-fees-5f15f393a21c">https://NFTencer.medium.com/NFTencer-service-fees-5f15f393a21c</a> . NFTencer reserves the right to make any changes to the Service Fees without prior notice. Users are responsible for checking the Fees of NFTencer regularly before executing any Transaction that may incur Service Fees. The Service Fees will not include third party fees that may arise out of or in connection with the creation, sale or exchange of Cryptoassets.
                                   </Text>
                               </li>
                               <li>
@@ -229,32 +229,32 @@ export const userguilde: React.FC = () => {
                               </li>
                               <li>
                                 <Text modifiers={['noBold', 'inline']}>
-                                  You agree that Coconut assumes no responsibility and accepts no liability to you or any third parties in connection with any suspension, termination, cancellation or freezing of your Account pursuant to section 5 below, and that on the occurrence of such an event:
+                                  You agree that NFTencer assumes no responsibility and accepts no liability to you or any third parties in connection with any suspension, termination, cancellation or freezing of your Account pursuant to section 5 below, and that on the occurrence of such an event:
                                   </Text>
                                 <ol className="p-explore_counterList">
                                   <li>
                                     <Text modifiers={['noBold', 'inline']}>
-                                      Coconut is not obliged to keep or disclose to you any information from within your Account;
+                                      NFTencer is not obliged to keep or disclose to you any information from within your Account;
                                       </Text>
                                   </li>
                                   <li>
                                     <Text modifiers={['noBold', 'inline']}>
-                                      Subject to our Privacy Policy, Coconut may continue to keep your User Information (as defined in section 15.2) and all the Transaction information from your use of the Service(s);
+                                      Subject to our Privacy Policy, NFTencer may continue to keep your User Information (as defined in section 15.2) and all the Transaction information from your use of the Service(s);
                                       </Text>
                                   </li>
                                   <li>
                                     <Text modifiers={['noBold', 'inline']}>
-                                      Coconut has the right to delete unfulfilled Transactions agreed with another user before suspension or termination;
+                                      NFTencer has the right to delete unfulfilled Transactions agreed with another user before suspension or termination;
                                       </Text>
                                   </li>
                                   <li>
                                     <Text modifiers={['noBold', 'inline']}>
-                                      You will immediately arrange to disconnect any Account you have connected to the Platform. Coconut shall not be responsible for any loss associated with your Account; and
+                                      You will immediately arrange to disconnect any Account you have connected to the Platform. NFTencer shall not be responsible for any loss associated with your Account; and
                                       </Text>
                                   </li>
                                   <li>
                                     <Text modifiers={['noBold', 'inline']}>
-                                      All rights and licenses granted hereunder to you shall terminate immediately and Coconut shall be entitled to disconnect you from the Platform.
+                                      All rights and licenses granted hereunder to you shall terminate immediately and NFTencer shall be entitled to disconnect you from the Platform.
                                       </Text>
                                   </li>
                                 </ol>
@@ -286,7 +286,7 @@ export const userguilde: React.FC = () => {
                               </Text>
                             <ol className="p-explore_counterList">
                               <Text modifiers={['noBold', 'inline']}>
-                                You agree that Coconut has full discretion at any time, for any reason and without prior notification to you to suspend or terminate your access to the Platform and/or part or all of the Service(s), including but not limited to compliance with law, in response to a subpoena, court order or other binding governmental or regulatory order, or to enforce transaction limits and to temporarily or permanently freeze (cancel) your permission to use your Account.
+                                You agree that NFTencer has full discretion at any time, for any reason and without prior notification to you to suspend or terminate your access to the Platform and/or part or all of the Service(s), including but not limited to compliance with law, in response to a subpoena, court order or other binding governmental or regulatory order, or to enforce transaction limits and to temporarily or permanently freeze (cancel) your permission to use your Account.
                                 </Text>
                             </ol>
                           </div>
@@ -303,7 +303,7 @@ export const userguilde: React.FC = () => {
                               </li>
                               <li>
                                 <Text modifiers={['noBold', 'inline']}>
-                                  You are solely responsible for the equipment, services, software, applications, such as MetaMask or any third-party product or service that you use to access your Account. You are liable for all activities taking place in your Account, including but not limited to information disclosure, online agreements, or purchase of Cryptoassets or digital assets from any service providers to your wallet. You must immediately notify us if you discover or otherwise suspect any security breaches related to your Account and/or the Service. Coconut will block multiple Accounts of the same user.
+                                  You are solely responsible for the equipment, services, software, applications, such as MetaMask or any third-party product or service that you use to access your Account. You are liable for all activities taking place in your Account, including but not limited to information disclosure, online agreements, or purchase of Cryptoassets or digital assets from any service providers to your wallet. You must immediately notify us if you discover or otherwise suspect any security breaches related to your Account and/or the Service. NFTencer will block multiple Accounts of the same user.
                                   </Text>
                               </li>
                               <li>
@@ -348,7 +348,7 @@ export const userguilde: React.FC = () => {
                             <ol className="p-explore_counterList">
                               <li>
                                 <Text modifiers={['noBold', 'inline']}>
-                                  Coconut may require you to provide additional information and documents at the request of any competent authority or in case of application of any applicable law or regulation, including laws related to anti-money laundering, or for counteracting financing of terrorism. Coconut may also require you to provide additional information and documents in cases where it has reasons to believe that:
+                                  NFTencer may require you to provide additional information and documents at the request of any competent authority or in case of application of any applicable law or regulation, including laws related to anti-money laundering, or for counteracting financing of terrorism. NFTencer may also require you to provide additional information and documents in cases where it has reasons to believe that:
                                   </Text>
                                 <ol className="p-explore_counterList">
                                   <li>
@@ -363,7 +363,7 @@ export const userguilde: React.FC = () => {
                                   </li>
                                   <li>
                                     <Text modifiers={['noBold', 'inline']}>
-                                      In such cases, Coconut, in its sole discretion, may pause or cancel your Transactions and suspend your access to the Platform and/or use of the Service(s) until such additional information and documents are reviewed by Coconut and accepted as satisfying the requirements of the applicable law. If you do not provide complete and accurate information and documents in response to such a request within a reasonable time frame, your Account shall be terminated.
+                                      In such cases, NFTencer, in its sole discretion, may pause or cancel your Transactions and suspend your access to the Platform and/or use of the Service(s) until such additional information and documents are reviewed by NFTencer and accepted as satisfying the requirements of the applicable law. If you do not provide complete and accurate information and documents in response to such a request within a reasonable time frame, your Account shall be terminated.
                                       </Text>
                                   </li>
                                 </ol>
@@ -378,7 +378,7 @@ export const userguilde: React.FC = () => {
                             <ol className="p-explore_counterList">
                               <li>
                                 <Text modifiers={['noBold', 'inline']}>
-                                  By creating an Account, you consent to receive electronic communications from Coconut (e.g., via email or by posting notices to the Service). These communications may include notices about your Account (e.g., such as transactional information) and are part of your relationship with us. You agree that any notices, agreements, disclosures, or other communications that we send to you electronically will satisfy any legal communication requirements, including, but not limited to, that such communications be in writing. You should maintain copies of electronic communications from us by printing a paper copy or saving an electronic copy. We may also send you promotional communications via email, including, but not limited to, newsletters, special offers, surveys and other news and information we think will be of interest to you. You may opt out of receiving these promotional emails at any time by contacting us at <a href="support@Coconut.com">support@Coconut.com</a>.
+                                  By creating an Account, you consent to receive electronic communications from NFTencer (e.g., via email or by posting notices to the Service). These communications may include notices about your Account (e.g., such as transactional information) and are part of your relationship with us. You agree that any notices, agreements, disclosures, or other communications that we send to you electronically will satisfy any legal communication requirements, including, but not limited to, that such communications be in writing. You should maintain copies of electronic communications from us by printing a paper copy or saving an electronic copy. We may also send you promotional communications via email, including, but not limited to, newsletters, special offers, surveys and other news and information we think will be of interest to you. You may opt out of receiving these promotional emails at any time by contacting us at <a href="support@NFTencer.com">support@NFTencer.com</a>.
                                   </Text>
                               </li>
                               <li>
@@ -396,22 +396,22 @@ export const userguilde: React.FC = () => {
                             <ol className="p-explore_counterList">
                               <li>
                                 <Text modifiers={['noBold', 'inline']}>
-                                  Unless otherwise indicated in writing by us, the Coconut logo and all designs, text, graphics, pictures, information, data, software embodied (including all source and object code) in the Service and Platform, sound files, other files and the selection and arrangement thereof (collectively, “Content”) are the proprietary property of Coconut or our affiliates, licensees or users, as applicable and is protected by copyright, trademark and other intellectual property laws. Nothing in these Terms shall grant the user any such property rights and/or ownership rights and shall not be an assignment of such rights.
+                                  Unless otherwise indicated in writing by us, the NFTencer logo and all designs, text, graphics, pictures, information, data, software embodied (including all source and object code) in the Service and Platform, sound files, other files and the selection and arrangement thereof (collectively, “Content”) are the proprietary property of NFTencer or our affiliates, licensees or users, as applicable and is protected by copyright, trademark and other intellectual property laws. Nothing in these Terms shall grant the user any such property rights and/or ownership rights and shall not be an assignment of such rights.
                                   </Text>
                               </li>
                               <li>
                                 <Text modifiers={['noBold', 'inline']}>
-                                  Notwithstanding anything to the contrary in these Terms, the Platform, Service(s), and Content may include software components provided by Coconut or its affiliates or a third party that are subject to separate license terms, in which case those license terms will govern such software components.
+                                  Notwithstanding anything to the contrary in these Terms, the Platform, Service(s), and Content may include software components provided by NFTencer or its affiliates or a third party that are subject to separate license terms, in which case those license terms will govern such software components.
                                   </Text>
                               </li>
                               <li>
                                 <Text modifiers={['noBold', 'inline']}>
-                                  The Content that may appear on the Service(s) and/or Platform are trademarks of Coconut or our affiliates and may not be copied, imitated or used, in whole or in part, without our prior written permission. You may not use any meta tags or other “hidden text” utilizing “Coconut” or any other name, trademark or product or service name of Coconut or our affiliates without our prior written permission. In addition, the look and feel of the Content, including, without limitation, all page headers, custom graphics, button icons and scripts, constitute the service mark, trademark or trade dress of Coconut and may not be copied, imitated or used, in whole or in part, without our prior written permission. All other trademarks, registered trademarks, product names and Coconut names or logos mentioned on the Platform are the property of their respective owners and may not be copied, imitated or used, in whole or in part, without the permission of the applicable trademark holder. Reference to any products, services, processes or other information by name, trademark, manufacturer, supplier or otherwise does not constitute or imply endorsement, sponsorship or recommendation by Coconut.
+                                  The Content that may appear on the Service(s) and/or Platform are trademarks of NFTencer or our affiliates and may not be copied, imitated or used, in whole or in part, without our prior written permission. You may not use any meta tags or other “hidden text” utilizing “NFTencer” or any other name, trademark or product or service name of NFTencer or our affiliates without our prior written permission. In addition, the look and feel of the Content, including, without limitation, all page headers, custom graphics, button icons and scripts, constitute the service mark, trademark or trade dress of NFTencer and may not be copied, imitated or used, in whole or in part, without our prior written permission. All other trademarks, registered trademarks, product names and NFTencer names or logos mentioned on the Platform are the property of their respective owners and may not be copied, imitated or used, in whole or in part, without the permission of the applicable trademark holder. Reference to any products, services, processes or other information by name, trademark, manufacturer, supplier or otherwise does not constitute or imply endorsement, sponsorship or recommendation by NFTencer.
                                   </Text>
                               </li>
                               <li>
                                 <Text modifiers={['noBold', 'inline']}>
-                                  Any rights with respect to the Content which are not expressly granted herein are reserved by Coconut.
+                                  Any rights with respect to the Content which are not expressly granted herein are reserved by NFTencer.
                                   </Text>
                               </li>
                             </ol>
@@ -478,7 +478,7 @@ export const userguilde: React.FC = () => {
                               </Text>
                             <ol className="p-explore_counterList">
                               <Text modifiers={['noBold', 'inline']}>
-                                You are granted a limited, nonexclusive, nontransferable right to create a text hyperlink through the Service(s) for non-commercial purposes, provided that such link does not portray Coconut or our affiliates or any of our products or services in a false, misleading, derogatory or otherwise defamatory manner, and provided further that the linked site does not contain any adult or illegal material or any material that is offensive, harassing or otherwise objectionable. This limited right may be revoked at any time. You may not use a logo or other proprietary graphic of Coconut to link to the Service or Content without our express written permission. Further, you may not use, frame or utilize framing techniques to enclose any Coconut trademark, logo or other proprietary information, including the images found on the Platform, the content of any text or the layout or design of any page, or form contained on a page without our express written consent.
+                                You are granted a limited, nonexclusive, nontransferable right to create a text hyperlink through the Service(s) for non-commercial purposes, provided that such link does not portray NFTencer or our affiliates or any of our products or services in a false, misleading, derogatory or otherwise defamatory manner, and provided further that the linked site does not contain any adult or illegal material or any material that is offensive, harassing or otherwise objectionable. This limited right may be revoked at any time. You may not use a logo or other proprietary graphic of NFTencer to link to the Service or Content without our express written permission. Further, you may not use, frame or utilize framing techniques to enclose any NFTencer trademark, logo or other proprietary information, including the images found on the Platform, the content of any text or the layout or design of any page, or form contained on a page without our express written consent.
                                   </Text>
                             </ol>
                           </div>
@@ -490,12 +490,12 @@ export const userguilde: React.FC = () => {
                             <ol className="p-explore_counterList">
                               <li>
                                 <Text modifiers={['noBold', 'inline']}>
-                                  All of Coconut’s notifications will be made publicly known at the Site. In the event that any notification relates to any changes in the Service(s), the Platform, Fees and/or Coconut, such notification shall be effective immediately upon being posted on the Site. It is your sole responsibility to check from time to time for new notifications on the Website.
+                                  All of NFTencer’s notifications will be made publicly known at the Site. In the event that any notification relates to any changes in the Service(s), the Platform, Fees and/or NFTencer, such notification shall be effective immediately upon being posted on the Site. It is your sole responsibility to check from time to time for new notifications on the Website.
                                   </Text>
                               </li>
                               <li>
                                 <Text modifiers={['noBold', 'inline']}>
-                                  Notwithstanding anything to the contrary in these Terms, the Service(s) and Content may include software components provided by Coconut or its affiliates or a third party that are subject to separate license terms, in which case those license terms will govern such software components.For example, when you click to get more details about any of the Cryptoassets sold through the Platform, you will notice a third party link to the website from which the Cryptoasset originated. Such website may include license terms governing the use of such Cryptoasset. In the event you purchase such Cryptoasset through the Platform, you are required to comply with said terms.
+                                  Notwithstanding anything to the contrary in these Terms, the Service(s) and Content may include software components provided by NFTencer or its affiliates or a third party that are subject to separate license terms, in which case those license terms will govern such software components.For example, when you click to get more details about any of the Cryptoassets sold through the Platform, you will notice a third party link to the website from which the Cryptoasset originated. Such website may include license terms governing the use of such Cryptoasset. In the event you purchase such Cryptoasset through the Platform, you are required to comply with said terms.
                                   </Text>
                               </li>
                               <li>
@@ -503,8 +503,8 @@ export const userguilde: React.FC = () => {
                                   The Service(s) may contain links to third-party websites (“Third-Party Websites”) and applications (“Third-Party Applications”). When you click on a link to a Third-Party Website or Third-Party Application, we will NOT warn you that you have left our Site. These Terms and policies will no
                                   longer govern you and you will be subject to the terms and conditions (including privacy policies) of
                                   the Third-Party Website or destination. Such Third-Party Websites and Third-Party Applications are
-                                  not under the control of Coconut. Coconut is not responsible for any Third-Party Websites or
-                                  Third-Party Applications. Coconut provides these Third-Party Websites and Third-Party
+                                  not under the control of NFTencer. NFTencer is not responsible for any Third-Party Websites or
+                                  Third-Party Applications. NFTencer provides these Third-Party Websites and Third-Party
                                   Applications only as a convenience and does not review, approve, monitor, endorse, warrant, or
                                   make any representations with respect to Third-Party Websites or Third-Party Applications, or their
                                   products or services. You use all links in Third-Party Websites, and Third-Party Applications at your
@@ -531,7 +531,7 @@ export const userguilde: React.FC = () => {
                                 <ol className="p-explore_counterList">
                                   <li>
                                     <Text modifiers={['noBold', 'inline']}>
-                                      Provide false or misleading information to Coconut;
+                                      Provide false or misleading information to NFTencer;
                                     </Text>
                                   </li>
                                   <li>
@@ -543,7 +543,7 @@ export const userguilde: React.FC = () => {
                                   <li>
                                     <Text modifiers={['noBold', 'inline']}>
                                       Use or attempt to use another user’s account without authorization from that user and
-                                      Coconut;
+                                      NFTencer;
                                     </Text>
                                   </li>
                                   <li>
@@ -654,11 +654,11 @@ export const userguilde: React.FC = () => {
                               </li>
                               <li>
                                 <Text modifiers={['noBold', 'inline']}>
-                                  Coconut facilitates trade among a diverse community of buyers and sellers. Openness is one of
+                                  NFTencer facilitates trade among a diverse community of buyers and sellers. Openness is one of
                                   our most prized values, and we are committed to providing a Platform for the exchange of
                                   Cryptoassets linked to controversial content. These policies ensure that the Platform offers the
                                   widest selection of assets possible while promoting trust and respect, as well as adherence to the
-                                  law. Coconut has always exercised judgment in allowing or disallowing certain assets, listings,
+                                  law. NFTencer has always exercised judgment in allowing or disallowing certain assets, listings,
                                   smart contracts, and collections consistent with the spirit of openness in a worldwide community
                                   of users of a radical new technology. We carefully consider the complete situation and all its
                                   details in light of our policies before deciding whether to remove inappropriate assets, listings,
@@ -667,11 +667,11 @@ export const userguilde: React.FC = () => {
                               </li>
                               <li>
                                 <Text modifiers={['noBold', 'inline']}>
-                                  Cryptoassets linked to assets, listings, smart contracts, and collections that Coconut deems
-                                  inappropriate, disruptive, or illegal are prohibited on Coconut. Coconut reserves the right to
+                                  Cryptoassets linked to assets, listings, smart contracts, and collections that NFTencer deems
+                                  inappropriate, disruptive, or illegal are prohibited on NFTencer. NFTencer reserves the right to
                                   determine the appropriateness of listings on its site and remove any listing at any time. If you
                                   create or offer an asset, listing, smart contract, or collection in violation of these policies, we will
-                                  take corrective actions, as appropriate. Coconut cannot destroy or impound your assets or smart
+                                  take corrective actions, as appropriate. NFTencer cannot destroy or impound your assets or smart
                                   contracts, but we reserve the right to destroy inappropriate metadata stored on our servers (as
                                   applicable).
                                     </Text>
@@ -681,7 +681,7 @@ export const userguilde: React.FC = () => {
                                   Cryptoassets linked to assets, listings, smart contracts, and collections that include metadata that
                                   violates international or Vietnamese intellectual property laws, promotes suicide or self-harm,
                                   incites hate or violence against others, degrades or doxes another individual, depicts minors in
-                                  sexually suggestive situations, or is otherwise illegal in Vietnam are prohibited on Coconut and
+                                  sexually suggestive situations, or is otherwise illegal in Vietnam are prohibited on NFTencer and
                                   will be removed without prior notice.
                                     </Text>
                               </li>
@@ -693,7 +693,7 @@ export const userguilde: React.FC = () => {
                                   time to time (https://www.sb.gov.hk/eng/special/terrorist/terrorist.html) and on the
                                   https://www.state.gov/foreign-terrorist-organizations/ are prohibited on the Platform and will be
                                   removed. The sale of Cryptoassets linked to stolen assets, assets taken without authorization, and
-                                  otherwise illegally obtained assets on Coconut is prohibited. If you have reason to believe that
+                                  otherwise illegally obtained assets on NFTencer is prohibited. If you have reason to believe that
                                   any Cryptoasset on our Platform is linked to an asset that was illegally obtained, please contact us
                                   immediately. Listing any Cryptoasset linked to illegally obtained assets will result in your listings
                                   being cancelled, your assets being hidden, or your Account being suspended.
@@ -701,8 +701,8 @@ export const userguilde: React.FC = () => {
                               </li>
                               <li>
                                 <Text modifiers={['noBold', 'inline']}>
-                                  Coconut only provides a Platform to facilitate Transactions between you and other users
-                                  (customer to customer), but Coconut will not be storing or holding any Cryptoassets on behalf
+                                  NFTencer only provides a Platform to facilitate Transactions between you and other users
+                                  (customer to customer), but NFTencer will not be storing or holding any Cryptoassets on behalf
                                   of any user. Users will be able to access Cryptoasset prices, trade information and utilize any
                                   trading agreements as made available on the Platform in order to conduct a Transaction. All
                                   Transactions are executed by the participating users in accordance with the terms and conditions
@@ -735,7 +735,7 @@ export const userguilde: React.FC = () => {
                                   violates international or Vietnamese intellectual property laws, promotes suicide or self-harm,
                                   incites hate, dangerous acts, horror, or violence against others, degrades or doxes another
                                   individual, depicts minors in sexually suggestive situations, or is otherwise illegal in Vietnam are
-                                  prohibited on Coconut and will be removed without prior notice.
+                                  prohibited on NFTencer and will be removed without prior notice.
                                     </Text>
                               </li>
                             </ol>
@@ -762,8 +762,8 @@ export const userguilde: React.FC = () => {
                                   data or other content that you submit or post on the Platform and/or through the Service(s) or
                                   through tools or applications we provide for posting or sharing such content (collectively “User
                                   Information”) for our lawful business purposes, including to provide, promote, and improve the
-                                  Service(s). Coconut does not claim that submitting, posting or displaying User Information on the
-                                  Platform and/or through the Service(s) gives Coconut any ownership or resale rights of your User
+                                  Service(s). NFTencer does not claim that submitting, posting or displaying User Information on the
+                                  Platform and/or through the Service(s) gives NFTencer any ownership or resale rights of your User
                                   Information.
                                     </Text>
                               </li>
@@ -774,12 +774,12 @@ export const userguilde: React.FC = () => {
                                   that you submit, post or display on the Platform and/or through the Service(s). You agree that
                                   such User Information will not contain material subject to copyright or other proprietary rights,
                                   unless you have necessary permission or are otherwise legally entitled to post the material and
-                                  grant the license described above to Coconut.
+                                  grant the license described above to NFTencer.
                                     </Text>
                               </li>
                               <li>
                                 <Text modifiers={['noBold', 'inline']}>
-                                  Coconut will remove content in response to formal infringement claims at any time without
+                                  NFTencer will remove content in response to formal infringement claims at any time without
                                   prior notice to the user and will terminate a user's access to the Service(s) if the user is a repeat
                                   infringer.
                                     </Text>
@@ -791,7 +791,7 @@ export const userguilde: React.FC = () => {
                                 <ol className="p-explore_counterList">
                                   <li>
                                     <Text modifiers={['noBold', 'inline']}>
-                                      Written communication detailing C to G (“Infringement Notice”) and addressed to <a href="legal@Coconut.com">legal@Coconut.com</a>
+                                      Written communication detailing C to G (“Infringement Notice”) and addressed to <a href="legal@NFTencer.com">legal@NFTencer.com</a>
                                       .
                                     </Text>
                                   </li>
@@ -809,12 +809,12 @@ export const userguilde: React.FC = () => {
                                   <li>
                                     <Text modifiers={['noBold', 'inline']}>
                                       Identification of material claimed to be infringed upon, reasonably sufficient to permit
-                                      Coconut to locate the material;
+                                      NFTencer to locate the material;
                                     </Text>
                                   </li>
                                   <li>
                                     <Text modifiers={['noBold', 'inline']}>
-                                      Information reasonably sufficient to permit Coconut to contact the complaining party.
+                                      Information reasonably sufficient to permit NFTencer to contact the complaining party.
                                       This can be an address, phone number, email address, or other suitable method of
                                       contact;
                                     </Text>
@@ -845,10 +845,10 @@ export const userguilde: React.FC = () => {
                             <ol className="p-explore_counterList">
                               <Text modifiers={['noBold', 'inline']}>
                                 To the fullest extent permitted by applicable law, you agree to indemnify, defend and hold harmless
-                                Coconut, and our respective past, present and future employees, officers, directors, contractors,
+                                NFTencer, and our respective past, present and future employees, officers, directors, contractors,
                                 consultants, equity holders, suppliers, vendors, service providers, parent companies, subsidiaries,
                                 affiliates, agents, representatives, predecessors, successors and assigns (individually and collectively,
-                                the “Coconut Parties”), from and against all actual or alleged third party claims, damages, awards,
+                                the “NFTencer Parties”), from and against all actual or alleged third party claims, damages, awards,
                                 judgments, losses, liabilities, obligations, penalties, interest, fees, expenses (including, without
                                 limitation, attorneys’ fees and expenses) and costs (including, without limitation, debt collection
                                 expenses, court costs, costs of settlement and costs of pursuing indemnification and insurance), of every
@@ -880,12 +880,12 @@ export const userguilde: React.FC = () => {
                               <li>
                                 <Text modifiers={['noBold', 'inline']}>
                                   Any claim against you by any third-party, including another user or
-                                  MetaMask/Coin98/Binance Chain wallet. You agree to promptly notify Coconut of any
-                                  third-party Claims and cooperate with the Coconut Parties in defending such Claims.
-                                  You further agree that the Coconut Parties shall have control of the defense or
+                                  MetaMask/Coin98/Binance Chain wallet. You agree to promptly notify NFTencer of any
+                                  third-party Claims and cooperate with the NFTencer Parties in defending such Claims.
+                                  You further agree that the NFTencer Parties shall have control of the defense or
                                   settlement of any third-party Claims. THIS INDEMNITY IS IN ADDITION TO, AND NOT IN
                                   LIEU OF, ANY OTHER LEGAL RIGHTS AVAILABLE TO US INCLUDING ANY OTHER
-                                  INDEMNITIES SET FORTH IN A WRITTEN AGREEMENT BETWEEN YOU AND Coconut.
+                                  INDEMNITIES SET FORTH IN A WRITTEN AGREEMENT BETWEEN YOU AND NFTencer.
                                     </Text>
                               </li>
                             </ol>
@@ -898,19 +898,19 @@ export const userguilde: React.FC = () => {
                             <ol className="p-explore_counterList">
                               <li>
                                 <Text modifiers={['noBold', 'inline']}>
-                                  EXCEPT AS EXPRESSLY PROVIDED TO THE CONTRARY IN WRITING BY Coconut, THE SERVICE,
+                                  EXCEPT AS EXPRESSLY PROVIDED TO THE CONTRARY IN WRITING BY NFTencer, THE SERVICE,
                                   CONTENT CONTAINED THEREIN, AND CRYPTOASSETS LISTED THEREIN ARE PROVIDED ON AN
                                   “AS IS”AND “AS AVAILABLE” BASIS WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
-                                  EITHER EXPRESS OR IMPLIED. Coconut MAKE NO WARRANTY THAT THE SERVICE(S): (A) WILL
+                                  EITHER EXPRESS OR IMPLIED. NFTencer MAKE NO WARRANTY THAT THE SERVICE(S): (A) WILL
                                   MEET YOUR REQUIREMENTS; (B) WILL BE AVAILABLE ON AN UNINTERRUPTED, TIMELY, SECURE,
                                   OR ERROR-FREE BASIS; OR (C) WILL BE ACCURATE, RELIABLE, COMPLETE, LEGAL, OR SAFE.
-                                  Coconut DISCLAIMS ALL OTHER WARRANTIES OR CONDITIONS, EXPRESS OR IMPLIED,
+                                  NFTencer DISCLAIMS ALL OTHER WARRANTIES OR CONDITIONS, EXPRESS OR IMPLIED,
                                   INCLUDING, WITHOUT LIMITATION, IMPLIED WARRANTIES OR CONDITIONS OF
                                   MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NON-INFRINGEMENT AS
                                   TO THE SERVICE(S), CONTENT CONTAINED THEREIN. WE WILL NOT BE LIABLE FOR ANY LOSS OF
                                   ANY KIND FROM ANY ACTION TAKEN OR TAKEN IN RELIANCE ON MATERIAL OR INFORMATION,
-                                  CONTAINED ON THE PLATFORM. WHILE Coconut ATTEMPTS TO MAKE YOUR ACCESS TO AND
-                                  USE OF THE SERVICE(S) AND CONTENT SAFE, Coconut CANNOT AND DOES NOT REPRESENT
+                                  CONTAINED ON THE PLATFORM. WHILE NFTencer ATTEMPTS TO MAKE YOUR ACCESS TO AND
+                                  USE OF THE SERVICE(S) AND CONTENT SAFE, NFTencer CANNOT AND DOES NOT REPRESENT
                                   OR WARRANT THAT THE SERVICE(S), CONTENT, ANY CRYPTOASSETS LISTED ON OUR SERVICE OR
                                   OUR SERVERS ARE FREE OF VIRUSES OR OTHER HARMFUL COMPONENTS. WE CANNOT
                                   GUARANTEE THE SECURITY OF ANY DATA THAT YOU DISCLOSE ONLINE. YOU ACCEPT THE
@@ -922,9 +922,9 @@ export const userguilde: React.FC = () => {
                               <li>
                                 <Text modifiers={['noBold', 'inline']}>
                                   GIVEN THAT THE PLATFORM IS OPERATING IN A DECENTRALIZED MANNER, THERE WILL BE
-                                  MINIMUM INTERFERENCE FROM Coconut IN THE OPERATION OF THE PLATFORM. ONCE A
+                                  MINIMUM INTERFERENCE FROM NFTencer IN THE OPERATION OF THE PLATFORM. ONCE A
                                   TRANSACTION HAS BEEN INITIATED BY A USER THAT RESULTS IN A BROADCAST TO THE
-                                  NETWORK, IT WILL NOT BE POSSIBLE NOR WOULD IT BE Coconut’S RESPONSIBILITY TO HALT
+                                  NETWORK, IT WILL NOT BE POSSIBLE NOR WOULD IT BE NFTencer’S RESPONSIBILITY TO HALT
                                   ANY TRANSACTION SHOULD THE USER SUBSEQUENTLY DISCOVER THAT THE TRANSACTION HAS
                                   BEEN MADE TO AN INCORRECT WALLET ADDRESS. IT IS YOUR RESPONSIBILITY TO CHECK ALL
                                   DETAILS OF THE TRANSACTION PRIOR TO PROCEEDING.
@@ -933,22 +933,22 @@ export const userguilde: React.FC = () => {
                               <li>
                                 <Text modifiers={['noBold', 'inline']}>
                                   YOU ACCEPT RESPONSIBILITIES FOR ALL YOUR ACTIVITIES AND CONTENTS ON THE PLATFORM
-                                  INCLUDING TRANSACTIONS. YOU FURTHER ACKNOWLEDGE THAT Coconut DOES NOT ACT AS
+                                  INCLUDING TRANSACTIONS. YOU FURTHER ACKNOWLEDGE THAT NFTencer DOES NOT ACT AS
                                   YOUR BROKER, INTERMEDIARY, AGENT, ADVISOR OR CREDITOR WITH RESPECT TO ANY
                                   TRANSACTION YOU AKE OR PROPOSE TO MAKE ON THE PLATFORM AND OWES YOU NO
-                                  FIDUCIARY DUTY (EXCEPT FOR THE Coconut HELPER SERVICE). ANY COMMUNICATION BY
-                                  Coconut TO YOU SHALL NOT BE CONSTRUED UNDER ANY CIRCUMSTANCES AS LEGAL, TAX,
+                                  FIDUCIARY DUTY (EXCEPT FOR THE NFTencer HELPER SERVICE). ANY COMMUNICATION BY
+                                  NFTencer TO YOU SHALL NOT BE CONSTRUED UNDER ANY CIRCUMSTANCES AS LEGAL, TAX,
                                   ACCOUNTING OR FINANCIAL ADVICE.
                                     </Text>
                               </li>
                               <li>
                                 <Text modifiers={['noBold', 'inline']}>
-                                  Coconut ONLY PROVIDES A PLATFORM TO FACILITATE TRANSACTIONS BETWEEN THE BUYER
+                                  NFTencer ONLY PROVIDES A PLATFORM TO FACILITATE TRANSACTIONS BETWEEN THE BUYER
                                   AND SELLER BUT IS NOT A PARTY TO ANY TRANSACTION OR AGREEMENT BETWEEN THE BUYER
                                   AND SELLER OF CRYPTOASSETS OR BETWEEN ANY USERS. YOU BEAR FULL RESPONSIBILITY FOR
                                   VERIFYING THE IDENTITY, LEGITIMACY, AND AUTHENTICITY OF CRYPTOASSETS YOU PURCHASE
                                   ON THE PLATFORM. NOTWITHSTANDING INDICATORS AND MESSAGES THAT SUGGEST
-                                  VERIFICATION INCLUDING KNOW YOUR CUSTOMER (KYC), Coconut MAKES NO CLAIMS ABOUT
+                                  VERIFICATION INCLUDING KNOW YOUR CUSTOMER (KYC), NFTencer MAKES NO CLAIMS ABOUT
                                   THE IDENTITY, LEGITIMACY, OR AUTHENTICITY OF CRYPTOASSETS ON THE PLATFORM.
                                     </Text>
                               </li>
@@ -994,15 +994,15 @@ export const userguilde: React.FC = () => {
                                   CRYPTOASSETS ARE INTANGIBLE DIGITAL ASSETS. THEY EXIST ONLY BY VIRTUE OF THE
                                   OWNERSHIP RECORD MAINTAINED IN THE NETWORK. ANY TRANSFER OF TITLE THAT MIGHT
                                   OCCUR IN ANY UNIQUE DIGITAL ASSET OCCURS ON THE DECENTRALIZED LEDGER WITHIN THE
-                                  NETWORK. WE DO NOT GUARANTEE THAT Coconut OR ANY Coconut PARTY CAN EFFECT
+                                  NETWORK. WE DO NOT GUARANTEE THAT NFTencer OR ANY NFTencer PARTY CAN EFFECT
                                   THE TRANSFER OF TITLE OR RIGHT IN ANY CRYPTOASSETS.
                                     </Text>
                               </li>
                               <li>
                                 <Text modifiers={['noBold', 'inline']}>
-                                  Coconut IS NOT RESPONSIBLE FOR LOSSES ARISING OUT OF OR RELATING TO VULNERABILITY
+                                  NFTencer IS NOT RESPONSIBLE FOR LOSSES ARISING OUT OF OR RELATING TO VULNERABILITY
                                   OR ANY KIND OF FAILURE, ABNORMAL BEHAVIOR OF SOFTWARE (E.G., WALLET, SMART CONTRACT),
-                                  BLOCKCHAINS OR ANY OTHER FEATURES OF THE CRYPTOASSETS. Coconut IS NOT
+                                  BLOCKCHAINS OR ANY OTHER FEATURES OF THE CRYPTOASSETS. NFTencer IS NOT
                                   RESPONSIBLE FOR LOSSES ARISING OUT OF OR RELATING TO LATE REPORT BY DEVELOPERS OR
                                   REPRESENTATIVES (OR NO REPORT AT ALL) OF ANY ISSUES WITH THE BLOCKCHAIN SUPPORTING
                                   CRYPTOASSETS INCLUDING FORKS, TECHNICAL NODE ISSUES OR ANY OTHER ISSUES HAVING
@@ -1012,7 +1012,7 @@ export const userguilde: React.FC = () => {
                               <li>
                                 <Text modifiers={['noBold', 'inline']}>
                                   THE CHARACTERISTICS OF THE CRYPTOASSETS CREATED THROUGH THE SERVICE ON OUR
-                                  PLATFORM SHALL BE DETERMINED BY THE CREATOR. Coconut HAS NO INVOLVEMENT OR
+                                  PLATFORM SHALL BE DETERMINED BY THE CREATOR. NFTencer HAS NO INVOLVEMENT OR
                                   RESPONSIBILITY IN THE DESIGN OF THE CRYPTOASSET.
                                     </Text>
                               </li>
@@ -1035,14 +1035,14 @@ export const userguilde: React.FC = () => {
                               <li>
                                 <Text modifiers={['noBold', 'inline']}>
                                   You are solely responsible for determining what, if any, taxes apply to your Transactions which
-                                  includes, but is not limited to any income, profit and/or capital gains tax. Neither Coconut nor
-                                  any other Coconut Party is responsible for determining the taxes that apply to Transactions nor
+                                  includes, but is not limited to any income, profit and/or capital gains tax. Neither NFTencer nor
+                                  any other NFTencer Party is responsible for determining the taxes that apply to Transactions nor
                                   will they provide any tax related information to the users.
                                     </Text>
                               </li>
                               <li>
                                 <Text modifiers={['noBold', 'inline']}>
-                                  Coconut does not store, send, or receive Cryptoassets. This is because Cryptoassets exist only by
+                                  NFTencer does not store, send, or receive Cryptoassets. This is because Cryptoassets exist only by
                                   virtue of the ownership record maintained on its supporting blockchain. Any transfer of
                                   Cryptoassets occurs within the supporting blockchain and not on this Service.
                                     </Text>
@@ -1052,7 +1052,7 @@ export const userguilde: React.FC = () => {
                                   There are risks associated with using an Internet based currency, including but not limited to, the
                                   risk of hardware, software and Internet connections, the risk of malicious software introduction,
                                   and the risk that third parties may obtain unauthorized access to information stored within your
-                                  Account. You accept and acknowledge that Coconut will not be responsible for any
+                                  Account. You accept and acknowledge that NFTencer will not be responsible for any
                                   communication failures, disruptions, errors, distortions or delays you may experience when using
                                   the Service(s), however caused.
                                     </Text>
@@ -1105,11 +1105,11 @@ export const userguilde: React.FC = () => {
                                 <Text modifiers={['noBold', 'inline']}>
                                   There are risks associated with purchasing Cryptoassets, including but not limited to, the risk of
                                   purchasing counterfeit assets, mislabeled assets, assets that are vulnerable to metadata decay,
-                                  assets on smart contracts with bugs, and assets that may become untransferable. Coconut
+                                  assets on smart contracts with bugs, and assets that may become untransferable. NFTencer
                                   reserves the right to hide collections, contracts, and Cryptoassets affected by any of these issues
-                                  or by other issues. Cryptoassets you purchase may become inaccessible on Coconut. Under no
-                                  circumstances shall the inability to view your assets on Coconut serve as grounds for a claim
-                                  against Coconut.
+                                  or by other issues. Cryptoassets you purchase may become inaccessible on NFTencer. Under no
+                                  circumstances shall the inability to view your assets on NFTencer serve as grounds for a claim
+                                  against NFTencer.
                                     </Text>
                               </li>
                             </ol>
@@ -1177,22 +1177,22 @@ export const userguilde: React.FC = () => {
                               <li>
                                 <Text modifiers={['noBold', 'inline']}>
                                   NOTWITHSTANDING ANYTHING TO THE CONTRARY CONTAINED HEREIN, IN NO EVENT SHALL THE
-                                  MAXIMUM AGGREGATE LIABILITY OF Coconut ARISING OUT OF OR IN ANY WAY RELATED TO
+                                  MAXIMUM AGGREGATE LIABILITY OF NFTencer ARISING OUT OF OR IN ANY WAY RELATED TO
                                   THESE TERMS, THE ACCESS TO THE PLATFORM AND/OR USE OF THE SERVICE(S), CONTENT,
                                   CRYPTOASSETS, OR ANY CRYPTOASSETS PURCHASED ON THE PLATFORM EXCEEDS THE AMOUNT
-                                  RECEIVED BY Coconut FROM THE SALE OF CRYPTOASSETS ON THE PLATFORM THAT IS THE
+                                  RECEIVED BY NFTencer FROM THE SALE OF CRYPTOASSETS ON THE PLATFORM THAT IS THE
                                   SUBJECT OF THE CLAIM. THE FOREGOING LIMITATIONS OF LIABILITY SHALL NOT APPLY TO:
                                     </Text>
                                 <ol className="p-explore_counterList">
                                   <li>
                                     <Text modifiers={['noBold', 'inline']}>
-                                      DEATH OR PERSONAL INJURY CAUSED BY Coconut OR Coconut
+                                      DEATH OR PERSONAL INJURY CAUSED BY NFTencer OR NFTencer
                                       PARTIES’ NEGLIGENCE; OR
                                     </Text>
                                   </li>
                                   <li>
                                     <Text modifiers={['noBold', 'inline']}>
-                                      ANY INJURY CAUSED BY Coconut OR Coconut PARTIES’ FRAUD OR FRAUDULENT
+                                      ANY INJURY CAUSED BY NFTencer OR NFTencer PARTIES’ FRAUD OR FRAUDULENT
                                       MISREPRESENTATION.
                                     </Text>
                                   </li>
@@ -1222,9 +1222,9 @@ export const userguilde: React.FC = () => {
                               </Text>
                             <ol className="p-explore_counterList">
                               <Text modifiers={['noBold', 'inline']}>You may not assign or transfer any of your obligations or rights without the written consent from
-                              Coconut.
+                              NFTencer.
                               </Text>
-                              <Text modifiers={['noBold', 'inline']}>Coconut shall not be liable for any delay or failure to perform its obligations under these Terms which is
+                              <Text modifiers={['noBold', 'inline']}>NFTencer shall not be liable for any delay or failure to perform its obligations under these Terms which is
                               caused by an event or sequence of events beyond its reasonable control. Such events shall include acts of
                               God, flood, drought, earthquake or other natural disaster; disease, epidemic or pandemic such as
                               COVID-19 and the lockdown of territories or states as a result of the pandemic; terrorist attack, civil war,
@@ -1243,7 +1243,7 @@ export const userguilde: React.FC = () => {
                             <Text modifiers={['inline', 'term']}>Force Majeure
                               </Text>
                             <ol className="p-explore_counterList">
-                              <Text modifiers={['noBold', 'inline']}>Coconut shall not be liable for any delay or failure to perform its obligations under these Terms which is
+                              <Text modifiers={['noBold', 'inline']}>NFTencer shall not be liable for any delay or failure to perform its obligations under these Terms which is
                               caused by an event or sequence of events beyond its reasonable control. Such events shall include acts of
                               God, flood, drought, earthquake or other natural disaster; disease, epidemic or pandemic such as
                               COVID-19 and the lockdown of territories or states as a result of the pandemic; terrorist attack, civil war,
@@ -1275,9 +1275,9 @@ export const userguilde: React.FC = () => {
                             <Text modifiers={['inline', 'term']}>No Partnership
                               </Text>
                             <ol className="p-explore_counterList">
-                              <Text modifiers={['noBold', 'inline']}>Coconut and the user are and intend to remain independent parties. Nothing in these Terms shall be
+                              <Text modifiers={['noBold', 'inline']}>NFTencer and the user are and intend to remain independent parties. Nothing in these Terms shall be
                               deemed or construed to create the relationship of a principal and agent or partnership or joint venture,
-                              or that of an employee and employer between Coconut and the user and Coconut shall not assume any
+                              or that of an employee and employer between NFTencer and the user and NFTencer shall not assume any
                               fiduciary duties to the user.
                               </Text>
                             </ol>
@@ -1325,10 +1325,10 @@ export const userguilde: React.FC = () => {
                             <Text modifiers={['inline', 'term']}>Disputes and Arbitration
                               </Text>
                             <ol className="p-explore_counterList">
-                              <Text modifiers={['noBold', 'inline']}>Vietnam law will govern any dispute related to these terms or your use of Coconut.
+                              <Text modifiers={['noBold', 'inline']}>Vietnam law will govern any dispute related to these terms or your use of NFTencer.
                               </Text>
                               <Text modifiers={['noBold']}>You and the company agree to seek injunctions related to these terms only in local, state or federal
-                              court or where is related to stated laws. Neither you nor the company will object to jurisdiction, Coconut,
+                              court or where is related to stated laws. Neither you nor the company will object to jurisdiction, NFTencer,
                               or venue in those courts. However, our company reserves the right to nominate the arbitration as VIAC
                               (VIETNAM INTERNATIONAL ABRITRATION CENTER) or others at our discretion.
                               </Text>
@@ -1354,15 +1354,15 @@ ARBITRATION CENTER) as <a href="https://www.viac.vn/">https://www.viac.vn/</a>
                               </Text>
                             <ol className="p-explore_counterList">
                               <li>
-                                <Text modifiers={['noBold', 'inline']}>To make it easy for users to verify the identity of themselves and other users, Coconut provides
+                                <Text modifiers={['noBold', 'inline']}>To make it easy for users to verify the identity of themselves and other users, NFTencer provides
                                 "Verified" labels to users who have verified their identity through the KYC procedure. The KYC
                                 procedure requires users to provide information including their citizen ID card photo, a photo of
                                 their face, and a photo of their face with the ID card.
                               </Text>
                               </li>
                               <li>
-                                <Text modifiers={['noBold', 'inline']}>Coconut has no obligation or responsibility to store or provide this information to users,
-                                Coconut is only a Decentralized service designed to help users trade Digital Assets with each
+                                <Text modifiers={['noBold', 'inline']}>NFTencer has no obligation or responsibility to store or provide this information to users,
+                                NFTencer is only a Decentralized service designed to help users trade Digital Assets with each
                                 other. We do not guarantee that the Verified or KYC information provided by the users is correct.
                                 It is the user's sole responsibility to check the accuracy of other users' information and the Digital
                                 Assets' legitimacy they are about to purchase. We are also not responsible for compensation if
@@ -1378,7 +1378,7 @@ ARBITRATION CENTER) as <a href="https://www.viac.vn/">https://www.viac.vn/</a>
                               <li>
                                 <Text modifiers={['noBold', 'inline']}>Fake labels are assigned by us to users who have Digital Assets associated with counterfeit
                                 content. We reserve the right to place this label on any account we suspect to be in violation of our
-                                terms without prior notice. Users need to contact legal@Coconut.com or support@Coconut.com
+                                terms without prior notice. Users need to contact legal@NFTencer.com or support@NFTencer.com
                                 and provide information to prove that the data or information previously provided is accurate and
                                 legitimate if they wish to have the Fake label removed from their account.
                               </Text>
@@ -1391,9 +1391,9 @@ ARBITRATION CENTER) as <a href="https://www.viac.vn/">https://www.viac.vn/</a>
                             <Text modifiers={['inline', 'term']}>Note to Users Outside of Vietnam
                               </Text>
                             <ol className="p-explore_counterList">
-                              <Text modifiers={['noBold']}>Coconut operates a global service with our company based in Vietnam. By using our Site and Service(s),
+                              <Text modifiers={['noBold']}>NFTencer operates a global service with our company based in Vietnam. By using our Site and Service(s),
                               data collected on our non-Vietnam users may be transferred out of the country in which it was collected
-                              and processed at our head office in Vietnam as well as at partners of Coconut for purposes described in
+                              and processed at our head office in Vietnam as well as at partners of NFTencer for purposes described in
                               our Privacy Policy, including for the processing of cryptocurrency transactions.
                               </Text>
                               <Text modifiers={['noBold']}>Vietnam, European Economic Area (“EEA”) Member States, and other countries all have different laws.
@@ -1403,12 +1403,12 @@ ARBITRATION CENTER) as <a href="https://www.viac.vn/">https://www.viac.vn/</a>
                               enforcement can access personal information may vary from country to country. In particular, if your
                               information is in Vietnam, it may be accessed by government authorities in accordance with Vietnam law.
                               </Text>
-                              <Text modifiers={['noBold']}>To the extent that Coconut is deemed to transfer personal information outside of the EEA, we rely on
+                              <Text modifiers={['noBold']}>To the extent that NFTencer is deemed to transfer personal information outside of the EEA, we rely on
                               the following legal basis to transfer your information:
                               </Text>
-                              <Text modifiers={['noBold']}>Necessary for the performance of the Contract between Coconut and its Users
+                              <Text modifiers={['noBold']}>Necessary for the performance of the Contract between NFTencer and its Users
                               </Text>
-                              <Text modifiers={['noBold']}>Coconut provides a service; you can choose whether or not to use our Service(s). Using Coconut
+                              <Text modifiers={['noBold']}>NFTencer provides a service; you can choose whether or not to use our Service(s). Using NFTencer
                               is voluntary and up to the User. As we operate in countries worldwide and use first and third party
                               technical infrastructure in countries and regions including, but not limited to, Vietnam and the
                               European Union, in order to deliver our Service(s) to you, we need to transfer your personal
@@ -1434,13 +1434,13 @@ ARBITRATION CENTER) as <a href="https://www.viac.vn/">https://www.viac.vn/</a>
                         </li>
                         <li>
                           <div className="p-explore_counterListLi">
-                            <Text modifiers={['inline', 'term']}>Coconut Helper Service
+                            <Text modifiers={['inline', 'term']}>NFTencer Helper Service
                               </Text>
                             <ol className="p-explore_counterList">
 
                               <li>
-                                <Text modifiers={['noBold', 'inline']}>To create a service to help users who access digital assets for the first time, Coconut provides a
-                                Helper Service. With this service, Coconut will help first-time users gain access to Digital Assets
+                                <Text modifiers={['noBold', 'inline']}>To create a service to help users who access digital assets for the first time, NFTencer provides a
+                                Helper Service. With this service, NFTencer will help first-time users gain access to Digital Assets
                                 and the blockchain environment with steps that include: creating NFTs from their digital content,
                                 posting those assets (NFTs) for sale at prices determined by that user, transferring the digital assets
                                 (cryptocurrency) they obtained from the sale of their NFTs to their crypto wallet.
@@ -1448,19 +1448,19 @@ ARBITRATION CENTER) as <a href="https://www.viac.vn/">https://www.viac.vn/</a>
                               </li>
                               <li>
                                 <Text modifiers={['noBold', 'inline']}>We have no obligation or liability for the accuracy or legitimacy of these NFTs. Users of the
-                                Coconut Helper Service will be fully responsible for their NFTs and the content associated with
+                                NFTencer Helper Service will be fully responsible for their NFTs and the content associated with
                                 those NFTs.
                               </Text>
                               </li>
                               <li>
-                                <Text modifiers={['noBold', 'inline']}>Users of the Coconut Helper Service shall keep and protect their own digital wallet private keys
+                                <Text modifiers={['noBold', 'inline']}>Users of the NFTencer Helper Service shall keep and protect their own digital wallet private keys
                                 (i.e. Metamask wallet). We do not hold and will not require holding your digital wallet's private key.
                                 It is your responsibility to check the accuracy of the information relating to your Digital Assets and
-                                NFTs. Coconut is solely a platform designed to help connect buyers and sellers.
+                                NFTs. NFTencer is solely a platform designed to help connect buyers and sellers.
                               </Text>
                               </li>
                               <li>
-                                <Text modifiers={['noBold', 'inline']}>Users of Coconut’s Helper Service shall verify the desired selling price you want us to list for you.
+                                <Text modifiers={['noBold', 'inline']}>Users of NFTencer’s Helper Service shall verify the desired selling price you want us to list for you.
                                 Once the transaction between users has completed, we cannot cancel the transaction due to the
                                 nature of blockchain. (All of the transactions occur on the blockchain not on our platform)
                               </Text>
@@ -1471,7 +1471,7 @@ ARBITRATION CENTER) as <a href="https://www.viac.vn/">https://www.viac.vn/</a>
                               </Text>
                               </li>
                               <li>
-                                <Text modifiers={['noBold', 'inline']}>Users of Coconut’s Helper Service must also accept and comply with all of our Terms of Service. If
+                                <Text modifiers={['noBold', 'inline']}>Users of NFTencer’s Helper Service must also accept and comply with all of our Terms of Service. If
                                 you do not agree to any of our terms, you should stop accessing and using the platform
                                 immediately.
                               </Text>
@@ -1485,21 +1485,21 @@ ARBITRATION CENTER) as <a href="https://www.viac.vn/">https://www.viac.vn/</a>
                               </Text>
                             <ol className="p-explore_counterList">
                               <Text modifiers={['noBold']}>In order to improve the quality and ensure that there is no content that is unhealthy or contrary to
-                              current regulations of Vietnam and international laws uploaded to Coconut, Coconut will receive
+                              current regulations of Vietnam and international laws uploaded to NFTencer, NFTencer will receive
                               reports relating to CryptoAssets (including NFTs) from users in 2 ways. The first is from the report button
-                              on Coconut and the second is from e-mail to legal@Coconut.com or support@Coconut.com . Coconut
+                              on NFTencer and the second is from e-mail to legal@NFTencer.com or support@NFTencer.com . NFTencer
                               then will review those reports and decide whether to remove those reported Cryptoassets from
-                              Coconut or not.
+                              NFTencer or not.
                               </Text>
                               <Text modifiers={['noBold']}>Cryptoassets linked to assets, listings, smart contracts, and collections that include metadata that
                               violates international or Vietnamese intellectual property laws, promotes suicide or self-harm, incites
                               hate, dangerous acts, horror, or violence against others, degrades or doxes another individual, depicts
-                              minors in sexually suggestive situations, or is otherwise illegal in Vietnam are prohibited on Coconut
+                              minors in sexually suggestive situations, or is otherwise illegal in Vietnam are prohibited on NFTencer
                               and will be removed without prior notice. Therefore, Cryptoassets (including NFTs) that have been
-                              reported and are in the process of being censored by Coconut will be labeled "Being censored". Users
+                              reported and are in the process of being censored by NFTencer will be labeled "Being censored". Users
                               should consider carefully before purchasing Cryptoassets (including NFTs) with Being censored label as
-                              they may be removed from Coconut without notice. However, keep in mind that Coconut only deletes
-                              Cryptoassets so that they don't show up on Coconut, those Cryptoassets still exist on the blockchains
+                              they may be removed from NFTencer without notice. However, keep in mind that NFTencer only deletes
+                              Cryptoassets so that they don't show up on NFTencer, those Cryptoassets still exist on the blockchains
                               they were created from due to the nature of blockchain technology.
                               </Text>
                               <Text modifiers={['noBold']}>The Cryptoassets (including NFTs) censoring process will be executed within 3 days for reports related to
@@ -1507,11 +1507,11 @@ ARBITRATION CENTER) as <a href="https://www.viac.vn/">https://www.viac.vn/</a>
                               process will be executed within 1 month for reports related to content copyright disputes.
                               </Text>
                               <Text modifiers={['noBold']}>It is your sole responsibility to check that the contents of Cryptoassets (including NFTs) are compliant
-                              with Coconut regulations prior to purchase. We will not bear any responsibility if you are damaged in
-                              any way when participating in Cryptoassets trading on Coconut. You agree and confirm that you understand
-                              the types of labels attached to Cryptoassets on Coconut.
+                              with NFTencer regulations prior to purchase. We will not bear any responsibility if you are damaged in
+                              any way when participating in Cryptoassets trading on NFTencer. You agree and confirm that you understand
+                              the types of labels attached to Cryptoassets on NFTencer.
                               </Text>
-                              <Text modifiers={['noBold']}>All users must comply with Coconut regulations and applicable Vietnamese & international laws at all
+                              <Text modifiers={['noBold']}>All users must comply with NFTencer regulations and applicable Vietnamese & international laws at all
                               times.
                               </Text>
 
@@ -1524,9 +1524,9 @@ ARBITRATION CENTER) as <a href="https://www.viac.vn/">https://www.viac.vn/</a>
                               </Text>
                             <ol className="p-explore_counterList">
                               <Text modifiers={['noBold']}>These Terms, together with the Privacy Policy, constitute the entire agreement between you and
-                              Coconut relating to your access to the Platform and use of the Service(s). These Terms, and any rights
+                              NFTencer relating to your access to the Platform and use of the Service(s). These Terms, and any rights
                               and licenses granted hereunder, may not be transferred or assigned by you without the prior written
-                              consent of Coconut for any previous, concurrent or subsequent circumstance. Coconut’s failure to
+                              consent of NFTencer for any previous, concurrent or subsequent circumstance. NFTencer’s failure to
                               assert any right or provision under these Terms shall not constitute a waiver of such right or provision.
                               Except as otherwise provided herein, these Terms are intended solely for the benefit of the parties and
                               are not intended to confer third-party beneficiary rights upon any other person or entity.

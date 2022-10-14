@@ -8,6 +8,7 @@ interface Props {
   modifiers?: Modifier | Modifier[];
   className?: string;
   useDiv?: boolean;
+  children: any;
   anchor?: {
     href: string;
     target?: string;

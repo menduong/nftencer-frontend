@@ -179,10 +179,11 @@ export const MenuChunk: React.FC<Props> = ({ balanceBUSD, balanceCONT }) => {
     children: <Button handleClick={handleToggle} ref={anchorRef} modifiers={['noti']}><Icon modifiers={['small']} iconName="bell" /></Button>,
   };
   const classes = useStyles();
+  console.log("wallet 123123",wallet)
   return (
     <div className="o-header_buttons">
-      <a href={"https://conut.coconut.global"}>
-        <Button modifiers={['CCNmember']}>CONUT Member</Button>
+      <a href={""}>
+        <Button modifiers={['CCNmember']}>NFTencer Member</Button>
       </a>
       {(wallet?.status == "disconnected" || wallet?.status == "error") ? (<div><Button modifiers={['create']} handleClick={() => setModalOpenConnect(true)}>{t("mainMenu.Create")}</Button></div>)
         : (

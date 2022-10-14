@@ -24,3 +24,5 @@ export const switchEN = actionCreator('SWITCHEN');
 export const trigger = actionCreator('TRIGGER');
 export const videoMute = actionCreator('VIDEO_MUTE');
 export const videoUnmute = actionCreator('VIDEO_UNMUTE');
+export const closeSidebar = actionCreator('CLOSE_SIDEBAR');
+export const openSidebar = actionCreator('OPEN_SIDEBAR');

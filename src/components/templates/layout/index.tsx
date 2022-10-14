@@ -8,6 +8,8 @@ interface Props {
   className?: string;
   title: string;
   main?: boolean;
+  sidebar?: boolean;
+  children: any;
 }
 
 export const Layout: React.FC<Props> = props => {
@@ -16,12 +18,17 @@ export const Layout: React.FC<Props> = props => {
       <Pagemeta title={props.title} />
       { props.main? (
         <div className="t-layoutEx">
-          <Header />
+          {/* <Header /> */}
           <Main className="o-main">{props.children}</Main>
         </div>
-      ) : (
+      ) :props.sidebar?(
+        <div className="t-layoutSidebar">
+          {/* <Header /> */}
+          <Main className="o-main">{props.children}</Main>
+        </div>
+      ): (
       <div className="t-layout">
-        <Header />
+        {/* <Header /> */}
         <Main className="o-main">{props.children}</Main>
       </div>
       )}

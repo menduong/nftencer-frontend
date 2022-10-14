@@ -31,12 +31,15 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
       }),
       new webpack.DefinePlugin({
         'process.env.NFT_CONTRACT_ADDRESS': JSON.stringify("0xda7a5df3178ec51aca2d36c5837d1c6fa8c82acb"),
-        'process.env.SIMPLE_EXCHANGE_ADDRESS': JSON.stringify("0xe0c336280cfcc278259b52b681ce2efb90b648eb"),
-        'process.env.BUSD_CONTRACT_ADDRESS': JSON.stringify("0xe9e7cea3dedca5984780bafc599bd69add087d56"),
-        'process.env.CONT_CONTRACT_ADDRESS': JSON.stringify("0x323249642f3a4519134a0926cb7797077e49de76"),
+        'process.env.SIMPLE_EXCHANGE_ADDRESS': JSON.stringify("0xe0C336280CfCc278259b52b681Ce2efb90b648Eb"),
+        'process.env.BUSD_CONTRACT_ADDRESS': JSON.stringify("0x07db360b8a092ef4005cdba63780b597765a9435"),
+        'process.env.CONT_CONTRACT_ADDRESS': JSON.stringify("0xfa3ced40208b1fc44478ce507d9fca30770dc0fd"),
         'process.env.GAS_LIMIT': 500000,
         'process.env.SERVICE_FEE': "2.5",
-        'process.env.ADDRESS_API': JSON.stringify("https://api.coconut.global"),
+        // 'process.env.ADDRESS_API': JSON.stringify("https://api.coconut.global"),
+        'process.env.ADDRESS_API': JSON.stringify("https://api.nftencer.com"),
+        // 'process.env.chainID': "38", //mainet
+        'process.env.chainID': "61",  //testnet
       })
     ],
   });

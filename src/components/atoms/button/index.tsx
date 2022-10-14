@@ -5,7 +5,8 @@ import { Link } from 'gatsby';
 type Modifier = 'resell'|'filter'|'iconshare'|'showmore'|'more'|'noti'|'create'| 'noBackground' | 'noBorder' | 'noPadding' | 'secondary' | 'asText' | 'icon' | 'buy' | 'bid' | 'asLink' |'report' |'buycolor'|'postcomment'| 'iconshareitem'|'connect' |'review' |'createbig' | 'connectmobile'|'expanded' |'connectwallet' |'marginRight' |'noticeCreate' |'noBackgroundBorder' | 'bigDone' | 'payment' | 'cancelpayment' | 'reportExplore' | 'posticon' | 'claim' |'term' | 'getCoin' | 'totalClaim' | 'transparent' | 'marginbottom' |'bell' | 'bellcont' | 'category' | 'iconshareitemView' |'sharemain' |'CCNmember' |'inline' |'exploreMenu' | 'black' | 'history' ;
 
 interface Props {
-  modifiers?: Modifier | Modifier[];
+  modifiers?: Modifier | Modifier[]
+  children: any;
   anchor?: {
     href: string;
     target?: string;

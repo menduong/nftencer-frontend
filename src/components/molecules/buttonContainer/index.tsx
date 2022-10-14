@@ -6,6 +6,7 @@ type Modifier = 'column' | 'report';
 
 interface Props {
   modifiers?: Modifier | Modifier[];
+  children:any;
 }
 
 export const ButtonContainer: React.FC<Props> = props => {

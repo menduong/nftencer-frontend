@@ -2,7 +2,8 @@
   $DIALOG-HEIGHT: 110px;
   width: 100%;
   &_main {
-    height: calc(100vh - #{$HEADER-PC-MARGIN} * 2 - #{$HEADER-PC-HEIGHT} - 120px);
+    height: 100%;
+    // height: calc(100vh - #{$HEADER-PC-MARGIN} * 2 - #{$HEADER-PC-HEIGHT} - 120px);
     position: relative;
     display: flex;
     flex-direction: column;
@@ -10,7 +11,8 @@
     margin-right:10px;
     padding: 10px;
     @include mgland14 {
-      height: calc(100vh - #{$HEADER-PC-MARGIN} * 2 - 120px);
+      height: 100%;
+      // height: calc(100vh - #{$HEADER-PC-MARGIN} * 2 - 120px);
     }
     @include sp {
       min-height: auto;
@@ -106,7 +108,7 @@
     // bottom: 15px;
     // left: 20px;
     position: relative;
-    bottom:15px;
+    bottom:0px;
     background: white;
     display: flex;
     flex-direction: column;
@@ -244,6 +246,7 @@
     // width: 400px;
     padding:0;
     position: relative;
+    height: 100%;
 
     @include sp {
       flex: 1;

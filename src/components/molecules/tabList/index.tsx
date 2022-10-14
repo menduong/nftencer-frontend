@@ -6,6 +6,7 @@ type Modifier = 'foo' | 'bar' | 'explore';
 
 interface Props {
   modifiers?: Modifier | Modifier[];
+  children: any;
 }
 
 export const TabList: React.FC<Props> = props => {

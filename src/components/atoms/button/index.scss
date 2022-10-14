@@ -89,6 +89,7 @@
     min-width: 108px;
     height: 36px;
     border-radius: 20px;
+    text-align: center;
   }
   &-payment {
     background: linear-gradient(61.78deg, #D565C3 0.4%, #FF5EC8 86.72%), linear-gradient(104.51deg, #ABD3EA 20.65%, #D565C3 101.12%);
@@ -168,12 +169,17 @@ color: #000000;
     min-width: 108px;
     height: 36px;
     border-radius: 20px;
+    text-align: center;
   }
 
   &-CCNmember {
-    background:linear-gradient(101.28deg, #A7D445 2.93%, #FF005C 72.66%);
-    border-radius:15px!important;
-    color: #F4F4F4;
+    background:transparent;
+    // border-radius:15px!important;
+    background: linear-gradient(101.28deg, #A7D445 2.93%, #FF005C 72.66%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
     min-width: 190px;
     height: 30px;
     margin-left:10px;
@@ -194,7 +200,7 @@ color: #000000;
 
   &-create {
     background: #A7D545;
-    color: #F4F4F4;
+    color: #111111;
     min-width: 118px;
     height: 30px;
     margin-right:10px;
@@ -552,6 +558,7 @@ linear-gradient(100.93deg, #D565C3 -13.26%, #ABD3EA 101.12%);
     position: relative;
     right:1rem;
     top:1rem;
+    height: 22px;
 
     &:hover {
       background-color: black;

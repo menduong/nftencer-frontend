@@ -71,15 +71,15 @@
     // position: relative;
     margin-bottom: 30px;
     // width:102%;
-    &:after {
-      position: relative;
-      right: 36px;
-      display: block;
-      width: 15px;
-      height: 15px;
-      content: '';
-      background-image: url('assets/images/icon/icon-search.svg');
-    }
+    // &:after {
+    //   position: relative;
+    //   right: 36px;
+    //   display: block;
+    //   width: 15px;
+    //   height: 15px;
+    //   content: '';
+    //   background-image: url('assets/images/icon/icon-search.svg');
+    // }
 
     input {
       padding: 0 30px 0 25px;

@@ -32,12 +32,12 @@ export const userguilde: React.FC = () => {
                     >
                       <Grid alignItems="center" item xs={12}>
                         <div className="p-explore_headerTerm">
-                          <h1>Coconut Privacy Policy</h1>
+                          <h1>NFTencer Privacy Policy</h1>
                         </div>
                       </Grid>
                       <div className="p-explore_contentPolicy">
                         <Text>
-                          Coconut Limited d/b/a Coconut (“Coconut”, “we” or “us”) values the privacy of our users and is committed to protecting your personal data. We have prepared this Privacy Policy to describe to you our practices regarding the Personal Data (as defined in section 2 below) we collect from users of our website, located at https://www.coconut.global/ (the “Site”) and online services provided through the Site (collectively, the“Service”).
+                          NFTencer Limited d/b/a NFTencer (NFTencer, “we” or “us”) values the privacy of our users and is committed to protecting your personal data. We have prepared this Privacy Policy to describe to you our practices regarding the Personal Data (as defined in section 2 below) we collect from users of our website, located at https://www.NFTencer.global/ (the “Site”) and online services provided through the Site (collectively, the“Service”).
                         </Text>
                       </div>
                       <ol className="p-explore_counterList">
@@ -60,7 +60,7 @@ export const userguilde: React.FC = () => {
                                 Data Controller
                                 </Text>
                               <Text modifiers={['textIndent', 'noBold']}>
-                                Coconut Limited is the controller and is responsible for the handling of your Personal Data.
+                                NFTencer Limited is the controller and is responsible for the handling of your Personal Data.
                                 </Text>
                             </li>
                             <li>
@@ -68,7 +68,7 @@ export const userguilde: React.FC = () => {
                                 Contact Details
                                 </Text>
                               <Text modifiers={['textIndent', 'noBold']}>
-                                If you have any questions or complaints about this Privacy Policy or our privacy practices or if you have a request to exercise your rights, please feel free to contact us at <a href="mailto:support@coconut.global" >support@coconut.global</a>
+                                If you have any questions or complaints about this Privacy Policy or our privacy practices or if you have a request to exercise your rights, please feel free to contact us at <a href="mailto:support@NFTencer.global" >support@NFTencer.global</a>
                               </Text>
                             </li>
                             <li>
@@ -270,7 +270,7 @@ export const userguilde: React.FC = () => {
                               </Text>
                                   </li>
                                   <li>
-                                    <Text modifiers={['noBold', 'inline']}>to our Service(s) and for other marketing purposes of Coconut.
+                                    <Text modifiers={['noBold', 'inline']}>to our Service(s) and for other marketing purposes of NFTencer.
                               </Text>
                                   </li>
                                 </ol>
@@ -313,7 +313,7 @@ export const userguilde: React.FC = () => {
                                   <td>1. Performance of a contract with you<br />2. Necessary for our legitimate interests (for running our business and to recover debts due to us)</td>
                                 </tr>
                                 <tr>
-                                  <td>1. To manage our relationship with you which will include:<br />2. Asking you to leave a review or take a survey<br />3. Keeping you informed of Coconut’s business and product development<br />4. Providing customer support<br />5. Responding to your requests and inquiries
+                                  <td>1. To manage our relationship with you which will include:<br />2. Asking you to leave a review or take a survey<br />3. Keeping you informed of NFTencer’s business and product development<br />4. Providing customer support<br />5. Responding to your requests and inquiries
                               </td>
                                   <td>
                                     1. Identity<br />
@@ -389,7 +389,7 @@ export const userguilde: React.FC = () => {
                                 </tr>
                                 <tr>
                                   <td>
-                                    Relevant for individuals seeking employment at Coconut
+                                    Relevant for individuals seeking employment at NFTencer
                               </td>
                                   <td>
                                     1. Identity<br />
@@ -515,10 +515,10 @@ export const userguilde: React.FC = () => {
                             </Text>
                               <Text modifiers={['noBold', 'paddingTop', 'textIndent']}>
                                 Regardless of any choices you make regarding your Personal Data (as described in section 8 below),
-                                Coconut may disclose Personal Data if it believes in good faith that such disclosure is necessary (a)
+                                NFTencer may disclose Personal Data if it believes in good faith that such disclosure is necessary (a)
                                 in connection with any legal investigation; (b) to comply with relevant laws or to respond to
-                                subpoenas or warrants served on Coconut; (c) to protect or defend the rights or property of
-                                Coconut or users of the Service(s); and/or (d) to investigate or assist in preventing any violation or
+                                subpoenas or warrants served on NFTencer; (c) to protect or defend the rights or property of
+                                NFTencer or users of the Service(s); and/or (d) to investigate or assist in preventing any violation or
                                 potential violation of the law, this Privacy Policy, or our Terms of Service.
                                 </Text>
                             </li>
@@ -630,13 +630,13 @@ export const userguilde: React.FC = () => {
                               </Text>
                             </li>
                             <li>
-                              <Text modifiers={['noBold', 'inline']}>The right to request that Coconut rectifies or updates Personal Data that we hold about
+                              <Text modifiers={['noBold', 'inline']}>The right to request that NFTencer rectifies or updates Personal Data that we hold about
                               you that is inaccurate, incomplete or outdated. However, we may need to verify the accuracy
                               of the new data you provide to us.
                               </Text>
                             </li>
                             <li>
-                              <Text modifiers={['noBold', 'inline']}>The right to request that Coconut erase your Personal Data in certain circumstances
+                              <Text modifiers={['noBold', 'inline']}>The right to request that NFTencer erase your Personal Data in certain circumstances
                               provided by law. This enables you to ask us to delete or remove Personal Data where there is
                               no good reason for us continuing to process it. You also have the right to ask us to delete or
                               remove your Personal Data where you have successfully exercised your right to object to
@@ -647,7 +647,7 @@ export const userguilde: React.FC = () => {
                               </Text>
                             </li>
                             <li>
-                              <Text modifiers={['noBold', 'inline']}>The right to object to Coconut processing your Personal Data where we are relying on a
+                              <Text modifiers={['noBold', 'inline']}>The right to object to NFTencer processing your Personal Data where we are relying on a
                               legitimate interest (or those of a third party) and there is something about your particular
                               situation which makes you want to object to processing on this ground as you feel it impacts
                               on your fundamental rights and freedoms. You also have the right to object where we are
@@ -657,7 +657,7 @@ export const userguilde: React.FC = () => {
                               </Text>
                             </li>
                             <li>
-                              <Text modifiers={['noBold', 'inline']}>The right to request that Coconut restrict the usage or processing of your Personal Data in
+                              <Text modifiers={['noBold', 'inline']}>The right to request that NFTencer restrict the usage or processing of your Personal Data in
                               certain circumstances. This enables you to ask us to suspend the processing of your Personal
                               Data in scenarios such as: if you want us to establish the data’s accuracy; where our use of the
                               data is unlawful but you do not want us to erase it; where you need us to hold the data even
@@ -667,7 +667,7 @@ export const userguilde: React.FC = () => {
                               </Text>
                             </li>
                             <li>
-                              <Text modifiers={['noBold', 'inline']}>The right to request that Coconut export, if technically and legally feasible, your Personal
+                              <Text modifiers={['noBold', 'inline']}>The right to request that NFTencer export, if technically and legally feasible, your Personal
                               Data that we hold in service to another company or to you. We will provide to you, or a third
                               party you have chosen, your Personal Data in a structured, commonly used, machine-readable
                               format. Note that this right only applies to automated information which you initially
@@ -686,7 +686,7 @@ export const userguilde: React.FC = () => {
 
                           </ol>
                           <Text modifiers={['noBold', 'paddingTop', 'textIndent']}>
-                            If you wish to exercise any of the rights set out above, you may contact Coconut as described in
+                            If you wish to exercise any of the rights set out above, you may contact NFTencer as described in
                             section 1.3 above. We take each request seriously, and will comply with your request to the extent
                             required by applicable law. We will not be able to respond to a request if we no longer hold your
                             Personal Data.
@@ -789,7 +789,7 @@ export const userguilde: React.FC = () => {
                           <Text modifiers={['noBold', 'paddingTop', 'textIndent']}>
                             The Service(s) we provide is intended for those aged 18 years or older. We do not intentionally gather
                             Personal Data from visitors under the age of 18. If a person under 18 submits Personal Data to
-                            Coconut and we learn that the Personal Data is the information of a child under 18, we will attempt
+                            NFTencer and we learn that the Personal Data is the information of a child under 18, we will attempt
                             to delete the information as soon as possible. If you believe that a person under 18 may be using our
                             Service(s), or we might have any Personal Data from a person under 18, please contact us at our
                             contact details indicated in section 1.3.
@@ -802,9 +802,9 @@ export const userguilde: React.FC = () => {
                             <br />
                           </div>
                           <Text modifiers={['noBold', 'paddingTop', 'textIndent']}>
-                            Coconut operates a global service with our company based in Vietnam. By using our Site and
+                            NFTencer operates a global service with our company based in Vietnam. By using our Site and
                             Service(s), data collected on our non-Vietnam users may be transferred out of the country in which it
-                            was collected and processed at our head office in Vietnam as well as at partners of Coconut for
+                            was collected and processed at our head office in Vietnam as well as at partners of NFTencer for
                             purposes described in our Privacy Policy, including for the processing of cryptocurrency transactions.
                             </Text>
                           <Text modifiers={['noBold', 'paddingTop', 'textIndent']}>
@@ -816,14 +816,14 @@ export const userguilde: React.FC = () => {
                             information is in Vietnam, it may be accessed by government authorities in accordance with Vietnam law.
                             </Text>
                           <Text modifiers={['noBold', 'paddingTop', 'textIndent']}>
-                            To the extent that Coconut is deemed to transfer personal information outside of the EEA, we rely on
+                            To the extent that NFTencer is deemed to transfer personal information outside of the EEA, we rely on
                             the following legal basis to transfer your information:
                             </Text>
                           <Text modifiers={['noBold', 'paddingTop', 'textIndent']}>
-                            Necessary for the performance of the Contract between Coconut and its Users
+                            Necessary for the performance of the Contract between NFTencer and its Users
                             </Text>
                           <Text modifiers={['noBold', 'paddingTop', 'textIndent']}>
-                            Coconut provides a service chosen voluntarily for use by you, the user; you can choose whether or not
+                            NFTencer provides a service chosen voluntarily for use by you, the user; you can choose whether or not
                             to use our Service(s). As we operate in countries worldwide and use first and third party technical
                             infrastructure in countries and regions including but not limited to Vietnam and the European Union to
                             deliver our Service to you, we need to transfer your personal information to Vietnam and to other

@@ -95,7 +95,7 @@ export const Claim: React.FC<RouteComponentProps> = props => {
               >
                  <Grid item xs={4}>
                   <Text>
-                  If you want to get CONUT marketplace mining reward then you must make at least 1 NFT purchase or create at least 1 NFT on Coconut
+                  If you want to get CONUT marketplace mining reward then you must make at least 1 NFT purchase or create at least 1 NFT on NFTencer
                   </Text>
                   <Text>
                   Your CONUT marketplace mining reward will be calculated every Tuesday, meaning after Tuesday you can claim your previous CONUT mining reward.
@@ -109,7 +109,7 @@ export const Claim: React.FC<RouteComponentProps> = props => {
                    Every Tuesday 60.000 CONUT tokens are distributed to uploaders(creators) and buyers who bought NFT during that week before. 50% to the NFT uploaders(creators) and 50% to the NFT buyers.
                    </Text>
                    <Text>
-                    Uploaders and Buyers will be received 50% of the distributed amount. This allocated amount of tokens is divided by the total number of participants who upload or purchase NFT items on Coconut and those with the most total quantity of Upload/ Purchase will receive more CONT.
+                    Uploaders and Buyers will be received 50% of the distributed amount. This allocated amount of tokens is divided by the total number of participants who upload or purchase NFT items on NFTencer and those with the most total quantity of Upload/ Purchase will receive more CONT.
                    </Text>
                  </Grid>  
               </Grid>
@@ -202,7 +202,7 @@ export const Claim: React.FC<RouteComponentProps> = props => {
                     </li>
                   </ul>
                   <Text>
-                  If one of these cases occurs, the balance after Coconut reward the mining tokens for users will be returned to the Marketplace Mining System fund to be distributed to the next users in the future.
+                  If one of these cases occurs, the balance after NFTencer reward the mining tokens for users will be returned to the Marketplace Mining System fund to be distributed to the next users in the future.
                   </Text>
                   <img className="claim_marketplaceIMG" src={chart} ></img>
                 </Grid>

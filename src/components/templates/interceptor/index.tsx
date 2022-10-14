@@ -49,8 +49,8 @@ const Interceptor: React.FC = props => {
         // check if the chain to connect to is installed
         await window.ethereum.request({
           method: 'wallet_switchEthereumChain',
-          params: [{ chainId: '0x38' }], //Mainet chainId must be in hexadecimal numbers
-          // params: [{ chainId: '0x61' }], // Testnet chainId must be in hexadecimal numbers
+          // params: [{ chainId: process.env.chainId }], //Mainet chainId must be in hexadecimal numbers
+          params: [{ chainId: '0x61' }], // Testnet chainId must be in hexadecimal numbers
         });
       } catch (error) {
         // This error code indicates that the chain has not been added to MetaMask
@@ -61,8 +61,8 @@ const Interceptor: React.FC = props => {
               method: 'wallet_addEthereumChain',
               params: [
                 {
-                  // chainId: '0x61',
-                  chainId: '0x38',
+                  chainId: '0x61',
+                  // chainId: process.env.chainId,
                   rpcUrl: 'https://data-seed-prebsc-1-s2.binance.org:8545/',
                 },
               ],

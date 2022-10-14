@@ -1,5 +1,7 @@
 .p-explore {
-  background: transparent;
+  // background: transparent;
+  background: #EDEDED;
+  margin-top:60px;
   &_main {
     min-height: calc(100vh - #{$HEADER-PC-MARGIN} * 2 - #{$HEADER-PC-HEIGHT} - 30px);
     display: flex;
@@ -95,6 +97,38 @@
       padding: 10px;
     }
   }
+  &_subMenu {
+    position: fixed;
+    height: 100%;
+    top:70px;
+    width: 7%;
+    background:white;
+    z-index: 1000;
+    border-right: 0.5px solid rgba(0, 0, 0, 0.1);
+  }
+  &_subMenuItem {
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+  }
+
+  &_theme {
+    position: absolute;
+    width: 100%;
+    height: 500px;
+    top:0;
+    left: 0;
+    background:linear-gradient(96.44deg, #E1FF8D -11.96%, #BAFFE2 112.4%);
+    z-index: 1;
+  }
+
+  &_section {
+    z-index: 2;
+  }
+
   &_productfilter-userpage {
     margin-bottom: 30px;
     width: 100%;
@@ -136,19 +170,24 @@
   }
   &_mainet {
     padding : 0;
+    margin-top:30px;
     @include sp {
       justify-content: center;
     }
   }
   &_mainetNftEncer {
     padding : 0;
-    margin-top:calc(#{$HEADER-PC-HEIGHT} + #{$HEADER-PC-MARGIN} * 10);
+    margin-top: 80px!important;
+    // margin-top: calc(#{$HEADER-PC-HEIGHT} + #{$HEADER-PC-MARGIN} * 8);
     text-align:center;
     @include sp {
       justify-content: center;
     }
   }
   &_totalvolumeMain {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    margin-top:20px;
+    padding-top:34px!important;
 
     @include sp {
       padding:6px!important;
@@ -156,6 +195,12 @@
   }
   &_Howconnect {
     width: 100%;
+    img {
+      width: 100%;
+      @include mld {
+        width: 100%;
+      }
+    }
   }
 
   &_ButtonHowconnect {
@@ -332,7 +377,7 @@
     display: flex;
     align-items: center;
     padding:3rem 0; 
-    margin-bottom: 20px;
+    margin-bottom: 50px;
 
     @include sp {
       align-items: initial;
@@ -347,11 +392,11 @@
     }
     @include smd {
       align-items: initial;
-      width: 586px!important;
+      width: 100%;
       font-size: 12px;
       border-radius: 45px;
       position: relative;
-      right: 11px;
+      // right: 11px;
     }
     @include smdl {
       align-items: initial;

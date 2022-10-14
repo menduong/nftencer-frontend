@@ -7,6 +7,7 @@
   overflow: hidden; 
   color: $COLOR-UTILITY-TXT-BASE;
   font-family: NotoSans;
+
   @include u-fw-b;
   @include u-fz(22, 25);
   @include sp {

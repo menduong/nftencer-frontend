@@ -213,8 +213,10 @@ export const Video: React.FC<Props> = props => {
         onPlayPause={handlePlayPause}
         playing={playing}
         played={played}
-        onMute={hanldeMute}
-        muted={isMute}
+        onMute={false}
+        muted={false}
+        // onMute={hanldeMute}
+        // muted={isMute}
         volume='0'
         visible={data}
         status={props.censored}

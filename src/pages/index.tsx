@@ -1,5 +1,6 @@
 import { RouteComponentProps } from '@reach/router';
 import { Button } from 'components/atoms/button';
+import { getMediaType } from 'util/getMediaType';
 import { Text } from 'components/atoms/text';
 import { navigate } from 'gatsby-link';
 import { TextFieldFormik } from 'components/atoms/textfield';
@@ -18,6 +19,9 @@ import { TabButton } from 'components/molecules/tabButton';
 import { TabList } from 'components/molecules/tabList';
 import { ItemList } from 'components/organisms/itemList';
 import { Section } from 'components/organisms/section';
+import { Header } from 'components/organisms/header';
+import { getBuyStore, openSidebar } from 'store/buyNFT';
+import { Sidebar } from 'components/organisms/sidebar';
 import { Unit } from 'components/pages/create/form';
 import logo from 'assets/images/NFTencer/logo_metamask.svg'
 import logo_encer from 'assets/images/NFTencer/logo_encer.svg'
@@ -29,7 +33,6 @@ import {
   ExploreSchema,
   exploreSchema,
   ExtraProductCategories,
-  ProductCategories,
   SortDefaultValue,
 } from 'components/pages/explore/form';
 import { resetStore } from 'store/createNFT';
@@ -42,85 +45,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 import { getExploreStore, getProductList, GetProductListReq, getTotalVolume } from 'store/explore';
 import { withStyles } from '@material-ui/core/styles';
-import { getMediaType } from 'util/getMediaType';
-import {  makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
-import ScrollToTop from 'react-scroll-up'
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  ListItemText: {
-    display: "flex",
-    justifyContent: "center",
-    paddingBottom: "25px",
-    paddingTop: "25px",
-    backgroundColor: "transparent !important",
-  },
-  tabc: {
-    marginTop: '2px',
-    marginLeft: '10px'
-  },
-  list: {
-    width: 250,
-    textAlign: "center",
-    justifyContent: "center",
-    height: "100%",
-    marginTop: "50px",
-  },
-  fullList: {
-    width: 'auto',
-    height: '100%',
-  },
-  AccordionSummary: {
-    [theme.breakpoints.down('sm')]: {
-      paddingLeft: "0px",
-    },
-  },
-  media: {
-    height: 140,
-    objectFit: 'cover'
-  },
-  card: {
-    maxWidth: 345
-  },
-  Divider: {
-    marginBottom: 40,
-  },
-  sticky: {
-    position: "sticky",
-    top: "100px!important",
-  },
-  paper: {
-    padding: "16px",
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-    backgroundColor: "transparent !important",
-    [theme.breakpoints.down('sm')]: {
-      padding: "0px",
-    },
-  },
-  details: {
-    alignItems: 'top',
-  },
-  content: {
-    '&$expanded': {
-      margin: '12px 0',
+import ScrollToTop from 'react-scroll-up';
+import ListItem from 'components/organisms/listItem';
+import { throttle } from 'lodash';
 
-    },
-  },
-  MuiAccordionroot: {
-    backgroundColor: "transparent !important",
-    "&.MuiAccordion-root:before": {
-    },
-    "&$expanded": {
-      backgroundColor: "rgba(97, 97, 97, 0.2)",
-    },
-    "&:hover": {
-      backgroundColor: "transparent !important"
-    }
-  },
-}));
 const AccordionSummary = withStyles({
   content: {
     '&$expanded': {
@@ -135,11 +65,11 @@ export const Home: React.FC<RouteComponentProps> = props => {
   const params = new URLSearchParams(props.location?.search);
   const [modalOpenClaim, setModalOpenClaim] = useState(false);
   const [modalOpenMaint, setModalOpenMaint] = useState(false);
+  const { isKR, isSidebar } = useSelector(getBuyStore);
   const { t } = useTranslation();
   const store = useSelector(getExploreStore);
-  const classes = useStyles();
   const isMobile = useMediaQuery({
-    query: '(max-width: 840px)'
+    query: '(max-width: 600px)'
   })
   const dispatch = useDispatch();
   const [state, setState] = React.useState({
@@ -185,36 +115,30 @@ export const Home: React.FC<RouteComponentProps> = props => {
       })
     );
   };
-  
+
 
   const [reg, regSet] = useState(Array);
   const [res, resSet] = useState<any>(Array);
   const wallet = useWallet();
   const [isLoading, setIsLoading] = useState(false);
   const [isLoading1, setIsLoading1] = useState(false);
-  
+  const [isSticky, setSticky] = useState(false);
+
   useEffect(() => {
     if (!modalOpenClaim) {
       dispatch(resetStore());
       // currentStep.number === CreateSteps.length && navigate('/');
     }
-
   }, [dispatch, modalOpenClaim]);
 
   const Get_categories = async () => {
     try {
-    const categories = await axios.get(`${process.env.ADDRESS_API}/category`);
-    regSet(categories.data.category);
-    }catch {
+      const categories = await axios.get(`${process.env.ADDRESS_API}/category`);
+      regSet(categories.data.category);
+    } catch {
       console.log("get categories error")
     }
   };
-
-  useEffect (()=> {
-    if (typeof window.gtag !== 'undefined'){
-      window.gtag("conversion", "click", { send_to: ["G-367HCBT3P8"]})
-    }
-  },[]);
   useEffect(() => {
     Get_categories()
     if (wallet?.status === 'connected') {
@@ -234,7 +158,7 @@ export const Home: React.FC<RouteComponentProps> = props => {
       });
     }
   }, [wallet.status]);
-  const [counter, setCounter] = useState(0);
+  // }, [wallet.status]);
   const handleFilter = useCallback((param: string, value: string) => {
     params.get(param) ? params.set(param, value) : params.append(param, value);
     const newPath = `${props.path}?${params.toString()}`;
@@ -248,179 +172,174 @@ export const Home: React.FC<RouteComponentProps> = props => {
     setIsLoading1(true)
   }, []);
 
-  const list = (anchor: Anchor) => (
-    <div
-      className={clsx(classes.list, {
-        [classes.fullList]: anchor === 'top',
-      })}
-      role="presentation"
-      onKeyDown={toggleDrawer(anchor, false)}
-    >
-      <Heading type="h1">Category</Heading>
-      <div onClick={toggleDrawer(anchor, false)}>
-        <div className="subcategoryMobile">
-          {ExtraProductCategories.map(cate => (
-            <button className="p-explore_button-more" onClick={() => handleFilter('category', cate)}>{cate}</button>
-          ))}
-        </div>
-      </div>
-    </div>
-  )
+  useEffect(() => {
+    const handleScroll = throttle(() => {
+      const header = document.querySelector('.o-header');
+      const layout = document.querySelector('.t-layout');
+      const isSticky = (header && window.pageYOffset > 1100) || false;
+      const onTop = window.pageYOffset === 0;
+      setSticky(isSticky);
+      layout?.classList.toggle('u-sticky', isSticky && !onTop);
+    }, 100);
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  console.log("issidebar", isSidebar)
 
   return (
     <div className="p-explore">
-       <Grid
-          className="p-explore_mainetNftEncer"
-          container
-          spacing={3}
-          direction="row"
-          justify="center"
-          alignItems="stretch"
-        >
-          <Grid justify="center" item xs={12} spacing={2}>
-            <Heading modifiers="titleEncer">NFTencer</Heading>
-              <span style={{fontSize:"30px"}}>- NFT Market place</span>
-          </Grid>
+      {!isMobile && <div className="p-explore_theme"></div>}
+      <Grid
+        container
+        spacing={0}
+      >
+        <Grid justify="center" item xs={12} spacing={0}>
+          <Header />
         </Grid>
-      <Layout main title="COCONUT.GLOBAL">
-        <ScrollToTop style={{ right: "20px", zIndex: "1000" }} easing="linear" showUnder={160}>
-          <span><big><big>&uarr;</big></big></span>
-        </ScrollToTop>
-        {isMobile ? (
-                <></>
-              ) : (
-        <Sectionsub modifiers="padding5" className="p-explore_totalvolume p-explore_carousel">
-        <Container>
+        {isSticky ===true  && (
+          <>
+        {isSidebar === true &&
+          <Grid justify="center" item xs={1} spacing={0}>
+            <div className="o-header_miniMenu"></div>
+          </Grid>
+        }
+        <Grid justify="center" item xs={isSidebar === true ? 11 : 12} spacing={0}>
+          <div className="o-header_miniMenu">
+            {reg.map((cate, i) => (
+              <TabButton
+                category
+                modifiers="category"
+                handleClick={() => handleFilter('category',
+                  cate.name)}>{cate.name.charAt(0).toUpperCase() + cate.name.slice(1)}</TabButton>
+            ))}
+          </div>
+        </Grid>
+        </>
+        )}
+
+        <Grid justify="center" item xs={isSidebar ? 1 : false} spacing={2}>
+          {isSidebar === true && !isMobile &&
+            <div className="p-explore_subMenu">
+              <div className="p-explore_subMenuItem">
+                <Sidebar />
+              </div>
+            </div>
+          }
+        </Grid>
+        <Grid className="p-explore_section" justify="center" item xs={isSidebar === true ? 11 : 12} spacing={2}>
           <Grid
+            className="p-explore_mainetNftEncer"
             container
             spacing={3}
             direction="row"
             justify="center"
             alignItems="center"
           >
-            <Grid className="p-explore_totalvolumeMain" item xs={8}>
-              <Carouselt />
+            <Grid justify="center" item xs={12} spacing={0}>
+              <Heading modifiers="titleEncer">NFTencer</Heading>
+              <span style={{ fontSize: "30px" }}>&nbsp;&nbsp;- NFT Market place</span>
             </Grid>
-            <Grid alignContent="center" direction="column" justify="center" alignItems="center" item xs={4} >
-              <Text modifiers="Grand">Grand Opening!</Text>
-              <Text modifiers="marketplace">PL NFT Marketplace</Text>
-            </Grid>
-            <Grid className="p-explore_totalvolumeMain" item xs={12}>
-              <Grid justify="space-evenly" container spacing={1}>
-                <Grid xs={5}>
-                  <Link to="/userguilde">
-                    <button className="p-explore_ButtonHowconnect">
-                      <Sectionsub modifiers="howconnect">
-                              <div className="p-explore_Howconnect">
-                              <Grid justify="space-evenly" alignItems="center" container spacing={1}>
-                                <Grid xs={6}>
-                                  <Heading modifiers={['left']}>{t("mainMenu.howtoconnect")}</Heading>
-                                </Grid>
-                                <Grid xs={5}>
-                                  {/* <div className="p-explore_HowconnectLogo"></div> */}
-                                  <img alt="logo metamask" src={logo}/>
-                                </Grid>
-                              </Grid>
-                              </div>
-                            </Sectionsub>
-                          </button>
-                        </Link>               
-                </Grid>
-                <Grid xs={5}>
-                <Link to="/userguilde">
-                          <button className="p-explore_ButtonHowconnect">
-                            <Sectionsub modifiers="howsettup">
-                              <div className="p-explore_Howconnect">
-                              <Grid justify="space-evenly" alignItems="center" container spacing={1}>
-                                <Grid xs={6}>
-                                  <Heading modifiers={['left']}>Introduce of NFTencer</Heading>
-                                </Grid>
-                                <Grid xs={5}>
-                                  {/* <div className="p-explore_HowconnectLogo"></div> */}
-                                  <img alt="logo metamask" src={logo_encer}/>
-                                </Grid>
-                              </Grid>
-                              </div>
-                            </Sectionsub>
-                          </button>
-                        </Link>     
-                  
-                </Grid>
-              </Grid>
-            </Grid>
-            {/* {!isMobile ? (
-              <Grid item xs={3} >
-                <Grid container spacing={1}>
-                  <Grid style={{ height: "100%" }} item xs={12}>
-                    <div className="p-explore_subdetail">
-                      <Grid style={{ height: "100%" }} item xs={12}>
-                        
+          </Grid>
+          <Layout title="NFTencer.Global">
+            <ScrollToTop style={{ right: "20px", zIndex: "1000" }} easing="linear" showUnder={160}>
+              <span><big><big>&uarr;</big></big></span>
+            </ScrollToTop>
+            {isMobile ? (
+              <></>
+            ) : (
+                <Sectionsub modifiers="padding5" className="p-explore_totalvolume p-explore_carousel">
+                  <Container>
+                    <Grid
+                      container
+                      spacing={3}
+                      direction="row"
+                      justify="center"
+                      alignItems="center"
+                    >
+                      <Grid item xs={8}>
+                        <Carouselt />
+                      </Grid>
+                      <Grid alignContent="center" direction="column" justify="center" alignItems="center" item xs={4} >
+                        <Text modifiers="Grand">Grand Opening!</Text>
+                        <Text modifiers="marketplace">PL NFT Marketplace</Text>
+                      </Grid>
+                      <Grid className="p-explore_totalvolumeMain" item xs={12}>
+                        <Grid justify="space-evenly" container spacing={1}>
+                          <Grid xs={5}>
                             <Link to="/userguilde">
                               <button className="p-explore_ButtonHowconnect">
                                 <Sectionsub modifiers="howconnect">
                                   <div className="p-explore_Howconnect">
-                                    <Heading modifiers={['left']}>{t("mainMenu.howtoconnect")}</Heading>
+                                    <Grid justify="space-evenly" alignItems="center" container spacing={1}>
+                                      <Grid xs={6}>
+                                        <Heading modifiers={['left']}>{t("mainMenu.howtoconnect")}</Heading>
+                                      </Grid>
+                                      <Grid xs={5}>
+                                        {/* <div className="p-explore_HowconnectLogo"></div> */}
+                                        <img alt="logo metamask" src={logo} />
+                                      </Grid>
+                                    </Grid>
                                   </div>
                                 </Sectionsub>
                               </button>
                             </Link>
-                          
-                      </Grid>
+                          </Grid>
+                          <Grid xs={5}>
+                            <Link to="/userguilde">
+                              <button className="p-explore_ButtonHowconnect">
+                                <Sectionsub modifiers="howsettup">
+                                  <div className="p-explore_Howconnect">
+                                    <Grid justify="space-evenly" alignItems="center" container spacing={1}>
+                                      <Grid xs={6}>
+                                        <Heading modifiers={['left']}>Introduce of NFTencer</Heading>
+                                      </Grid>
+                                      <Grid xs={5}>
+                                        {/* <div className="p-explore_HowconnectLogo"></div> */}
+                                        <img alt="logo metamask" src={logo_encer} />
+                                      </Grid>
+                                    </Grid>
+                                  </div>
+                                </Sectionsub>
+                              </button>
+                            </Link>
 
-                      <Grid style={{ height: "100%" }} item xs={12}>
-                        <Grid >
-                          <a href="https://www.coconut.global/">
-                            <a href="https://www.coconut.global/" className="p-explore_ButtonHowconnect" target="_blank">
-                              <Sectionsub modifiers="howsettup">
-                                <div className="p-explore_Howsettup">
-                                  <Heading modifiers={['left', 'white']}>{t("mainMenu.intro")}</Heading>
-                                </div>
-                              </Sectionsub>
-                            </a>
-                          </a>
+                          </Grid>
                         </Grid>
                       </Grid>
-                    </div>
-                  </Grid>
-                </Grid>
-              </Grid>
-            ) : (<div></div>)} */}
-          </Grid>
-        </Container>
-        </Sectionsub>
-  )}
-        <Formik initialValues={initialValue} validationSchema={exploreSchema} onSubmit={values => {
-          if (values.search !== undefined) {
-            navigate(`/search?name=${values.search}`);
-          }
-        }
-        }>
-          {({ values }) => {
-            return (
-              <Form>
-
-                <Grid
-                  className="p-explore_mainet"
-                  container
-                  spacing={3}
-                  direction="row"
-                  justify="flex-start"
-                  alignItems="stretch"
-                >
-                  {/* <Grid justify="center" item xs={12} spacing={2}>
-                    <Heading modifiers="titleEncer">NFTencer</Heading>
-                    <span style={{fontSize:"30px"}}>- NFT Market place</span>
-                  </Grid> */}
-                  {!isMobile && (
-                    <Grid item xs={12} spacing={2}>
-                      {/* <Section className="p-explore_mainsub"> */}
-                        <TextFieldFormik
-                          modifiers="search"
-                          placeholder={t("mainMenu.Search")}
-                          type="search"
-                          name="search"
-                        />
-                        {/* {(['top'] as Anchor[]).map((anchor) => (
+                    </Grid>
+                  </Container>
+                </Sectionsub>
+              )}
+            <Formik initialValues={initialValue} validationSchema={exploreSchema} onSubmit={values => {
+              if (values.search !== undefined) {
+                navigate(`/search?name=${values.search}`);
+              }
+            }
+            }>
+              {({ values }) => {
+                return (
+                  <Form>
+                    <Grid
+                      className="p-explore_mainet"
+                      container
+                      spacing={3}
+                      direction="row"
+                      justify="flex-start"
+                      alignItems="stretch"
+                    >
+                      {!isMobile && (
+                        <Grid item xs={12} spacing={2}>
+                          <TextFieldFormik
+                            modifiers="search"
+                            placeholder={t("mainMenu.Search")}
+                            type="search"
+                            name="search"
+                          />
+                          {/* {(['top'] as Anchor[]).map((anchor) => (
                           <React.Fragment key={anchor}>
                             <button className="expaned-mobile" onClick={toggleDrawer(anchor, true)} ><Icon modifiers="mini" iconName="threedotNobackground" /></button>
                             <SwipeableDrawer
@@ -433,11 +352,11 @@ export const Home: React.FC<RouteComponentProps> = props => {
                             </SwipeableDrawer>
                           </React.Fragment>
                         ))} */}
-                        <div className="menuOption">
-                          <Grid justifyContent="center" className="menu" container spacing={0}>
-                            <Grid item xs={12}>
-                              <TabList modifiers="explore">
-                                {/* <div className="menuOption_tablist">
+                          <div className="menuOption">
+                            <Grid justifyContent="center" className="menu" container spacing={0}>
+                              <Grid item xs={12}>
+                                <TabList modifiers="explore">
+                                  {/* <div className="menuOption_tablist">
                                   {[...ProductCategories].map(cate => (
                                     <TabButton
                                       modifiers="explore"
@@ -451,24 +370,25 @@ export const Home: React.FC<RouteComponentProps> = props => {
                                     </TabButton>
                                   ))}
                                 </div> */}
-                                <div className="p-explore_moreContent">
-                                  {reg.map((cate, i) => (
-                                    <TabButton
-                                      category
-                                      modifiers="category"
-                                      handleClick={() => handleFilter('category',
-                                        cate.name)}>{cate.name.charAt(0).toUpperCase() + cate.name.slice(1)}</TabButton>
-                                  ))}
-                                </div>
-                              </TabList>
+                                  <div className="p-explore_moreContent">
+                                    {reg.map((cate, i) => (
+                                      <TabButton
+                                        category
+                                        modifiers="category"
+                                        handleClick={() => handleFilter('category',
+                                          cate.name)}>{cate.name.charAt(0).toUpperCase() + cate.name.slice(1)}</TabButton>
+                                    ))}
+                                  </div>
+                                </TabList>
+                              </Grid>
+                              <Icon modifiers="SuperUltra" iconName="explore" />
                             </Grid>
-                          </Grid>
-                        </div>
-                      {/* </Section> */}
+                          </div>
 
-                    </Grid>
-                  )}
-                  <Grid item xs={12}>
+                        </Grid>
+                      )}
+
+                      <Grid item xs={12}>
                     <div className="p-explore_products">
                       {store.error && wallet.status === "disconnected" ? (
                         <Text modifiers={['center', 'error']}>{store.error.message}</Text>
@@ -556,12 +476,18 @@ export const Home: React.FC<RouteComponentProps> = props => {
                         )}
                     </div>
                   </Grid>
-                </Grid>
-              </Form>
-            );
-          }}
-        </Formik>
-      </Layout>
+
+
+                    </Grid>
+                  </Form>
+                );
+              }}
+            </Formik>
+          </Layout>
+        </Grid>
+      </Grid>
+
+
       <Modal modifiers="claim" isOpen={modalOpenClaim} handleClose={() => setModalOpenClaim(false)}>
         <ModalHeader title="" handleClose={() => setModalOpenClaim(false)} />
         <Modalclaim />

@@ -9,6 +9,7 @@ interface Props {
   size?: '12' | '14' | '16' | '17' | '18' | '24' | '28' |"22";
   unit?: string;
   inline?: boolean;
+  children: any;
 }
 
 export const Text: React.FC<Props> = props => {
