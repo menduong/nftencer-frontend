@@ -36,5 +36,13 @@
   align-items: center;
 }
 .MuiIconButton-label{
-  color: #D465C3;
+  color: #7e7878;
+  // color: #D465C3;
+  .MuiSvgIcon-root {
+    @include textBuydialog {
+      height: 60px!important;
+      width: 60px!important;
+    }
+   
+  }
 }

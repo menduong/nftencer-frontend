@@ -111,7 +111,7 @@ export const ProductCardSearch: React.FC<ProductProps> = props => {
         <ProductPreview {...props} />
       ) : (
           <>
-            <Link href={productLink}>
+            {/* <Link href={productLink}> */}
               <div className="o-productcard_media">
                 {VideoTypes.includes(props.mediaType || '') ? (
                   <Video fill={true} src={props.src} />
@@ -121,7 +121,7 @@ export const ProductCardSearch: React.FC<ProductProps> = props => {
                 <span className="o-productcard_view"><Icon iconName='play' />{props.view}</span>
 
               </div>
-            </Link>
+            {/* </Link> */}
             <button onClick={() => setLike({
               isLike: !like.isLike,
               amount: !like.isLike && typeof props.amount === 'number' ? props.amount + 1 : props.amount,
@@ -200,11 +200,11 @@ export const ProductCardSearch: React.FC<ProductProps> = props => {
             <div className="o-productcard_info">
               <div className="o-productcardMyItem_heading">
                 <div className="o-productcardMyItem_lead">
-                  <Link href={productLink}>
+                  {/* <Link href={productLink}> */}
                     <Heading type="h4" title={props.title}>
                       {props.title}
                     </Heading>
-                  </Link>
+                  {/* </Link> */}
                 </div>
               </div>
               <div className="o-productcardMyItem_bmp">

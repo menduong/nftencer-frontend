@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { hot } from 'react-hot-loader/root';
 import { Link } from 'gatsby';
 import axios from 'axios';
+import banner from 'assets/images/NFTencer/banner.png';
 import Carousel from 'react-material-ui-carousel'
 type Modifier = 'overflowx' | 'overflowy' | 'overhidden' | 'error' | 'center';
 
@@ -50,7 +51,7 @@ export const Carouselt: React.FC<Props> = props => {
         {
           reg?.map((item, i) =>
             <Link to={item.link}>
-              <img key={i} src="https://htmlcolorcodes.com/assets/images/colors/gray-color-solid-background-1920x1080.png" />
+              <img key={i} src={banner} />
             </Link>
           )
         }

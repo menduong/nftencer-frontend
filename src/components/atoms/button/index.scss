@@ -132,6 +132,7 @@
     border-radius: 10px;
     padding:0;
     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15);
+    padding-right:10px;
   }
 
   &-history {
@@ -187,7 +188,7 @@ color: #000000;
     font-family: NotoSans;
     font-style: normal;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 19px;
     padding: 0 20px;
     @include sp{
@@ -195,6 +196,12 @@ color: #000000;
     }
     @include lg {
       min-width: 190px!important;
+    }
+    @include pcFixedContent {
+      font-size: 16px;
+    }
+    @include mld {
+      font-size: 13px;
     }
   }
 
@@ -412,13 +419,12 @@ linear-gradient(100.93deg, #D565C3 -13.26%, #ABD3EA 101.12%);
 
     }
 
-    &:hover {}
   }
 
   &-iconshare {
     position: absolute;
     right: 3%;
-    top: 2%;
+    top: 4%;
     background-color: #f4f4f4;
     z-index: 99;
     padding: 8px;

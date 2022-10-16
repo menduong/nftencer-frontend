@@ -398,7 +398,7 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
               <>
                 <div className="p-view_control">
                   <div className="p-view_numberView">
-                    <Icon iconName='eye' />
+                    <Icon modifiers="Avatar" iconName='multiAvatar' />
                     <span>&nbsp;&nbsp;{props.view}</span>
                   </div>
                 </div>
@@ -598,6 +598,8 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
                           </Grid>
                           <Grid alignItems="center" item xs={5}>
                           <Text modifiers="Buynow">{(isSuccess && props.id == idCheck ) ? 'Sold out' : `${t("View.Buynow")}`}</Text>
+                         
+                         
                         {/* <ButtonContainer>
                           <Button
                             modifiers="buycolor"
@@ -617,7 +619,8 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
                           {(isSuccess && props.id == idCheck ) ? 'Sold out' : `${t("View.Buynow")}`}
                           </Button>
                         </ButtonContainer> */}
-                      </Grid>           
+                      </Grid>     
+                      {/* <Grid alignItems="center" item xs={1}> <Icon iconName="bag"/></Grid>       */}
                       </Grid>  
                       </Button>         
                     </div>

@@ -102,7 +102,7 @@ If cutLineSpace=true, the spacing the top of first-line & the bottom of last-lin
 }
 
 @mixin smdl() {
-  @media (min-width: 700px) and (max-width: 800px) {
+  @media (min-width: 601px) and (max-width: 899px) {
     @content;
   }
 }
@@ -127,12 +127,12 @@ If cutLineSpace=true, the spacing the top of first-line & the bottom of last-lin
   }
 }
 @mixin mg() {
-  @media (min-width: 1500px) and (max-width: 1764px){
+  @media (min-width: 1500px) and (max-width: 1799px){
     @content;
   }
 }
 @mixin mgland() {
-  @media (min-width: 1500px) and (max-width: 1764px) and (max-height: 850px){
+  @media (min-width: 1500px) and (max-width: 1799px) and (max-height: 850px){
     @content;
   }
 }
@@ -149,6 +149,17 @@ If cutLineSpace=true, the spacing the top of first-line & the bottom of last-lin
 
 @mixin spFixedContent() {
   @media (max-width: 1024px) {
+    @content;
+  }
+}
+@mixin LargeFixedContent() {
+  @media (min-width: 1301px) {
+    @content;
+  }
+}
+
+@mixin textBuydialog() {
+  @media (min-width: 2160px) {
     @content;
   }
 }

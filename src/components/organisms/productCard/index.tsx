@@ -108,7 +108,7 @@ export const Productcard: React.FC<ProductProps> = props => {
         <ProductPreview {...props} />
       ) : (
           <>
-            <Link handleClick={() => view()} href={productLink}>
+            {/* <Link handleClick={() => view()} href={productLink}> */}
               <div className="o-productcard_media">
                 {VideoTypes.includes(props.mediaType || '') ? (
                   <Video src={props.src} />
@@ -119,7 +119,7 @@ export const Productcard: React.FC<ProductProps> = props => {
 
               </div>
 
-            </Link>
+            {/* </Link> */}
             {wallet?.status === 'connected' ?
               (
                 <button
@@ -148,11 +148,11 @@ export const Productcard: React.FC<ProductProps> = props => {
             <div className="o-productcard_info">
               <div className="o-productcard_heading">
                 <div className="o-productcard_lead">
-                  <Link href={productLink}>
+                  {/* <Link href={productLink}> */}
                     <Heading type="h4" title={props.title}>
                       {props.title}
                     </Heading>
-                  </Link>
+                  {/* </Link> */}
                 </div>
               </div>
               <div className="o-productcard_bmp">

@@ -159,7 +159,7 @@ export const Sidebar: React.FC = () => {
             container
             spacing={0}
         >
-             <Grid  className={classes.contain} justify="center" item xs={12} spacing={0}>
+             <Grid  className="o-header_contain" justify="center" item xs={12} spacing={0}>
                 {wallet.status === 'connected'? (
                 <Link
                     href={"/myitem?id=" + wallet.account}>
@@ -170,7 +170,7 @@ export const Sidebar: React.FC = () => {
                     ><Icon modifiers="small" iconName="myitem" />&nbsp;{t("mainMenu.Myitem")}</button>
                 )}
              </Grid>
-             <Grid  className={classes.contain} justify="center" item xs={12} spacing={0}>
+             <Grid  className="o-header_contain" justify="center" item xs={12} spacing={0}>
                 { isKR ? (
             <a className="" href="https://thankful-raclette-226.notion.site/FAQ-536073d3c70248e9a6998acf2a439e05
             " target="_blank"><Icon modifiers="small" iconName="faq" />&nbsp;&nbsp;FAQ</a>):(
@@ -209,7 +209,11 @@ export const Sidebar: React.FC = () => {
                 <MenuItem href="/termofservice">{t("mainMenu.Policy")}</MenuItem>
             </Menu>
             </Grid>
+            
         </Grid>
+        {/* <Grid justify="center" item xs={12} spacing={0}>
+              <Text modifiers="tittleFollowing"><Icon iconName="greenDot"/>Following</Text>
+        </Grid> */}
       </div>
       <div>
         

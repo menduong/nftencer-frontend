@@ -1,4 +1,6 @@
 .o-steps {
+  display:flex;
+  justify-content: space-evenly;
   .m-stepitem {
     &:last-child {
       margin-bottom: 0;

@@ -91,6 +91,10 @@ export type IconName =
   | 'Sidemenu'
   | 'moreMenu'
   | 'faq'
+  | 'multiAvatar'
+  | 'bag'
+  | 'greenDot'
+  | 'fly'
   | 'history'
   | 'messages';
 
@@ -99,7 +103,7 @@ interface Props {
   modifiers?: Modifier | Modifier[];
   children?: any;
 }
-type Modifier = 'colorDelete'|'colorResell'|'tiny'|'small'| 'medium'|'large'| 'mini' |'middle' | 'superlarge' | 'create' | 'custom' | 'filterexplore' | 'large32' | 'flag' |'logoClaim' | 'marginLeft' | '32px' |'60px' |'dotgreen' | 'new' | 'ioma' | 'ultra'|'flex' | 'sideabar' | 'SuperUltra' ;
+type Modifier = 'colorDelete'|'colorResell'|'tiny'|'small'| 'medium'|'large'| 'mini' |'middle' | 'superlarge' | 'create' | 'custom' | 'filterexplore' | 'large32' | 'flag' |'logoClaim' | 'marginLeft' | '32px' |'60px' |'dotgreen' | 'new' | 'ioma' | 'ultra'|'flex' | 'sideabar' | 'SuperUltra' | 'Avatar' | 'free';
 
 export const Icon: React.FC<Props> = props => {
   return <span className={mapModifiers('a-icon', props.iconName, props.modifiers)} >{props.children}</span>;

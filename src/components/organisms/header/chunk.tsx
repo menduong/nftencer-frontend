@@ -6,7 +6,8 @@ import { Dropdown } from 'components/molecules/dropdown';
 import { Mywallet } from 'components/molecules/mywallet';
 import { connectWallet } from 'lib/apiCommon';
 import { UserAvatar } from 'components/molecules/userAvatar';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,useRef } from 'react';
+import { navigate } from 'gatsby-link';
 import moment from "moment";
 import Badge from '@material-ui/core/Badge';
 import { Link } from 'components/atoms/link';
@@ -28,6 +29,8 @@ import { DropdownMenu, DropdownItem } from 'components/molecules/dropdownMenu';
 import logo from 'assets/images/ccn_logoOF.png';
 import { commonStart } from 'store/common';
 import { ButtonContainer } from 'components/molecules/buttonContainer';
+import { TextFieldFormik } from 'components/atoms/textfield';
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 interface Props {
   wallet: any;
@@ -45,11 +48,12 @@ const dropdownStyles = makeStyles({
 export const MenuChunk: React.FC<Props> = ({ balanceBUSD, balanceCONT }) => {
   const [isOpenMywallet, setIsOpenMywallet] = useState(false);
   const { isTrigger, isRefresh, isKR } = useSelector(getBuyStore);
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
   const [modalOpenShare, setModalOpenShare] = useState(false);
   const anchorRef = React.useRef<HTMLButtonElement>(null);
   const [data, dataSet] = useState<any>(Array)
+  const [value, setValue] = useState<any>(Array)
   const { t, i18n } = useTranslation();
   const [modalOpenConnect, setModalOpenConnect] = useState(false);
   const changeLanguage = lng => { i18n.changeLanguage(lng); };
@@ -129,6 +133,11 @@ export const MenuChunk: React.FC<Props> = ({ balanceBUSD, balanceCONT }) => {
 
   }, [dispatch, modalOpenConnect]);
 
+  const searchInput = (event) => {
+    console.log("value789",value)
+    navigate(`/search?name=${value}`);
+    event.preventDefault();
+  }
 
   useEffect(() => {
     if (!modalOpenNoticeCreate) {
@@ -179,11 +188,20 @@ export const MenuChunk: React.FC<Props> = ({ balanceBUSD, balanceCONT }) => {
     children: <Button handleClick={handleToggle} ref={anchorRef} modifiers={['noti']}><Icon modifiers={['small']} iconName="bell" /></Button>,
   };
   const classes = useStyles();
-  console.log("wallet 123123",wallet)
+  console.log("value 123123",value)
   return (
     <div className="o-header_buttons">
+    <form onSubmit={searchInput}>
+      <input 
+        className="o-header_inputSearch"
+        placeholder="Search"
+        type="text" 
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+      />
+    </form>
       <a href={""}>
-        <Button modifiers={['CCNmember']}>NFTencer Member</Button>
+        <Button modifiers={['CCNmember']}><Icon iconName="fly" modifiers="free"/>NFTencer Member</Button>
       </a>
       {(wallet?.status == "disconnected" || wallet?.status == "error") ? (<div><Button modifiers={['create']} handleClick={() => setModalOpenConnect(true)}>{t("mainMenu.Create")}</Button></div>)
         : (
@@ -227,7 +245,6 @@ export const MenuChunk: React.FC<Props> = ({ balanceBUSD, balanceCONT }) => {
         )}
       <div >
         <Dropdown trigger={
-
           <Button modifiers="bell">
             <Badge
               anchorOrigin={{
@@ -320,7 +337,7 @@ export const MenuChunk: React.FC<Props> = ({ balanceBUSD, balanceCONT }) => {
         style={{
           width: "66px",
           boxShadow: "none",
-          left: "30px",
+          left: "10px",
           fontSize: "10px",
         }}
       >

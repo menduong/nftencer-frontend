@@ -132,7 +132,7 @@ export const ProductcardMyItem: React.FC<ProductProps> = props => {
         <ProductPreview {...props} />
       ) : (
           <>
-            <Link href={productLink}>
+            {/* <Link href={productLink}> */}
               <div className="o-productcard_media">
                 {VideoTypes.includes(props.mediaType || '') ? (
                   <Video fill={true} src={props.src} />
@@ -143,7 +143,7 @@ export const ProductcardMyItem: React.FC<ProductProps> = props => {
 
               </div>
 
-            </Link>
+            {/* </Link> */}
 
             <button onClick={() => setLike({
               isLike: !like.isLike,

@@ -211,7 +211,7 @@ export const ProductcardUser: React.FC<ProductProps> = props => {
         <ProductPreview {...props} />
       ) : (
           <>
-            <Link href={productLink}>
+            {/* <Link href={productLink}> */}
               <div className="o-productcardMyItem_media">
                 {VideoTypes.includes(props.mediaType || '') ? (
                   <Video fill={true} src={props.src} />
@@ -220,7 +220,7 @@ export const ProductcardUser: React.FC<ProductProps> = props => {
                   )}
                 <span className="o-productcard_view"><Icon iconName='play' />{props.view}</span>
               </div>
-            </Link>
+            {/* </Link> */}
             <Button modifiers={['iconshare']}><Icon modifiers={['tiny']} iconName='sharelink' /></Button>
 
             <Modal isOpen={ModalOpendelete} handleClose={() => setModalOpendelete(false)}>
@@ -259,11 +259,11 @@ export const ProductcardUser: React.FC<ProductProps> = props => {
             <div className="o-productcardMyItem_info">
               <div className="o-productcardMyItem_heading">
                 <div className="o-productcardMyItem_lead">
-                  <Link href={productLink}>
+                  {/* <Link href={productLink}> */}
                     <Heading type="h4" title={props.title}>
                       {props.title}
                     </Heading>
-                  </Link>
+                  {/* </Link> */}
                 </div>
               </div>
               <div className="o-productcardMyItem_bmp">

@@ -1,8 +1,9 @@
 .m-stepitem {
-  display: flex;
+  display: inline-block;
   align-items: center;
   height: 90px;
   $root: &;
+  width:350px;
 
   &_process {
     background-color: $COLOR_WHITE;
@@ -21,17 +22,17 @@
     &:before,
     &:after {
       position: absolute;
-      width: 2px;
-      height: 60px;
-      top: calc(100% + 1px);
+      width: 350px;
+      height: 2px;
+      left: calc(100% + 1px);
       content: '';
       background-color: $COLOR-LIGHTGRAY;
     }
 
     &:after {
       transition: 0.3s height ease-in-out;
-      height: 0;
-      background-color: $COLOR-CYAN;
+      height: 3px;
+      // background-color: $COLOR-CYAN;
     }
 
     .a-icon,
@@ -41,13 +42,24 @@
     }
   }
 
+  &_info {
+    margin-top:10px;
+    margin-bottom:20px;
+    padding-left:10px;
+    border-left: 7px solid black;
+    &.tick-success {
+      border-left: 7px solid green;
+    }
+  }
   &-tick-success {
     #{$root}_process {
       border-color: $COLOR-CYAN;
       border-width: 2px;
+    
 
       &:after {
-        height: 60px;
+        height: 3px;
+        background-color: #4a9bd6;
       }
     }
   }

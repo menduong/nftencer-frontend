@@ -9,6 +9,7 @@ import { Section } from 'components/organisms/section';
 interface Props {
   modifiers?: Modifier | Modifier[];
   isOpen: boolean;
+  children?:any;
   handleClose: () => void;
 }
 const customStyles = {

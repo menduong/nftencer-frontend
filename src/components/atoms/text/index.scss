@@ -100,6 +100,20 @@
     font-size: 12px;
     line-height: 15px;
     color: #A7D445;
+    text-align: center;
+    @include mg {
+      font-size: 11px;
+    }
+    @include textBuydialog {
+      font-size: 16px;
+    }
+
+    @include mld {
+      font-size: 10px;
+    }
+    // @include textBuydialog {
+
+    // }
   }
 
   &-Buynow {
@@ -108,7 +122,35 @@
     font-size: 13px;
     line-height: 17px;
     color: white;
+    @include mg {
+      font-size: 11px;
+    }
+    @include textBuydialog {
+      font-size: 16px;
+    }
+    @include mld {
+      font-size: 10px;
+    }
   }
+
+  &-tittleFollowing {
+    font-style: italic;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 17px;
+    color: black;
+    padding-left: 5px;
+    @include mg {
+      font-size: 11px;
+    }
+    @include textBuydialog {
+      font-size: 16px;
+    }
+    @include mld {
+      font-size: 10px;
+    }
+  }
+
 
   &-Grand {
     text-align: center;
@@ -149,7 +191,15 @@
     font-weight: bold;
     font-size: 14px;
     line-height: 22px;
-    
+    @include mg {
+      font-size: 12px;
+    }
+    @include textBuydialog {
+      font-size: 16px;
+    }
+    @include mld {
+      font-size: 10px;
+    }
     
   }
 

@@ -105,13 +105,16 @@
     background:white;
     z-index: 1000;
     border-right: 0.5px solid rgba(0, 0, 0, 0.1);
+    @include spFixedContent {
+      width: 10%;
+    }
   }
   &_subMenuItem {
     display: flex;
     margin-top: 20px;
     justify-content: center;
     align-items: center;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+   
 
   }
 
@@ -177,7 +180,7 @@
   }
   &_mainetNftEncer {
     padding : 0;
-    margin-top: 80px!important;
+    margin-top: 70px!important;
     // margin-top: calc(#{$HEADER-PC-HEIGHT} + #{$HEADER-PC-MARGIN} * 8);
     text-align:center;
     @include sp {
@@ -400,11 +403,11 @@
     }
     @include smdl {
       align-items: initial;
-      width: 555px!important;
+      // width: 555px!important;
       font-size: 12px;
       border-radius: 45px;
       position: relative;
-      right: 11px;
+      // right: 11px;
     }
 
 

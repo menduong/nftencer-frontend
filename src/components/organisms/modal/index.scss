@@ -32,7 +32,20 @@
       }
     }
   }
-  
+&-step {
+  padding-top:70px;
+  padding-bottom: 70px;
+  & .ReactModal__Content {
+    // width: 80%;
+    max-width: 1200px!important;
+    transform: translate(-50%, -50%);
+
+
+    // @include spFixedContent {
+    //   width: 90%;
+    // }
+  }
+}
   &-claim {
     & .ReactModal__Content {
       width: 25%;

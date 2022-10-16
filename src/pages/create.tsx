@@ -230,7 +230,7 @@ export const Create: React.FC = () => {
             }}
           </Formik>
         </Section>
-        <Modal isOpen={modalOpen} handleClose={() => setModalOpen(false)}>
+        <Modal modifiers="step" isOpen={modalOpen} handleClose={() => setModalOpen(false)}>
           <ModalHeader title="FOLLOW STEPS" handleClose={() => setModalOpen(false)} />
           <Steps>
             {CreateSteps.map((step, idx) => {
@@ -243,7 +243,7 @@ export const Create: React.FC = () => {
               return <StepItem key={idx} iconName={iconName} {...step} handleClick={step.handleClick} />;
             })}
           </Steps>
-          <Text> After processing , popup is automatically closed. Wait for a moment. </Text>
+          {/* <Text> After processing , popup is automatically closed. Wait for a moment. </Text> */}
         </Modal>
       </Layout>
       <Modal modifiers="noticeCreate" isOpen={modalOpenConvert} handleClose={() => setModalOpenConvert(false)}>

@@ -3,7 +3,7 @@ import { hot } from 'react-hot-loader/root';
 import { mapModifiers } from 'lib/component';
 import ReactModal from 'react-modal';
 
-type Modifier = 'price'|'overflowx' | 'overflowy' | 'overhidden' | 'error' | 'center' | 'noticeCreate' | 'claim' |'report' | "instalMetamask" |"maintenance";
+type Modifier = 'price'|'overflowx' | 'overflowy' | 'overhidden' | 'error' | 'center' | 'noticeCreate' | 'claim' |'report' | "instalMetamask" |"maintenance" | 'step';
 import { Section } from 'components/organisms/section';
 
 interface Props {
