@@ -44,11 +44,12 @@
     margin: 0 auto;
   }
   &-SuperUltra {
+    position: relative;
     width: 260px!important;
     height: 50px;
     display: table;
     margin: 0 auto;
-    margin-top:50px;
+    top:20px;
   }
   &-superlarge {
     width: 90px!important;

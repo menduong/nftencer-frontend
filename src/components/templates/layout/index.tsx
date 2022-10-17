@@ -18,17 +18,17 @@ export const Layout: React.FC<Props> = props => {
       <Pagemeta title={props.title} />
       { props.main? (
         <div className="t-layoutEx">
-          {/* <Header /> */}
+          <Header />
           <Main className="o-main">{props.children}</Main>
         </div>
       ) :props.sidebar?(
         <div className="t-layoutSidebar">
-          {/* <Header /> */}
+          <Header />
           <Main className="o-main">{props.children}</Main>
         </div>
       ): (
       <div className="t-layout">
-        {/* <Header /> */}
+        <Header />
         <Main className="o-main">{props.children}</Main>
       </div>
       )}

@@ -77,6 +77,10 @@
     font-style: normal;
     font-weight: bold;
     font-size: 44px;
+
+    @include textBuydialog {
+      font-size: 54px;
+    }
   }
   &-right {
     text-align:right;

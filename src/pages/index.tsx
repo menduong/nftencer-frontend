@@ -234,14 +234,14 @@ export const Home: React.FC<RouteComponentProps> = props => {
           <Grid
             className="p-explore_mainetNftEncer"
             container
-            spacing={3}
+            spacing={0}
             direction="row"
             justify="center"
             alignItems="center"
           >
             <Grid justify="center" item xs={12} spacing={0}>
               <Heading modifiers="titleEncer">NFTencer</Heading>
-              <span style={{ fontSize: "30px" }}>&nbsp;-NFT Market place</span>
+              <span style={{ fontSize: "35px" }}>&nbsp;-NFT Market place</span>
             </Grid>
           </Grid>
           <Layout title="NFTencer Marketplace">
