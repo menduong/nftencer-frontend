@@ -265,7 +265,7 @@ export const Home: React.FC<RouteComponentProps> = props => {
                       </Grid>
                       <Grid alignContent="center" direction="column" justify="center" alignItems="center" item xs={4} >
                         <Text modifiers="Grand">Grand Opening!</Text>
-                        <Text modifiers="marketplace">PL NFT Marketplace</Text>
+                        <Text modifiers="marketplace">PL NFTencer Marketplace</Text>
                       </Grid>
                       <Grid className="p-explore_totalvolumeMain" item xs={12}>
                         <Grid justify="space-evenly" container spacing={1}>
