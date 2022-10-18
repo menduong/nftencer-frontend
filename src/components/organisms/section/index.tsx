@@ -7,6 +7,7 @@ type Modifier = 'nobackground' | 'nopadding' | 'nomargin' | 'checkout';
 interface Props {
   modifiers?: Modifier | Modifier[];
   className?: string;
+  children?: any;
   useDiv?: boolean;
   checkout?: boolean;
 }

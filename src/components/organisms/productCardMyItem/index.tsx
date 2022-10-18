@@ -139,19 +139,19 @@ export const ProductcardMyItem: React.FC<ProductProps> = props => {
                 ) : (
                     <Image src={props.src} alt={props.alt} />
                   )}
-                <span className="o-productcard_view"><Icon iconName='play' />{props.view}</span>
+                <span className="o-productcard_view"><Icon modifiers="large32" iconName='multiAvatar' />&nbsp;{props.view}&nbsp;view</span>
 
               </div>
 
             {/* </Link> */}
 
-            <button onClick={() => setLike({
+            {/* <button onClick={() => setLike({
               isLike: !like.isLike,
               amount: !like.isLike && typeof props.amount === 'number' ? props.amount + 1 : props.amount,
             })} className="o-productcard_like">{props.totallike}&nbsp;&nbsp;
               <Icon iconName={like.isLike ? 'heartred' : 'heartoutline'} />
-            </button>
-            <Button handleClick={() => setModalOpenShare(true)} modifiers={['iconshare']}><Icon modifiers={['tiny']} iconName='sharelink' /></Button>
+            </button> */}
+            <Button handleClick={() => setModalOpenShare(true)} modifiers={['iconshare']}><Icon modifiers={['large32']} iconName='threedots' /></Button>
             <Modal modifiers={['price']} isOpen={ModalResell} handleClose={() => setModalResell(false)}>
               <ModalHeader title={t("create.ResellTitle")} handleClose={() => setModalResell(false)} />
               <Formik
@@ -228,7 +228,7 @@ export const ProductcardMyItem: React.FC<ProductProps> = props => {
               <ModalHeader title="Share this NFT" handleClose={() => setModalOpenShare(false)} />
               <Modalshare link={productLink} />
             </Modal>
-            <div className="o-productcard_info">
+            {/* <div className="o-productcard_info">
               <div className="o-productcardMyItem_heading">
                 <div className="o-productcardMyItem_lead">
                   <Link href={productLink}>
@@ -296,7 +296,7 @@ export const ProductcardMyItem: React.FC<ProductProps> = props => {
                 </ul>
                 </div>
               </div>
-            </div>
+            </div> */}
             <Tooltip />
           </>
         )}

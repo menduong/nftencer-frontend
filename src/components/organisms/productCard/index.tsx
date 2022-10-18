@@ -115,12 +115,12 @@ export const Productcard: React.FC<ProductProps> = props => {
                 ) : (
                     <Image src={props.src} alt={props.alt} />
                   )}
-                <span className="o-productcard_view"><Icon iconName='play' />{props.view}</span>
+                <span className="o-productcard_view"><Icon modifiers="large32" iconName='multiAvatar' />{props.view}</span>
 
               </div>
 
             {/* </Link> */}
-            {wallet?.status === 'connected' ?
+            {/* {wallet?.status === 'connected' ?
               (
                 <button
                   onClick={() => numberLike()
@@ -138,8 +138,8 @@ export const Productcard: React.FC<ProductProps> = props => {
                   <Icon iconName={like.isLike ? 'heartred' : 'heartoutline'} />
                 </button>
               )
-            }
-            <Button handleClick={() => setModalOpenShare(true)} modifiers={['iconshare']}><Icon modifiers={['tiny']} iconName='sharelink' /></Button>
+            } */}
+            <Button handleClick={() => setModalOpenShare(true)} modifiers={['iconshare']}><Icon modifiers={['large32']} iconName='threedots' />111</Button>
             <Modal isOpen={modalOpenShare} handleClose={() => setModalOpenShare(false)}>
               <ModalHeader title="Share this NFT" handleClose={() => setModalOpenShare(false)} />
               <Modalshare link={productLink} />
@@ -148,11 +148,11 @@ export const Productcard: React.FC<ProductProps> = props => {
             <div className="o-productcard_info">
               <div className="o-productcard_heading">
                 <div className="o-productcard_lead">
-                  {/* <Link href={productLink}> */}
+                  <Link href={productLink}>
                     <Heading type="h4" title={props.title}>
                       {props.title}
                     </Heading>
-                  {/* </Link> */}
+                  </Link>
                 </div>
               </div>
               <div className="o-productcard_bmp">

@@ -3,6 +3,7 @@ import { hot } from 'react-hot-loader/root';
 
 interface Props {
   className?: string;
+  children? : any;
 }
 
 export const Main: React.FC<Props> = props => {

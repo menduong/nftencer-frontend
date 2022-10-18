@@ -22,5 +22,9 @@
     bottom: 0;
     right: 0;
     margin: auto;
+    &-create {
+      height: 80px;
+      width: 80px;
+    }
   }
 }

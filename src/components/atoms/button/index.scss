@@ -423,14 +423,15 @@ linear-gradient(100.93deg, #D565C3 -13.26%, #ABD3EA 101.12%);
 
   &-iconshare {
     position: absolute;
-    right: 3%;
-    top: 4%;
-    background-color: #f4f4f4;
+    right: 0;
+    top: 0;
+    // background-color: rgba(255, 255, 255, 0.69);
     z-index: 99;
     padding: 8px;
-    height: 25px;
-    width:25px;
-    border-radius: 50%;
+    // height: 10px;
+    // width:10px;
+    // border-radius: 50%;
+    background:transparent;
 
     @include smd {
       right: 3%;
@@ -438,10 +439,10 @@ linear-gradient(100.93deg, #D565C3 -13.26%, #ABD3EA 101.12%);
       width:35px;
       
     }
-    &:hover {
-      background: linear-gradient(103.07deg, #D565C3 2.04%, #ABD3EA 94.02%);
+    // &:hover {
+    //   background: linear-gradient(103.07deg, #D565C3 2.04%, #ABD3EA 94.02%);
       
-    }
+    // }
   }
   &-sharemain {
     background-color: #f4f4f4;

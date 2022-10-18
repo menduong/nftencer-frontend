@@ -8,7 +8,7 @@ import setup_4 from 'assets/images/logo/logo4.png';
 import setup_5 from 'assets/images/logo/logo5.png';
 import setup_6 from 'assets/images/logo/logo6.png';
 
-type Modifier = 'small' | 'big';
+type Modifier = 'small' | 'big' | 'create';
 
 
 var items = [

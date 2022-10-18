@@ -1,9 +1,9 @@
 .a-fileinputcreatt {
   border-radius: 10px;
-  height: 180px;
+  height: 220px;
   width: 100%;
-  border: 1px dotted $BORDER-TEXTFIELD-COLOR;
-  padding: 10px;
+  border: 1px dashed #626262;
+  padding: 40px;
 
   &_input {
     display: none;

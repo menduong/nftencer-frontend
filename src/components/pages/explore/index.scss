@@ -7,6 +7,13 @@
     display: flex;
     flex-direction: column;
   }
+
+  &_myItem {
+    min-height: calc(100vh - #{$HEADER-PC-MARGIN} * 2 - #{$HEADER-PC-HEIGHT} - 30px);
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+  }
   &_mainNotice {
     min-height: calc(100vh - #{$HEADER-PC-MARGIN} * 2 - #{$HEADER-PC-HEIGHT} - 30px);
     display: flex;
@@ -48,6 +55,8 @@
     flex-direction: column;
     background-color: #F6F6F6;
     margin-bottom:50px;
+    padding-right:60px!important;
+    padding-left:60px!important;
     .menu{
       position: relative;
       

@@ -199,7 +199,7 @@ export const Reviewcard: React.FC<ProductProps> = props => {
               <ModalHeader title="Share this NFT" handleClose={() => setModalOpenShare(false)} />
               <Modalshare link={productLink} />
             </Modal>
-            <div className="o-review_info">
+            {/* <div className="o-review_info">
               <div className="o-review_heading">
                 <div className="o-review_lead">
                   <Link href={productLink}>
@@ -224,7 +224,7 @@ export const Reviewcard: React.FC<ProductProps> = props => {
                   </li>
                 </ul>
               </div>
-            </div>
+            </div> */}
             <Tooltip />
           </>
         )}
@@ -248,7 +248,7 @@ const ProductPreview: React.FC<ProductProps> = props => {
           )}
 
       </div>
-      <div className="o-review_info">
+      {/* <div className="o-review_info">
         <div className="o-review_heading">
           <div className="o-review_lead">
             <Heading type="h4" title={props.title}>
@@ -270,7 +270,7 @@ const ProductPreview: React.FC<ProductProps> = props => {
             </Text>
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };

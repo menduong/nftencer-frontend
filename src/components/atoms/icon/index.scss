@@ -8,7 +8,7 @@
   background-size: contain;
   $icons: 'arrow', 'arrow-down', 'bid', 'close', 'close-modal', 'cross', 'coin', 'hambuger','hamburger', 'heart', 'heart-active',
     'more', 'search', 'search-not-found', 'share', 'tick', 'tick-step', 'tick-success', 'top1', 'top2', 'top3',
-    'try-again','sharelink','delete','report','resell','threedots', 'wallet', 'bell', 'filter','eye','plus', 'heartred', 'heartoutline', 'play', 'uploadim','redelete','shareicon','playpink','discord','twit','threedotNobackground','teleg','fb','copiedwhite','createitem','binance','metamask','c98' , 'dollar' ,'smile' ,'firetab', 'medaltab','newtab', 'cointab','tagtab','backtotop','censored','flagEN','flagKR','flagVN','logo2','multicircle','metamaskfox','down','logomini','arrowright', 'bellnoti','questionmark','dotgreen','ccn_logo','ioma','single','multi','instagram','medium','mediumb','twitterb','instagramb','telegramb','maint','done', 'messages','myitem','Sidemenu', 'explore' , 'faq' , 'moreMenu', 'history','multiAvatar','bag','greenDot','fly';
+    'try-again','sharelink','delete','report','resell','threedots', 'wallet', 'bell', 'filter','eye','plus', 'heartred', 'heartoutline', 'play', 'uploadim','redelete','shareicon','playpink','discord','twit','threedotNobackground','teleg','fb','copiedwhite','createitem','binance','metamask','c98' , 'dollar' ,'smile' ,'firetab', 'medaltab','newtab', 'cointab','tagtab','backtotop','censored','flagEN','flagKR','flagVN','logo2','multicircle','metamaskfox','down','logomini','arrowright', 'bellnoti','questionmark','dotgreen','ccn_logo','ioma','single','multi','instagram','medium','mediumb','twitterb','instagramb','telegramb','maint','done', 'messages','myitem','Sidemenu', 'explore' , 'faq' , 'moreMenu', 'history','multiAvatar','bag','greenDot','fly','camera';
     @include sp {
       width: 22px;
       height: 22px;
@@ -24,7 +24,11 @@
   &-large32 {
     width: 42px!important;
     height: 42px!important;
-    z-index: 1000;
+    // z-index: 1000;
+    @include textBuydialog {
+      width:60px!important;
+      height: 60px!important;
+    }
   }
   &-large {
     width: 50px!important;
@@ -78,6 +82,14 @@
       height: 40px!important;
     }
 
+  }
+
+  &-camera {
+    width:40px;
+    height: 40px;
+    z-index: 1000;
+    position: relative;
+    bottom:1rem;
   }
   &-sideabar {
     padding:20px;
@@ -152,10 +164,6 @@
   &-tiny {
     width: 17px;
     height: 17px;
-
-    &:hover {
-    background-image: url('assets/images/icon/icon-whiteshare.svg') ;
-    }
   }
   // &-ioma {
   //   width: 17px;

@@ -6,6 +6,7 @@ import TextField from '@material-ui/core/TextField';
 import { Toast } from 'components/molecules/toast';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { Modal } from 'components/organisms/modal';
+import { Text } from 'components/atoms/text';
 import {
   FacebookShareButton,
   TelegramShareButton,
@@ -19,13 +20,16 @@ import axios from 'axios';
 import { useSnackbar } from 'notistack';
 import { ModalHeader } from 'components/molecules/modalHeader';
 import { resetStore } from 'store/createNFT';
-import 'semantic-ui-css/semantic.min.css'
-import { Button, Icon } from 'semantic-ui-react'
+import 'semantic-ui-css/semantic.min.css';
+import { Button } from 'semantic-ui-react';
+import { Icon } from 'components/atoms/icon';
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import { useTranslation } from "react-i18next";
+import background_base from "assets/images/background_base.svg"
+
 type Modifier = 'nobackground' | 'nopadding' | 'nomargin';
 
 interface Props {
@@ -147,7 +151,7 @@ export const Avatar: React.FC<Props> = (props) => {
     const profile = await axios.get(`${process.env.ADDRESS_API}/account?id${result}`)
     const userAva = profile.data.avartar.String
     const userCover = profile.data.cover.String
-    const useraddress = profile.data.address
+    const useraddress = profile.data.address.replace(profile.data.address.substring(12, 35), "...")
     const userinfo = profile.data.info.String
     const usernameid = profile.data.username.String
     dataSet(userAva)
@@ -196,7 +200,8 @@ export const Avatar: React.FC<Props> = (props) => {
     <section className='o-section1'
       style={{
         backgroundColor: "#E6E6E6",
-        backgroundImage: `url(${datacover})`
+        backgroundImage: `url(${datacover?datacover:background_base})`
+        // backgroundImage: `url(${datacover})`
       }}
       onMouseEnter={e => {
         setStyle({ display: 'block', transform: `translateY(-20px)`, transition: `transform 250ms` });
@@ -317,7 +322,7 @@ export const Avatar: React.FC<Props> = (props) => {
           }}
         </Formik>
       </Modal>
-      <Modal isOpen={modalOpenShare} handleClose={() => setModalOpenShare(false)}>
+      {/* <Modal isOpen={modalOpenShare} handleClose={() => setModalOpenShare(false)}>
         <ModalHeader title={t("sharepopup.share")} handleClose={() => setModalOpenShare(false)} />
         <Grid
           container
@@ -376,7 +381,7 @@ export const Avatar: React.FC<Props> = (props) => {
             </button>
           </Grid>
         </Grid>
-      </Modal>
+      </Modal> */}
       <Modal isOpen={modalOpenProfile} handleClose={() => setmodalOpenProfile(false)}>
         {success ? (
           <Toast handleClose={() => setmodalOpenProfile(false)}>Done !</Toast>
@@ -515,27 +520,32 @@ export const Avatar: React.FC<Props> = (props) => {
         className="avatar-user"
         container
         spacing={0}
-        direction="column"
         alignItems="center"
-        justify="center"
+        justify="flex-start"
       >
+         <Grid item xs={3} >
         <img className="avatar-display" src={datas ? datas : avatar}
         />
-        <Grid item xs={10} >
-          <Card className={classes.root}>
+        <button onClick={() => { setSuccess(false); setmodalOpenProfile(true) }}>
+        <Icon modifiers="camera" iconName="camera"/>
+        </button>
+       
+        <Card className={classes.root}>
             <CardContent >
-              <Typography className={classes1.font_basic} align="center" variant="h5" >
+              <Typography className={classes1.font_basic} variant="h5" >
                 <span>{dataid}</span>
               </Typography>
-              <Typography gutterBottom className={classes1.font_basic} align="center" >
+              <Typography gutterBottom className={classes1.font_basic} 
+              // align="center"
+               >
                 <span ref={ref} className="font-id" >{dataddress}</span>
                 <Button circular onClick={() => copy()} className="IconCopy" icon='copy outline'>
                 </Button>
               </Typography>
-              <Typography gutterBottom className={classes1.font} align="center" variant="h5" component="h2">
+              <Typography gutterBottom className={classes1.font} variant="h5" component="h2">
                 <span >{datauserinfo}</span>
               </Typography>
-              <Grid
+              {/* <Grid
                 className="button-handle"
                 container
                 spacing={3}
@@ -552,10 +562,52 @@ export const Avatar: React.FC<Props> = (props) => {
                     <Icon className={classes1.font_basic} size='small' name='share' />  {t("Myitem.Share")}
                   </button>
                 </Grid>
-              </Grid>
+              </Grid> */}
             </CardContent>
           </Card>
         </Grid>
+        <Grid item xs={9} >
+          <div className="p-create_userInfor">
+            <Grid
+              container
+              spacing={5}
+              alignItems="center"
+              justify="flex-start"
+            >
+              <Grid item xs={5} >
+                <Text>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</Text>
+              </Grid>
+              <Grid item xs={7} >
+                <Grid
+                container
+                spacing={0}
+                alignItems="center"
+                justify="center"
+                >
+                  <Grid item xs={4} >
+                    <Text>Follower</Text>
+                  </Grid>
+                  <Grid item xs={4} >
+                    <Text>Following</Text>
+                  </Grid>
+                  <Grid item xs={4} >
+                    <Text>Video</Text>
+                  </Grid>
+                  <Grid item xs={4} >
+                    <Text>-</Text>
+                  </Grid>
+                  <Grid item xs={4} >
+                    <Text>-</Text>
+                  </Grid>
+                  <Grid item xs={4} >
+                    <Text>-</Text>
+                  </Grid>
+                </Grid>
+              </Grid>
+            </Grid>
+            </div>
+        </Grid>
+        
       </Grid>
     </section>
 
