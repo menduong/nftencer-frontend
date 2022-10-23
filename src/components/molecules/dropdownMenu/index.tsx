@@ -4,11 +4,12 @@ import { mapModifiers } from 'lib/component';
 import { Text } from 'components/atoms/text';
 
 type DropdownMenuModifier = 'foo' | 'bar';
-type Modifier = 'noti';
+type Modifier = 'noti' | 'wallet';
 interface DropdownMenuProps {
   modifiers?: Modifier | DropdownMenuModifier | DropdownMenuModifier[];
   groupName?: string;
   additionGroups?: { name: string; items: React.ReactNode }[];
+  children?:any;
 }
 
 export const DropdownMenu: React.FC<DropdownMenuProps> = props => {
@@ -18,6 +19,7 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = props => {
 
 interface DropDownItemGroupProps {
   groupName?: string;
+  children?:any;
 }
 
 export const DropDownItemGroup: React.FC<DropDownItemGroupProps> = props => (
@@ -29,6 +31,7 @@ export const DropDownItemGroup: React.FC<DropDownItemGroupProps> = props => (
 interface DropdownItemProps {
   active?: boolean;
   handleClick?: (e: React.MouseEvent) => void;
+  children?:any;
 }
 
 export const DropdownItem: React.FC<DropdownItemProps> = props => {

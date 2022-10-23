@@ -295,10 +295,10 @@ linear-gradient(90deg, #7B61FF 0%, #C628FD 170.93%);
     }
   }
   &-noticeCreate {
-    background:black;
-    color: #F4F4F4;
+    background: #A7D545;
+    color: #111111;
     width: 100%;
-    height: 30px;
+    height: 36px;
     margin-top: 10px;
     border-radius: 20px;
     font-family: NotoSans;
@@ -311,12 +311,12 @@ linear-gradient(90deg, #7B61FF 0%, #C628FD 170.93%);
     }
   }
   &-createbig {
-    background: linear-gradient(61.78deg, #D565C3 0.4%, #FF5EC8 86.72%),
-linear-gradient(100.93deg, #D565C3 -13.26%, #ABD3EA 101.12%);
+    background: #A7D545;
     color: black;
-    min-width: 145px;
+    // min-width: 145px;
     height: 49px;
-    border-radius: 10px;
+    width: 100%;
+    border-radius: 16px;
     font-family: NotoSans;
     font-style: normal;
     font-weight: bold;

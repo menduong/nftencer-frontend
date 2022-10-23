@@ -99,6 +99,7 @@
   }
 
   &-overflowx {
+   
     .o-section {
       overflow-x: auto;
       overflow-y: hidden;
@@ -106,6 +107,39 @@
   }
 
   &-overflowy {
+    
+    .o-section {
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+  }
+
+  &-buy {
+    & .ReactModal__Content {
+      width: 70%;
+      min-width: 660px!important;
+      transform: translate(-50%, -50%);
+  
+      @include spFixedContent {
+        width: 90%;
+      }
+    }
+    .o-section {
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+  }
+
+  &-report {
+    & .ReactModal__Content {
+      width: 70%;
+      max-width: 400px!important;
+      transform: translate(-50%, -50%);
+  
+      @include spFixedContent {
+        width: 90%;
+      }
+    }
     .o-section {
       overflow-y: auto;
       overflow-x: hidden;

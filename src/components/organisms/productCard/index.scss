@@ -54,7 +54,7 @@
   &_media {
     position: relative;
     width: 100%;
-    height: 31vw!important;
+    height: 28vw!important;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -162,13 +162,47 @@
   &_view {
     position: absolute;
     top: 0px;
-    left: 5px;
+    // left: 5px;
     margin: 0;
     color: black;
     font-size: 12px;
+    width: 100%;
     @include smd {
       left: 18px;
       
+    }
+  }
+
+  &_resell {
+    height: 100%;
+    width: 90%;
+    margin:auto;
+    background:white;
+    text-align:center;
+    border-top-left-radius:7px;
+    border-bottom-left-radius:7px;
+    border-bottom-right-radius:7px;
+    &_Transfer {
+      // padding:10px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      padding:5px;
+      cursor:pointer;
+      &:hover {
+        background: rgba(167, 213, 69, 0.51);
+      }
+
+    }
+    &_Delete {
+      padding:5px;
+      cursor:pointer;
+      p{
+        color: #C8102E!important;
+      }
+      &:hover {
+        background: rgba(167, 213, 69, 0.51);
+      }
+
+    
     }
   }
 

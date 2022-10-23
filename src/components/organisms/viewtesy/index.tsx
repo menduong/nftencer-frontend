@@ -629,7 +629,7 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
                   </Grid>
                   </Grid>
                 </article>
-                <Modal isOpen={ModalOpenreport} handleClose={() => setModalOpenreport(false)}>
+                <Modal modifiers="report" isOpen={ModalOpenreport} handleClose={() => setModalOpenreport(false)}>
                   <ModalHeader mod title={t("reportpopup.Title")} handleClose={() => setModalOpenreport(false)} />
                     <FormControl error={error} component="fieldset" className={classes.formControl}>
                       <FormGroup>
@@ -668,7 +668,7 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
                       </Button>
                     </div>
                 </Modal>
-                  <Modal isOpen={modalOpenShare} handleClose={() => setModalOpenShare(false)}>
+                  <Modal modifiers="report" isOpen={modalOpenShare} handleClose={() => setModalOpenShare(false)}>
                   <ModalHeader title={t("sharepopup.share")} handleClose={() => setModalOpenShare(false)} />
                   <Modalshare link={productLink} />
                 </Modal>
@@ -684,12 +684,13 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
           </ButtonContainer>
         </Modal>
             { props.id == idCheck ? (
-                <Modal checkout={active} isOpen={active} handleClose={handleCloseModal} modifiers="overflowy">
+
+                <Modal checkout={active} isOpen={active} handleClose={handleCloseModal} modifiers="buy">
                   {isSuccess  ? (
                     <Toast handleClose={handleCloseModal}>Success purchase!</Toast>
                   ) :  (
                     <>
-                      <ModalHeader handleClose={handleCloseModal} title={t("checkout.checkout")} />
+                      <ModalHeader title={t("checkout.checkout")} />
                       <div className="p-view_modalbody">
                         <div className="p-view_balance">
                           <div className="p-view_accountinfo">
@@ -857,6 +858,7 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
                     </>
                   )}
                 </Modal>
+
                 
             ) : (
               <> </>
@@ -891,10 +893,10 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
         <ModalHeader modifiers="report" title="Thank you for submitting your report to us." handleClose={() => setreportModal(false)} />
         <Text modifiers={['report']}>We will process the report you submitted as quickly as possible.</Text>
         <Text modifiers={['report','inline']}>Processing time for reports of piracy will typically be 5-7 business days. For more convenience in the settlement process, please send related documents to email:</Text>
-        <Text modifiers={['report','inline']}><a href="mailto:support@coconut.global">support@coconut.global</a></Text>
+        <Text modifiers={['report','inline']}><a href="mailto:support@NFTencer.global">support@NFTencer.global</a></Text>
         <Text modifiers={['report']}>We will process the report you submitted as quickly as possible.</Text>
         <Text modifiers={['report','inline']}>Contact us:</Text>
-        <Text modifiers={['report','inline']}><a href="mailto:support@coconut.global">support@coconut.global</a></Text>
+        <Text modifiers={['report','inline']}><a href="mailto:support@NFTencer.global">support@NFTencer.global</a></Text>
       </Modal>
     </div>
   );

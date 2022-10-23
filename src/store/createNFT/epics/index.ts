@@ -24,6 +24,7 @@ const createURIEpic: Epic = (action$, state$) =>
       data.append('upload_file', values.file);
       data.append('quote_token', Unit[values.unit]);
       data.append('creator', address);
+      // data.append('quantity', '100');
       values.categories?.map(cate => data.append('categories', cate.name.toLocaleLowerCase()));
       return from(
         axios.post(`${process.env.ADDRESS_API}/nft`, data, {
@@ -71,9 +72,7 @@ const createURIEpic: Epic = (action$, state$) =>
             }),
             approveNFT.started({ idNFT: action.payload.tokenid, price: values.instantsaleprice, unit : values.unit })
           );
-          
         }),
-        
         catchError(error => of(createTokenResellURI.failed({ params: action.payload, error: error })))
       );
     })
@@ -85,7 +84,11 @@ const createNFTEpic: Epic = (action$, store$) =>
     filter(createNFT.started.match),
     mergeMap(action => {
       const store: State = store$.value;
+      // const quantity = 10;
+      console.log("store.common.account",store.common.account)
       return from(
+        // NFTContract.send('mint', store.common.account,quantity)
+        // 0x76c10C68D3C7895bf1701FA0a07C083CA4158798 , 100
         NFTContract.send('create', store.common.account, action.payload.tokenURI || store.createNFT.tokenURI)
       ).pipe(
         mergeMap(res => {

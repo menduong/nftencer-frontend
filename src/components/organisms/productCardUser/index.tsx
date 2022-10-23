@@ -334,10 +334,10 @@ export const ProductcardUser: React.FC<ProductProps> = props => {
         <ModalHeader modifiers="report" title="Thank you for submitting your report to us." handleClose={() => setreportModal(false)} />
         <Text modifiers={['report']}>We will process the report you submitted as quickly as possible.</Text>
         <Text modifiers={['report', 'inline']}>Processing time for reports of piracy will typically be 5-7 business days. For more convenience in the settlement process, please send related documents to email:</Text>
-        <Text modifiers={['report', 'inline']}><a href="mailto:support@coconut.global">support@coconut.global</a></Text>
+        <Text modifiers={['report', 'inline']}><a href="mailto:support@NFTencer.global">support@NFTencer.global</a></Text>
         <Text modifiers={['report']}>We will process the report you submitted as quickly as possible.</Text>
         <Text modifiers={['report', 'inline']}>Contact us:</Text>
-        <Text modifiers={['report', 'inline']}><a href="mailto:support@coconut.global">support@coconut.global</a></Text>
+        <Text modifiers={['report', 'inline']}><a href="mailto:support@NFTencer.global">support@NFTencer.global</a></Text>
       </Modal>
     </article>
   );

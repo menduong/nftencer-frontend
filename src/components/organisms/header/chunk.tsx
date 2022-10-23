@@ -29,7 +29,7 @@ import { DropdownMenu, DropdownItem } from 'components/molecules/dropdownMenu';
 import logo from 'assets/images/ccn_logoOF.png';
 import { commonStart } from 'store/common';
 import { ButtonContainer } from 'components/molecules/buttonContainer';
-import { TextFieldFormik } from 'components/atoms/textfield';
+import { Wallet } from './wallet';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 interface Props {
@@ -208,9 +208,7 @@ export const MenuChunk: React.FC<Props> = ({ balanceBUSD, balanceCONT }) => {
           <div><Button modifiers={['create']} handleClick={() => setmodalOpenNoticeCreate(true)}>{t("mainMenu.Create")}</Button></div>
         )}
       {(wallet?.status == "disconnected" || wallet?.status == "error") ? (
-        <Button modifiers={['noBackground', 'connectwallet']} handleClick={() => setModalOpenShare(true)}>
-          {t("mainMenu.Connect")}
-        </Button>
+        <Wallet address={wallet}/>
       ) : (
           <>
             <Dropdown
@@ -220,13 +218,14 @@ export const MenuChunk: React.FC<Props> = ({ balanceBUSD, balanceCONT }) => {
                   handleClick={() => setIsOpenMywallet(!isOpenMywallet)}
                 >
                   <Stack direction="row" spacing={1}>
-                    <Chip avatar={<Avatar alt="logo" src={logo} />}
+                    <Chip 
+                    // <Chip avatar={<Avatar alt="logo" src={logo} />}
                       label={wallet.account?.replace(wallet.account.substring(5, 40), "...")} variant="outlined"
                       clickable />
                   </Stack>
                 </Button>
               }
-              id="wallet"
+              id="walletDetail"
               offset={{ left: 105 }}
             >
               <Mywallet
@@ -353,7 +352,7 @@ export const MenuChunk: React.FC<Props> = ({ balanceBUSD, balanceCONT }) => {
           <MenuItem value={'vi'}><Icon modifiers="flag" iconName="flagVN" />&nbsp;Vi</MenuItem>
         </Select>
       </FormControl>
-      <Modalwallet modifiers={['wallet']} isOpen={modalOpenShare} handleClose={() => setModalOpenShare(false)}>
+      {/* <Modalwallet modifiers={['wallet']} isOpen={modalOpenShare} handleClose={() => setModalOpenShare(false)}>
         <h2 className="modal_title">Connect your wallet</h2>
         <span className="modal_title" > Connect with one of the wallets we support or Create a new wallet
       </span>
@@ -413,9 +412,9 @@ export const MenuChunk: React.FC<Props> = ({ balanceBUSD, balanceCONT }) => {
             <span>We do not own your private keys and cannot access your funds without your confirmation.</span>
           </div>
         </Grid>
-      </Modalwallet>
+      </Modalwallet> */}
       <Modal modifiers="noticeCreate" isOpen={modalOpenNoticeCreate} handleClose={() => setmodalOpenNoticeCreate(false)}>
-        <ModalHeader icon={true} title={t("create.CreateNFT")} handleClose={() => setmodalOpenNoticeCreate(false)} />
+        <ModalHeader title={t("create.CreateNFT")} handleClose={() => setmodalOpenNoticeCreate(false)} />
         <Grid
           container
           spacing={0}
@@ -423,12 +422,12 @@ export const MenuChunk: React.FC<Props> = ({ balanceBUSD, balanceCONT }) => {
         >
           <Text>{t("mainMenu.legal1")}</Text>
           <Text>{t("mainMenu.legal2")}</Text>
-          <Grid item xs={7}>
+          <Grid item xs={12}>
             <Button modifiers="noticeCreate" anchor={{ href: '/create' }}> Agree</Button>
           </Grid>
-          <Grid item xs={5}>
+          {/* <Grid item xs={5}>
             <Button modifiers="noBackgroundBorder" handleClick={() => setmodalOpenNoticeCreate(false)}> {t("mainMenu.Cancel")}</Button>
-          </Grid>
+          </Grid> */}
         </Grid>
       </Modal>
       <Modal modifiers="error" isOpen={modalOpenConnect} handleClose={() => setModalOpenConnect(false)}>

@@ -8,7 +8,7 @@ interface Props {
   modifiers?: Modifier | Modifier[];
   type?: Heading;
   title?: string;
-  children: any;
+  children?: any;
 }
 
 export const Heading: React.FC<Props> = props => {

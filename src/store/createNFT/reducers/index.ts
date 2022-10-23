@@ -50,6 +50,7 @@ const reducer: Reducer<CreateNFT> = (state = initialValue, action) => {
 
   if (isType(action, createNFT.started) || isType(action, approveCreateNFT.started) || isType(action, sellCreateNFT.started)  || isType(action, sellNFT.started)) {
     return produce(state, draft => {
+      console.log("start createNFT/approveCreateNFT")
       if (draft.currentStep.status !== 'loading') draft.currentStep.status = 'loading';
     });
   }
@@ -57,11 +58,13 @@ const reducer: Reducer<CreateNFT> = (state = initialValue, action) => {
   if (isType(action, createTokenURI.done)) {
     return produce(state, draft => {
       draft.tokenURI = action.payload.result.id;
+      console.log("ction.payload",action.payload)
     });
   }
 
   if (isType(action, createNFT.done)) {
     return produce(state, draft => {
+      console.log("done createNFT")
       draft.currentStep.number += 1;
       draft.idNFT = action.payload.result.events.Transfer.returnValues.tokenId;
     });
@@ -94,6 +97,7 @@ const reducer: Reducer<CreateNFT> = (state = initialValue, action) => {
     isType(action, sellNFT.failed)
   ) {
     return produce(state, draft => {
+      console.log("fail")
       draft.currentStep.status = 'try-again';
     });
   }

@@ -71,6 +71,7 @@ export const ProductcardMyItem: React.FC<ProductProps> = props => {
   const [ModalResell, setModalResell] = useState(false);
   const { currentStep, tokenURI } = useSelector(getCreateStore);
   const [modalOpenShare, setModalOpenShare] = useState(false);
+  const [displayResell, setDisplayResell] = useState(false);
   const CreateSteps = [
     {
       description: 'Approve perfoming transactions with your wallet',
@@ -139,8 +140,15 @@ export const ProductcardMyItem: React.FC<ProductProps> = props => {
                 ) : (
                     <Image src={props.src} alt={props.alt} />
                   )}
-                <span className="o-productcard_view"><Icon modifiers="large32" iconName='multiAvatar' />&nbsp;{props.view}&nbsp;view</span>
-
+                  <div  className="o-productcard_view">
+                    <span><Icon modifiers="large32" iconName='multiAvatar' />&nbsp;{props.view}&nbsp;view1</span>
+                    <div style={{visibility:displayResell?"visible":"hidden"}} className="o-productcard_resell">
+                      <div className="o-productcard_resell_contain">
+                        <div className="o-productcard_resell_Transfer"><Icon modifiers="resell" iconName="transfer"/><Text modifiers="inline">&nbsp;&nbsp;Transfer NFT</Text></div>
+                        <div className="o-productcard_resell_Delete"><Icon modifiers="resell" iconName="bin"/><Text modifiers="inline">&nbsp;&nbsp;&nbsp;Delete NFT</Text></div>
+                      </div>
+                    </div>
+                  </div>
               </div>
 
             {/* </Link> */}
@@ -151,7 +159,7 @@ export const ProductcardMyItem: React.FC<ProductProps> = props => {
             })} className="o-productcard_like">{props.totallike}&nbsp;&nbsp;
               <Icon iconName={like.isLike ? 'heartred' : 'heartoutline'} />
             </button> */}
-            <Button handleClick={() => setModalOpenShare(true)} modifiers={['iconshare']}><Icon modifiers={['large32']} iconName='threedots' /></Button>
+            <Button handleClick={() => setDisplayResell(!displayResell)} modifiers={['iconshare']}><Icon modifiers={['large32']} iconName='threedots' /></Button>
             <Modal modifiers={['price']} isOpen={ModalResell} handleClose={() => setModalResell(false)}>
               <ModalHeader title={t("create.ResellTitle")} handleClose={() => setModalResell(false)} />
               <Formik
@@ -224,10 +232,10 @@ export const ProductcardMyItem: React.FC<ProductProps> = props => {
                 <Button type="submit" modifiers="resell">{t("View.No")}</Button>
               </ButtonContainer>
             </Modal>
-            <Modal isOpen={modalOpenShare} handleClose={() => setModalOpenShare(false)}>
+            {/* <Modal isOpen={modalOpenShare} handleClose={() => setModalOpenShare(false)}>
               <ModalHeader title="Share this NFT" handleClose={() => setModalOpenShare(false)} />
               <Modalshare link={productLink} />
-            </Modal>
+            </Modal> */}
             {/* <div className="o-productcard_info">
               <div className="o-productcardMyItem_heading">
                 <div className="o-productcardMyItem_lead">

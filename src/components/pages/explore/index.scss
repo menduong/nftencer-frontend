@@ -183,6 +183,7 @@
   &_mainet {
     padding : 0;
     margin-top:30px;
+    margin-bottom:25px;
     @include sp {
       justify-content: center;
     }
@@ -387,9 +388,11 @@
   }
   &_totalvolume {
     display: flex;
+    width: 75%;
     align-items: center;
     padding:3rem 0; 
     margin-bottom: 50px;
+    margin:auto;
 
     @include sp {
       align-items: initial;

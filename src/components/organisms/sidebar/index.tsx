@@ -172,9 +172,8 @@ export const Sidebar: React.FC = () => {
              </Grid>
              <Grid  className="o-header_contain" justify="center" item xs={12} spacing={0}>
                 { isKR ? (
-            <a className="" href="https://thankful-raclette-226.notion.site/FAQ-536073d3c70248e9a6998acf2a439e05
-            " target="_blank"><Icon modifiers="small" iconName="faq" />&nbsp;&nbsp;FAQ</a>):(
-                <a className="" href="https://thankful-raclette-226.notion.site/COCONUT-d5dc804f50564430a1d6482be1907571" target="_blank"><Icon modifiers="small" iconName="faq" />&nbsp;&nbsp;FAQ</a>
+            <a className="" href="" target="_blank"><Icon modifiers="small" iconName="faq" />&nbsp;&nbsp;FAQ</a>):(
+                <a className="" href="" target="_blank"><Icon modifiers="small" iconName="faq" />&nbsp;&nbsp;FAQ</a>
             )}
             </Grid>
             <Grid justify="center" item xs={12} spacing={0}>
@@ -183,10 +182,10 @@ export const Sidebar: React.FC = () => {
                     align="center"
                     menuButton={<MenuButton className="o-header_menulist"><Icon modifiers="small" iconName="ioma" />&nbsp;{t("mainMenu.Community")}</MenuButton>}
                 >
-                    <MenuItem className="o-header_link-text" href="https://twitter.com/Coconut_Global" target="_blank">Twitter</MenuItem>
-                    <MenuItem className="o-header_link-text" href="https://www.instagram.com/coconut_global" target="_blank">Instagram</MenuItem>
-                    <MenuItem className="o-header_link-text" href="https://t.me/Coconut_notice" target="_blank">Telegram</MenuItem>
-                    <MenuItem className="o-header_link-text" href="https://coconut-global.medium.com" target="_blank">Medium</MenuItem>
+                    <MenuItem className="o-header_link-text" href="" target="_blank">Twitter</MenuItem>
+                    <MenuItem className="o-header_link-text" href="" target="_blank">Instagram</MenuItem>
+                    <MenuItem className="o-header_link-text" href="" target="_blank">Telegram</MenuItem>
+                    <MenuItem className="o-header_link-text" href="" target="_blank">Medium</MenuItem>
                 </Menu>
             </Grid>
             <Grid justify="center" item xs={12} spacing={0}>
@@ -196,13 +195,13 @@ export const Sidebar: React.FC = () => {
                 menuButton={<MenuButton className="o-header_menulist"><Icon  modifiers="small" iconName="moreMenu" />&nbsp;&nbsp;{t("mainMenu.More")} </MenuButton>}
             >
                 { isKR ? (
-                <MenuItem target="_blank" href="https://thankful-raclette-226.notion.site/CONUT-948323109be34a58bfec723c7b201787"  >{t("mainMenu.ConutToken")}</MenuItem>
+                <MenuItem target="_blank" href=""  >{t("mainMenu.ConutToken")}</MenuItem>
                 ) : (
-                <MenuItem target="_blank" href="https://thankful-raclette-226.notion.site/CONUT-TOKEN-f751f8c45b6247d1a6434e8f88bf6a03"  >{t("mainMenu.ConutToken")}</MenuItem>
+                <MenuItem target="_blank" href=""  >{t("mainMenu.ConutToken")}</MenuItem>
                 ) }
                 <SubMenu style={{ textDecoration: 'none' }} label={t("mainMenu.Contact")}>
-                <MenuItem href="mailto:support@coconut.global" className="o-header_link-text"> <a href="mailto:support@coconut.global" target="_blank">{t("mainMenu.Business")}</a></MenuItem>
-                <MenuItem href="mailto:support@coconut.global" className="o-header_link-text"> <a href="mailto:support@coconut.global" target="_blank">CS</a></MenuItem>
+                <MenuItem href="" className="o-header_link-text"> <a href="" target="_blank">{t("mainMenu.Business")}</a></MenuItem>
+                <MenuItem href="" className="o-header_link-text"> <a href="" target="_blank">CS</a></MenuItem>
                 </SubMenu>
                 <MenuItem href="/notice">{t("mainMenu.Notice")}</MenuItem>
                 <MenuItem href="/termofservice">{t("mainMenu.Term")}</MenuItem>

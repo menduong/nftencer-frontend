@@ -13,7 +13,7 @@ export const Carouselt: React.FC<Props> = props => {
   const [reg, regSet] = useState(Array);
   const getBanner = async () => {
     try {
-      const listevent = await axios.get(`https://api.coconut.global/banner/paging?status=0&limit=99&offset=0`);
+      const listevent = await axios.get(`https://api.nftencer.global/banner/paging?status=0&limit=99&offset=0`);
       const ListBanner = listevent.data.banners;
       regSet(ListBanner);
     } catch {
@@ -48,13 +48,14 @@ export const Carouselt: React.FC<Props> = props => {
 
         }}
       >
-        {
+        {/* {
           reg?.map((item, i) =>
             <Link to={item.link}>
               <img key={i} src={banner} />
             </Link>
           )
-        }
+        } */}
+         <img alt="banner" src={banner} />
       </Carousel>
     </div>
   )
