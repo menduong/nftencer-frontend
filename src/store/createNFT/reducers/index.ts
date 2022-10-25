@@ -2,7 +2,7 @@ import { StepIcon } from 'components/molecules/stepItem';
 import produce from 'immer';
 import { Reducer } from 'redux';
 import { isType } from 'typescript-fsa';
-import { resetStore,createTokenResellURI, createTokenURI, createNFT, approveNFT, sellNFT, sellCreateNFT, approveCreateNFT } from 'store/createNFT';
+import { resetStore,createTokenResellURI, createTokenURI, createNFT, approveNFT, sellNFT, sellCreateNFT, approveCreateNFT, createTokenURI1155, getTokenCountURI1155 } from 'store/createNFT';
 import { CreateForm, initialValue as init } from 'components/pages/create/form';
 
 type CreateNFT = {
@@ -31,6 +31,35 @@ const reducer: Reducer<CreateNFT> = (state = initialValue, action) => {
       draft.tokenURI = initialValue.tokenURI;
     });
   }
+
+  ///////  1155  ///////
+  if (isType(action, createTokenURI1155.started)) {
+    return produce(state, draft => {
+      if (draft.currentStep.status !== 'loading') draft.currentStep.status = 'loading';
+      draft.currentStep.number += 1;
+      if (action.payload.data) draft.newProduct = action.payload.data;
+    });
+  }
+
+  if (isType(action, createTokenURI1155.done)) {
+    return produce(state, draft => {
+    
+      console.log("1155 done",action.payload.result.url)
+    });
+  }
+  if (isType(action, getTokenCountURI1155.started)) {
+    return produce(state, draft => {
+      console.log("count token started",action.payload)
+    });
+  }
+  if (isType(action, getTokenCountURI1155.done)) {
+    return produce(state, draft => {
+      console.log("count token Done",action.payload)
+    });
+  }
+
+
+  //////////////////////
 
   if (isType(action, createTokenURI.started)) {
     return produce(state, draft => {

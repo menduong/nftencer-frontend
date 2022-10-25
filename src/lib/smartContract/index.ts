@@ -3,6 +3,7 @@
 import BEP20FixedSupplyABI from './abi/BEP20FixedSupply';
 import NFTDigitalABI from './abi/NFTDigital';
 import SimpleExchangeNFTABI from './abi/SimpleExchangeNFT';
+import UserDefined1155 from './abi/UserDefined1155';
 
 export type MiddlewareMethods = {
   [key in 'sending' | 'transactionHash' | 'receipt']?: () => void;
@@ -96,6 +97,11 @@ class SmartContract {
 export const BUSDContract = new SmartContract(BEP20FixedSupplyABI, process.env.BUSD_CONTRACT_ADDRESS || '');
 export const CONTContract = new SmartContract(BEP20FixedSupplyABI, process.env.CONT_CONTRACT_ADDRESS || '');
 export const NFTContract = new SmartContract(NFTDigitalABI, process.env.NFT_CONTRACT_ADDRESS || '');
+
+/////// 1155 //////////
+export const NFTContract1155 = new SmartContract(UserDefined1155, process.env.NFT_CONTRACT_ADDRESS || '');
+
+///////////////////////
 export const SimpleExchangeContract = new SmartContract(
   SimpleExchangeNFTABI,
   process.env.SIMPLE_EXCHANGE_ADDRESS || ''

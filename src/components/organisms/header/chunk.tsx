@@ -188,7 +188,6 @@ export const MenuChunk: React.FC<Props> = ({ balanceBUSD, balanceCONT }) => {
     children: <Button handleClick={handleToggle} ref={anchorRef} modifiers={['noti']}><Icon modifiers={['small']} iconName="bell" /></Button>,
   };
   const classes = useStyles();
-  console.log("value 123123",value)
   return (
     <div className="o-header_buttons">
     <form onSubmit={searchInput}>
