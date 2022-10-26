@@ -2,6 +2,8 @@ import { actionCreatorFactory } from 'typescript-fsa';
 import {
   CreateURIReq,
   CreateURIRes,
+  CreateURI1155Req,//// 1155
+  CreateURI1155Res,////  1155
   CreateDataURIReq,
   CreateDataURIRes,
   CreateNFTRes,
@@ -26,3 +28,8 @@ export const approveNFT = actionCreator.async<ApproveReq, ApproveRes, Error>('AP
 export const approveCreateNFT = actionCreator.async<ApproveCreateReq, ApproveCreateRes, Error>('APROVE_CREATE_NFT');
 export const sellNFT = actionCreator.async<SellNFTReq, SellNFTRes, Error>('SELL_NFT');
 export const sellCreateNFT = actionCreator.async<SellCreateNFTReq, SellCreateNFTRes, Error>('SELL_CREATE_NFT');
+
+////////////// 1155 ////////////
+export const  createTokenURI1155 = actionCreator.async<CreateURI1155Req, CreateURI1155Res, Error>('CREATE_TOKEN_URL_1155');
+
+export const  getTokenCountURI1155 = actionCreator.async<CreateURI1155Req, CreateURI1155Res, Error>('GET_TOKEN_COUNT_1155');

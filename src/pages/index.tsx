@@ -50,6 +50,8 @@ import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import ScrollToTop from 'react-scroll-up';
 import ListItem from 'components/organisms/listItem';
 import { throttle } from 'lodash';
+import banner_top from 'assets/images/NFTencer/banner_top.png';
+
 
 const AccordionSummary = withStyles({
   content: {
@@ -207,7 +209,7 @@ export const Home: React.FC<RouteComponentProps> = props => {
             <div className="o-header_miniMenu"></div>
           </Grid>
         }
-        <Grid justify="center" item xs={isSidebar === true ? 11 : 12} spacing={0}>
+        <Grid justify="center" item xs={isSidebar === true ? 10 : 12} spacing={0}>
           <div className="o-header_miniMenu">
             {reg.map((cate, i) => (
               <TabButton
@@ -221,16 +223,16 @@ export const Home: React.FC<RouteComponentProps> = props => {
         </>
         )}
 
-        <Grid justify="center" item xs={isSidebar ? 1 : false} spacing={2}>
+        <Grid justify="center" item xs={isSidebar ? 2 : false} spacing={2}>
           {isSidebar === true && !isMobile &&
-            <div className="p-explore_subMenu">
+            <div className={isSticky? "p-explore_subMenu_Sticky":"p-explore_subMenu"}>
               <div className="p-explore_subMenuItem">
                 <Sidebar />
               </div>
             </div>
           }
         </Grid>
-        <Grid className="p-explore_section" justify="center" item xs={isSidebar === true ? 11 : 12} spacing={2}>
+        <Grid className="p-explore_section" justify="center" item xs={isSidebar === true ? 10 : 12} spacing={2}>
           <Grid
             className="p-explore_mainetNftEncer"
             container
@@ -239,10 +241,10 @@ export const Home: React.FC<RouteComponentProps> = props => {
             justify="center"
             alignItems="center"
           >
-            <Grid justify="center" item xs={12} spacing={0}>
+            {/* <Grid justify="center" item xs={12} spacing={0}>
               <Heading modifiers="titleEncer">NFTencer</Heading>
               <span style={{ fontSize: "35px" }}>&nbsp;-NFT Market place</span>
-            </Grid>
+            </Grid> */}
           </Grid>
           <Layout title="NFTencer Marketplace">
             <ScrollToTop style={{ right: "20px", zIndex: "1000" }} easing="linear" showUnder={160}>
@@ -260,29 +262,31 @@ export const Home: React.FC<RouteComponentProps> = props => {
                       justify="center"
                       alignItems="center"
                     >
-                      <Grid item xs={8}>
+                      <Grid item xs={12}>
+                        <img style={{width:"100%"}} src={banner_top} />
                         <Carouselt />
                       </Grid>
-                      <Grid alignContent="center" direction="column" justify="center" alignItems="center" item xs={4} >
+                      {/* <Grid alignContent="center" direction="column" justify="center" alignItems="center" item xs={4} >
                         <Text modifiers="Grand">Grand Opening!</Text>
                         <Text modifiers="marketplace">NFTencer Marketplace</Text>
-                      </Grid>
+                      </Grid> */}
                       <Grid className="p-explore_totalvolumeMain" item xs={12}>
                         <Grid justify="space-evenly" container spacing={1}>
                           <Grid xs={5}>
+                          
                             <Link to="/userguilde">
                               <button className="p-explore_ButtonHowconnect">
                                 <Sectionsub modifiers="howconnect">
                                   <div className="p-explore_Howconnect">
-                                    <Grid justify="space-evenly" alignItems="center" container spacing={1}>
+                                    {/* <Grid justify="space-evenly" alignItems="center" container spacing={1}>
                                       <Grid xs={6}>
                                         <Heading modifiers={['left']}>{t("mainMenu.howtoconnect")}</Heading>
                                       </Grid>
-                                      <Grid xs={5}>
+                                      <Grid xs={5}> */}
                                         {/* <div className="p-explore_HowconnectLogo"></div> */}
-                                        <img alt="logo metamask" src={logo} />
+                                        {/* <img alt="logo metamask" src={logo} />
                                       </Grid>
-                                    </Grid>
+                                    </Grid> */}
                                   </div>
                                 </Sectionsub>
                               </button>
@@ -293,15 +297,7 @@ export const Home: React.FC<RouteComponentProps> = props => {
                               <button className="p-explore_ButtonHowconnect">
                                 <Sectionsub modifiers="howsettup">
                                   <div className="p-explore_Howconnect">
-                                    <Grid justify="space-evenly" alignItems="center" container spacing={1}>
-                                      <Grid xs={6}>
-                                        <Heading modifiers={['left']}>Introduce of NFTencer</Heading>
-                                      </Grid>
-                                      <Grid xs={5}>
-                                        {/* <div className="p-explore_HowconnectLogo"></div> */}
-                                        <img alt="logo metamask" src={logo_encer} />
-                                      </Grid>
-                                    </Grid>
+                                   
                                   </div>
                                 </Sectionsub>
                               </button>
@@ -332,12 +328,12 @@ export const Home: React.FC<RouteComponentProps> = props => {
                     >
                       {!isMobile && (
                         <Grid item xs={12} spacing={2}>
-                          <TextFieldFormik
+                          {/* <TextFieldFormik
                             modifiers="search"
                             placeholder={t("mainMenu.Search")}
                             type="search"
                             name="search"
-                          />
+                          /> */}
                           {/* {(['top'] as Anchor[]).map((anchor) => (
                           <React.Fragment key={anchor}>
                             <button className="expaned-mobile" onClick={toggleDrawer(anchor, true)} ><Icon modifiers="mini" iconName="threedotNobackground" /></button>

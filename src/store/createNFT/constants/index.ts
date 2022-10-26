@@ -4,7 +4,15 @@ import { AnyArray } from 'immer/dist/internal';
 export type CreateURIReq = { data?: CreateForm };
 export type CreateDataURIReq = { datas?: CreateFormData,uid?:any ,tokenid?:any };
 
+
+///////// 1155 ////////
+export type CreateURI1155Res = any;
+export type CreateURI1155Req = any;
+
+
+//////////////////////
 export type CreateURIRes = any;
+
 export type CreateDataURIRes = any;
 
 export type CreateNFTReq = { tokenURI?: string };

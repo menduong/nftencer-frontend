@@ -12,6 +12,7 @@ interface Props {
   modifiers?: Modifier | Modifier[];
   fieldName?: string;
   lead?: string;
+  children?: any;
   isOptional?: boolean;
   caption?: string[] | string;
   captionfee?:boolean

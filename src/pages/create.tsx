@@ -24,7 +24,7 @@ import { StepItem } from 'components/molecules/stepItem';
 import { Steps } from 'components/organisms/steps';
 import { useWallet } from 'use-wallet';
 import { useDispatch, useSelector } from 'react-redux';
-import { createNFT, createTokenURI, getCreateStore, resetStore, sellCreateNFT, approveCreateNFT } from 'store/createNFT';
+import { createNFT, createTokenURI, getCreateStore, resetStore, sellCreateNFT, approveCreateNFT,createTokenURI1155 } from 'store/createNFT';
 import { Select } from 'components/atoms/select';
 import { commonStart } from 'store/common';
 import { ButtonContainer } from 'components/molecules/buttonContainer';
@@ -115,7 +115,8 @@ export const Create: React.FC = () => {
             initialValues={initialValue}
             validationSchema={createSchema}
             onSubmit={values => {
-              dispatch(commonStart({ nextAction: createTokenURI.started({ data: values }) }));
+              // dispatch(commonStart({ nextAction: createTokenURI1155.started({ data: values }) }));   ///// 1155
+              dispatch(commonStart({ nextAction: createTokenURI.started({ data: values }) }));   ////751
               setModalOpen(true);
             }}
             validateOnMount
