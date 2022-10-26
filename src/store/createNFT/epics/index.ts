@@ -1,9 +1,9 @@
 import { Epic, combineEpics } from 'redux-observable';
 import { from, of } from 'rxjs';
 import { map, mergeMap, catchError, filter } from 'rxjs/operators';
-import { createTokenURI,createTokenResellURI, createNFT, approveNFT, approveCreateNFT, sellNFT, sellCreateNFT,createTokenURI1155,getTokenCountURI1155} from 'store/createNFT';
+import { createTokenURI,createTokenResellURI, createNFT, approveNFT, approveCreateNFT, sellNFT, sellCreateNFT,createTokenURI1155,getTokenCountURI1155,} from 'store/createNFT';
 import { State } from 'store';
-import { NFTContract, SimpleExchangeContract,NFTContract1155 } from 'lib/smartContract';
+import { NFTContract, SimpleExchangeContract,UserDefined_1155,NFTContract_1155 } from 'lib/smartContract';
 import axios from 'axios';
 import { CardType, CardTypeNum, formatSaleBalance } from 'util/formatBalance';
 import { Unit } from 'components/pages/create/form';
@@ -41,6 +41,7 @@ const createURI_1155Epic: Epic = (action$, state$) =>
             }),
             // createNFT.started({ tokenURI: res.data.id })
             getTokenCountURI1155.started({})
+            // createNFT.started({ tokenURI: res.data.id  })
           );
           
         }),
@@ -54,12 +55,9 @@ const createURI_1155Epic: Epic = (action$, state$) =>
     filter(getTokenCountURI1155.started.match),
     mergeMap(action => {
       const store: State = store$.value;
-      // const quantity = 10;
       console.log("store.common.account",action)
       return from(
-        // NFTContract.send('mint', store.common.account,quantity)
-        // 0x76c10C68D3C7895bf1701FA0a07C083CA4158798 , 100
-        NFTContract1155.send('getTokenCount')
+        UserDefined_1155.callFunc('getTokenCount')
       ).pipe(
         mergeMap(res => {
           return of(
@@ -67,7 +65,7 @@ const createURI_1155Epic: Epic = (action$, state$) =>
               params: action.payload,
               result: res,
             }),
-       
+            
             // approveCreateNFT.started({ idNFT: res.events.Transfer.returnValues.tokenId })
           );
         }),
@@ -103,6 +101,7 @@ const createURIEpic: Epic = (action$, state$) =>
       data.append('quote_token', Unit[values.unit]);
       data.append('creator', address);
       // data.append('quantity', '100');
+      console.log("step 1")
       values.categories?.map(cate => data.append('categories', cate.name.toLocaleLowerCase()));
       return from(
         axios.post(`${process.env.ADDRESS_API}/nft`, data, {
@@ -131,9 +130,12 @@ const createURIEpic: Epic = (action$, state$) =>
     filter(createNFT.started.match),
     mergeMap(action => {
       const store: State = store$.value;
-      // const quantity = 10;
+      const quantity = 10;
       console.log("store.common.account",action)
+      console.log("store store",store)
+      console.log("step 2")
       return from(
+        // NFTContract_1155.send('mint', store.common.account,quantity)
         // NFTContract.send('mint', store.common.account,quantity)
         // 0x76c10C68D3C7895bf1701FA0a07C083CA4158798 , 100
         NFTContract.send('create', store.common.account, action.payload.tokenURI || store.createNFT.tokenURI)
