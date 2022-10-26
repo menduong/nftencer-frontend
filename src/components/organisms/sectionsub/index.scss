@@ -44,30 +44,37 @@
   }
   &-howconnect {
     margin-bottom: 7px;
-    // height: 140px;
+    height: 150px;
     padding: 10px;
-    background: linear-gradient(264.17deg, #F2F2F2 1.96%, #FFFFFF 110.82%);
+    background: url('assets/images/MetaMask_Fox1.png');
+    // background: linear-gradient(264.17deg, #F2F2F2 1.96%, #FFFFFF 110.82%);
     // box-shadow: 0px 11px 27px rgba(0, 0, 0, 0.1);
     box-shadow: 15px 20px 27px rgba(0, 0, 0, 0.15);
     align-content: center;
     justify-content: center;
     align-items: center;
     border-radius: 14px;
-    display:flex;
+    display:block;
+    background-size: cover;
+    background-repeat: no-repeat;
    
   }
   &-howsettup {
     margin-bottom: 7px;
-    // height: 140px;
+    height: 150px;
     padding: 10px;
-    background: linear-gradient(264.17deg, #F2F2F2 1.96%, #FFFFFF 110.82%);
+    background: url('assets/images/Intro_NFTencer.png');
+    // background: linear-gradient(264.17deg, #F2F2F2 1.96%, #FFFFFF 110.82%);
     // box-shadow: 0px 11px 27px rgba(0, 0, 0, 0.1);
     box-shadow: 15px 20px 27px rgba(0, 0, 0, 0.15);
     align-content: center;
     justify-content: center;
     align-items: center;
     border-radius: 14px;
-    display:flex;
+    display:block;
+    background-size: cover;
+    background-repeat: no-repeat;
+   
   }
 
 }

@@ -114,6 +114,28 @@
     }
   }
 
+  &_listMui {
+    background:#EFEEEE!important;
+    border-radius: 15px;
+    padding:0px!important;
+    text-align: center;
+    width: 80%;
+    margin:auto;
+    @include textBuydialog {
+      width: 100%;
+    }
+   
+  }
+  &_listMuiButton {
+    padding:3px;
+    text-align: center;
+    transition: 0.3s;
+    &:hover {
+      background: rgba(244, 182, 214, 0.5);
+      border-radius: 15px;
+  }
+  }
+
   &_inputSearch {
     width: 25vw;
     height: 37px;
@@ -506,4 +528,9 @@
         right: 27%;
         top:10px;
         }
+}
+
+
+.css-cveggr-MuiListItemIcon-root {
+  min-width: 2rem!important;
 }

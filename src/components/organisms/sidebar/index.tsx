@@ -15,7 +15,7 @@ import { Modal } from 'components/organisms/modal';
 import { ModalHeader } from 'components/molecules/modalHeader';
 import { connectWallet } from 'lib/apiCommon';
 import Grid from '@material-ui/core/Grid';
-import List from '@material-ui/core/List';
+// import List from '@material-ui/core/List';
 import clsx from 'clsx';
 import ListItem from '@material-ui/core/ListItem';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
@@ -27,6 +27,19 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import Typography from '@material-ui/core/Typography';
 import { useEthers } from "@usedapp/core";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import List from '@mui/material/List';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import Collapse from '@mui/material/Collapse';
+
+import InboxIcon from '@mui/icons-material/MoveToInbox';
+import DraftsIcon from '@mui/icons-material/Drafts';
+import SendIcon from '@mui/icons-material/Send';
+import ExpandLess from '@mui/icons-material/ExpandLess';
+import ExpandMore from '@mui/icons-material/ExpandMore';
+import StarBorder from '@mui/icons-material/StarBorder';
+
 import {
   Menu,
   MenuItem,
@@ -46,7 +59,7 @@ const useStyles = makeStyles({
   },
   contain: {
     // textAlign: "center"
-    padding:"15px 0px",
+    padding: "15px 0px",
   },
   ListItemText: {
     display: "flex",
@@ -96,36 +109,27 @@ export const Sidebar: React.FC = () => {
   const dispatch = useDispatch();
   const [isSticky, setSticky] = useState(false);
   const { t } = useTranslation();
-  const { isKR} = useSelector(getBuyStore);
+  const { isKR } = useSelector(getBuyStore);
   const [openHambugerMenu, setOpenHambugerMenu] = useState(false);
   const [modalOpenShare, setModalOpenShare] = useState(false);
   const [modalmobile, setmodalmobile] = useState(false);
   const classes = useStyles();
-  const [reg, regSet] = useState(Array);
   const [expanded, setExpanded] = React.useState<string | false>(false);
-  const {activateBrowserWallet, account } = useEthers();
+  const { activateBrowserWallet, account } = useEthers();
   const handleChange = (panel: string) => (event: React.ChangeEvent<{}>, isExpanded: boolean) => {
     setExpanded(isExpanded ? panel : false);
   };
-  const [state, setState] = React.useState({
+  const [open, setOpen] = useState(false);
+
+  const [state, setState] = useState({
     top: false,
     left: false,
     bottom: false,
     right: false,
   });
-  const toggleDrawer = (anchor: Anchor, open: boolean) => (
-    event: React.KeyboardEvent | React.MouseEvent,
-  ) => {
-    if (
-      event &&
-      event.type === 'keydown' &&
-      ((event as React.KeyboardEvent).key === 'Tab' ||
-        (event as React.KeyboardEvent).key === 'Shift')
-    ) {
-      return;
-    }
 
-    setState({ ...state, [anchor]: open });
+  const handleClick = () => {
+    setOpen(!open);
   };
 
   useEffect(() => {
@@ -154,68 +158,144 @@ export const Sidebar: React.FC = () => {
   }, []);
   return (
     <header>
-        <div >
+      <div >
         <Grid
-            container
-            spacing={0}
+          container
+          spacing={0}
         >
-             <Grid  className="o-header_contain" justify="center" item xs={12} spacing={0}>
-                {wallet.status === 'connected'? (
-                <Link
-                    href={"/myitem?id=" + wallet.account}>
-                    <Icon modifiers="small" iconName="myitem" />&nbsp;{t("mainMenu.Myitem")}</Link>
-                ) : (
-                    <button className="o-header_button-menuItem"
-                    onClick={() => setModalOpenShare(true)}
-                    ><Icon modifiers="small" iconName="myitem" />&nbsp;{t("mainMenu.Myitem")}</button>
-                )}
-             </Grid>
-             <Grid  className="o-header_contain" justify="center" item xs={12} spacing={0}>
-                { isKR ? (
-            <a className="" href="" target="_blank"><Icon modifiers="small" iconName="faq" />&nbsp;&nbsp;FAQ</a>):(
+
+          <List>
+            {wallet.status === 'connected' ? (
+              <Link
+                href={"/myitem?id=" + wallet.account}>
+                <ListItemButton>
+                  <ListItemIcon>
+                    <Icon modifiers="small" iconName="myitem" />
+                  </ListItemIcon>
+
+                  <ListItemText primary="My item" />
+
+                </ListItemButton>
+              </Link>
+            ) : (
+                <ListItemButton >
+                  <button onClick={() => setModalOpenShare(true)} style={{display:"flex",alignItems:"center"}}>
+                  <ListItemIcon>
+                    <Icon modifiers="small" iconName="myitem" />
+                  </ListItemIcon>
+                  <ListItemText primary="My item" />
+                  </button>
+                </ListItemButton>
+              )}
+            <ListItemButton>
+              <ListItemIcon>
+                <Icon modifiers="small" iconName="faq" />
+              </ListItemIcon>
+              <ListItemText primary="FAQ" />
+            </ListItemButton>
+
+            <ListItemButton onClick={handleClick}>
+              <ListItemIcon>
+                <Icon modifiers="small" iconName="ioma" />
+              </ListItemIcon>
+              <ListItemText primary="Community" />
+              {open ? <ExpandLess /> : <ExpandMore />}
+            </ListItemButton>
+            <Collapse in={open} timeout="auto" unmountOnExit>
+              <List className="o-header_listMui" component="div" disablePadding>
+                <ListItemButton className="o-header_listMuiButton" sx={{ pl: 4 }}>
+                  <ListItemText primary="Twitter" />
+                </ListItemButton>
+                <ListItemButton className="o-header_listMuiButton" sx={{ pl: 4 }}>
+                  <ListItemText primary="Instagram" />
+                </ListItemButton>
+                <ListItemButton className="o-header_listMuiButton" sx={{ pl: 4 }}>
+                  <ListItemText primary="Telegram" />
+                </ListItemButton>
+                <ListItemButton className="o-header_listMuiButton" sx={{ pl: 4 }}>
+                  <ListItemText primary="Medium" />
+                </ListItemButton>
+              </List>
+            </Collapse>
+
+            <ListItemButton>
+              <ListItemIcon>
+                <Icon modifiers="small" iconName="moreMenu" />
+              </ListItemIcon>
+              <ListItemText primary="More" />
+            </ListItemButton>
+
+          </List>
+
+
+          {/* <Grid className="o-header_contain" justify="center" item xs={12} spacing={0}>
+            {wallet.status === 'connected' ? (
+              <Link
+                href={"/myitem?id=" + wallet.account}>
+                <Icon modifiers="small" iconName="myitem" />&nbsp;{t("mainMenu.Myitem")}</Link>
+            ) : (
+                <button className="o-header_button-menuItem"
+                  onClick={() => setModalOpenShare(true)}
+                ><Icon modifiers="small" iconName="myitem" />&nbsp;{t("mainMenu.Myitem")}</button>
+              )}
+          </Grid>
+
+
+          <Grid className="o-header_contain" justify="center" item xs={12} spacing={0}>
+            {isKR ? (
+              <a className="" href="" target="_blank"><Icon modifiers="small" iconName="faq" />&nbsp;&nbsp;FAQ</a>) : (
                 <a className="" href="" target="_blank"><Icon modifiers="small" iconName="faq" />&nbsp;&nbsp;FAQ</a>
-            )}
-            </Grid>
-            <Grid justify="center" item xs={12} spacing={0}>
-                <Menu  
-                    direction="right"
-                    align="center"
-                    menuButton={<MenuButton className="o-header_menulist"><Icon modifiers="small" iconName="ioma" />&nbsp;{t("mainMenu.Community")}</MenuButton>}
-                >
-                    <MenuItem className="o-header_link-text" href="" target="_blank">Twitter</MenuItem>
-                    <MenuItem className="o-header_link-text" href="" target="_blank">Instagram</MenuItem>
-                    <MenuItem className="o-header_link-text" href="" target="_blank">Telegram</MenuItem>
-                    <MenuItem className="o-header_link-text" href="" target="_blank">Medium</MenuItem>
-                </Menu>
-            </Grid>
-            <Grid justify="center" item xs={12} spacing={0}>
+              )}
+          </Grid>
+
+
+
+          <Grid justify="center" item xs={12} spacing={0}>
             <Menu
-                direction="right"
-                align="center"
-                menuButton={<MenuButton className="o-header_menulist"><Icon  modifiers="small" iconName="moreMenu" />&nbsp;&nbsp;{t("mainMenu.More")} </MenuButton>}
+              direction="right"
+              align="center"
+              menuButton={<MenuButton className="o-header_menulist"><Icon modifiers="small" iconName="ioma" />&nbsp;{t("mainMenu.Community")}</MenuButton>}
             >
-                { isKR ? (
+              <MenuItem className="o-header_link-text" href="" target="_blank">Twitter</MenuItem>
+              <MenuItem className="o-header_link-text" href="" target="_blank">Instagram</MenuItem>
+              <MenuItem className="o-header_link-text" href="" target="_blank">Telegram</MenuItem>
+              <MenuItem className="o-header_link-text" href="" target="_blank">Medium</MenuItem>
+            </Menu>
+          </Grid>
+
+
+
+          <Grid justify="center" item xs={12} spacing={0}>
+            <Menu
+              direction="right"
+              align="center"
+              menuButton={<MenuButton className="o-header_menulist"><Icon modifiers="small" iconName="moreMenu" />&nbsp;&nbsp;{t("mainMenu.More")} </MenuButton>}
+            >
+              {isKR ? (
                 <MenuItem target="_blank" href=""  >{t("mainMenu.ConutToken")}</MenuItem>
-                ) : (
-                <MenuItem target="_blank" href=""  >{t("mainMenu.ConutToken")}</MenuItem>
-                ) }
-                <SubMenu style={{ textDecoration: 'none' }} label={t("mainMenu.Contact")}>
+              ) : (
+                  <MenuItem target="_blank" href=""  >{t("mainMenu.ConutToken")}</MenuItem>
+                )}
+              <SubMenu style={{ textDecoration: 'none' }} label={t("mainMenu.Contact")}>
                 <MenuItem href="" className="o-header_link-text"> <a href="" target="_blank">{t("mainMenu.Business")}</a></MenuItem>
                 <MenuItem href="" className="o-header_link-text"> <a href="" target="_blank">CS</a></MenuItem>
-                </SubMenu>
-                <MenuItem href="/notice">{t("mainMenu.Notice")}</MenuItem>
-                <MenuItem href="/termofservice">{t("mainMenu.Term")}</MenuItem>
-                <MenuItem href="/termofservice">{t("mainMenu.Policy")}</MenuItem>
+              </SubMenu>
+              <MenuItem href="/notice">{t("mainMenu.Notice")}</MenuItem>
+              <MenuItem href="/termofservice">{t("mainMenu.Term")}</MenuItem>
+              <MenuItem href="/termofservice">{t("mainMenu.Policy")}</MenuItem>
             </Menu>
-            </Grid>
-            
+          </Grid> */}
+
+
+
+
         </Grid>
         {/* <Grid justify="center" item xs={12} spacing={0}>
               <Text modifiers="tittleFollowing"><Icon iconName="greenDot"/>Following</Text>
         </Grid> */}
       </div>
       <div>
-        
+
       </div>
     </header>
   );

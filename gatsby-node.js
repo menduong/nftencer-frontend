@@ -31,7 +31,7 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
       }),
       new webpack.DefinePlugin({
         'process.env.NFT_CONTRACT_ADDRESS': JSON.stringify("0xda7a5df3178ec51aca2d36c5837d1c6fa8c82acb"),
-        'process.env.NFT_CONTRACT_ADDRESS_1155': JSON.stringify("0xF8EdA2248Bb50A6B39339a42A0aF42e240bc5791"),
+        'process.env.NFT_CONTRACT_ADDRESS_1155': JSON.stringify("0xe8bb5b310c7f7B15AF4a752fD35C3d5728FD61f1"),
         'process.env.SIMPLE_EXCHANGE_ADDRESS': JSON.stringify("0xe0C336280CfCc278259b52b681Ce2efb90b648Eb"),
         'process.env.BUSD_CONTRACT_ADDRESS': JSON.stringify("0x07db360b8a092ef4005cdba63780b597765a9435"),
         'process.env.CONT_CONTRACT_ADDRESS': JSON.stringify("0xfa3ced40208b1fc44478ce507d9fca30770dc0fd"),

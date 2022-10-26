@@ -17,7 +17,7 @@ interface Props {
 }
 
 export const StepItem: React.FC<Props> = props => {
-  console.log("iconName",props.iconName)
+  // console.log("iconName",props.iconName)
   return (
   //   <Grid
   //   container
