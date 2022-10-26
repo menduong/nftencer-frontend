@@ -120,7 +120,7 @@
     padding:0px!important;
     text-align: center;
     width: 80%;
-    margin:auto;
+    margin:auto!important;
     @include textBuydialog {
       width: 100%;
     }
@@ -131,7 +131,7 @@
     text-align: center;
     transition: 0.3s;
     &:hover {
-      background: rgba(244, 182, 214, 0.5);
+      background: rgba(244, 182, 214, 0.5)!important;
       border-radius: 15px;
   }
   }
