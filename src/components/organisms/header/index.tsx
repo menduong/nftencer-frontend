@@ -140,7 +140,7 @@ export const Header: React.FC = () => {
           </ListItem>
         </div>
         <ListItem className={classes.ListItemText} button>
-          <Button anchor={{ href: 'https://thankful-raclette-226.notion.site/COCONUT-d5dc804f50564430a1d6482be1907571' }} >FAQ</Button>
+          <Button anchor={{ href: '' }} >FAQ</Button>
         </ListItem>
         <ListItem className={classes.ListItemText}>
           <Button > <Accordion className={classes.Accord} style={{ boxShadow: "none" }} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
@@ -153,10 +153,10 @@ export const Header: React.FC = () => {
               <Typography className={classes.heading}>Community</Typography>
             </AccordionSummary>
             <AccordionDetails className={classes.detail}>
-              <Button anchor={{ href: 'https://twitter.com/Coconut_Global' }}><Icon iconName="twitterb" /></Button>
-              <Button anchor={{ href: 'https://www.instagram.com/coconut_global' }}><Icon iconName="instagramb" /></Button>
-              <Button anchor={{ href: 'https://t.me/Coconut_notice' }}><Icon iconName="telegramb" /></Button>
-              <Button anchor={{ href: 'https://coconut-global.medium.com' }}><Icon iconName="mediumb" /></Button>
+              <Button anchor={{ href: '' }}><Icon iconName="twitterb" /></Button>
+              <Button anchor={{ href: '' }}><Icon iconName="instagramb" /></Button>
+              <Button anchor={{ href: '' }}><Icon iconName="telegramb" /></Button>
+              <Button anchor={{ href: '' }}><Icon iconName="mediumb" /></Button>
              
             </AccordionDetails>
           </Accordion>
@@ -180,10 +180,10 @@ export const Header: React.FC = () => {
                 <Grid item xs={6}>
                 </Grid>
                 <Grid item xs={6}>
-                <Button anchor={{ href: 'https://www.notion.so/CONUT-TOKEN-f751f8c45b6247d1a6434e8f88bf6a03' }} >CONUT Token</Button>
+                <Button anchor={{ href: '' }} >CONUT Token</Button>
                 </Grid>
                 <Grid item xs={6}>
-                <Button anchor={{ href: 'https://www.notion.so/ConteNFT-28ddfedca1a548bba7af855f695c2bf6?showMoveTo=true&saveParent=true' }} >Notice</Button>
+                <Button anchor={{ href: '' }} >Notice</Button>
                 </Grid>
 
               </Grid>

@@ -11,6 +11,7 @@ type Modifier = 'flex-end';
 interface Props {
   trigger?: React.ReactNode;
   id?: string;
+  children?:any;
   offset?: Offset;
   modifiers?: Modifier | Modifier[];
   handleClick?: (e: React.MouseEvent) => void;

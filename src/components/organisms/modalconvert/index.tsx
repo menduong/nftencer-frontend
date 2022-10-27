@@ -29,7 +29,7 @@ export const Modalconvert: React.FC<Props> = props => {
       <Grid item xs={12} >
         <Heading>Guide for file covert</Heading>
         <Text> If the preview of the selected file does not appear, or if the file is over 100mb, go to the site below:</Text>
-        <Text> Please upload on coconut again after converting the file.</Text>
+        <Text> Please upload on NFTencer again after converting the file.</Text>
       </Grid>
       <Grid item xs={12} >
         <Button modifiers="getCoin"><a style={{color:"black"}} target="_blank" href="https://video-converter.com/"> Move to Video Convert (Free)</a></Button>

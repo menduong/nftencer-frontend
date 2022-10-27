@@ -7,7 +7,7 @@ import { useDropzone } from 'react-dropzone';
 import { useFormikContext } from 'formik';
 import { Image } from 'components/atoms/image';
 import { useTranslation } from "react-i18next";
-import cloud from 'assets/images/icon/icon-cloud.svg';
+import cloud from 'assets/images/icon/icon-gallery.svg';
 
 type Modifier = 'foo' | 'bar';
 
@@ -53,7 +53,7 @@ export const FileInputcreate: React.FC<Props> = props => {
   });
   return (
     <div className={mapModifiers('a-fileinputcreatt', props.modifiers)} {...getRootProps()}>
-      <Image src={cloud} alt="drag and drop" />
+      <Image modifiers="create" src={cloud} alt="drag and drop" />
       <div className="a-fileinputcreatt_handle">
         <Text modifiers="gray"> {t("create.drag")}</Text>
         <Button handleClick={open} modifiers={["asLink","marginbottom"]}>
@@ -61,8 +61,8 @@ export const FileInputcreate: React.FC<Props> = props => {
         </Button>
       </div>
       <input ref={targetRef} id="fileButton" {...getInputProps()} className="a-fileinputcreatte_input" name={props.name} type="file" />
-      <Text modifiers={["gray","noMargin"]}>{props.label}</Text>
-      <Text modifiers="gray">{props.maxsize}</Text>
+      <Text modifiers={["gray","noMargin"]}>{props.label}&nbsp;{props.maxsize}</Text>
+      {/* <Text modifiers="gray">{props.maxsize}</Text> */}
     </div>
   );
 };

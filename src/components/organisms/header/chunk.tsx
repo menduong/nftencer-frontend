@@ -6,7 +6,8 @@ import { Dropdown } from 'components/molecules/dropdown';
 import { Mywallet } from 'components/molecules/mywallet';
 import { connectWallet } from 'lib/apiCommon';
 import { UserAvatar } from 'components/molecules/userAvatar';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,useRef } from 'react';
+import { navigate } from 'gatsby-link';
 import moment from "moment";
 import Badge from '@material-ui/core/Badge';
 import { Link } from 'components/atoms/link';
@@ -28,6 +29,8 @@ import { DropdownMenu, DropdownItem } from 'components/molecules/dropdownMenu';
 import logo from 'assets/images/ccn_logoOF.png';
 import { commonStart } from 'store/common';
 import { ButtonContainer } from 'components/molecules/buttonContainer';
+import { Wallet } from './wallet';
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 interface Props {
   wallet: any;
@@ -45,11 +48,12 @@ const dropdownStyles = makeStyles({
 export const MenuChunk: React.FC<Props> = ({ balanceBUSD, balanceCONT }) => {
   const [isOpenMywallet, setIsOpenMywallet] = useState(false);
   const { isTrigger, isRefresh, isKR } = useSelector(getBuyStore);
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
   const [modalOpenShare, setModalOpenShare] = useState(false);
   const anchorRef = React.useRef<HTMLButtonElement>(null);
   const [data, dataSet] = useState<any>(Array)
+  const [value, setValue] = useState<any>(Array)
   const { t, i18n } = useTranslation();
   const [modalOpenConnect, setModalOpenConnect] = useState(false);
   const changeLanguage = lng => { i18n.changeLanguage(lng); };
@@ -129,6 +133,11 @@ export const MenuChunk: React.FC<Props> = ({ balanceBUSD, balanceCONT }) => {
 
   }, [dispatch, modalOpenConnect]);
 
+  const searchInput = (event) => {
+    console.log("value789",value)
+    navigate(`/search?name=${value}`);
+    event.preventDefault();
+  }
 
   useEffect(() => {
     if (!modalOpenNoticeCreate) {
@@ -179,20 +188,26 @@ export const MenuChunk: React.FC<Props> = ({ balanceBUSD, balanceCONT }) => {
     children: <Button handleClick={handleToggle} ref={anchorRef} modifiers={['noti']}><Icon modifiers={['small']} iconName="bell" /></Button>,
   };
   const classes = useStyles();
-  console.log("wallet 123123",wallet)
   return (
     <div className="o-header_buttons">
+    <form onSubmit={searchInput}>
+      <input 
+        className="o-header_inputSearch"
+        placeholder="Search"
+        type="text" 
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+      />
+    </form>
       <a href={""}>
-        <Button modifiers={['CCNmember']}>NFTencer Member</Button>
+        <Button modifiers={['CCNmember']}><Icon iconName="fly" modifiers="free"/>NFTencer Member</Button>
       </a>
       {(wallet?.status == "disconnected" || wallet?.status == "error") ? (<div><Button modifiers={['create']} handleClick={() => setModalOpenConnect(true)}>{t("mainMenu.Create")}</Button></div>)
         : (
           <div><Button modifiers={['create']} handleClick={() => setmodalOpenNoticeCreate(true)}>{t("mainMenu.Create")}</Button></div>
         )}
       {(wallet?.status == "disconnected" || wallet?.status == "error") ? (
-        <Button modifiers={['noBackground', 'connectwallet']} handleClick={() => setModalOpenShare(true)}>
-          {t("mainMenu.Connect")}
-        </Button>
+        <Wallet address={wallet}/>
       ) : (
           <>
             <Dropdown
@@ -202,13 +217,14 @@ export const MenuChunk: React.FC<Props> = ({ balanceBUSD, balanceCONT }) => {
                   handleClick={() => setIsOpenMywallet(!isOpenMywallet)}
                 >
                   <Stack direction="row" spacing={1}>
-                    <Chip avatar={<Avatar alt="logo" src={logo} />}
+                    <Chip 
+                    // <Chip avatar={<Avatar alt="logo" src={logo} />}
                       label={wallet.account?.replace(wallet.account.substring(5, 40), "...")} variant="outlined"
                       clickable />
                   </Stack>
                 </Button>
               }
-              id="wallet"
+              id="walletDetail"
               offset={{ left: 105 }}
             >
               <Mywallet
@@ -227,7 +243,6 @@ export const MenuChunk: React.FC<Props> = ({ balanceBUSD, balanceCONT }) => {
         )}
       <div >
         <Dropdown trigger={
-
           <Button modifiers="bell">
             <Badge
               anchorOrigin={{
@@ -320,7 +335,7 @@ export const MenuChunk: React.FC<Props> = ({ balanceBUSD, balanceCONT }) => {
         style={{
           width: "66px",
           boxShadow: "none",
-          left: "30px",
+          left: "10px",
           fontSize: "10px",
         }}
       >
@@ -336,7 +351,7 @@ export const MenuChunk: React.FC<Props> = ({ balanceBUSD, balanceCONT }) => {
           <MenuItem value={'vi'}><Icon modifiers="flag" iconName="flagVN" />&nbsp;Vi</MenuItem>
         </Select>
       </FormControl>
-      <Modalwallet modifiers={['wallet']} isOpen={modalOpenShare} handleClose={() => setModalOpenShare(false)}>
+      {/* <Modalwallet modifiers={['wallet']} isOpen={modalOpenShare} handleClose={() => setModalOpenShare(false)}>
         <h2 className="modal_title">Connect your wallet</h2>
         <span className="modal_title" > Connect with one of the wallets we support or Create a new wallet
       </span>
@@ -396,9 +411,9 @@ export const MenuChunk: React.FC<Props> = ({ balanceBUSD, balanceCONT }) => {
             <span>We do not own your private keys and cannot access your funds without your confirmation.</span>
           </div>
         </Grid>
-      </Modalwallet>
+      </Modalwallet> */}
       <Modal modifiers="noticeCreate" isOpen={modalOpenNoticeCreate} handleClose={() => setmodalOpenNoticeCreate(false)}>
-        <ModalHeader icon={true} title={t("create.CreateNFT")} handleClose={() => setmodalOpenNoticeCreate(false)} />
+        <ModalHeader title={t("create.CreateNFT")} handleClose={() => setmodalOpenNoticeCreate(false)} />
         <Grid
           container
           spacing={0}
@@ -406,12 +421,12 @@ export const MenuChunk: React.FC<Props> = ({ balanceBUSD, balanceCONT }) => {
         >
           <Text>{t("mainMenu.legal1")}</Text>
           <Text>{t("mainMenu.legal2")}</Text>
-          <Grid item xs={7}>
+          <Grid item xs={12}>
             <Button modifiers="noticeCreate" anchor={{ href: '/create' }}> Agree</Button>
           </Grid>
-          <Grid item xs={5}>
+          {/* <Grid item xs={5}>
             <Button modifiers="noBackgroundBorder" handleClick={() => setmodalOpenNoticeCreate(false)}> {t("mainMenu.Cancel")}</Button>
-          </Grid>
+          </Grid> */}
         </Grid>
       </Modal>
       <Modal modifiers="error" isOpen={modalOpenConnect} handleClose={() => setModalOpenConnect(false)}>

@@ -34,7 +34,7 @@ export const Modalshare: React.FC<Props> = props => {
           spacing={2}
           justify="center"
         >
-          <Grid className="buttonedit" item xs={3} >
+          <Grid className="buttonedit" item xs={6} >
             <ul>
               <button className="share-button">
                 <TwitterShareButton
@@ -48,7 +48,7 @@ export const Modalshare: React.FC<Props> = props => {
             </ul>
 
           </Grid>
-          <Grid className="buttonedit" item xs={3} >
+          <Grid className="buttonedit" item xs={6} >
 
             <ul>
               <button className="share-button" >
@@ -63,7 +63,7 @@ export const Modalshare: React.FC<Props> = props => {
               </button>
             </ul>
           </Grid>
-          <Grid className="buttonedit" item xs={3} >
+          <Grid className="buttonedit" item xs={6} >
             <ul>
               <button className="share-button">
                 <TelegramShareButton
@@ -78,7 +78,7 @@ export const Modalshare: React.FC<Props> = props => {
             </ul>
 
           </Grid>
-          <Grid className="buttonedit" item xs={3} >
+          <Grid className="buttonedit" item xs={6} >
             <button onClick={() => copy()} className="share-button" >
               <ul>
                 <li>

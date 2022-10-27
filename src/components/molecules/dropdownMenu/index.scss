@@ -11,6 +11,7 @@
   font-weight: 600;
   font-size: 16px;
   line-height: 19px;
+  z-index: 1002;
 
   &-noti {
     background: white;
@@ -22,6 +23,22 @@
     scrollbar-width: none;
     padding: 22px 10px !important;
     box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.25);
+    top:1rem;
+    @include customScrollbar();
+  }
+  &-wallet {
+    background: white;
+    width: 420px;
+    // height: 550px;
+    overflow: auto;
+    position: relative;
+    border-radius: 20px;
+    scrollbar-width: none;
+    padding: 22px 10px !important;
+    box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.25);
+    top:1rem;
+    padding-right: 0!important;
+    padding-left: 0!important;
     @include customScrollbar();
   }
 

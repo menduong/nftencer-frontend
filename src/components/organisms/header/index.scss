@@ -12,7 +12,8 @@
     top: 0;
     margin: 0;
     display: flex;
-    padding: 0 $PADDING-PC;
+    padding: 0 50px;
+    // padding: 0 $PADDING-PC;
 
     @include sp {
       padding: 0 $PADDING-SP;
@@ -82,6 +83,9 @@
     @include smd {
       right:"15px";
     }
+    @include spFixedContent {
+      right:20px;
+    }
   }
 
   &_miniMenu {
@@ -99,6 +103,60 @@
     border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
   }
 
+  &_contain {
+    padding: 15px 0px;
+    padding-left: 5px;
+    @include spFixedContent {
+      padding-left: 5px;
+    }
+    @include md {
+      font-size: 11px;
+    }
+  }
+
+  &_listMui {
+    background:#EFEEEE!important;
+    border-radius: 15px;
+    padding:0px!important;
+    text-align: center;
+    width: 80%;
+    margin:auto;
+    @include textBuydialog {
+      width: 100%;
+    }
+   
+  }
+  &_listMuiButton {
+    padding:3px;
+    text-align: center;
+    transition: 0.3s;
+    &:hover {
+      background: rgba(244, 182, 214, 0.5);
+      border-radius: 15px;
+  }
+  }
+
+  &_inputSearch {
+    width: 25vw;
+    height: 37px;
+    background: #EFEEEE;
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.03);
+    border-radius: 8px;
+    border:none;
+   
+    &::placeholder {
+      padding-left:10px;
+      &:before {
+        content:url('assets/images/icon/icon-search.svg');
+        height:100%;
+        width:10px;
+      }
+    }
+    @include textBuydialog {
+      width: 38vw;
+      margin-right:100px;
+    }
+  }
   &_a-logo {
     display: inline-block;
     width: 37px;
@@ -135,7 +193,8 @@
     @include mld {
       width: 140px;
       height: 75px;
-      right: 0px;
+      right: 10px;
+
       }
   }
 
@@ -175,6 +234,17 @@
     width: 100%;
     text-align: left;
     padding:15px 0px;
+    padding-left: 5px;
+    @include spFixedContent {
+      font-size: 10px;
+      padding-left: 5px;
+    }
+    @include md {
+      font-size: 10px;
+    }
+    @include mld {
+
+    }
   }
 
   &_link-text {
@@ -268,7 +338,7 @@
     justify-content: flex-end;
     align-items: center;
     position: relative;
-
+    padding-right:20px;
     >.a-button {
       margin-right: 14px;
 
@@ -320,7 +390,7 @@
     @include sp {
       background-image: url('assets/images/mainbackground.png')!important;
       background-size: cover;
-    background-repeat: no-repeat;
+      background-repeat: no-repeat;
       width: 100%;
       min-height: 360px;
       display: block;
@@ -379,6 +449,24 @@
     padding-bottom: 10px;
   }
 }
+
+.o-wallet {
+  
+  &_contain {
+    // padding:1rem 2rem;
+    margin:20px 0;
+    
+  }
+  &_title {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding:1rem 2rem;
+  }
+  &_component {
+    padding:10px 0;
+    margin:10px 0;
+    // padding:1rem 3rem;
+  }
+}
 .MuiBadge-dot {
   background: red;
   }
@@ -432,7 +520,7 @@
     @include mld {
       width: 190px;
       height: 40px;
-      right: 0px;
+      right: 20px;
       }
       @include lg {
         width: 210px;
@@ -440,4 +528,9 @@
         right: 27%;
         top:10px;
         }
+}
+
+
+.css-cveggr-MuiListItemIcon-root {
+  min-width: 2rem!important;
 }

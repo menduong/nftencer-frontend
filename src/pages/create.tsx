@@ -24,7 +24,7 @@ import { StepItem } from 'components/molecules/stepItem';
 import { Steps } from 'components/organisms/steps';
 import { useWallet } from 'use-wallet';
 import { useDispatch, useSelector } from 'react-redux';
-import { createNFT, createTokenURI, getCreateStore, resetStore, sellCreateNFT, approveCreateNFT } from 'store/createNFT';
+import { createNFT, createTokenURI, getCreateStore, resetStore, sellCreateNFT, approveCreateNFT,createTokenURI1155 } from 'store/createNFT';
 import { Select } from 'components/atoms/select';
 import { commonStart } from 'store/common';
 import { ButtonContainer } from 'components/molecules/buttonContainer';
@@ -32,6 +32,7 @@ import { amountReceived, amountDollarBNBrevieved,amountDollarCONTrecieved,amount
 import { MultiSelect } from 'components/atoms/multiselect';
 import { useTranslation } from "react-i18next";
 import { Modalconvert } from 'components/organisms/modalconvert';
+import Grid from '@material-ui/core/Grid';
 
 export const Create: React.FC = () => {
   const wallet = useWallet();
@@ -109,12 +110,13 @@ export const Create: React.FC = () => {
     <div className="p-create">
       <Layout title="Create NFT">
         <Section className="p-create_main">
-          <Heading>{t("create.CreateNFT")}</Heading>
+          {/* <Heading>{t("create.CreateNFT")}</Heading> */}
           <Formik
             initialValues={initialValue}
             validationSchema={createSchema}
             onSubmit={values => {
-              dispatch(commonStart({ nextAction: createTokenURI.started({ data: values }) }));
+              // dispatch(commonStart({ nextAction: createTokenURI1155.started({ data: values }) }));   ///// 1155
+              dispatch(commonStart({ nextAction: createTokenURI.started({ data: values }) }));   ////751
               setModalOpen(true);
             }}
             validateOnMount
@@ -125,8 +127,13 @@ export const Create: React.FC = () => {
               const addresspush ={"address": wallet.account}
               return (
                 <Form className="p-create_form">
-                  <div className="p-create_inputs">
-                    <Fieldrow fieldName={t("create.Uploadfile")} name="file">
+                  <Grid
+                    container
+                    spacing={0}
+                  >
+                  <Grid item xs={12} >
+                    <div style={{textAlign:"center",marginBottom:"30px",fontSize:"40px"}}>Create collectible</div>
+                  <Fieldrow  name="file">
                       <FileInputcreate
                         name="file"
                         label={t("create.type")}
@@ -134,15 +141,19 @@ export const Create: React.FC = () => {
                         setTouched={() => !touched.file && setTouched({ ...touched, file: true })}
                       />
                     </Fieldrow>
-                    <Text> &gt;&nbsp;{t("create.nonPreview")}
+                    </Grid>
+                    <Grid item xs={6} >
+                  <div className="p-create_inputs">
+                    
+                    {/* <Text> &gt;&nbsp;{t("create.nonPreview")}
                     <Button handleClick={() => setModalOpenConvert(true)}  modifiers="inline">&nbsp;Click!</Button></Text>
                     
                     <Text> &gt;&nbsp;{t("create.over100mb")}
-                    <Button handleClick={() => setModalOpenConvert(true)}  modifiers="inline">&nbsp;Click!</Button></Text>
+                    <Button handleClick={() => setModalOpenConvert(true)}  modifiers="inline">&nbsp;Click!</Button></Text> */}
                     <Fieldrow
                       className="p-create_instantsale"
-                      fieldName={t("create.Instantsaleprice")}
-                      lead={t("create.Enterprice")}
+                      fieldName="Enter the price for which the item will be instantly sold"
+                      // lead={t("create.Enterprice")}
                       caption={[
                         `${t("create.Youwillreceive")} ${amountReceived(values.instantsaleprice)} ${Unit[values.unit]} (～$${
                           values.unit == 0
@@ -184,12 +195,14 @@ export const Create: React.FC = () => {
                       <Textarea name="description" placeholder={t("create.itemName")} maxLength={500} />
                     </Fieldrow>
                   </div>
+                  </Grid>
+                  <Grid item xs={6} >
                   <div className="p-create_review">
                     <div className="p-create_reviewcontent">
                       <div className="p-create_reviewbox">
-                      <Button modifiers="review">
+                      {/* <Button modifiers="review">
                       <Icon iconName='playpink' modifiers="mini" />
-                        &nbsp;{t("create.Review")}</Button>
+                        &nbsp;{t("create.Review")}</Button> */}
                         <Reviewcard
                           title={values.name || ''}
                           price={values.instantsaleprice || 0}
@@ -225,12 +238,14 @@ export const Create: React.FC = () => {
                       </div>
                     </div>
                   </div>
+                  </Grid>
+                  </Grid>
                 </Form>
               );
             }}
           </Formik>
         </Section>
-        <Modal isOpen={modalOpen} handleClose={() => setModalOpen(false)}>
+        <Modal modifiers="step" isOpen={modalOpen} handleClose={() => setModalOpen(false)}>
           <ModalHeader title="FOLLOW STEPS" handleClose={() => setModalOpen(false)} />
           <Steps>
             {CreateSteps.map((step, idx) => {
@@ -243,7 +258,7 @@ export const Create: React.FC = () => {
               return <StepItem key={idx} iconName={iconName} {...step} handleClick={step.handleClick} />;
             })}
           </Steps>
-          <Text> After processing , popup is automatically closed. Wait for a moment. </Text>
+          {/* <Text> After processing , popup is automatically closed. Wait for a moment. </Text> */}
         </Modal>
       </Layout>
       <Modal modifiers="noticeCreate" isOpen={modalOpenConvert} handleClose={() => setModalOpenConvert(false)}>

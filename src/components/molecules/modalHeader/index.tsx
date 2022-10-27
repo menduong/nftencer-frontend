@@ -12,7 +12,7 @@ interface Props {
   title: string;
   icon?: boolean;
   mod?:boolean;
-  handleClose: () => void;
+  handleClose?: () => void;
 }
 
 export const ModalHeader: React.FC<Props> = props => {

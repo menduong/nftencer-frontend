@@ -108,7 +108,7 @@ export const Controls: React.FC<Props> = props => {
           <Grid
             container
             direction="row"
-            justify="center"
+            justify="flex-end"
             alignItems="center"
             style={{ padding: 16 }}
           >

@@ -108,19 +108,19 @@ export const Productcard: React.FC<ProductProps> = props => {
         <ProductPreview {...props} />
       ) : (
           <>
-            <Link handleClick={() => view()} href={productLink}>
+            {/* <Link handleClick={() => view()} href={productLink}> */}
               <div className="o-productcard_media">
                 {VideoTypes.includes(props.mediaType || '') ? (
                   <Video src={props.src} />
                 ) : (
                     <Image src={props.src} alt={props.alt} />
                   )}
-                <span className="o-productcard_view"><Icon iconName='play' />{props.view}</span>
+                <span className="o-productcard_view"><Icon modifiers="large32" iconName='multiAvatar' />{props.view}</span>
 
               </div>
 
-            </Link>
-            {wallet?.status === 'connected' ?
+            {/* </Link> */}
+            {/* {wallet?.status === 'connected' ?
               (
                 <button
                   onClick={() => numberLike()
@@ -138,8 +138,8 @@ export const Productcard: React.FC<ProductProps> = props => {
                   <Icon iconName={like.isLike ? 'heartred' : 'heartoutline'} />
                 </button>
               )
-            }
-            <Button handleClick={() => setModalOpenShare(true)} modifiers={['iconshare']}><Icon modifiers={['tiny']} iconName='sharelink' /></Button>
+            } */}
+            <Button handleClick={() => setModalOpenShare(true)} modifiers={['iconshare']}><Icon modifiers={['large32']} iconName='threedots' />111</Button>
             <Modal isOpen={modalOpenShare} handleClose={() => setModalOpenShare(false)}>
               <ModalHeader title="Share this NFT" handleClose={() => setModalOpenShare(false)} />
               <Modalshare link={productLink} />

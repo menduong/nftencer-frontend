@@ -146,7 +146,7 @@ export const Myitem: React.FC<RouteComponentProps> = props => {
     <div className="p-explore">
       <div className="p-create">
         <Layout title="My Item">
-          <Section className="p-explore_main">
+          <Section className="p-explore_myItem">
           <Avatar resultaddress={result} cover={cover} avatar={avatar}  infoBio={infoBio} username={username} address={result} className="p-create_main"></Avatar>
           <Section className="p-explore_myitemsub" >
           <div className="p-explore_productfilter">

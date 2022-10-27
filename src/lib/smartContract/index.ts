@@ -3,6 +3,8 @@
 import BEP20FixedSupplyABI from './abi/BEP20FixedSupply';
 import NFTDigitalABI from './abi/NFTDigital';
 import SimpleExchangeNFTABI from './abi/SimpleExchangeNFT';
+import UserDefined1155 from './abi/UserDefined1155';
+import NFTDigitalABI_1155 from './abi/NFTDigital_1155';
 
 export type MiddlewareMethods = {
   [key in 'sending' | 'transactionHash' | 'receipt']?: () => void;
@@ -32,7 +34,19 @@ class SmartContract {
     return this._contract.methods[method](...args).call({ from: this._account });
   }
 
+  async callFunc(method: string, ...args: any[]) {
+    console.log("this.method",method)
+    // if (!this._contract) return;
+    this._contract = await new window.web3.eth.Contract(UserDefined1155, 
+      process.env.NFT_CONTRACT_ADDRESS_1155);
+      console.log("this._contract",this._contract.methods)
+    return this._contract.methods[method]().call();
+  }
+
+  
   async send(method: string, ...args: any[]) {
+    console.log("method",method)
+    console.log("args",...args)
     if (!this._contract || !window.web3?.eth) return;
     const gasPrice = await window.web3.eth.getGasPrice();
 
@@ -96,6 +110,14 @@ class SmartContract {
 export const BUSDContract = new SmartContract(BEP20FixedSupplyABI, process.env.BUSD_CONTRACT_ADDRESS || '');
 export const CONTContract = new SmartContract(BEP20FixedSupplyABI, process.env.CONT_CONTRACT_ADDRESS || '');
 export const NFTContract = new SmartContract(NFTDigitalABI, process.env.NFT_CONTRACT_ADDRESS || '');
+export const NFTContract_1155 = new SmartContract(NFTDigitalABI_1155, process.env.NFT_CONTRACT_ADDRESS_1155 || '');
+
+
+/////// 1155 //////////
+console.log("process.env.NFT_CONTRACT_ADDRESS_1155",process.env.NFT_CONTRACT_ADDRESS_1155)
+export const UserDefined_1155 = new SmartContract(UserDefined1155, process.env.NFT_CONTRACT_ADDRESS_1155 || '');
+
+///////////////////////
 export const SimpleExchangeContract = new SmartContract(
   SimpleExchangeNFTABI,
   process.env.SIMPLE_EXCHANGE_ADDRESS || ''

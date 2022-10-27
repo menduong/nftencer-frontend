@@ -10,6 +10,7 @@
     margin-left:10px;
     margin-right:10px;
     padding: 10px;
+    margin-bottom:40px;
     @include mgland14 {
       height: 100%;
       // height: calc(100vh - #{$HEADER-PC-MARGIN} * 2 - 120px);
@@ -59,7 +60,7 @@
     justify-content: space-between;
     position: relative;
     top: 0.5rem;
-    margin-left:1rem;
+    margin-left:2rem;
     z-index: 99;
     @include sp {
       z-index: 99;
@@ -68,6 +69,10 @@
       position: relative;
       top: 0px;
     }
+    @include lg {
+      top:2rem;
+      left:1.8rem;
+    };
     .a-icon {
       width: 20px;
       height: 20px;
@@ -104,11 +109,11 @@
     width: 100%;
   }
   &_buydialog {
-    // position: absolute;
+    position: absolute;
     // bottom: 15px;
     // left: 20px;
-    position: relative;
-    bottom:0px;
+    // position: relative;
+    bottom:10px;
     background: white;
     display: flex;
     flex-direction: column;
@@ -216,6 +221,9 @@
     display:flex;
     align-items: center;
     color:black;
+    @include lg {
+      font-size:22px;
+    }
   }
   &_media {
     width: 100%;
@@ -226,7 +234,7 @@
     justify-content: center;
 
     @include sp {
-      height: 350px;
+      // height: 350px;
       position: relative;
       padding: 0;
     }
@@ -253,6 +261,12 @@
       width: auto;
       border-left: 0;
       flex-direction: column;
+    }
+    @include lg {
+      margin-bottom: 20vw;
+    }
+    @include mg {
+      margin-bottom: 8vw;
     }
   }
 

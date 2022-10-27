@@ -1,6 +1,6 @@
 .o-productcard {
   position: relative;
-  width: 200px;
+  // width: 200px;
   height: 300px;
   padding: 5px 15px 18px 15px;
   background-color: #EEEEEE;
@@ -37,7 +37,6 @@
     justify-content: center;
     border-radius: 10px;
     overflow: hidden;
-    margin: 8px 0 14px;
   }
 
   &_info {

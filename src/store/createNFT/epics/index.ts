@@ -1,17 +1,93 @@
 import { Epic, combineEpics } from 'redux-observable';
 import { from, of } from 'rxjs';
 import { map, mergeMap, catchError, filter } from 'rxjs/operators';
-import { createTokenURI,createTokenResellURI, createNFT, approveNFT, approveCreateNFT, sellNFT, sellCreateNFT } from 'store/createNFT';
+import { createTokenURI,createTokenResellURI, createNFT, approveNFT, approveCreateNFT, sellNFT, sellCreateNFT,createTokenURI1155,getTokenCountURI1155,} from 'store/createNFT';
 import { State } from 'store';
-import { NFTContract, SimpleExchangeContract } from 'lib/smartContract';
+import { NFTContract, SimpleExchangeContract,UserDefined_1155,NFTContract_1155 } from 'lib/smartContract';
 import axios from 'axios';
 import { CardType, CardTypeNum, formatSaleBalance } from 'util/formatBalance';
 import { Unit } from 'components/pages/create/form';
 
-const createURIEpic: Epic = (action$, state$) =>
-
+const createURI_1155Epic: Epic = (action$, state$) =>
   action$.pipe(
-    
+    filter(createTokenURI1155.started.match),
+    mergeMap(action => {
+      const state: State = state$.value;
+      console.log("pass 1")
+      const values = action.payload.data || state.createNFT.newProduct;
+      const address = state.common.account
+      const data = new FormData();
+      // data.append('title', values.name);
+      // data.append('description', values.description || '');
+      // data.append('instant_sale_price', `${values.instantsaleprice}`);
+      data.append('image', values.file);
+      // data.append('quote_token', Unit[values.unit]);
+      // data.append('creator', address);
+      // data.append('quantity', '100');
+      console.log("image",values.file)
+      // values.categories?.map(cate => data.append('categories', cate.name.toLocaleLowerCase()));
+      return from(
+        axios.post(`${process.env.ADDRESS_API}/v1/upload`, data, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        })
+      ).pipe(
+        mergeMap(res => {
+          return of(
+            createTokenURI1155.done({
+              params: action.payload,
+              result: res.data,
+            }),
+            // createNFT.started({ tokenURI: res.data.id })
+            getTokenCountURI1155.started({})
+            // createNFT.started({ tokenURI: res.data.id  })
+          );
+          
+        }),
+        catchError(error => of(createTokenURI.failed({ params: action.payload, error: error })))
+      );
+    })
+  );
+
+  const getTokenCountEpic: Epic = (action$, store$) =>
+  action$.pipe(
+    filter(getTokenCountURI1155.started.match),
+    mergeMap(action => {
+      const store: State = store$.value;
+      console.log("store.common.account",action)
+      return from(
+        UserDefined_1155.callFunc('getTokenCount')
+      ).pipe(
+        mergeMap(res => {
+          return of(
+            getTokenCountURI1155.done({
+              params: action.payload,
+              result: res,
+            }),
+            
+            // approveCreateNFT.started({ idNFT: res.events.Transfer.returnValues.tokenId })
+          );
+        }),
+        catchError(error => {
+          return of(createNFT.failed({ params: action.payload, error: error }));
+        })
+      );
+    })
+  );
+
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+const createURIEpic: Epic = (action$, state$) =>
+  action$.pipe(
     filter(createTokenURI.started.match),
     mergeMap(action => {
       const state: State = state$.value;
@@ -24,6 +100,8 @@ const createURIEpic: Epic = (action$, state$) =>
       data.append('upload_file', values.file);
       data.append('quote_token', Unit[values.unit]);
       data.append('creator', address);
+      // data.append('quantity', '100');
+      console.log("step 1")
       values.categories?.map(cate => data.append('categories', cate.name.toLocaleLowerCase()));
       return from(
         axios.post(`${process.env.ADDRESS_API}/nft`, data, {
@@ -47,45 +125,19 @@ const createURIEpic: Epic = (action$, state$) =>
     })
   );
 
-  const createResellURIEpic: Epic = (action$, state$) =>
-
-  action$.pipe(
-    
-    filter(createTokenResellURI.started.match),
-    mergeMap(action => {
-      const state: State = state$.value;
-      const values = action.payload.datas || state.createNFT.newProduct;
-      const address = state.common.account
-      const data = new FormData();
-      data.append('instant_sale_price', `${values.instantsaleprice}`);
-      data.append('quote_token', Unit[values.unit]);
-      data.append('creator', address);
-      return from(
-        axios.put(`${process.env.ADDRESS_API}/nft?collectible_id=${action.payload.uid}&account=${address}&quote_token=${Unit[values.unit]}&instant_sale_price=${values.instantsaleprice}`)
-      ).pipe(
-        mergeMap(res => {
-          return of(
-            createTokenResellURI.done({
-              params: action.payload,
-              result: res.data,
-            }),
-            approveNFT.started({ idNFT: action.payload.tokenid, price: values.instantsaleprice, unit : values.unit })
-          );
-          
-        }),
-        
-        catchError(error => of(createTokenResellURI.failed({ params: action.payload, error: error })))
-      );
-    })
-  );
-
-
-const createNFTEpic: Epic = (action$, store$) =>
+  const createNFTEpic: Epic = (action$, store$) =>
   action$.pipe(
     filter(createNFT.started.match),
     mergeMap(action => {
       const store: State = store$.value;
+      const quantity = 10;
+      console.log("store.common.account",action)
+      console.log("store store",store)
+      console.log("step 2")
       return from(
+        // NFTContract_1155.send('mint', store.common.account,quantity)
+        // NFTContract.send('mint', store.common.account,quantity)
+        // 0x76c10C68D3C7895bf1701FA0a07C083CA4158798 , 100
         NFTContract.send('create', store.common.account, action.payload.tokenURI || store.createNFT.tokenURI)
       ).pipe(
         mergeMap(res => {
@@ -104,29 +156,7 @@ const createNFTEpic: Epic = (action$, store$) =>
       );
     })
   );
-
-const approveNFTEpic: Epic = (action$, store$) =>
-  action$.pipe(
-    filter(approveNFT.started.match),
-    mergeMap(action => {
-      const store: State = store$.value;
-      return from(
-        NFTContract.send('approve', process.env.SIMPLE_EXCHANGE_ADDRESS, action.payload.idNFT || store.createNFT.idNFT)
-      ).pipe(
-        mergeMap(res => {
-          return of(
-            approveNFT.done({
-              params: action.payload,
-              result: res,
-            }),
-            sellNFT.started({ tokenid: action.payload.idNFT,priceSell:action.payload.price, unit:action.payload.unit })
-          );
-        }),
-        catchError(error => of(approveNFT.failed({ params: action.payload, error: error })))
-      );
-    })
-  );
-
+  
   const approveCreateNFTEpic: Epic = (action$, store$) =>
   action$.pipe(
     filter(approveCreateNFT.started.match),
@@ -174,6 +204,63 @@ const approveNFTEpic: Epic = (action$, store$) =>
     })
   );
 
+  const createResellURIEpic: Epic = (action$, state$) =>
+
+  action$.pipe(
+    
+    filter(createTokenResellURI.started.match),
+    mergeMap(action => {
+      const state: State = state$.value;
+      const values = action.payload.datas || state.createNFT.newProduct;
+      const address = state.common.account
+      const data = new FormData();
+      data.append('instant_sale_price', `${values.instantsaleprice}`);
+      data.append('quote_token', Unit[values.unit]);
+      data.append('creator', address);
+      return from(
+        axios.put(`${process.env.ADDRESS_API}/nft?collectible_id=${action.payload.uid}&account=${address}&quote_token=${Unit[values.unit]}&instant_sale_price=${values.instantsaleprice}`)
+      ).pipe(
+        mergeMap(res => {
+          return of(
+            createTokenResellURI.done({
+              params: action.payload,
+              result: res.data,
+            }),
+            approveNFT.started({ idNFT: action.payload.tokenid, price: values.instantsaleprice, unit : values.unit })
+          );
+        }),
+        catchError(error => of(createTokenResellURI.failed({ params: action.payload, error: error })))
+      );
+    })
+  );
+
+
+
+
+const approveNFTEpic: Epic = (action$, store$) =>
+  action$.pipe(
+    filter(approveNFT.started.match),
+    mergeMap(action => {
+      const store: State = store$.value;
+      return from(
+        NFTContract.send('approve', process.env.SIMPLE_EXCHANGE_ADDRESS, action.payload.idNFT || store.createNFT.idNFT)
+      ).pipe(
+        mergeMap(res => {
+          return of(
+            approveNFT.done({
+              params: action.payload,
+              result: res,
+            }),
+            sellNFT.started({ tokenid: action.payload.idNFT,priceSell:action.payload.price, unit:action.payload.unit })
+          );
+        }),
+        catchError(error => of(approveNFT.failed({ params: action.payload, error: error })))
+      );
+    })
+  );
+
+  
+
 const sellNFTEpic: Epic = (action$, state$) =>
   action$.pipe(
     filter(sellNFT.started.match),
@@ -201,4 +288,6 @@ const sellNFTEpic: Epic = (action$, state$) =>
     })
   );
 
-export default combineEpics(createResellURIEpic,createURIEpic, createNFTEpic, approveNFTEpic, approveCreateNFTEpic, sellNFTEpic, sellCreateNFTEpic);
+export default combineEpics(createResellURIEpic,createURIEpic, createNFTEpic, approveNFTEpic, approveCreateNFTEpic, sellNFTEpic, sellCreateNFTEpic,
+  createURI_1155Epic, getTokenCountEpic
+  );
