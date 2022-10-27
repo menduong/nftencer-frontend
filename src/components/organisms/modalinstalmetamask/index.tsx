@@ -65,7 +65,7 @@ export const Modalinstalmetamsk: React.FC<Props> = props => {
             <div className="bg-pink">
               <Text modifiers="flexstart"> {t("mainMenu.skip")}</Text>
               <div className="bg-yelow_icon">
-                <Icon modifiers="60px" iconName="ccn_logo" />
+                <Icon modifiers="60px" iconName="moreMenu" />
                 <Icon iconName="arrowright" />
               </div>
             </div>
