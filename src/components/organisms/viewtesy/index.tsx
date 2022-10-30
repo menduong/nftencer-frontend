@@ -369,7 +369,7 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
 
   };
 
-  console.log("props",props)
+  console.log("balance",balance)
   useEffect(() => { 
     getcomment()
     gethistory()
@@ -684,15 +684,28 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
           </ButtonContainer>
         </Modal>
             { props.id == idCheck ? (
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
                 <Modal checkout={active} isOpen={active} handleClose={handleCloseModal} modifiers="buy">
                   {isSuccess  ? (
                     <Toast handleClose={handleCloseModal}>Success purchase!</Toast>
                   ) :  (
                     <>
-                      <ModalHeader title={t("checkout.checkout")} />
+                    
+                      <ModalHeader handleClose={handleCloseModal} modifiers="absolute" mod />
                       <div className="p-view_modalbody">
-                        <div className="p-view_balance">
+                        <Grid
+                          container
+                          spacing={1}
+                          justify="space-between"
+                          alignItems="center"
+                        >
+                         <Grid className="checkoutContent" item xs={7} >
+                            <Text modifiers="checkoutTitle">Checkout</Text>
+                       
+
+                      {/*   <div className="p-view_balance">
                           <div className="p-view_accountinfo">
                             <Text size="18" modifiers="balance">
                             <Icon iconName="dollar" />{t("checkout.balance")} :
@@ -701,7 +714,10 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
                               {formatBalance(quote_token as CardType, balance)}
                               </Text>
                           </div>
-                        </div>
+                        </div> */}
+
+
+
                         <div className="p-view_modaldescription">
                           <Text modifiers="checkoutDes">
                           {t("checkout.purchase")}:{' '}
@@ -710,7 +726,20 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
                             </Text>
                           </Text>
                         </div>
-                        <div className="p-view_checkoutContent">
+
+                        <div className="p-view_balance">
+                            <div className="p-view_accountinfo">
+                              <Text size="18">
+                              {/* <Icon iconName="dollar" /> */}
+                              {t("checkout.balance")} :
+                              </Text>
+                                <Text modifiers="bold" unit={quote_token}>
+                                {formatBalance(quote_token as CardType, balance)}
+                                </Text>
+                            </div>
+                        </div>
+
+                        {/* <div className="p-view_checkoutContent">
                           <Grid
                             className={classes.checkout}
                             container
@@ -778,8 +807,10 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
                               </Text>
                             </Grid>
                           </Grid>
-                        </div>
-                        <div className="p-view_checkoutGasFee">
+                        </div> */}
+
+
+                        {/* <div className="p-view_checkoutGasFee">
                           <Grid
                             className={classes.checkout}
                             container
@@ -789,8 +820,11 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
                           >
                            <span className="p-view_servicefee">{t("create.Servicefee")} <span className="servicefee">2.5%</span><span>&nbsp;&nbsp;0%</span></span>
                           </Grid>
-                        </div>
-                        
+                        </div> */}
+                        <div style={{padding:"0.4rem",border:"1px solid rgba(0, 0, 0, 0.1)",borderRadius:"1rem",marginLeft:"3.2rem",marginBottom:"30px",marginRight:"3.2rem"}}>
+                        <Text modifiers="CheckoutAgreement">
+                        NFTencer's user is responsible for all transactions of digital assets on NFTencer, including the responsibility for verifying that the content associated with the digital assets is original and published by the legit owner. NFTencer will not bear any responsibility when there is a digital asset copyright dispute between users.
+                        </Text>
                         <FormControlLabel
                         className={classes.checkbox}
                         control={
@@ -802,16 +836,95 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
                             color="primary"
                           />
                         }
-                        label={<Text inline modifiers="confirm">{t("checkout.legacy")}</Text>}
+                        label={<Text inline modifiers="confirm">I Agree</Text>}
                         labelPlacement="end"
                       />
-                        {product && totalPrice > balance && (
+                      </div>
+
+
+                       
+                       
+                        </Grid>
+                        <Grid className="p-view_payment" item xs={5} >
+                          <div className="p-view_checkoutContent">
+                          <Grid
+                            className={classes.checkout}
+                            container
+                            spacing={1}
+                            alignItems="center"
+                            justify="center"
+                          >
+                            <Grid  item xs={4} >
+                              <Text inline modifiers="checkout">
+                              {t("checkout.product")}:
+                              </Text>
+                            </Grid>
+                            <Grid  item xs={4} >
+                              <Text inline modifiers="checkout">
+                                {productPrice}
+                              </Text>
+                            </Grid>
+                            <Grid  item xs={4} >
+                              <Text inline modifiers="checkout">
+                                {quote_token}
+                              </Text>
+                            </Grid>
+                            <Grid  item xs={4} >
+                              <Text inline modifiers="checkout">
+                              {t("checkout.fee")}:
+                              </Text>
+                            </Grid>
+                            <Grid  item xs={4} >
+                              <Text inline modifiers="checkout">
+                            { Number(productPrice) > 50 ? (Number(totalPrice - productPrice ).toFixed(1)) : (
+                             Number(totalPrice - productPrice ).toFixed(4)
+                            )
+                            }
+                              </Text>
+                            </Grid>
+                            <Grid item xs={4} >
+                              <Text inline modifiers="checkout">
+                                {quote_token}
+                              </Text>
+                            </Grid>
+                          </Grid>
+                          {/* <Grid spacing={2}item xs={12} >
+                            <div >  <Divider style={{marginTop:'10px', marginBottom:'10px' }}/></div>
+                          </Grid> */}
+                          <Grid
+                          className={classes.checkout}
+                            container
+                            spacing={1}
+                            alignItems="center"
+                            justify="center"
+                          >
+                            <Grid item xs={4} >
+                              <Text inline modifiers="bold">
+                              {t("checkout.total")}:
+                              </Text>
+                            </Grid>
+                            <Grid item xs={4} >
+                              <Text inline modifiers="bold">
+                              {totalPrice}
+                              </Text>
+                            </Grid>
+                            <Grid item xs={4} >
+                              <Text inline modifiers="bold">
+                                {quote_token}
+                              </Text>
+                            </Grid>
+                          </Grid>
+
+
+
+
+                          {(product && totalPrice > balance)  && (
                           <span className="p-view_errormessage">You don't have enough money to buy it.</span>
                         )}
                         <ButtonContainer>
-                          <Button modifiers="cancelpayment" handleClick={handleCloseModal}>
+                          {/* <Button modifiers="cancelpayment" handleClick={handleCloseModal}>
                           {t("checkout.cancel")}
-                          </Button>
+                          </Button> */}
                           <Button
                             modifiers="payment"
                             disabled={product && totalPrice > balance || !stateB.checkedB}
@@ -851,14 +964,21 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
                               );
                             }}
                           >
-                            {t("checkout.payment")}
+                            {/* {t("checkout.payment")} */}
+                            Buy Now	&nbsp;	&nbsp;
+                            <Icon iconName="bag"/>
                           </Button>
                         </ButtonContainer>
+                        </div>
+                        </Grid>
+                        </Grid>
                       </div>
                     </>
                   )}
                 </Modal>
 
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 
             ) : (
               <> </>

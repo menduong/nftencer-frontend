@@ -146,7 +146,7 @@ export const Home: React.FC<RouteComponentProps> = props => {
     if (wallet?.status === 'connected') {
       dispatch(getTotalVolume.started({ unit: 0 }));
       getProducts({
-        limit: 5,
+        limit: 7,
         mode: 'refresh',
         address: wallet.account,
       });
@@ -154,7 +154,7 @@ export const Home: React.FC<RouteComponentProps> = props => {
     } else {
       dispatch(getTotalVolume.started({ unit: 0 }));
       getProducts({
-        limit: 5,
+        limit: 7,
         mode: 'refresh',
         address: wallet.account,
       });
@@ -166,7 +166,7 @@ export const Home: React.FC<RouteComponentProps> = props => {
     const newPath = `${props.path}?${params.toString()}`;
     window.history.pushState({ path: newPath }, '', newPath);
     getProducts({
-      limit: 6,
+      limit: 7,
       mode: 'refresh',
       address: wallet.account,
     });

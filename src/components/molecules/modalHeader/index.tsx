@@ -5,11 +5,11 @@ import { Heading } from 'components/molecules/heading';
 import { Button } from 'components/atoms/button';
 import { Icon } from 'components/atoms/icon';
 
-type Modifier = 'closeonly' | 'report';
+type Modifier = 'closeonly' | 'report' |'absolute';
 
 interface Props {
   modifiers?: Modifier | Modifier[];
-  title: string;
+  title?: string;
   icon?: boolean;
   mod?:boolean;
   handleClose?: () => void;

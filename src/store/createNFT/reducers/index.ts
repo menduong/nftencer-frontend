@@ -44,7 +44,7 @@ const reducer: Reducer<CreateNFT> = (state = initialValue, action) => {
   if (isType(action, createTokenURI1155.done)) {
     return produce(state, draft => {
     
-      console.log("1155 done",action.payload.result.url)
+      console.log("1155 done",action.payload)
     });
   }
   if (isType(action, getTokenCountURI1155.started)) {

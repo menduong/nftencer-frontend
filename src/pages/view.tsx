@@ -386,7 +386,7 @@ export const View: React.FC<RouteComponentProps> = props => {
                         <Text size="18" modifiers="linear" inline unit={product.quote_token}>
                           {productPrice}
                         </Text>
-                        {(product.quote_token === 'NFTC') && (
+                        {(product.quote_token === 'CONUT') && (
                           <Text size="18" modifiers={['linear']} inline>
                           （～${amountDollarCONT(Number(productPrice))}）
                           </Text>)

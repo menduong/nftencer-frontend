@@ -21,6 +21,7 @@ const createURI_1155Epic: Epic = (action$, state$) =>
       // data.append('description', values.description || '');
       // data.append('instant_sale_price', `${values.instantsaleprice}`);
       data.append('image', values.file);
+      data.append('retain_name', "");
       // data.append('quote_token', Unit[values.unit]);
       // data.append('creator', address);
       // data.append('quantity', '100');

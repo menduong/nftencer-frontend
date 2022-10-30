@@ -69,6 +69,7 @@ export const Create: React.FC = () => {
   
   const Get_categories = async () => {
     const categories = await axios.get(`${process.env.ADDRESS_API}/category`);
+    console.log("categories",categories)
     regSet(categories.data.category);
   };
 
@@ -115,8 +116,8 @@ export const Create: React.FC = () => {
             initialValues={initialValue}
             validationSchema={createSchema}
             onSubmit={values => {
-              // dispatch(commonStart({ nextAction: createTokenURI1155.started({ data: values }) }));   ///// 1155
-              dispatch(commonStart({ nextAction: createTokenURI.started({ data: values }) }));   ////751
+              dispatch(commonStart({ nextAction: createTokenURI1155.started({ data: values }) }));   ///// 1155
+              // dispatch(commonStart({ nextAction: createTokenURI.started({ data: values }) }));   ////751
               setModalOpen(true);
             }}
             validateOnMount

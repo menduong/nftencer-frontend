@@ -120,6 +120,7 @@ export const Sidebar: React.FC = () => {
     setExpanded(isExpanded ? panel : false);
   };
   const [open, setOpen] = useState(false);
+  const [openMore, setOpenMore] = useState(false);
 
   const [state, setState] = useState({
     top: false,
@@ -130,6 +131,10 @@ export const Sidebar: React.FC = () => {
 
   const handleClick = () => {
     setOpen(!open);
+  };
+
+  const handleClickMore = () => {
+    setOpenMore(!openMore);
   };
 
   useEffect(() => {
@@ -203,27 +208,50 @@ export const Sidebar: React.FC = () => {
             </ListItemButton>
             <Collapse in={open} timeout="auto" unmountOnExit>
               <List className="o-header_listMui" component="div" disablePadding>
-                <ListItemButton className="o-header_listMuiButton" sx={{ pl: 4 }}>
-                  <ListItemText primary="Twitter" />
+                <a style={{color: "inherit"}} target="_blank" href="https://twitter.com/NFTENCER">
+                  <ListItemButton className="o-header_listMuiButton" sx={{ pl: 4 }}>
+                      <ListItemText primary="Twitter" />
+                  </ListItemButton>
+                </a>
+                <a style={{color: "inherit"}} target="_blank" href="https://www.instagram.com/nft_encer/">
+                  <ListItemButton className="o-header_listMuiButton" sx={{ pl: 4 }}>
+                    <ListItemText primary="Instagram" />
                 </ListItemButton>
-                <ListItemButton className="o-header_listMuiButton" sx={{ pl: 4 }}>
-                  <ListItemText primary="Instagram" />
-                </ListItemButton>
-                <ListItemButton className="o-header_listMuiButton" sx={{ pl: 4 }}>
-                  <ListItemText primary="Telegram" />
-                </ListItemButton>
-                <ListItemButton className="o-header_listMuiButton" sx={{ pl: 4 }}>
-                  <ListItemText primary="Medium" />
-                </ListItemButton>
+                </a>
+                <a style={{color: "inherit"}} target="_blank" href="https://t.me/nftencer">
+                  <ListItemButton className="o-header_listMuiButton" sx={{ pl: 4 }}>
+                    <ListItemText primary="Telegram" />
+                  </ListItemButton>
+                </a>
+                {/* <a target="_blank" href="https://t.me/nftencer">
+                  <ListItemButton className="o-header_listMuiButton" sx={{ pl: 4 }}>
+                    <ListItemText primary="Medium" />
+                  </ListItemButton>
+                </a> */}
               </List>
             </Collapse>
 
-            <ListItemButton>
+            <ListItemButton onClick={handleClickMore}>
               <ListItemIcon>
                 <Icon modifiers="small" iconName="moreMenu" />
               </ListItemIcon>
               <ListItemText primary="More" />
+              {openMore ? <ExpandLess /> : <ExpandMore />}
             </ListItemButton>
+            <Collapse in={openMore} timeout="auto" unmountOnExit>
+              <List className="o-header_listMui" component="div" disablePadding>
+                <a style={{color: "inherit"}} target="_blank" href="https://docs.google.com/document/d/1PnL_TTuJBGC6O_27GAhCTy088rWhsQDpTMUzQUg3fDc/edit?usp=sharing">
+                  <ListItemButton className="o-header_listMuiButton" sx={{ pl: 4 }}>
+                      <ListItemText primary="Term of service"/>
+                  </ListItemButton>
+                </a>
+                <a style={{color: "inherit"}} target="_blank" href="https://docs.google.com/document/d/1l8rozHTIwDo83gpjzLgVHEl_ZmMAYvmYKUTNoNzxVWI/edit?usp=sharing">
+                  <ListItemButton className="o-header_listMuiButton" sx={{ pl: 4 }}>
+                    <ListItemText primary="Privacy Policy" />
+                </ListItemButton>
+                </a>
+              </List>
+            </Collapse>
 
           </List>
 

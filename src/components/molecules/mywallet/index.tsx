@@ -33,7 +33,7 @@ export const Mywallet: React.FC<Props> = props => {
   return (
     <div className={mapModifiers('m-mywallet', props.modifiers, props.open && 'open', selectedCard.toLowerCase())}>
       <TabList>
-        {['BUSD', 'BNB', 'NFTC'].map(card => (
+        {['BUSD', 'BNB', 'CONUT'].map(card => (
           <TabButton key={card} active={selectedCard === card} handleClick={() => setSelectedCard(card as CardType)}>
             {card}
           </TabButton>

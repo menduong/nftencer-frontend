@@ -25,7 +25,7 @@ export const createSchemaData = object({
 export type CreateForm = Asserts<typeof createSchema>;
 export type CreateFormData = Asserts<typeof createSchemaData>;
 
-export const Unit = ['BNB', 'BUSD', 'NFTC'];
+export const Unit = ['BNB', 'BUSD', 'CONUT'];
 export const Categories = [...ExtraProductCategories].map((category, idx) => {
   return { id: idx, name: category };
 });

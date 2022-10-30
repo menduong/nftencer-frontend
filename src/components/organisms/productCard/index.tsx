@@ -119,26 +119,7 @@ export const Productcard: React.FC<ProductProps> = props => {
 
               </div>
 
-            {/* </Link> */}
-            {/* {wallet?.status === 'connected' ?
-              (
-                <button
-                  onClick={() => numberLike()
-                  }
-                  className="o-productcard_like">
-                    {props.totallike + like.amount}&nbsp;&nbsp;
-                  <Icon iconName={like.isLike ? 'heartred' : 'heartoutline'} />
-                </button>
-              ) : (
-                
-                <button
-                  onClick={() => setmodalInception(true)}
-                  className="o-productcard_like">
-                    {props.totallike + like.amount}&nbsp;&nbsp;
-                  <Icon iconName={like.isLike ? 'heartred' : 'heartoutline'} />
-                </button>
-              )
-            } */}
+         
             <Button handleClick={() => setModalOpenShare(true)} modifiers={['iconshare']}><Icon modifiers={['large32']} iconName='threedots' />111</Button>
             <Modal isOpen={modalOpenShare} handleClose={() => setModalOpenShare(false)}>
               <ModalHeader title="Share this NFT" handleClose={() => setModalOpenShare(false)} />

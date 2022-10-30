@@ -116,8 +116,8 @@
 
   &-buy {
     & .ReactModal__Content {
-      width: 70%;
-      min-width: 660px!important;
+      // width: 70%;
+      min-width: 850px!important;
       transform: translate(-50%, -50%);
   
       @include spFixedContent {
