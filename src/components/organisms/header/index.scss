@@ -127,8 +127,8 @@
    
   }
   &_listMuiButton {
-    padding:3px;
-    text-align: center;
+    padding:3px!important;
+    text-align: center!important;
     transition: 0.3s;
     &:hover {
       background: rgba(244, 182, 214, 0.5)!important;
