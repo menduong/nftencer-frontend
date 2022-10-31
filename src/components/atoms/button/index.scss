@@ -169,9 +169,10 @@ color: #000000;
   }
 
   &-bid {
-    background: $COLOR-PALEBLUE;
-    color: $COLOR-CYAN;
-    min-width: 108px;
+    background: #EDEDED;
+    color: #FF1414;;
+    width: 80%;
+    margin: 5px auto;
     height: 36px;
     border-radius: 20px;
     text-align: center;

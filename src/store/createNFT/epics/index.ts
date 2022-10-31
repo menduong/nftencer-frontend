@@ -21,11 +21,12 @@ const createURI_1155Epic: Epic = (action$, state$) =>
       // data.append('description', values.description || '');
       // data.append('instant_sale_price', `${values.instantsaleprice}`);
       data.append('image', values.file);
-      data.append('retain_name', "");
+      // data.append('retain_name', "");
       // data.append('quote_token', Unit[values.unit]);
       // data.append('creator', address);
       // data.append('quantity', '100');
-      console.log("image",values.file)
+      console.log("data",data)
+      
       // values.categories?.map(cate => data.append('categories', cate.name.toLocaleLowerCase()));
       return from(
         axios.post(`${process.env.ADDRESS_API}/v1/upload`, data, {
@@ -57,6 +58,10 @@ const createURI_1155Epic: Epic = (action$, state$) =>
     mergeMap(action => {
       const store: State = store$.value;
       console.log("store.common.account",action)
+      const fileJson = {
+        "image" : "",
+        "retain_name": ""
+      }
       return from(
         UserDefined_1155.callFunc('getTokenCount')
       ).pipe(

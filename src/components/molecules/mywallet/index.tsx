@@ -50,11 +50,11 @@ export const Mywallet: React.FC<Props> = props => {
       </div>
       {!props.hideDisconnect && (
         <div className="m-mywallet_disconnect">
-          <span ref={ref} className="hidden">{props.walletAccount}</span>
+          {/* <span ref={ref} className="hidden">{props.walletAccount}</span>
           <Button modifiers={["bid","inline"]} handleClick={() => copy()}>
             Copy
-          </Button>
-          <Button modifiers={["bid","inline"]} handleClick={props.handleDisconnect}>
+          </Button> */}
+          <Button modifiers={["bid"]} handleClick={props.handleDisconnect}>
             Disconnect
           </Button>
         </div>

@@ -334,6 +334,27 @@
   &-noMargin {
     margin:0!important;
   }
+
+  &-balanceNumber {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px!important;
+    line-height: 36px;
+    color: hsl(0, 0%, 7%);
+    // display: inline;
+    margin:0!important;
+  }
+  &-balanceUnit {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px!important;
+    line-height: 14px;
+    color: #111111;
+    margin:0!important;
+    // display:inline;
+  }
   &-balance {
     position: relative;
     right:20px;

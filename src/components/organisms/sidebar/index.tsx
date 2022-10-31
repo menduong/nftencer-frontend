@@ -192,13 +192,14 @@ export const Sidebar: React.FC = () => {
                   </button>
                 </ListItemButton>
               )}
+            <a style={{color: "inherit"}} target="_blank" href="https://thankful-raclette-226.notion.site/NFTencer-FAQ-6e6a7f1ca9a84bf68b0eff361aefca79">
             <ListItemButton>
               <ListItemIcon>
                 <Icon modifiers="small" iconName="faq" />
               </ListItemIcon>
               <ListItemText primary="FAQ" />
             </ListItemButton>
-
+            </a>
             <ListItemButton onClick={handleClick}>
               <ListItemIcon>
                 <Icon modifiers="small" iconName="ioma" />

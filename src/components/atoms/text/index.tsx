@@ -2,7 +2,7 @@ import React from 'react';
 import { hot } from 'react-hot-loader/root';
 import { mapModifiers } from 'lib/component';
 
-type Modifier = 'linear'|'black' |'lightbold' | 'bold' | 'lightgray' | 'gray' | 'blue' | 'lightblue' | 'active' | 'center' | 'error' | 'common' |'comment' |'left'|'footer' | 'balance' | 'checkout' | 'checkoutDes' | 'confirm' | 'explore' | 'centerexplore' | 'servicefee' | 'saleprice' |'marginleft' | 'inline' | 'censored' | 'term' |'noBold' | 'Nodecor' |'textIndent' | 'paddingTop' | 'report' | 'flexstart' | 'blackCor' | 'titleNoti' | 'noMargin' |'linethrough'| 'red' | 'Buynow' | 'Grand' | 'marketplace' | 'tittleFollowing' | 'CheckoutAgreement' | "checkoutTitle";
+type Modifier = 'linear'|'black' |'lightbold' | 'bold' | 'lightgray' | 'gray' | 'blue' | 'lightblue' | 'active' | 'center' | 'error' | 'common' |'comment' |'left'|'footer' | 'balance' | 'checkout' | 'checkoutDes' | 'confirm' | 'explore' | 'centerexplore' | 'servicefee' | 'saleprice' |'marginleft' | 'inline' | 'censored' | 'term' |'noBold' | 'Nodecor' |'textIndent' | 'paddingTop' | 'report' | 'flexstart' | 'blackCor' | 'titleNoti' | 'noMargin' |'linethrough'| 'red' | 'Buynow' | 'Grand' | 'marketplace' | 'tittleFollowing' | 'CheckoutAgreement' | "checkoutTitle" | "balanceNumber" | "balanceUnit";
 
 interface Props {
   modifiers?: Modifier | Modifier[];

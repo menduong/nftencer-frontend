@@ -25,10 +25,10 @@
 		"payments": "Payments",
 		"currency": "Currency",
 		"howtoconnect": "How to connect Metamask?",
-		"intro": "Introduce of coconut project",
+		"intro": "Introduce of NFTencer project",
 		"tax": "Tax",
-		"instal1": "You do not have the MetaMask Wallet Extension installed to use Digital Assets related functions on COCONUT.",
-		"instal2": "You can download and connect the MetaMask Wallet Extension to COCONUT using the instructions below or you can skip and visit our platform.",
+		"instal1": "You do not have the MetaMask Wallet Extension installed to use Digital Assets related functions on NFTencer.",
+		"instal2": "You can download and connect the MetaMask Wallet Extension to NFTencer using the instructions below or you can skip and visit our platform.",
 		"download": "Download Metamask Wallet Extension.",
 		"skip": "Skip and Visit our platform.",
 		"howconnect": "How to connect Metamask?",
@@ -63,7 +63,7 @@
 		"logout": "Logout"
 	},
 	"create": {
-		"legal": "I understand and agree that the content I am about to create is owned by me and does not violate any intellectual property or copyright laws. I will be fully responsible for any violations of the Coconut's terms of service and international law. Accounts that violate our terms will be terminated and infringing NFT items will be removed from Coconut without prior notice. I have also carefully read and agree to the Coconut's .",
+		"legal": "I understand and agree that the content I am about to create is owned by me and does not violate any intellectual property or copyright laws. I will be fully responsible for any violations of the NFTencer's terms of service and international law. Accounts that violate our terms will be terminated and infringing NFT items will be removed from NFTencer without prior notice. I have also carefully read and agree to the NFTencer's .",
 		"CreateNFT": "Create",
 		"Uploadfile": "Upload file",
 		"drag": "Drag it here or",
@@ -174,7 +174,7 @@
 		"fee": "Fee",
 		"total": "Total",
 		"purchase": "You are about to purchase from",
-		"legacy": "I have read understand and agree to the terms of service and privacy policy of COCONUT"
+		"legacy": "I have read understand and agree to the terms of service and privacy policy of NFTencer"
 	},
 	"categoriesCustomer": {
 		"header": "List of customers",
@@ -217,7 +217,7 @@
 		"messageDelete": "You are performing a currency deletion. Do you want to continue?"
 	},
 	"howUse": {
-		"use": "How to use Coconut Global with MetaMask Wallet?",
+		"use": "How to use NFTencer Global with MetaMask Wallet?",
 		"create": "How to create a MetaMask Wallet?",
 		"setting": "Setting BSC Network on MetaMask Wallet",
 		"setting_head": "Select option \"Setting\"",
@@ -232,12 +232,12 @@
 		"setting_head3_detail1": "Click Save to add the BSC. And Done!",
 		"setting_head2_detail1": "Select Networks, then Add New network.",
 		"setting_head_detail1": "On the MetaMask wallet, click to drop down your accounts and select Settings.",
-		"connect": "How to connect to MetaMask Wallet from Coconut Global?",
-		"connect_head": "Open https://app.coconut.global page",
+		"connect": "How to connect to MetaMask Wallet from NFTencer Global?",
+		"connect_head": "Open https://app.NFTencer.global page",
 		"connect_head2": "Confirm connect",
-		"connect_head2_detail1": "When MetaMask Wallet extension open, confirm connect to Coconut Global service.",
+		"connect_head2_detail1": "When MetaMask Wallet extension open, confirm connect to NFTencer Global service.",
 		"connect_head2_detail2": "If connect status on MetaMask Wallet is Connected, you can start creating and trading NFTs on our platform.",
-		"connect_head_detail1": "Open https://app.coconut.global page and click button “Connect Wallet”",
+		"connect_head_detail1": "Open https://app.NFTencer.global page and click button “Connect Wallet”",
 		"connect_head_detail2": "Choose MetaMask Wallet",
 		"howCreate": "How can I create an NFT?",
 		"howCreate_head": "Check Wallet Connecting status?",
@@ -245,7 +245,7 @@
 		"howCreate_head_detail2": "You can check in here:",
 		"howCreate_head3": "Create Item",
 		"howCreate_head3_detail1": "1.Choose “Create” button",
-		"howCreate_head3_detail2": "2.Agree with Coconut’s term",
+		"howCreate_head3_detail2": "2.Agree with NFTencer’s term",
 		"howCreate_head3_detail3": "3.Complete the NFT information and create",
 		"howCreate_head4": "Confirm MetaMask Wallet requests to create NFT item",
 		"howCreate_head5": "Check your created NFT item",

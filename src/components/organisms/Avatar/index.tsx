@@ -575,7 +575,7 @@ export const Avatar: React.FC<Props> = (props) => {
               justify="flex-start"
             >
               <Grid item xs={5} >
-                <Text>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</Text>
+                <Text>Bio...</Text>
               </Grid>
               <Grid item xs={7} >
                 <Grid

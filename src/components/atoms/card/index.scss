@@ -1,9 +1,9 @@
 .a-card {
-  background-image: url('assets/images/card-bnb.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  padding: 36px 19px 18px;
+  // background-image: url('assets/images/card-bnb.png');
+  // background-repeat: no-repeat;
+  // background-size: cover;
+  // background-position: center;
+  padding: 10px 0px 18px 22px;
   border-radius: 5px;
   position: relative;
 
@@ -13,35 +13,90 @@
     position: absolute;
     top: 24px;
     right: 24px;
+    width:100%;
     @include u-fz(18, 25, 1);
     @include u-fw-b();
   }
 
-  &-busd {
-    background-image: url('assets/images/card-busd.png');
+  &_title {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: #111111;
+    margin: 0 0 5px 0!important;
+  }
 
-    &:before {
-      content: 'BUSD';
-    }
+  &_address {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: #292D32;
+    margin: 0 0 8px 0!important;
+  }
+  &_price {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px!important;
+    line-height: 36px;
+    color: hsl(0, 0%, 7%);
+    // display: inline;
+    margin:0!important;
+    display : inline;
+  }
+
+  &_unit {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px!important;
+    line-height: 14px;
+    color: #111111;
+    margin:0!important;
+    display : inline;
+  }
+
+  &-busd {
+    width:100%;
+    // background-image: url('assets/images/card-busd.png');
+
+    // &:before {
+    //   content: 'BUSD';
+    // }
   }
 
   &-conut {
-    background-image: url('assets/images/card-cont.png');
+    width:100%;
+    // background-image: url('assets/images/card-cont.png');
 
-    &:before {
-      content: 'CONUT';
-    }
+    // &:before {
+    //   content: 'CONUT';
+    // }
+  }
+  &-bnb {
+    width:100%;
+    // background-image: url('assets/images/card-cont.png');
+
+    // &:before {
+    //   content: 'CONUT';
+    // }
   }
 
   .a-text {
     &:first-child {
-      font-size: 12px;
+      // font-size: 12px;
+      padding: 3px;
     }
 
     font-size: 18px;
 
     &:last-child {
-      font-size: 12px;
+      // font-size: 12px;
+      padding: 3px;
       margin-top: 10px;
       max-width: 188px;
 
