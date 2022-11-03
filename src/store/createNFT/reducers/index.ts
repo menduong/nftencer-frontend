@@ -2,7 +2,7 @@ import { StepIcon } from 'components/molecules/stepItem';
 import produce from 'immer';
 import { Reducer } from 'redux';
 import { isType } from 'typescript-fsa';
-import { resetStore,createTokenResellURI, createTokenURI, createNFT, approveNFT, sellNFT, sellCreateNFT, approveCreateNFT, createTokenURI1155, getTokenCountURI1155 } from 'store/createNFT';
+import { resetStore,createTokenResellURI, createTokenURI, createNFT, approveNFT, sellNFT, sellCreateNFT, approveCreateNFT, createTokenURI1155, getTokenCountURI1155, UploadJsonURI1155 ,createNFT1155 } from 'store/createNFT';
 import { CreateForm, initialValue as init } from 'components/pages/create/form';
 
 type CreateNFT = {
@@ -52,12 +52,45 @@ const reducer: Reducer<CreateNFT> = (state = initialValue, action) => {
       console.log("count token started",action.payload)
     });
   }
+
+
+  
+
   if (isType(action, getTokenCountURI1155.done)) {
     return produce(state, draft => {
       console.log("count token Done",action)
     });
   }
+ 
+  if (isType(action, createNFT1155.started)) {
+    return produce(state, draft => {
+      console.log("createNFT1155 started",action.payload)
+    });
+  }
 
+
+  
+
+  if (isType(action, createNFT1155.done)) {
+    return produce(state, draft => {
+      console.log("createNFT1155 Done",action)
+    });
+  }
+ 
+
+
+  if (isType(action, UploadJsonURI1155.started)) {
+    return produce(state, draft => {
+      console.log("UploadJsonURI1155 started",action.payload)
+    });
+  }
+
+
+  if (isType(action, UploadJsonURI1155.done)) {
+    return produce(state, draft => {
+      console.log("UploadJsonURI1155 Done",action)
+    });
+  }
 
   //////////////////////
 
@@ -119,6 +152,7 @@ const reducer: Reducer<CreateNFT> = (state = initialValue, action) => {
 
   if (
     isType(action, createTokenURI.failed) ||
+    isType(action, UploadJsonURI1155.failed) ||
     isType(action, createNFT.failed) ||
     isType(action, approveNFT.failed) ||
     isType(action, approveCreateNFT.failed) ||

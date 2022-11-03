@@ -9,7 +9,8 @@ export type CreateDataURIReq = { datas?: CreateFormData,uid?:any ,tokenid?:any }
 export type CreateURI1155Res = any;
 export type CreateURI1155Req = any;
 
-
+export type UploadJsonURI1155Res = any;
+export type UploadJsonURI1155Req = { tokenCount?: number, params: any };
 //////////////////////
 export type CreateURIRes = any;
 

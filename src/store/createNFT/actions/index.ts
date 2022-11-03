@@ -4,6 +4,8 @@ import {
   CreateURIRes,
   CreateURI1155Req,//// 1155
   CreateURI1155Res,////  1155
+  UploadJsonURI1155Req,
+  UploadJsonURI1155Res,
   CreateDataURIReq,
   CreateDataURIRes,
   CreateNFTRes,
@@ -31,5 +33,8 @@ export const sellCreateNFT = actionCreator.async<SellCreateNFTReq, SellCreateNFT
 
 ////////////// 1155 ////////////
 export const  createTokenURI1155 = actionCreator.async<CreateURI1155Req, CreateURI1155Res, Error>('CREATE_TOKEN_URL_1155');
+export const  createNFT1155 = actionCreator.async<CreateURI1155Req, CreateURI1155Res, Error>('CREATE_NFT_1155');
 
 export const  getTokenCountURI1155 = actionCreator.async<CreateURI1155Req, CreateURI1155Res, Error>('GET_TOKEN_COUNT_1155');
+
+export const  UploadJsonURI1155 = actionCreator.async<UploadJsonURI1155Req, UploadJsonURI1155Res, Error>('UPLOAD_JSON_1155');

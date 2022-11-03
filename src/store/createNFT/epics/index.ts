@@ -1,7 +1,7 @@
 import { Epic, combineEpics } from 'redux-observable';
 import { from, of } from 'rxjs';
 import { map, mergeMap, catchError, filter } from 'rxjs/operators';
-import { createTokenURI,createTokenResellURI, createNFT, approveNFT, approveCreateNFT, sellNFT, sellCreateNFT,createTokenURI1155,getTokenCountURI1155,} from 'store/createNFT';
+import { createTokenURI,createTokenResellURI, createNFT, approveNFT, approveCreateNFT, sellNFT, sellCreateNFT,createTokenURI1155,getTokenCountURI1155,UploadJsonURI1155,createNFT1155} from 'store/createNFT';
 import { State } from 'store';
 import { NFTContract, SimpleExchangeContract,UserDefined_1155,NFTContract_1155 } from 'lib/smartContract';
 import axios from 'axios';
@@ -21,11 +21,12 @@ const createURI_1155Epic: Epic = (action$, state$) =>
       // data.append('description', values.description || '');
       // data.append('instant_sale_price', `${values.instantsaleprice}`);
       data.append('image', values.file);
+      data.append('retain_name', '');
       // data.append('retain_name', "");
       // data.append('quote_token', Unit[values.unit]);
       // data.append('creator', address);
       // data.append('quantity', '100');
-      console.log("data",data)
+      console.log("data",values)
       
       // values.categories?.map(cate => data.append('categories', cate.name.toLocaleLowerCase()));
       return from(
@@ -42,7 +43,7 @@ const createURI_1155Epic: Epic = (action$, state$) =>
               result: res.data,
             }),
             // createNFT.started({ tokenURI: res.data.id })
-            getTokenCountURI1155.started({})
+            getTokenCountURI1155.started({parameter: action.payload,result:res.data})
             // createNFT.started({ tokenURI: res.data.id  })
           );
           
@@ -57,11 +58,21 @@ const createURI_1155Epic: Epic = (action$, state$) =>
     filter(getTokenCountURI1155.started.match),
     mergeMap(action => {
       const store: State = store$.value;
+      const number = "1";
+      var parts = [
+        {image:"url",
+         description: "hello world",
+        },
+       ];
       console.log("store.common.account",action)
       const fileJson = {
         "image" : "",
         "retain_name": ""
       }
+
+      const jsn = JSON.stringify(parts);
+      const blob12 = new Blob([jsn], { type: 'application/json' });
+      const file12 = new File([ blob12 ], `${number}.json`);
       return from(
         UserDefined_1155.callFunc('getTokenCount')
       ).pipe(
@@ -71,7 +82,7 @@ const createURI_1155Epic: Epic = (action$, state$) =>
               params: action.payload,
               result: res,
             }),
-            
+            UploadJsonURI1155.started({ tokenCount: res, params: action.payload })
             // approveCreateNFT.started({ idNFT: res.events.Transfer.returnValues.tokenId })
           );
         }),
@@ -83,7 +94,90 @@ const createURI_1155Epic: Epic = (action$, state$) =>
   );
 
 
+  const uploadJsonEpic: Epic = (action$, store$) =>
+  action$.pipe(
+    filter(UploadJsonURI1155.started.match),
+    mergeMap(action => {
+      const store: State = store$.value;
+      const nameFile = Number(action.payload.tokenCount) + 1 ;
+      const dataJson = new FormData();
+      console.log("action123",action)
+      console.log("store.common.account123",action.payload.params)
+      console.log("tokencount123",action.payload.tokenCount)
+    
+      const parts = 
+        {image: action.payload.params.result.url,
+         description: action.payload.params.parameter.data.name,
+        };
+      console.log("parts",parts)
+      console.log("nameFile",nameFile)
+      const jsn = JSON.stringify(parts);
+      const blob12 = new Blob([jsn], { type: 'application/json' });
+      const fileJson = new File([ blob12 ], `${nameFile}.json`);
+      const urltest  = window.URL.createObjectURL(blob12);
+      dataJson.append('image', fileJson);
+      dataJson.append('retain_name',  '');
+      // var a = document.createElement("a");
+      //  a.href = urltest;
+      //  a.download = `${nameFile}.json`;
+      //  a.click();
+       
+      console.log("file_Json",fileJson)
+      return from(
+        axios.post(`${process.env.ADDRESS_API}/v1/upload`, dataJson, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        })
+      ).pipe(
+        mergeMap(res => {
+          return of(
+            UploadJsonURI1155.done({
+              params: action.payload,
+              result: res,
+            }),
+            createNFT1155.started ({})
+            // approveCreateNFT.started({ idNFT: res.events.Transfer.returnValues.tokenId })
+          );
+        }),
+        catchError(error => {
+          return of(UploadJsonURI1155.failed({ params: action.payload, error: error }));
+        })
+      );
+    })
+  );
 
+  const createNFT1155Epic: Epic = (action$, store$) =>
+  action$.pipe(
+    filter(createNFT1155.started.match),
+    mergeMap(action => {
+      const store: State = store$.value;
+      const quantity = 10;
+      console.log("store.common.account 1155",action)
+      console.log("store store 1155 ",store.common.account)
+      console.log("step 2 1155")
+      return from(
+        UserDefined_1155.send('mint', store.common.account,quantity)
+        // NFTContract.send('mint', store.common.account,quantity)
+        // 0x76c10C68D3C7895bf1701FA0a07C083CA4158798 , 100
+        // NFTContract.send('create', store.common.account, action.payload.tokenURI || store.createNFT.tokenURI)
+      ).pipe(
+        mergeMap(res => {
+          return of(
+            createNFT1155.done({
+              params: action.payload,
+              result: res,
+            }),
+       
+            // approveCreateNFT.started({ idNFT: res.events.Transfer.returnValues.tokenId })
+          );
+        }),
+        catchError(error => {
+          return of(createNFT.failed({ params: action.payload, error: error }));
+        })
+      );
+    })
+  );
 
 
 
@@ -295,5 +389,5 @@ const sellNFTEpic: Epic = (action$, state$) =>
   );
 
 export default combineEpics(createResellURIEpic,createURIEpic, createNFTEpic, approveNFTEpic, approveCreateNFTEpic, sellNFTEpic, sellCreateNFTEpic,
-  createURI_1155Epic, getTokenCountEpic
+  createURI_1155Epic, getTokenCountEpic,uploadJsonEpic,createNFT1155Epic
   );
