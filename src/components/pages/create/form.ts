@@ -3,7 +3,8 @@ import { ExtraProductCategories, ProductCategories } from 'components/pages/expl
 import { useTranslation } from "react-i18next";
 
 export const createSchema = object({
-  file: mixed().required('파일 크기가 100Mb를 넘기 때문에 업로드 불가 합니다.'),
+  file: mixed(),
+  // file: mixed().required('파일 크기가 100Mb를 넘기 때문에 업로드 불가 합니다.'),
   instantsaleprice: number().typeError('Please input sale price.').required('Please input sale price.'),
   unit: number().required(),
   name: string().required('Please enter product name.'),

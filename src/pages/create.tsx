@@ -40,6 +40,7 @@ export const Create: React.FC = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const { currentStep, tokenURI } = useSelector(getCreateStore);
+  const [trigger,setTrigger] = useState(false)
   const [modalOpenConvert, setModalOpenConvert] = useState(false);
   const CreateSteps = [
     {
@@ -107,6 +108,7 @@ export const Create: React.FC = () => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setState({ ...state, [event.target.name]: event.target.checked });
   };
+  console.log("trigger",trigger)
   return (
     <div className="p-create">
       <Layout title="Create NFT">
@@ -116,9 +118,12 @@ export const Create: React.FC = () => {
             initialValues={initialValue}
             validationSchema={createSchema}
             onSubmit={values => {
-              dispatch(commonStart({ nextAction: createTokenURI1155.started({ data: values }) }));   ///// 1155
+              {
+              dispatch(commonStart({ nextAction: createTokenURI1155.started({ data: values })
+            }));   ///// 1155
               // dispatch(commonStart({ nextAction: createTokenURI.started({ data: values }) }));   ////751
               setModalOpen(true);
+              }
             }}
             validateOnMount
           >
@@ -132,17 +137,34 @@ export const Create: React.FC = () => {
                     container
                     spacing={0}
                   >
-                  <Grid item xs={12} >
+                  <Grid item xs={6} >
                     <div style={{textAlign:"center",marginBottom:"30px",fontSize:"40px"}}>Create collectible</div>
                   <Fieldrow  name="file">
+                    {/* <button className="p-create_inputForm" onClick={()=>setTrigger(false)}
+                    style={{background:trigger=== false?"linear-gradient(122.01deg, #A7D545 -9.61%, rgba(167, 213, 69, 0.27) -9.6%, #FFD5D5 73.45%)":""}}> */}
                       <FileInputcreate
                         name="file"
                         label={t("create.type")}
                         maxsize={t("create.maxsize")}
                         setTouched={() => !touched.file && setTouched({ ...touched, file: true })}
                       />
+                      {/* </button> */}
                     </Fieldrow>
                     </Grid>
+                    <Grid item xs={6} >
+                    <div style={{textAlign:"center",marginBottom:"30px",fontSize:"40px"}}>Create collectible</div>
+                  <Fieldrow  name="file">
+                  {/* <button className="p-create_inputForm" style={{background:trigger=== true?"linear-gradient(122.01deg, #A7D545 -9.61%, rgba(167, 213, 69, 0.27) -9.6%, #FFD5D5 73.45%)":""}}  onClick={()=>setTrigger(true)}> */}
+                      <FileInputcreate
+                        name="file"
+                        label={t("create.type")}
+                        maxsize={t("create.maxsize")}
+                        setTouched={() => !touched.file && setTouched({ ...touched, file: true })}
+                      />
+                     {/* </button> */}
+                    </Fieldrow>
+                    </Grid>
+
                     <Grid item xs={6} >
                   <div className="p-create_inputs">
                     

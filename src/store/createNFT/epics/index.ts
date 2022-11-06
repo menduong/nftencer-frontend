@@ -42,7 +42,7 @@ const createURI_1155Epic: Epic = (action$, state$) =>
               params: action.payload,
               result: res.data,
             }),
-            // createNFT.started({ tokenURI: res.data.id })
+            // createNFT1155.started({ })
             getTokenCountURI1155.started({parameter: action.payload,result:res.data})
             // createNFT.started({ tokenURI: res.data.id  })
           );
@@ -157,7 +157,7 @@ const createURI_1155Epic: Epic = (action$, state$) =>
       console.log("store store 1155 ",store.common.account)
       console.log("step 2 1155")
       return from(
-        UserDefined_1155.send('mint', store.common.account,quantity)
+        UserDefined_1155.callMint('mint', store.common.account,quantity)
         // NFTContract.send('mint', store.common.account,quantity)
         // 0x76c10C68D3C7895bf1701FA0a07C083CA4158798 , 100
         // NFTContract.send('create', store.common.account, action.payload.tokenURI || store.createNFT.tokenURI)

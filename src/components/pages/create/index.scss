@@ -14,6 +14,17 @@
     }
   }
 
+  &_inputForm {
+    border-radius: 10px;
+    overflow: hidden;
+    width: 75%;
+    // &:focus {
+    //   background:red;
+    // }
+    // &::selection {
+    //   background:red;
+    // }
+  }
   &_form {
     display: flex;
     justify-content: space-between;

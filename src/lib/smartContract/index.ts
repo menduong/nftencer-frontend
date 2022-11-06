@@ -30,8 +30,23 @@ class SmartContract {
   }
 
   async call(method: string, ...args: any[]) {
+    console.log("method",method ,this._contract)
     if (!this._contract) return;
+   
     return this._contract.methods[method](...args).call({ from: this._account });
+  }
+
+  async callMint(method: string, ...args: any[]) {
+    console.log("method",method ,args)
+    const accountMint = "0x76c10C68D3C7895bf1701FA0a07C083CA4158798";
+    if (!this._contract) return;
+    var myContract = await new window.web3.eth.Contract(UserDefined1155,  process.env.NFT_CONTRACT_ADDRESS_1155);
+    const gasPrice = await window.web3.eth.getGasPrice();
+    return myContract.methods.mint(accountMint,10).send({ 
+      from: accountMint,
+      // gas: GAS_LIMIT,
+      // gasPrice: gasPrice,
+    });
   }
 
   async callFunc(method: string, ...args: any[]) {
@@ -43,14 +58,37 @@ class SmartContract {
     return this._contract.methods[method]().call();
   }
 
+
+  async callFunc1(method: string, ...args: any[]) {
+    console.log("this.method",method)
+    // if (!this._contract) return;
+    this._contract = await new window.web3.eth.Contract(UserDefined1155, 
+      process.env.NFT_CONTRACT_ADDRESS_1155);
+      console.log("this._contract",this._contract.methods)
+    return this._contract.methods[method](...args).call();
+  }
+
   
   async send(method: string, ...args: any[]) {
     console.log("method",method)
     console.log("args",...args)
     if (!this._contract || !window.web3?.eth) return;
     const gasPrice = await window.web3.eth.getGasPrice();
-
+    console.log("this._contract",this._contract)
     return this._contract.methods[method](...args).send({
+      from: this._account,
+      gas: GAS_LIMIT,
+      gasPrice: gasPrice,
+    });
+  }
+
+  async sendMint(method: string, ...args: any[]) {
+    console.log("method",method)
+    console.log("args",...args)
+    // if (!this._contract || !window.web3?.eth) return;
+    const gasPrice = await window.web3.eth.getGasPrice();
+
+    return this._contract.methods.mint(...args).send({
       from: this._account,
       gas: GAS_LIMIT,
       gasPrice: gasPrice,
