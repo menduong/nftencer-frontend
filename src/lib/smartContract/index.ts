@@ -49,6 +49,19 @@ class SmartContract {
     });
   }
 
+  async callFunc1(method: string, ...args: any[]) {
+    console.log("method",method ,args)
+    const accountMint = "0x13743182f0a444445fd0f8e9c00ca09f1f89c5e4";
+    if (!this._contract) return;
+    var myContract = await new window.web3.eth.Contract(UserDefined1155,  process.env.NFT_CONTRACT_ADDRESS_1155);
+    const gasPrice = await window.web3.eth.getGasPrice();
+    return await myContract.methods.setApprovalForAll(accountMint,true).send({ 
+      from: "0x76c10C68D3C7895bf1701FA0a07C083CA4158798",
+      // gas: GAS_LIMIT,
+      // gasPrice: gasPrice,
+    });
+  }
+
   async callFunc(method: string, ...args: any[]) {
     console.log("this.method",method)
     // if (!this._contract) return;
@@ -59,14 +72,7 @@ class SmartContract {
   }
 
 
-  async callFunc1(method: string, ...args: any[]) {
-    console.log("this.method",method)
-    // if (!this._contract) return;
-    this._contract = await new window.web3.eth.Contract(UserDefined1155, 
-      process.env.NFT_CONTRACT_ADDRESS_1155);
-      console.log("this._contract",this._contract.methods)
-    return this._contract.methods[method](...args).call();
-  }
+
 
   
   async send(method: string, ...args: any[]) {
@@ -154,6 +160,8 @@ export const NFTContract_1155 = new SmartContract(NFTDigitalABI_1155, process.en
 /////// 1155 //////////
 console.log("process.env.NFT_CONTRACT_ADDRESS_1155",process.env.NFT_CONTRACT_ADDRESS_1155)
 export const UserDefined_1155 = new SmartContract(UserDefined1155, process.env.NFT_CONTRACT_ADDRESS_1155 || '');
+
+export const NFTApprove_1155 = new SmartContract(UserDefined1155, '0x13743182f0a444445fd0f8e9c00ca09f1f89c5e4'|| '');
 
 ///////////////////////
 export const SimpleExchangeContract = new SmartContract(

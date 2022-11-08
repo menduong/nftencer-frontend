@@ -2,7 +2,7 @@ import { StepIcon } from 'components/molecules/stepItem';
 import produce from 'immer';
 import { Reducer } from 'redux';
 import { isType } from 'typescript-fsa';
-import { resetStore,createTokenResellURI, createTokenURI, createNFT, approveNFT, sellNFT, sellCreateNFT, approveCreateNFT, createTokenURI1155, getTokenCountURI1155, UploadJsonURI1155 ,createNFT1155 } from 'store/createNFT';
+import { resetStore,createTokenResellURI, createTokenURI, createNFT, approveNFT, sellNFT, sellCreateNFT, approveCreateNFT, createTokenURI1155, getTokenCountURI1155, UploadJsonURI1155 ,createNFT1155,approveNFT1155 } from 'store/createNFT';
 import { CreateForm, initialValue as init } from 'components/pages/create/form';
 
 type CreateNFT = {
@@ -74,6 +74,7 @@ const reducer: Reducer<CreateNFT> = (state = initialValue, action) => {
   if (isType(action, createNFT1155.done)) {
     return produce(state, draft => {
       console.log("createNFT1155 Done",action)
+      draft.currentStep.number += 1;
     });
   }
  
@@ -110,7 +111,7 @@ const reducer: Reducer<CreateNFT> = (state = initialValue, action) => {
   }
   
 
-  if (isType(action, createNFT.started) || isType(action, approveCreateNFT.started) || isType(action, sellCreateNFT.started)  || isType(action, sellNFT.started)) {
+  if (isType(action, createNFT.started) || isType(action, approveCreateNFT.started) || isType(action, approveNFT1155.started) || isType(action, sellCreateNFT.started)  || isType(action, sellNFT.started)) {
     return produce(state, draft => {
       console.log("start createNFT/approveCreateNFT")
       if (draft.currentStep.status !== 'loading') draft.currentStep.status = 'loading';
@@ -144,8 +145,9 @@ const reducer: Reducer<CreateNFT> = (state = initialValue, action) => {
       draft.reload = !draft.reload;
     });
   }
-  if (isType(action, approveCreateNFT.done) || isType(action, sellCreateNFT.done)) {
+  if (isType(action, approveCreateNFT.done) || isType(action, approveNFT1155.done) || isType(action, sellCreateNFT.done)) {
     return produce(state, draft => {
+      console.log("approveNFT1155 done",action)
       draft.currentStep.number += 1;
     });
   }
@@ -156,6 +158,7 @@ const reducer: Reducer<CreateNFT> = (state = initialValue, action) => {
     isType(action, createNFT.failed) ||
     isType(action, approveNFT.failed) ||
     isType(action, approveCreateNFT.failed) ||
+    isType(action, approveNFT1155.failed) ||
     isType(action, sellCreateNFT.failed) ||
     isType(action, sellNFT.failed)
   ) {

@@ -1,7 +1,7 @@
 import { Epic, combineEpics } from 'redux-observable';
 import { from, of } from 'rxjs';
 import { map, mergeMap, catchError, filter } from 'rxjs/operators';
-import { createTokenURI,createTokenResellURI, createNFT, approveNFT, approveCreateNFT, sellNFT, sellCreateNFT,createTokenURI1155,getTokenCountURI1155,UploadJsonURI1155,createNFT1155} from 'store/createNFT';
+import { createTokenURI,createTokenResellURI, createNFT, approveNFT, approveCreateNFT, sellNFT, sellCreateNFT,createTokenURI1155,getTokenCountURI1155,UploadJsonURI1155,createNFT1155,approveNFT1155} from 'store/createNFT';
 import { State } from 'store';
 import { NFTContract, SimpleExchangeContract,UserDefined_1155,NFTContract_1155 } from 'lib/smartContract';
 import axios from 'axios';
@@ -168,7 +168,7 @@ const createURI_1155Epic: Epic = (action$, state$) =>
               params: action.payload,
               result: res,
             }),
-       
+            approveNFT1155.started({})
             // approveCreateNFT.started({ idNFT: res.events.Transfer.returnValues.tokenId })
           );
         }),
@@ -179,6 +179,27 @@ const createURI_1155Epic: Epic = (action$, state$) =>
     })
   );
 
+  const approveCreateNFT1155Epic: Epic = (action$, store$) =>
+  action$.pipe(
+    filter(approveNFT1155.started.match),
+    mergeMap(action => {
+      const store: State = store$.value;
+      return from(
+        UserDefined_1155.callFunc1('setApprovalForAll',"0x13743182f0a444445fd0f8e9c00ca09f1f89c5e4",true)
+      ).pipe(
+        mergeMap(res => {
+          return of(
+            approveNFT1155.done({
+              params: action.payload,
+              result: res,
+            }),
+            // sellCreateNFT.started({})
+          );
+        }),
+        catchError(error => of(approveNFT1155.failed({ params: action.payload, error: error })))
+      );
+    })
+  );
 
 
 
@@ -389,5 +410,5 @@ const sellNFTEpic: Epic = (action$, state$) =>
   );
 
 export default combineEpics(createResellURIEpic,createURIEpic, createNFTEpic, approveNFTEpic, approveCreateNFTEpic, sellNFTEpic, sellCreateNFTEpic,
-  createURI_1155Epic, getTokenCountEpic,uploadJsonEpic,createNFT1155Epic
+  createURI_1155Epic, getTokenCountEpic,uploadJsonEpic,createNFT1155Epic,approveCreateNFT1155Epic
   );

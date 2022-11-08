@@ -108,7 +108,6 @@ export const Create: React.FC = () => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setState({ ...state, [event.target.name]: event.target.checked });
   };
-  console.log("trigger",trigger)
   return (
     <div className="p-create">
       <Layout title="Create NFT">
