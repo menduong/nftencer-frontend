@@ -87,12 +87,16 @@ const Interceptor: React.FC = props => {
   };
 
   useEffect(() => {
+    try {
     NFTContract.initialize(wallet.account);
     SimpleExchangeContract.initialize(wallet.account);
     BUSDContract.initialize(wallet.account);
     CONTContract.initialize(wallet.account);
     dispatch(setAccount({ account: wallet.account || '' }));
     errorMessage && wallet.account && dispatch(closeConnectModal());
+    } catch {
+      console.log("e")
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch,wallet.account]);
   useEffect(() => {
