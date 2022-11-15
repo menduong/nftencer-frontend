@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { hot } from 'react-hot-loader/root';
 import { useDispatch } from 'react-redux';
-import avatar from 'assets/images/ccn_logoOF.png';
+import avatar from 'assets/images/noneAvatar.svg';
 import TextField from '@material-ui/core/TextField';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { Modal } from 'components/organisms/modal';

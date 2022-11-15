@@ -141,7 +141,7 @@ export const Video: React.FC<Props> = props => {
       vidRef.current.pause();
       } else {
         vidRef.current.play();
-        // await axios.post(`${process.env.ADDRESS_API}/view?collectible_id=${props.colID}`)
+        await axios.post(`${process.env.ADDRESS_API}/view?collectible_id=${props.colID}`)
       }
     })
     .catch(() => {

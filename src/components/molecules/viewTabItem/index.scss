@@ -36,20 +36,20 @@
   display: flex;
   align-items: center;
   justify-content:space-between;
-  background-color: white;
-  padding: 5px 5px 5px 5px;
+  background-color: transparent;
+  padding: 5px 5px 5px 0px;
   font-family: NotoSans;
   &_tabss{
     display:flex;
     align-items: center;
+    margin-left:10px;
   }
   &_info {
     display: inline-block;
     width: 320px;
     ul{
-      list-style-type: circle;
+      list-style-type: none;
       color: black!important;
-      margin-left:16px;
     }
     li {
       color: black!important;

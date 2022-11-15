@@ -260,19 +260,15 @@ export const MenuChunk: React.FC<Props> = ({ balanceBUSD, balanceCONT }) => {
               <div className="o-noti">
                 <div className="o-noti_header">
                   <Button modifiers={['asText', 'noPadding', 'bellcont']}>
-                    <Text size="18">Notification</Text>
-
+                    <Text size="18">Noticed</Text>
                   </Button>
-                </div>
-                <div className="o-noti_containt">
-                  <Icon modifiers="dotgreen" iconName="dotgreen" />
-                  <Text modifiers={["inline", "titleNoti"]}>New</Text>
+                  <button style={{padding:"0 20px", borderRadius:"15px", border:"1px solid black", width:"150px", fontSize:"14px"}}>Delete All</button>
                 </div>
                 <div>
-                  {data.filter((e, i) => moment(e.created_at).isSame(new Date(), "day") == true).map(cate => (
+                  {data.map(cate => (
                     <button className="p-view_toggle" onClick={() => updatenoti(cate)}>
                       <li className="p-view_tabitemNew">
-                        <Link href={"/view?id=" + cate.collectibe?.id}>
+                        {/* <Link href={"/view?id=" + cate.collectibe?.id}> */}
                           <div className="m-viewtabitem-noti">
                             <div className="m-viewtabitem_tabss">
                               <UserAvatar src={cate.from_account ? cate.from_account.avatar.String : logo} alt="" hasTick={false} modifiers="mid" />
@@ -287,42 +283,13 @@ export const MenuChunk: React.FC<Props> = ({ balanceBUSD, balanceCONT }) => {
                                 </ul>
                               </div>
                             </div>
-                            {cate.status === 0 && (<Icon modifiers="new" iconName="dotgreen" />)}
+                            {cate.status === 0 && (
+                              <div style={{position:"absolute", width:"6px",height:"60px", background:"#A7D545"}}></div>
+                            )}
                           </div>
-                        </Link>
+                        {/* </Link> */}
                       </li>
                     </button>
-                  ))}
-                </div>
-                <div className="o-noti_containt">
-                  <Text modifiers={["inline", "titleNoti"]}>Earlier</Text>
-                </div>
-                <div>
-
-                  {data.filter((e, i) => moment(e.created_at).isSame(new Date(), "day") == false).map(cate => (
-                    <li className="p-view_tabitem">
-                      <Link href={"/view?id=" + cate.collectibe?.id}>
-                        <button className="p-view_toggle" onClick={() => updatenoti(cate)}>
-                          <div className="m-viewtabitem-noti">
-                            <div className="m-viewtabitem_tabss">
-                              <UserAvatar src={cate.from_account ? cate.from_account.avatar.String : logo} alt="" hasTick={false} modifiers="mid" />
-                              <div className="m-viewtabitem-noti_info">
-                                {cate.status === 0 ? (<Text size="14" modifiers={['bold', 'comment', 'left', 'blackCor']}>{cate.content}
-                                </Text>) : (
-                                    <Text size="14" modifiers={['bold', 'comment', 'left']}>{cate.content}
-                                    </Text>
-                                  )}
-                                <ul>
-                                  <li><Text size="14" modifiers={['comment', 'left']}>{moment(cate.created_at).fromNow()}</Text></li>
-                                </ul>
-                              </div>
-                            </div>
-                            {cate.status === 0 && (<Icon modifiers="new" iconName="dotgreen" />)
-                            }
-                          </div>
-                        </button>
-                      </Link>
-                    </li>
                   ))}
                 </div>
               </div>
