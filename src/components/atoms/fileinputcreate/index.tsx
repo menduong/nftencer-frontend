@@ -14,8 +14,10 @@ type Modifier = 'foo' | 'bar';
 interface Props {
   modifiers?: Modifier | Modifier[];
   name: string;
-  label: string;
-  maxsize: string;
+  head: string;
+  label?: string;
+  maxsize?: string;
+  CommingSoon?: boolean;
   setTouched?: () => void;
 }
 
@@ -54,14 +56,17 @@ export const FileInputcreate: React.FC<Props> = props => {
   return (
     <div className={mapModifiers('a-fileinputcreatt', props.modifiers)} {...getRootProps()}>
       <Image modifiers="create" src={cloud} alt="drag and drop" />
-      <div className="a-fileinputcreatt_handle">
-        <Text modifiers="gray"> {t("create.drag")}</Text>
-        <Button handleClick={open} modifiers={["asLink","marginbottom"]}>
+      <Text modifiers="bold">{props.head}</Text>
+      {!props.CommingSoon &&  <div className="a-fileinputcreatt_handle">
+       <Text modifiers="gray"> {t("create.drag")}</Text>
+       <Button handleClick={open} modifiers={["asLink"]}>
         {t("create.choosefile")}
         </Button>
-      </div>
+      </div>}
       <input ref={targetRef} id="fileButton" {...getInputProps()} className="a-fileinputcreatte_input" name={props.name} type="file" />
+      {props.CommingSoon && <p style={{color:"red"}}>Comming Soon</p>}
       <Text modifiers={["gray","noMargin"]}>{props.label}&nbsp;{props.maxsize}</Text>
+      
       {/* <Text modifiers="gray">{props.maxsize}</Text> */}
     </div>
   );
