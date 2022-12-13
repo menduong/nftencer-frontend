@@ -420,8 +420,9 @@
   }
   &_tabitemNew {
     padding: 8px 0;
-    :hover {
-      background-color: #ededed;
+    &:hover {
+      background-color: #A7D44582;
+      
       border-radius: 5px;
     }
   }

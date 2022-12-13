@@ -66,7 +66,8 @@ export const Create: React.FC = () => {
   ];
 
   const [modalOpen, setModalOpen] = useState(false);
-  
+  const [trigger,setTrigger] = useState(false)
+
   const Get_categories = async () => {
     const categories = await axios.get(`${process.env.ADDRESS_API}/category`);
     console.log("categories",categories)
@@ -112,6 +113,7 @@ export const Create: React.FC = () => {
       <Layout title="Create NFT">
         <Section className="p-create_main">
           {/* <Heading>{t("create.CreateNFT")}</Heading> */}
+          <div style={{textAlign:"center",marginBottom:"50px",fontSize:"40px",marginTop:"20px"}}>Create collectible</div>
           <Formik
             initialValues={initialValue}
             validationSchema={createSchema}
@@ -132,17 +134,35 @@ export const Create: React.FC = () => {
                     container
                     spacing={0}
                   >
-                  <Grid item xs={12} >
-                    <div style={{textAlign:"center",marginBottom:"30px",fontSize:"40px"}}>Create collectible</div>
+                  <Grid item xs={6} >
+                    
                   <Fieldrow  name="file">
+                  <button className="p-create_inputForm" onClick={()=>setTrigger(false)}
+                    style={{background:trigger=== false?"linear-gradient(122.01deg, #A7D545 -9.61%, rgba(167, 213, 69, 0.27) -9.6%, #FFD5D5 73.45%)":"",width:"90%"}}>
                       <FileInputcreate
-                        name="file"
-                        label={t("create.type")}
-                        maxsize={t("create.maxsize")}
-                        setTouched={() => !touched.file && setTouched({ ...touched, file: true })}
+                         head="Single NFT (721)"
+                         name="file"
+                         label={t("create.type")}
+                         maxsize={t("create.maxsize")}
+                         setTouched={() => !touched.file && setTouched({ ...touched, file: true })}
                       />
+                      </button>
                     </Fieldrow>
                     </Grid>
+                    <Grid item xs={6} >
+                    <Fieldrow  name="file">
+                  <button disabled className="p-create_inputForm" style={{background:trigger=== true?"linear-gradient(122.01deg, #A7D545 -9.61%, rgba(167, 213, 69, 0.27) -9.6%, #FFD5D5 73.45%)":"",opacity:"0.6",width:"90%"}}  onClick={()=>setTrigger(true)}>
+                      <FileInputcreate
+                        head="Multiple NFT (1155)"
+                        name="file"
+                        CommingSoon
+                        // label={t("create.type")}
+                        // maxsize={t("create.maxsize")}
+                        setTouched={() => !touched.file && setTouched({ ...touched, file: true })}
+                      />
+                     </button>
+                    </Fieldrow>
+                      </Grid>
                     <Grid item xs={6} >
                   <div className="p-create_inputs">
                     
