@@ -154,7 +154,7 @@ export const Myitem: React.FC<RouteComponentProps> = (props) => {
       // ...and any other configuration
     });
 
-    const address = wallet.account;
+    const address = "0xEC62F905D3fE305de1DA4F9274908DBc9d38De0E";
 
     const chain = EvmChain.BSC_TESTNET;
 
