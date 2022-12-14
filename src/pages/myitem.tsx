@@ -45,6 +45,8 @@ import Tooltip from "@mui/material/Tooltip";
 import { Heading } from "components/molecules/heading";
 import { Text } from "components/atoms/text";
 import { Spinner } from "components/atoms/spinner";
+import { Image } from "components/atoms/image";
+import { Video } from "components/molecules/video";
 
 createTheme("solarized", {
   text: {
@@ -78,6 +80,8 @@ export const Myitem: React.FC<RouteComponentProps> = (props) => {
   const [optionres, setoption] = useState<any>(Array);
   const [listDataNft, setListDataNft] = useState<any>(Array);
   const [isLoading, setIsLoading] = useState(false);
+  const Moralis = require("moralis").default;
+  const { EvmChain } = require("@moralisweb3/evm-utils");
 
   const store = useSelector(getExploreStore);
   const { t } = useTranslation();
@@ -144,27 +148,65 @@ export const Myitem: React.FC<RouteComponentProps> = (props) => {
   };
   const GetNFT = async () => {
     setIsLoading(true);
-    const resBalanceData = await axios
-      .get(`https://deep-index.moralis.io/api/v2/${wallet.account}`, options)
-      .then((res) => {
-        if (res?.data?.result) {
-          const listData = res?.data?.result.map((x) => ({
-            name: x.name,
-            contract_type: x.contract_type,
-            symbol: x.symbol,
-            MetaName: x.metadata ? JSON.parse(x.metadata)?.name : null,
-            description: x.metadata
-              ? JSON.parse(x.metadata)?.description
-              : null,
-            ImageData: x.metadata ? JSON.parse(x.metadata)?.image_data : null,
-            external_url: x.metadata
-              ? JSON.parse(x.metadata)?.external_url
-              : null,
-          }));
-          setListDataNft(listData);
-          setIsLoading(false);
+    await Moralis.start({
+      apiKey:
+        "59DVKvFEh2cANSqQoLkf4DFg0IEyVKRPUKEGYecQtLxm0AvCbow9NVbCXwf6arsn",
+      // ...and any other configuration
+    });
+
+    const address = wallet.account;
+
+    const chain = EvmChain.BSC_TESTNET;
+
+    const response = await Moralis.EvmApi.nft.getWalletNFTs({
+      address,
+      chain,
+    });
+    let ret = JSON.stringify(response, null, 2);
+    if (ret) {
+      const data = JSON.parse(ret);
+
+      let listData = data.result.map((x) => ({
+        name: x.name ? x.name : "",
+        contract_type: x.contract_type,
+        symbol: x.symbol ? x.symbol : "",
+        block_number: x.block_number,
+        MetaName: x.metadata ? JSON.parse(x.metadata)?.name : null,
+        description: x.minter_address,
+        url: x.token_uri ? x.token_uri.split("/") : x.token_uri,
+        token_uri: x.token_uri,
+        token_id: x.token_id,
+        ImageData: null,
+        type: null,
+      }));
+
+      for (let i = 0; i < listData.length; i++) {
+        const strReplace = listData[i].url[listData[i].url.length - 1];
+        const urlReplace = listData[i].token_uri.replace(
+          strReplace,
+          listData[i].token_id + ".json"
+        );
+        try {
+          let response = await axios.get(urlReplace);
+          if (response.status === 200) {
+            listData[i].ImageData = response.data.image
+              ? response.data.image
+              : response.data.video
+              ? response.data.video
+              : null;
+            listData[i].type = response.data.image
+              ? "image"
+              : response.data.video
+              ? "video"
+              : null;
+          }
+        } catch (error) {
+          console.error(error);
         }
-      });
+      }
+      setIsLoading(false);
+      setListDataNft(listData);
+    }
   };
 
   const initialValue: ExploreSchema = useMemo(
@@ -417,13 +459,20 @@ export const Myitem: React.FC<RouteComponentProps> = (props) => {
                                   justifyContent="space-around"
                                 >
                                   <Grid item xs={6}>
-                                    <div className="p-view_item">
-                                      <div>
-                                        <div
-                                          dangerouslySetInnerHTML={{
-                                            __html: item.ImageData,
-                                          }}
-                                        />
+                                    <div
+                                      className="p-view_item"
+                                      style={{ top: 30 }}
+                                    >
+                                      <div className="p-view_media">
+                                        {item.type === "image" ? (
+                                          <Image
+                                            src={item.ImageData}
+                                            alt=""
+                                            modifiers="big"
+                                          />
+                                        ) : (
+                                          <Video detail src={item.ImageData} />
+                                        )}
                                       </div>
                                     </div>
                                   </Grid>
@@ -466,7 +515,7 @@ export const Myitem: React.FC<RouteComponentProps> = (props) => {
                                             </Text>
                                           </div>
                                         </div>
-                                        <div className="">
+                                        {/* <div className="">
                                           <div className="p-view_lead">
                                             <a
                                               href={item.external_url}
@@ -475,7 +524,7 @@ export const Myitem: React.FC<RouteComponentProps> = (props) => {
                                               &nbsp;&nbsp;Meta External Url
                                             </a>
                                           </div>
-                                        </div>
+                                        </div> */}
                                       </div>
                                     </div>
                                   </Grid>
