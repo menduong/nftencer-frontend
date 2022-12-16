@@ -47,6 +47,8 @@ import { Text } from "components/atoms/text";
 import { Spinner } from "components/atoms/spinner";
 import { Image } from "components/atoms/image";
 import { Video } from "components/molecules/video";
+import { UserAvatar } from "components/molecules/userAvatar";
+import { Link } from "components/atoms/link";
 
 createTheme("solarized", {
   text: {
@@ -87,56 +89,6 @@ export const Myitem: React.FC<RouteComponentProps> = (props) => {
   const { t } = useTranslation();
   const wallet = useWallet();
 
-  const Columns = [
-    {
-      name: "Name",
-      selector: (row) => row.name,
-      sortable: true,
-      width: "10%",
-    },
-    {
-      name: "Contract Type",
-      selector: (row) => row.contract_type,
-      sortable: true,
-      width: "8%",
-    },
-    {
-      name: "Symbol",
-      selector: (row) => row.symbol,
-      sortable: true,
-      width: "8%",
-    },
-    {
-      name: "Meta Name",
-      selector: (row) => row.MetaName,
-      sortable: true,
-    },
-    {
-      name: "Meta Discription",
-      selector: (row) => row.description,
-      sortable: true,
-    },
-    {
-      name: "Meta Image",
-      selector: (row) => (
-        <div
-          style={{ width: "100%", height: "20%" }}
-          dangerouslySetInnerHTML={{ __html: row.ImageData }}
-        />
-      ),
-      sortable: true,
-      width: "15%",
-    },
-    {
-      name: "Meta External Url",
-      selector: (row) => (
-        <a href={row.external_url} target="_blank">
-          External Url
-        </a>
-      ),
-      sortable: true,
-    },
-  ];
   const web3ApiKey =
     "MtZJVb2Hd2UjFLesFrbwn5vEnaqKPgphYfFz6DiF6KFpX8s2Zfl6qpml1kEzHJLI";
   const options = {
@@ -154,7 +106,8 @@ export const Myitem: React.FC<RouteComponentProps> = (props) => {
       // ...and any other configuration
     });
 
-    const address = "0xEC62F905D3fE305de1DA4F9274908DBc9d38De0E";
+    const address = wallet.account;
+    console.log(address);
 
     const chain = EvmChain.BSC_TESTNET;
 
@@ -165,47 +118,29 @@ export const Myitem: React.FC<RouteComponentProps> = (props) => {
     let ret = JSON.stringify(response, null, 2);
     if (ret) {
       const data = JSON.parse(ret);
-
-      let listData = data.result.map((x) => ({
-        name: x.name ? x.name : "",
-        contract_type: x.contract_type,
-        symbol: x.symbol ? x.symbol : "",
-        block_number: x.block_number,
-        MetaName: x.metadata ? JSON.parse(x.metadata)?.name : null,
-        description: x.minter_address,
-        url: x.token_uri ? x.token_uri.split("/") : x.token_uri,
-        token_uri: x.token_uri,
-        token_id: x.token_id,
-        ImageData: null,
-        type: null,
-      }));
-
-      for (let i = 0; i < listData.length; i++) {
-        const strReplace = listData[i].url[listData[i].url.length - 1];
-        const urlReplace = listData[i].token_uri.replace(
-          strReplace,
-          listData[i].token_id + ".json"
-        );
-        try {
-          let response = await axios.get(urlReplace);
-          if (response.status === 200) {
-            listData[i].ImageData = response.data.image
-              ? response.data.image
-              : response.data.video
-              ? response.data.video
-              : null;
-            listData[i].type = response.data.image
-              ? "image"
-              : response.data.video
-              ? "video"
-              : null;
-          }
-        } catch (error) {
-          console.error(error);
-        }
-      }
       setIsLoading(false);
-      setListDataNft(listData);
+      if (data.result.length > 0) {
+        const token_address = data.result[0].token_address;
+        setIsLoading(true);
+        const listNFT = await axios
+          .get(
+            `${process.env.ADDRESS_API}/wallet-nft?address=${address}&chain=bsc testnet&token_address=${token_address}`
+          )
+          .then((res) => {
+            setIsLoading(false);
+            console.log(JSON.parse(res.data.result[0].token_uri));
+            let listData = res.data.result.map((x) => ({
+              name: x.name ? x.name : x.owner_of,
+              contract_type: x.contract_type,
+              amount: x.amount ? x.amount : "",
+              ImageData: JSON.parse(x.token_uri)?.image,
+              type: getMediaType(JSON.parse(x.token_uri)?.image),
+            }));
+            setListDataNft(listData);
+          });
+      }
+
+      //
     }
   };
 
@@ -479,20 +414,33 @@ export const Myitem: React.FC<RouteComponentProps> = (props) => {
                                   <Grid item xs={5}>
                                     <div className="p-view_info">
                                       <div className="p-view_detailheading">
-                                        <Tooltip
-                                          key={item.name}
-                                          title={item.name}
-                                          placement="top-start"
+                                        <div
+                                          style={{
+                                            display: "flex",
+                                            textAlign: "center",
+                                            alignItems: "center",
+                                          }}
                                         >
-                                          <Heading
-                                            modifiers="title"
-                                            type="h2"
-                                            title={item.name}
+                                          <UserAvatar
+                                            userAddress={item.name}
+                                            alt=""
+                                            src=""
+                                            hasTick={false}
+                                            modifiers="mid"
+                                          />
+
+                                          <Text
+                                            inline
+                                            size="14"
+                                            modifiers="bold"
                                           >
-                                            {item.name} | {item.symbol} |{" "}
-                                            {item.contract_type}
-                                          </Heading>
-                                        </Tooltip>
+                                            <Link
+                                              href={"/userpage?id=" + item.name}
+                                            >
+                                              &nbsp;&nbsp;{item.name}
+                                            </Link>
+                                          </Text>
+                                        </div>
                                         <div
                                           style={{
                                             display: "flex",
@@ -505,13 +453,13 @@ export const Myitem: React.FC<RouteComponentProps> = (props) => {
                                             size="14"
                                             modifiers="bold"
                                           >
-                                            {item.MetaName}
+                                            {item.contract_type}
                                           </Text>
                                         </div>
                                         <div className="">
                                           <div className="p-view_lead">
                                             <Text modifiers="gray">
-                                              {item.description}
+                                              {item.amount}
                                             </Text>
                                           </div>
                                         </div>
