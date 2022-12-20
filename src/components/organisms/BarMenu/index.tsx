@@ -10,18 +10,24 @@ interface Props {
   modifiers?: Modifier | Modifier[];
   filterAndSort: React.ReactNode;
   category: React.ReactNode;
-  title?:boolean;
-  
+  title?: boolean;
+  tabNFT: React.ReactNode;
 }
 
-export const Barmenu: React.FC<Props> = props => {
+export const Barmenu: React.FC<Props> = (props) => {
   const { t } = useTranslation();
   return (
-    <div className={mapModifiers('o-exploremenu', props.modifiers)}>
+    <div className={mapModifiers("o-exploremenu", props.modifiers)}>
       <div className="o-exploremenu_category">
-       {props.title && <Heading modifiers={[ 'pinkheader']}>{t("Myitem.Myitem")}</Heading>}
+        {props.title && (
+          <Heading modifiers={["pinkheader"]}>{t("Myitem.Myitem")}</Heading>
+        )}
         <div className="o-exploremenu_tabs">{props.category}</div>
       </div>
+      <div className="o-exploremenu_category">
+        <div className="o-exploremenu_tabs">{props.tabNFT}</div>
+      </div>
+
       <div className="o-exploremenu_filter">{props.filterAndSort}</div>
     </div>
   );

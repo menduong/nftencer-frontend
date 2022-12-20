@@ -150,7 +150,7 @@ export const ProductcardMyItem: React.FC<ProductProps> = props => {
              <div className="o-productcard_view">
                <span>
                  <Icon modifiers="large32" iconName="multiAvatar" />
-                 &nbsp;{props?.view > 0 ? props.view + `&nbsp;view` : ""}
+                 &nbsp;{props?.view > 0 ? props.view + `     view` : ""}
                </span>
 
                <div
