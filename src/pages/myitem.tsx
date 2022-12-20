@@ -37,7 +37,6 @@ import axios from "axios";
 import { useTranslation } from "react-i18next";
 import { getExploreStore } from "store/explore";
 import { API_GET_NFT_WALLET } from "../lib/constants";
-import { Console } from "console";
 import DataTable, { createTheme } from "react-data-table-component";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Grid from "@material-ui/core/Grid";
@@ -88,61 +87,6 @@ export const Myitem: React.FC<RouteComponentProps> = (props) => {
   const store = useSelector(getExploreStore);
   const { t } = useTranslation();
   const wallet = useWallet();
-
-  const web3ApiKey =
-    "MtZJVb2Hd2UjFLesFrbwn5vEnaqKPgphYfFz6DiF6KFpX8s2Zfl6qpml1kEzHJLI";
-  const options = {
-    method: "GET",
-    headers: {
-      accept: "application/json",
-      "X-API-Key": web3ApiKey,
-    },
-  };
-  const GetNFT = async () => {
-    setIsLoading(true);
-    await Moralis.start({
-      apiKey:
-        "59DVKvFEh2cANSqQoLkf4DFg0IEyVKRPUKEGYecQtLxm0AvCbow9NVbCXwf6arsn",
-      // ...and any other configuration
-    });
-
-    const address = wallet.account;
-    console.log(address);
-
-    const chain = EvmChain.BSC_TESTNET;
-
-    const response = await Moralis.EvmApi.nft.getWalletNFTs({
-      address,
-      chain,
-    });
-    let ret = JSON.stringify(response, null, 2);
-    if (ret) {
-      const data = JSON.parse(ret);
-      setIsLoading(false);
-      if (data.result.length > 0) {
-        const token_address = data.result[0].token_address;
-        setIsLoading(true);
-        const listNFT = await axios
-          .get(
-            `${process.env.ADDRESS_API}/wallet-nft?address=${address}&chain=bsc testnet&token_address=${token_address}`
-          )
-          .then((res) => {
-            setIsLoading(false);
-            console.log(JSON.parse(res.data.result[0].token_uri));
-            let listData = res.data.result.map((x) => ({
-              name: x.name ? x.name : x.owner_of,
-              contract_type: x.contract_type,
-              amount: x.amount ? x.amount : "",
-              ImageData: JSON.parse(x.token_uri)?.image,
-              type: getMediaType(JSON.parse(x.token_uri)?.image),
-            }));
-            setListDataNft(listData);
-          });
-      }
-
-      //
-    }
-  };
 
   const initialValue: ExploreSchema = useMemo(
     () => ({
@@ -203,13 +147,16 @@ export const Myitem: React.FC<RouteComponentProps> = (props) => {
         optionsgetD = "sold";
         break;
     }
-
-    const getmyitem = await axios.get(
-      `${process.env.ADDRESS_API}/nft/collectible-paging?cursor=&limit=10&sort=desc&filter=created-date&title=&address=${result}&options=${optionsgetD}`
-    );
-    const collectible = getmyitem.data.collectibles;
-    setcollectible(collectible);
-    setoption(optionsgetD);
+    if (optionsgetD === "created items") {
+      initialItem();
+    } else {
+      const getmyitem = await axios.get(
+        `${process.env.ADDRESS_API}/nft/collectible-paging?cursor=&limit=10&sort=desc&filter=created-date&title=&address=${result}&options=${optionsgetD}`
+      );
+      const collectible = getmyitem.data.collectibles;
+      setcollectible(collectible);
+      setoption(optionsgetD);
+    }
   }, []);
 
   const refreshitem = () => {
@@ -219,11 +166,38 @@ export const Myitem: React.FC<RouteComponentProps> = (props) => {
     try {
       const query = new URLSearchParams(props.location?.search).get("id");
       const result = query?.substring(query.indexOf("="));
-      const initial_values = await axios.get(
-        `${process.env.ADDRESS_API}/nft/collectible-paging?cursor=&limit=10&sort=desc&filter=created-date&title=&address=${result}&options=creator`
-      );
-      const collectible = initial_values.data.collectibles;
-      setcollectible(collectible);
+      // const result = "0x6A33546e85c0ec5AE4300139F56E2D81F8246c4B";
+      // const initial_values = await axios.get(
+      //   `${process.env.ADDRESS_API}/nft/collectible-paging?cursor=&limit=10&sort=desc&filter=created-date&title=&address=${result}&options=creator`
+      // );
+      // const collectible = initial_values.data.collectibles;
+      //const result = "0xEC62F905D3fE305de1DA4F9274908DBc9d38De0E"; // wallet.account;
+      const token_address = "0xe8bb5b310c7f7b15af4a752fd35c3d5728fd61f1";
+      console.log("new", result);
+      const listNFT = await axios
+        .get(
+          `${process.env.ADDRESS_API}/wallet-nft?address=${result}&chain=bsc testnet&token_address=${token_address}`
+        )
+        .then((res) => {
+          setIsLoading(false);
+
+          let listData = res.data.result.map((x) => ({
+            title: x.name ? x.name : "My Item",
+            upload_file: JSON.parse(x.token_uri)?.image,
+            like: { total: 0 },
+            instant_sale_price: x.amount ? x.amount : "",
+            quote_token: {
+              name: "BNB",
+            },
+            view: 1500,
+            token_owner: x.owner_of,
+            token_id: x.token_id,
+            id: x.token_id,
+          }));
+          console.log(listData);
+          setcollectible(listData);
+        });
+      //setcollectible(collectible);
       setoption("creator");
     } catch {
       console.log("fail initial myitem");
@@ -236,7 +210,6 @@ export const Myitem: React.FC<RouteComponentProps> = (props) => {
       : console.log("can not navigate to search");
     initialItem();
     Refresh();
-    GetNFT();
   }, [reload]);
 
   useEffect(() => {
@@ -369,123 +342,6 @@ export const Myitem: React.FC<RouteComponentProps> = (props) => {
                   highlightOnHover
                 />
               </div> */}
-              <div className="o-itemlist">
-                {isLoading ? (
-                  <Spinner modifiers="big" />
-                ) : (
-                  <InfiniteScroll
-                    dataLength={listDataNft.length}
-                    next={GetNFT}
-                    //style={{ display: "flex", flexDirection: "column-reverse" }} //To put endMessage and loader to the top.
-                    inverse={true} //
-                    hasMore={true}
-                    // loader={<Spinner modifiers="big" />}
-                    // scrollableTarget="scrollableDiv"
-                  >
-                    <div className="o-itemlist_wrapper">
-                      {listDataNft.map((item, index) => (
-                        <div key={index} className="o-itemlist_item">
-                          <div className="p-view">
-                            <Section className="p-view_main">
-                              <article className="p-view_product">
-                                <Grid
-                                  container
-                                  spacing={1}
-                                  justifyContent="space-around"
-                                >
-                                  <Grid item xs={6}>
-                                    <div
-                                      className="p-view_item"
-                                      style={{ top: 30 }}
-                                    >
-                                      <div className="p-view_media">
-                                        {item.type === "image" ? (
-                                          <Image
-                                            src={item.ImageData}
-                                            alt=""
-                                            modifiers="big"
-                                          />
-                                        ) : (
-                                          <Video detail src={item.ImageData} />
-                                        )}
-                                      </div>
-                                    </div>
-                                  </Grid>
-                                  <Grid item xs={5}>
-                                    <div className="p-view_info">
-                                      <div className="p-view_detailheading">
-                                        <div
-                                          style={{
-                                            display: "flex",
-                                            textAlign: "center",
-                                            alignItems: "center",
-                                          }}
-                                        >
-                                          <UserAvatar
-                                            userAddress={item.name}
-                                            alt=""
-                                            src=""
-                                            hasTick={false}
-                                            modifiers="mid"
-                                          />
-
-                                          <Text
-                                            inline
-                                            size="14"
-                                            modifiers="bold"
-                                          >
-                                            <Link
-                                              href={"/userpage?id=" + item.name}
-                                            >
-                                              &nbsp;&nbsp;{item.name}
-                                            </Link>
-                                          </Text>
-                                        </div>
-                                        <div
-                                          style={{
-                                            display: "flex",
-                                            textAlign: "center",
-                                            alignItems: "center",
-                                          }}
-                                        >
-                                          <Text
-                                            inline
-                                            size="14"
-                                            modifiers="bold"
-                                          >
-                                            {item.contract_type}
-                                          </Text>
-                                        </div>
-                                        <div className="">
-                                          <div className="p-view_lead">
-                                            <Text modifiers="gray">
-                                              {item.amount}
-                                            </Text>
-                                          </div>
-                                        </div>
-                                        {/* <div className="">
-                                          <div className="p-view_lead">
-                                            <a
-                                              href={item.external_url}
-                                              target="_blank"
-                                            >
-                                              &nbsp;&nbsp;Meta External Url
-                                            </a>
-                                          </div>
-                                        </div> */}
-                                      </div>
-                                    </div>
-                                  </Grid>
-                                </Grid>
-                              </article>
-                            </Section>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </InfiniteScroll>
-                )}
-              </div>
             </Form>
           );
         }}

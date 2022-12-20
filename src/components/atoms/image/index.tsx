@@ -54,8 +54,22 @@ export const Image: React.FC<ImageProps> = props => {
   }, []);
 
   return (
-    <div className={mapModifiers('a-image', props.modifiers)}>
-      {!isLoading ? <img src={props.src} loading="lazy" alt={props.alt} /> : <img src={item.src} loading="lazy" alt={props.alt} />}
+    <div className={mapModifiers("a-image", props.modifiers)}>
+      {!isLoading ? (
+        <img
+          src={props.src}
+          loading="lazy"
+          alt={props.alt}
+          style={{ width: "100%", height: "100%" }}
+        />
+      ) : (
+        <img
+          src={item.src}
+          loading="lazy"
+          alt={props.alt}
+          style={{ width: "100%", height: "100%" }}
+        />
+      )}
     </div>
   );
 };
