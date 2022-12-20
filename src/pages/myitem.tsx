@@ -147,7 +147,7 @@ export const Myitem: React.FC<RouteComponentProps> = (props) => {
         optionsgetD = "sold";
         break;
     }
-    if (optionsgetD === "created items") {
+    if (optionsgetD === "creator") {
       initialItem();
     } else {
       const getmyitem = await axios.get(
@@ -164,9 +164,10 @@ export const Myitem: React.FC<RouteComponentProps> = (props) => {
   };
   const initialItem = async () => {
     try {
+      setIsLoading(true);
       const query = new URLSearchParams(props.location?.search).get("id");
       const result = query?.substring(query.indexOf("="));
-      // const result = "0x6A33546e85c0ec5AE4300139F56E2D81F8246c4B";
+      // const result = "0xEC62F905D3fE305de1DA4F9274908DBc9d38De0E";
       // const initial_values = await axios.get(
       //   `${process.env.ADDRESS_API}/nft/collectible-paging?cursor=&limit=10&sort=desc&filter=created-date&title=&address=${result}&options=creator`
       // );
@@ -180,7 +181,6 @@ export const Myitem: React.FC<RouteComponentProps> = (props) => {
         )
         .then((res) => {
           setIsLoading(false);
-
           let listData = res.data.result.map((x) => ({
             title: x.name ? x.name : "My Item",
             upload_file: JSON.parse(x.token_uri)?.image,
@@ -189,12 +189,12 @@ export const Myitem: React.FC<RouteComponentProps> = (props) => {
             quote_token: {
               name: "BNB",
             },
-            view: 1500,
+            view: 0,
             token_owner: x.owner_of,
             token_id: x.token_id,
             id: x.token_id,
+            amount: x.amount,
           }));
-          console.log(listData);
           setcollectible(listData);
         });
       //setcollectible(collectible);
@@ -301,6 +301,12 @@ export const Myitem: React.FC<RouteComponentProps> = (props) => {
                             }
                           />
                         </div>
+                        {isLoading && (
+                          <div className="o-itemlist">
+                            <Spinner modifiers="big" />
+                          </div>
+                        )}
+
                         <div className="p-explore_products">
                           <ItemListMyItem
                             searchBy={values.productCategory}
@@ -317,7 +323,7 @@ export const Myitem: React.FC<RouteComponentProps> = (props) => {
                               mediaType: getMediaType(item.upload_file),
                               url: item.upload_file,
                               userList: users,
-                              amount: 0,
+                              amount: item.amount,
                               tokenid: item.token_id,
                               id: item.id,
                               optionres: { optionres },

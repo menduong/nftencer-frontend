@@ -127,116 +127,207 @@ export const ProductcardMyItem: React.FC<ProductProps> = props => {
     }
 
   }, [dispatch, ModalOpendelete]);
-  return (
-    <article className={mapModifiers('o-productcardMyItem', props.modifiers, props.isPreview && 'preview')}>
-      {props.isPreview ? (
-        <ProductPreview {...props} />
-      ) : (
-          <>
-            {/* <Link href={productLink}> */}
-              <div className="o-productcard_media">
-                {VideoTypes.includes(props.mediaType || '') ? (
-                  <Video fill={true} src={props.src} />
-                ) : (
-                    <Image src={props.src} alt={props.alt} />
-                  )}
-                  <div  className="o-productcard_view">
-                    <span><Icon modifiers="large32" iconName='multiAvatar' />&nbsp;{props.view}&nbsp;view1</span>
-                    <div style={{visibility:displayResell?"visible":"hidden"}} className="o-productcard_resell">
-                      <div className="o-productcard_resell_contain">
-                        <div className="o-productcard_resell_Transfer"><Icon modifiers="resell" iconName="transfer"/><Text modifiers="inline">&nbsp;&nbsp;Transfer NFT</Text></div>
-                        <div className="o-productcard_resell_Delete"><Icon modifiers="resell" iconName="bin"/><Text modifiers="inline">&nbsp;&nbsp;&nbsp;Delete NFT</Text></div>
-                      </div>
-                    </div>
-                  </div>
-              </div>
+  
+   return (
+     <article
+       className={mapModifiers(
+         "o-productcardMyItem",
+         props.modifiers,
+         props.isPreview && "preview"
+       )}
+     >
+       {props.isPreview ? (
+         <ProductPreview {...props} />
+       ) : (
+         <>
+           {/* <Link href={productLink}> */}
+           <div className="o-productcard_media">
+             {VideoTypes.includes(props.mediaType || "") ? (
+               <Video fill={true} src={props.src} />
+             ) : (
+               <Image src={props.src} alt={props.alt} />
+             )}
+             <div className="o-productcard_view">
+               <span>
+                 <Icon modifiers="large32" iconName="multiAvatar" />
+                 &nbsp;{props?.view > 0 ? props.view + `&nbsp;view` : ""}
+               </span>
 
-            {/* </Link> */}
+               <div
+                 style={{ visibility: displayResell ? "visible" : "hidden" }}
+                 className="o-productcard_resell"
+               >
+                 <div className="o-productcard_resell_contain">
+                   <div className="o-productcard_resell_Transfer">
+                     <Icon modifiers="resell" iconName="transfer" />
+                     <Text modifiers="inline">&nbsp;&nbsp;Resell</Text>
+                   </div>
+                   <div className="o-productcard_resell_Transfer">
+                     <Icon modifiers="resell" iconName="transfer" />
+                     <Text modifiers="inline">&nbsp;&nbsp;Cancel Trading</Text>
+                   </div>
+                   <div className="o-productcard_resell_Transfer">
+                     <Icon modifiers="resell" iconName="transfer" />
+                     <Text modifiers="inline">&nbsp;&nbsp;Transfer NFT</Text>
+                   </div>
+                   <div className="o-productcard_resell_Delete">
+                     <Icon modifiers="resell" iconName="bin" />
+                     <Text modifiers="inline">
+                       &nbsp;&nbsp;&nbsp;Delete NFT
+                     </Text>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
 
-            {/* <button onClick={() => setLike({
+           {/* </Link> */}
+
+           {/* <button onClick={() => setLike({
               isLike: !like.isLike,
               amount: !like.isLike && typeof props.amount === 'number' ? props.amount + 1 : props.amount,
             })} className="o-productcard_like">{props.totallike}&nbsp;&nbsp;
               <Icon iconName={like.isLike ? 'heartred' : 'heartoutline'} />
             </button> */}
-            <Button handleClick={() => setDisplayResell(!displayResell)} modifiers={['iconshare']}><Icon modifiers={['large32']} iconName='threedots' /></Button>
-            <Modal modifiers={['price']} isOpen={ModalResell} handleClose={() => setModalResell(false)}>
-              <ModalHeader title={t("create.ResellTitle")} handleClose={() => setModalResell(false)} />
-              <Formik
-                initialValues={initialValueData}
-                validationSchema={createSchemaData}
-                onSubmit={values => {
-                  setModalResell(false);
-                  setModalOpen(true);
-                  dispatch(commonStart({ nextAction: createTokenResellURI.started({ datas: values,uid:props.id, tokenid:props.tokenid }) }));
-                }}
-                validateOnMount
-              >
-                {({ values }) => {
-                  return (
-                    <Form className="p-create_form">
-                      <div className="p-create_inputssub">
-                        <Fieldrow
-                          className="p-create_instantsale"
-                          caption={[
-                            `${t("create.Servicefee")} ${serviceFee}%`,
-                            `${t("create.Youwillreceive")} ${
-                            values.unit === 0
-                              ? amountReceived(values.instantsaleprice).toFixed(2)
-                              : amountReceived(values.instantsaleprice)
-                            }${Unit[values.unit]}（～$${amountReceivedDollar(values.instantsaleprice)}）`,
-                          ]}
-                          isCaptionForInput
-                          name="instantsaleprice"
-                        >
-                          <TextFieldFormik modifiers="price" name="instantsaleprice" placeholder="Enter price for one piece" type="number" />
-                          <Select name="unit">
-                            {Unit.map((u, idx) => (
-                              <option value={idx} key={u}>
-                                {u}
-                              </option>
-                            ))}
-                          </Select>
-                        </Fieldrow>
-                        <ButtonContainer>
-                          <Button type="submit" modifiers="resell">
-                            Create
-                          </Button>
-                        </ButtonContainer>
-                      </div>
-                    </Form>
-                  );
-                }}
-              </Formik>
+           <Button
+             handleClick={() => setDisplayResell(!displayResell)}
+             modifiers={["iconshare"]}
+           >
+             <Icon modifiers={["large32"]} iconName="threedots" />
+           </Button>
 
-            </Modal>
-            <Modal isOpen={modalOpen} handleClose={() => setModalOpen(false)}>
-              <ModalHeader title="FOLLOW STEPS" handleClose={() => setModalOpen(false)} />
-              <Steps>
-                {CreateSteps.map((step, idx) => {
-                  const iconName =
-                    currentStep.number > idx
-                      ? 'tick-success'
-                      : currentStep.number === idx
-                      ? currentStep.status
-                      : 'tick-step';
-                  return <StepItem key={idx} iconName={iconName} {...step} handleClick={step.handleClick} />;
-                })}
-              </Steps>
-              <Text> After processing , popup is automatically closed. Wait for a moment. </Text>
-            </Modal>
-            <Modal modifiers={['price']} isOpen={ModalOpendelete} handleClose={() => setModalOpendelete(false)}>
-              <ModalHeader title={t("View.DeleteNotice")} handleClose={() => setModalOpendelete(false)} />
-              <ButtonContainer>
-                <Button handleClick={()=> deleteItem()} modifiers="resell">{t("View.Yes")}</Button>
-                <Button type="submit" modifiers="resell">{t("View.No")}</Button>
-              </ButtonContainer>
-            </Modal>
-            {/* <Modal isOpen={modalOpenShare} handleClose={() => setModalOpenShare(false)}>
+           <Button
+             handleClick={() => setDisplayResell(!displayResell)}
+             modifiers={["gallery"]}
+           >
+             <Icon modifiers={["small"]} iconName="bag" />
+             {props.amount}
+           </Button>
+           <Modal
+             modifiers={["price"]}
+             isOpen={ModalResell}
+             handleClose={() => setModalResell(false)}
+           >
+             <ModalHeader
+               title={t("create.ResellTitle")}
+               handleClose={() => setModalResell(false)}
+             />
+             <Formik
+               initialValues={initialValueData}
+               validationSchema={createSchemaData}
+               onSubmit={(values) => {
+                 setModalResell(false);
+                 setModalOpen(true);
+                 dispatch(
+                   commonStart({
+                     nextAction: createTokenResellURI.started({
+                       datas: values,
+                       uid: props.id,
+                       tokenid: props.tokenid,
+                     }),
+                   })
+                 );
+               }}
+               validateOnMount
+             >
+               {({ values }) => {
+                 return (
+                   <Form className="p-create_form">
+                     <div className="p-create_inputssub">
+                       <Fieldrow
+                         className="p-create_instantsale"
+                         caption={[
+                           `${t("create.Servicefee")} ${serviceFee}%`,
+                           `${t("create.Youwillreceive")} ${
+                             values.unit === 0
+                               ? amountReceived(
+                                   values.instantsaleprice
+                                 ).toFixed(2)
+                               : amountReceived(values.instantsaleprice)
+                           }${Unit[values.unit]}（～$${amountReceivedDollar(
+                             values.instantsaleprice
+                           )}）`,
+                         ]}
+                         isCaptionForInput
+                         name="instantsaleprice"
+                       >
+                         <TextFieldFormik
+                           modifiers="price"
+                           name="instantsaleprice"
+                           placeholder="Enter price for one piece"
+                           type="number"
+                         />
+                         <Select name="unit">
+                           {Unit.map((u, idx) => (
+                             <option value={idx} key={u}>
+                               {u}
+                             </option>
+                           ))}
+                         </Select>
+                       </Fieldrow>
+                       <ButtonContainer>
+                         <Button type="submit" modifiers="resell">
+                           Create
+                         </Button>
+                       </ButtonContainer>
+                     </div>
+                   </Form>
+                 );
+               }}
+             </Formik>
+           </Modal>
+           <Modal isOpen={modalOpen} handleClose={() => setModalOpen(false)}>
+             <ModalHeader
+               title="FOLLOW STEPS"
+               handleClose={() => setModalOpen(false)}
+             />
+             <Steps>
+               {CreateSteps.map((step, idx) => {
+                 const iconName =
+                   currentStep.number > idx
+                     ? "tick-success"
+                     : currentStep.number === idx
+                     ? currentStep.status
+                     : "tick-step";
+                 return (
+                   <StepItem
+                     key={idx}
+                     iconName={iconName}
+                     {...step}
+                     handleClick={step.handleClick}
+                   />
+                 );
+               })}
+             </Steps>
+             <Text>
+               {" "}
+               After processing , popup is automatically closed. Wait for a
+               moment.{" "}
+             </Text>
+           </Modal>
+           <Modal
+             modifiers={["price"]}
+             isOpen={ModalOpendelete}
+             handleClose={() => setModalOpendelete(false)}
+           >
+             <ModalHeader
+               title={t("View.DeleteNotice")}
+               handleClose={() => setModalOpendelete(false)}
+             />
+             <ButtonContainer>
+               <Button handleClick={() => deleteItem()} modifiers="resell">
+                 {t("View.Yes")}
+               </Button>
+               <Button type="submit" modifiers="resell">
+                 {t("View.No")}
+               </Button>
+             </ButtonContainer>
+           </Modal>
+           {/* <Modal isOpen={modalOpenShare} handleClose={() => setModalOpenShare(false)}>
               <ModalHeader title="Share this NFT" handleClose={() => setModalOpenShare(false)} />
               <Modalshare link={productLink} />
             </Modal> */}
-            {/* <div className="o-productcard_info">
+           {/* <div className="o-productcard_info">
               <div className="o-productcardMyItem_heading">
                 <div className="o-productcardMyItem_lead">
                   <Link href={productLink}>
@@ -305,11 +396,11 @@ export const ProductcardMyItem: React.FC<ProductProps> = props => {
                 </div>
               </div>
             </div> */}
-            <Tooltip />
-          </>
-        )}
-    </article>
-  );
+           <Tooltip />
+         </>
+       )}
+     </article>
+   );
 };
 
 const ProductPreview: React.FC<ProductProps> = props => {
