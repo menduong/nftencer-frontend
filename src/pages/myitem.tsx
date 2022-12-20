@@ -16,13 +16,17 @@ import { Unit } from "components/pages/create/form";
 import { getMediaType } from "util/getMediaType";
 import { Button } from "components/atoms/button";
 import { RouteComponentProps } from "@reach/router";
-import { ViewMyitemTabsType } from "components/pages/view/constants";
+import {
+  ViewMyitemTabsType,
+  ViewMyitemTabsTypeNFT,
+} from "components/pages/view/constants";
 import {
   ExploreSchema,
   exploreSchema,
   MyItemCategories,
   Sort,
   SortDefaultValue,
+  TabNFT,
 } from "components/pages/explore/form";
 import { useWallet } from "use-wallet";
 import { useSelector } from "react-redux";
@@ -94,6 +98,7 @@ export const Myitem: React.FC<RouteComponentProps> = (props) => {
       productCategory: "Created Items",
       productSort: params.get("sort") || SortDefaultValue,
       verify: false,
+      tabNFT: "Single NFT(721)",
     }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     []
@@ -132,6 +137,7 @@ export const Myitem: React.FC<RouteComponentProps> = (props) => {
     const newPath = `${props.path}?${params.toString()}`;
     window.history.pushState({ path: newPath }, "", newPath);
     const optionsget = params.get("category");
+    setSelectedTab(optionsget);
     let optionsgetD = optionsget?.toLocaleLowerCase();
     switch (optionsgetD) {
       case "created items":
@@ -159,6 +165,16 @@ export const Myitem: React.FC<RouteComponentProps> = (props) => {
     }
   }, []);
 
+  const ChangeTab = (tab) => {
+    setSelectedTabNFT(tab);
+    if (tab === "Single NFT(721)") {
+      if (selectedTab === "Created Items") {
+        initialItem();
+      }
+    } else {
+      setcollectible([]);
+    }
+  };
   const refreshitem = () => {
     if (refresh && refresh == true) window.location.reload();
   };
@@ -167,7 +183,7 @@ export const Myitem: React.FC<RouteComponentProps> = (props) => {
       setIsLoading(true);
       const query = new URLSearchParams(props.location?.search).get("id");
       const result = query?.substring(query.indexOf("="));
-      // const result = "0xEC62F905D3fE305de1DA4F9274908DBc9d38De0E";
+      //const result = "0xEC62F905D3fE305de1DA4F9274908DBc9d38De0E";
       // const initial_values = await axios.get(
       //   `${process.env.ADDRESS_API}/nft/collectible-paging?cursor=&limit=10&sort=desc&filter=created-date&title=&address=${result}&options=creator`
       // );
@@ -218,6 +234,8 @@ export const Myitem: React.FC<RouteComponentProps> = (props) => {
 
   const [selectedTab, setSelectedTab] =
     useState<ViewMyitemTabsType>("Created Items");
+  const [selectedTabNFT, setSelectedTabNFT] =
+    useState<ViewMyitemTabsTypeNFT>("Single NFT(721)");
 
   return (
     <div className="p-explore">
@@ -298,6 +316,22 @@ export const Myitem: React.FC<RouteComponentProps> = (props) => {
                                   </DropDownItemGroup>
                                 </DropdownMenu>
                               </Dropdown>
+                            }
+                            tabNFT={
+                              <TabList>
+                                {[...TabNFT].map((tab) => (
+                                  <TabButton
+                                    key={tab}
+                                    active={selectedTabNFT === tab}
+                                    useFormik
+                                    name="tabNFT"
+                                    value={tab}
+                                    handleClick={() => ChangeTab(tab)}
+                                  >
+                                    {t(`${tab}`)}
+                                  </TabButton>
+                                ))}
+                              </TabList>
                             }
                           />
                         </div>

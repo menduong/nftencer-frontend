@@ -8,6 +8,7 @@ export const exploreSchema = object({
   verify: boolean(),
 });
 export const MyItemCategories = ['On sale', 'Bought Items', 'Sold Items'];
+export const TabNFT = [ 'Single NFT(721)','Multiple NFT(1155)'];
 export const ProductCategories = [
   {
     tab:'Trend',
