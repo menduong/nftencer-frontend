@@ -18,6 +18,7 @@ class SmartContract {
   private _contract: any;
 
   constructor(ABI: object, address: string) {
+
     this._account = null;
     this._ABI = ABI;
     this._address = address;
@@ -35,23 +36,32 @@ class SmartContract {
   }
 
   async callFunc(method: string, ...args: any[]) {
-    console.log("this.method",method)
+    //console.log("this.method",process.env.NFT_CONTRACT_ADDRESS_1155)
     // if (!this._contract) return;
     this._contract = await new window.web3.eth.Contract(UserDefined1155, 
       process.env.NFT_CONTRACT_ADDRESS_1155);
-      console.log("this._contract",this._contract.methods)
     return this._contract.methods[method]().call();
   }
 
   
   async send(method: string, ...args: any[]) {
     console.log("method",method)
-    console.log("args",...args)
+    console.log("args", args);
+    console.log(
+      "process.env.NFT_CONTRACT_ADDRESS_1155",
+      process.env.NFT_CONTRACT_ADDRESS_1155
+    );
+    console.log(" this._account", this._account);
+    console.log(" this._address", this._address);
+    console.log(" this._ABI", this._ABI);
     if (!this._contract || !window.web3?.eth) return;
     const gasPrice = await window.web3.eth.getGasPrice();
+    console.log(" GAS_LIMIT", GAS_LIMIT);
+    console.log(" gasPrice", gasPrice);
+    console.log(" this._contract", this._contract);
 
     return this._contract.methods[method](...args).send({
-      from: this._account,
+      from: this._account ? this._account : args[0],
       gas: GAS_LIMIT,
       gasPrice: gasPrice,
     });

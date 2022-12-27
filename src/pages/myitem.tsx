@@ -199,7 +199,9 @@ export const Myitem: React.FC<RouteComponentProps> = (props) => {
           setIsLoading(false);
           let listData = res.data.result.map((x) => ({
             title: x.name ? x.name : "My Item",
-            upload_file: JSON.parse(x.token_uri)?.image,
+            upload_file: JSON.parse(x.token_uri)?.image
+              ? JSON.parse(x.token_uri)?.image
+              : JSON.parse(x.token_uri)?.Video,
             like: { total: 0 },
             instant_sale_price: x.amount ? x.amount : "",
             quote_token: {

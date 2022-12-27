@@ -87,7 +87,10 @@
 		"labelInvoice01": "VAT invoice",
 		"labelInvoice02": "Sales invoice",
 		"labelInvoice03": "Electronic delivery cum delivery note",
-		"labelInvoiceOthers": "Other invoices"
+		"labelInvoiceOthers": "Other invoices",
+		"Blockchain" :"블록체인",
+		"Numbercopy" :"사본 수",
+		"Royalties" :"로열티"
 	},
 	"Myitem": {
 		"Created Items": "생성된 NFT",
