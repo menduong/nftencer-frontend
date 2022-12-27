@@ -3,10 +3,12 @@ import { ExtraProductCategories, ProductCategories } from 'components/pages/expl
 import { useTranslation } from "react-i18next";
 
 export const createSchema = object({
-  file: mixed().required('파일 크기가 100Mb를 넘기 때문에 업로드 불가 합니다.'),
-  instantsaleprice: number().typeError('Please input sale price.').required('Please input sale price.'),
+  file: mixed().required("파일 크기가 100Mb를 넘기 때문에 업로드 불가 합니다."),
+  instantsaleprice: number()
+    .typeError("Please input sale price.")
+    .required("Please input sale price."),
   unit: number().required(),
-  name: string().required('Please enter product name.'),
+  name: string().required("Please enter product name."),
   description: string(),
   address: string(),
   categories: array(
@@ -14,10 +16,16 @@ export const createSchema = object({
       name: string().required(),
       id: number().required(),
     })
-  ).min(1, 'Please select at least 1 category.'),
+  ).min(1, "Please select at least 1 category."),
+  numbercopy: number().min(1, "Please input number of Copies > 0"),
+  Royalties: number()
+    .min(100, "Please input Royalties >= 100")
+    .max(10000, "Please input Royalties < 10000"),
 });
 export const createSchemaData = object({
-  instantsaleprice: number().typeError('Please input sale price.').required('Please input sale price.'),
+  instantsaleprice: number()
+    .typeError("Please input sale price.")
+    .required("Please input sale price."),
   unit: number().required(),
   address: string(),
 });
@@ -25,23 +33,26 @@ export const createSchemaData = object({
 export type CreateForm = Asserts<typeof createSchema>;
 export type CreateFormData = Asserts<typeof createSchemaData>;
 
-export const Unit = ['BNB', 'BUSD', 'CONUT'];
+export const Unit = ["BNB", "BUSD", "CONUT"];
 export const Categories = [...ExtraProductCategories].map((category, idx) => {
   return { id: idx, name: category };
 });
 
 export const initialValue: CreateForm = {
-  name: '',
+  name: "",
   file: undefined,
-  description: '',
-  address:'',
+  description: "",
+  address: "",
   instantsaleprice: 0,
   unit: 0,
   categories: [],
+  numbercopy: 0,
+  Royalties: 0,
 };
 export const initialValueData: CreateFormData = {
   file: undefined,
-  address:'',
+  address: "",
   instantsaleprice: 0,
   unit: 0,
+  numbercopy: 0,
 };

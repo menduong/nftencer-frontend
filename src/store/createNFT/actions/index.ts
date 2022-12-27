@@ -33,3 +33,5 @@ export const sellCreateNFT = actionCreator.async<SellCreateNFTReq, SellCreateNFT
 export const  createTokenURI1155 = actionCreator.async<CreateURI1155Req, CreateURI1155Res, Error>('CREATE_TOKEN_URL_1155');
 
 export const  getTokenCountURI1155 = actionCreator.async<CreateURI1155Req, CreateURI1155Res, Error>('GET_TOKEN_COUNT_1155');
+export const  createURI1155 = actionCreator.async<CreateURI1155Req, CreateURI1155Res, Error>('CREATE_URL_1155');
+export const createNFT1155 = actionCreator.async<CreateNFTReq, CreateNFTRes, Error>('CREATE_NFT_1155')

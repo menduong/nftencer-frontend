@@ -93,7 +93,10 @@
 		"labelInvoice01": "Hóa đơn GTGT",
 		"labelInvoice02": "Hóa đơn bán hàng",
 		"labelInvoice03": "Phiếu xuất kho kiêm vận chuyển điện tử",
-		"labelInvoiceOthers": "Hóa đơn khác"
+		"labelInvoiceOthers": "Hóa đơn khác",
+    "Blockchain" :"Blockchain",
+		"Numbercopy" :"Số bản sao",
+		"Royalties" :"Tiền bản quyền"
 
   },
   "Myitem": {

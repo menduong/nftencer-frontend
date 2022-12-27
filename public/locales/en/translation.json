@@ -85,7 +85,10 @@
 		"Optional": "Optional",
 		"Back": "Back",
 		"Review": "Review",
-		"ResellTitle": "Resell this NFT"
+		"ResellTitle": "Resell this NFT",
+		"Blockchain" :"Blockchain",
+		"Numbercopy" :"Number of Copies",
+		"Royalties" :"Royalties"
 	},
 	"Myitem": {
 		"Created Items": "Created Items",
