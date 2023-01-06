@@ -13,46 +13,50 @@ interface Props {
   next_cursor?: string;
   searchBy?: string;
   option?: any;
+  initialItem?: () => void;
 }
 
-export const ItemListMyItem: React.FC<Props> = props => {
+export const ItemListMyItem: React.FC<Props> = (props) => {
   const [isShowMore, setIsShowMore] = useState(false);
 
   useEffect(() => setIsShowMore(false), [props.searchBy]);
   return (
     <div className="o-itemlist">
-        <>
-          <InfiniteScroll
-            dataLength={props.list.length}
-            hasMore={isShowMore && !!props.next_cursor}
-            next={props.next}
-            loader={<Spinner modifiers="big" />}
-          >
-            {props.list.length ? (
-              <div className="o-itemlistMyitem_wrapper">
-                {props.list.map((item, idx) => (
-                  <div key={idx} className="o-itemlistMyitem_item">
-                    {(item as ProductProps).title ? (
-                      <ProductcardMyItem {...(item as ProductProps)}></ProductcardMyItem>
-                    ) : (
-                      <ProfileCard {...(item as ProfileProps)}></ProfileCard>
-                    )}
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <div className="o-itemlist_noresult">
-                <Icon iconName="search-not-found" />
-                <Text size="28" modifiers={['blue']}>
-                  Oops!
-                </Text>
-                <Text size="24" modifiers={['blue']}>
-                  No matching search results.
-                </Text>
-              </div>
-            )}
-          </InfiniteScroll>
-        </>
+      <>
+        <InfiniteScroll
+          dataLength={props.list.length}
+          hasMore={isShowMore && !!props.next_cursor}
+          next={props.next}
+          loader={<Spinner modifiers="big" />}
+        >
+          {props.list.length ? (
+            <div className="o-itemlistMyitem_wrapper">
+              {props.list.map((item, idx) => (
+                <div key={idx} className="o-itemlistMyitem_item">
+                  {(item as ProductProps).title ? (
+                    <ProductcardMyItem
+                      {...(item as ProductProps)}
+                      initialItem={props.initialItem}
+                    ></ProductcardMyItem>
+                  ) : (
+                    <ProfileCard {...(item as ProfileProps)}></ProfileCard>
+                  )}
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="o-itemlist_noresult">
+              <Icon iconName="search-not-found" />
+              <Text size="28" modifiers={["blue"]}>
+                Oops!
+              </Text>
+              <Text size="24" modifiers={["blue"]}>
+                No matching search results.
+              </Text>
+            </div>
+          )}
+        </InfiniteScroll>
+      </>
     </div>
   );
 };

@@ -54,10 +54,11 @@ type Modifier =
   | "black"
   | "history"
   | "buycart"
-  | "gallery";
+  | "gallery"
+  | "inlinType";
 
 interface Props {
-  modifiers?: Modifier | Modifier[]
+  modifiers?: Modifier | Modifier[];
   children: any;
   anchor?: {
     href: string;
@@ -65,30 +66,40 @@ interface Props {
     external?: boolean;
   };
   handleClick?: (e?: React.MouseEvent) => void;
-  type?: 'button' | 'submit' | 'reset';
+  type?: "button" | "submit" | "reset";
   disabled?: boolean;
-  ref?:any;
+  ref?: any;
+  style?: any;
 }
 
-export const Button: React.FC<Props> = props => {
+export const Button: React.FC<Props> = (props) => {
   return props.anchor ? (
     !props.anchor.external ? (
-      <Link to={props.anchor.href} className={mapModifiers('a-button', props.modifiers)} target={props.anchor.target}>
+      <Link
+        to={props.anchor.href}
+        className={mapModifiers("a-button", props.modifiers)}
+        target={props.anchor.target}
+      >
         {props.children}
       </Link>
     ) : (
       // eslint-disable-next-line react/forbid-elements
-      <a href={props.anchor.href} className={mapModifiers('a-button', props.modifiers)} target={props.anchor.target}>
+      <a
+        href={props.anchor.href}
+        className={mapModifiers("a-button", props.modifiers)}
+        target={props.anchor.target}
+      >
         {props.children}
       </a>
     )
   ) : (
     <button
-      className={mapModifiers('a-button', props.modifiers)}
+      className={mapModifiers("a-button", props.modifiers)}
       onClick={props.handleClick}
-      type={props.type || 'button'}
+      type={props.type || "button"}
       disabled={props.disabled}
       ref={props.ref}
+      style={{ backgroundColor: props.style }}
     >
       {props.children}
     </button>

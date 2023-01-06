@@ -268,3 +268,14 @@
 .MuiFormControlLabel-root {
   align-items: flex-start !important;
 }
+.m-fieldrow_body .a-textfield:last-child {
+  margin-bottom: 10px
+}
+
+.m-fieldrow_error {
+  line-height: 0px
+}
+
+.a-multiselect {
+  margin-bottom: 10px
+}

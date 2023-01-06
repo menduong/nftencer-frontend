@@ -3,27 +3,32 @@ import { hot } from 'react-hot-loader/root';
 import { Layout } from 'components/templates/layout';
 import { Section } from 'components/organisms/section';
 import { Form, Formik } from 'formik';
-import { createSchema, initialValue, Unit } from 'components/pages/create/form';
-import axios from 'axios';
-import { Link } from 'components/atoms/link';
-import { Text } from 'components/atoms/text';
-import { Icon } from 'components/atoms/icon';
-import { Heading } from 'components/molecules/heading';
-import { Fieldrow } from 'components/molecules/fieldrow';
-import { TextFieldFormik } from 'components/atoms/textfield';
-import { FileInputcreate } from 'components/atoms/fileinputcreate';
-import { Textarea } from 'components/atoms/textarea';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import { Button } from 'components/atoms/button';
-import { Reviewcard } from 'components/organisms/reviewbox';
-import { navigate } from 'gatsby-link';
-import { Modal } from 'components/organisms/modal';
-import { ModalHeader } from 'components/molecules/modalHeader';
-import { StepItem } from 'components/molecules/stepItem';
-import { Steps } from 'components/organisms/steps';
-import { useWallet } from 'use-wallet';
-import { useDispatch, useSelector } from 'react-redux';
+import {
+  createSchema,
+  initialValue,
+  Unit,
+  createSchema1155,
+} from "components/pages/create/form";
+import axios from "axios";
+import { Link } from "components/atoms/link";
+import { Text } from "components/atoms/text";
+import { Icon } from "components/atoms/icon";
+import { Heading } from "components/molecules/heading";
+import { Fieldrow } from "components/molecules/fieldrow";
+import { TextFieldFormik } from "components/atoms/textfield";
+import { FileInputcreate } from "components/atoms/fileinputcreate";
+import { Textarea } from "components/atoms/textarea";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Checkbox from "@material-ui/core/Checkbox";
+import { Button } from "components/atoms/button";
+import { Reviewcard } from "components/organisms/reviewbox";
+import { navigate } from "gatsby-link";
+import { Modal } from "components/organisms/modal";
+import { ModalHeader } from "components/molecules/modalHeader";
+import { StepItem } from "components/molecules/stepItem";
+import { Steps } from "components/organisms/steps";
+import { useWallet } from "use-wallet";
+import { useDispatch, useSelector } from "react-redux";
 import {
   createNFT,
   createTokenURI,
@@ -63,8 +68,6 @@ export const Create: React.FC = () => {
   const [changefile, onchangefile] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
   const [trigger, setTrigger] = useState(false);
-
-  console.log(getCreateStore);
 
   const CreateSteps = !trigger
     ? [
@@ -177,7 +180,7 @@ export const Create: React.FC = () => {
           </div>
           <Formik
             initialValues={initialValue}
-            validationSchema={createSchema}
+            validationSchema={!trigger ? createSchema : createSchema1155}
             onSubmit={(values) => {
               if (trigger) {
                 dispatch(
@@ -363,7 +366,7 @@ export const Create: React.FC = () => {
                                 style={{
                                   width: "45%",
                                   float: "right",
-                                  marginTop: -111,
+                                  marginTop: -123,
                                 }}
                               >
                                 <Fieldrow
@@ -372,8 +375,7 @@ export const Create: React.FC = () => {
                                 >
                                   <TextFieldFormik
                                     name="Royalties"
-                                    placeholder={t("create.Royalties")}
-                                    type="number"
+                                    placeholder="Please input Royalties 1-50"
                                   />
                                 </Fieldrow>
                               </Col>

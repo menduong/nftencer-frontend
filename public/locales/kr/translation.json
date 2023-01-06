@@ -90,7 +90,8 @@
 		"labelInvoiceOthers": "Other invoices",
 		"Blockchain" :"블록체인",
 		"Numbercopy" :"사본 수",
-		"Royalties" :"로열티"
+		"Royalties" :"로열티",
+		"Amount" :"양"
 	},
 	"Myitem": {
 		"Created Items": "생성된 NFT",

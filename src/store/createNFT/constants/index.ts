@@ -43,3 +43,7 @@ export type SellCreateNFTReq = {};
 export type SellCreateNFTRes = any;
 
 export type Error = any;
+
+export type ReSellNFTReq = any;
+
+export type ReSellNFTRes = any;

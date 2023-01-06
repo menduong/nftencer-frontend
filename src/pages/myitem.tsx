@@ -85,8 +85,7 @@ export const Myitem: React.FC<RouteComponentProps> = (props) => {
   const [optionres, setoption] = useState<any>(Array);
   const [listDataNft, setListDataNft] = useState<any>(Array);
   const [isLoading, setIsLoading] = useState(false);
-  const Moralis = require("moralis").default;
-  const { EvmChain } = require("@moralisweb3/evm-utils");
+  const [collectible1155, setcollectible1155] = useState<any>(Array);
 
   const store = useSelector(getExploreStore);
   const { t } = useTranslation();
@@ -109,6 +108,9 @@ export const Myitem: React.FC<RouteComponentProps> = (props) => {
   const [avatar, avatarSet] = useState<any>(Array);
   const [cover, coverSet] = useState<any>(Array);
   const [infoBio, infoBioSet] = useState<any>(Array);
+  const [selectedTab, setSelectedTab] =
+    useState<ViewMyitemTabsType>("Created Items");
+  const [selectedTabNFT, setSelectedTabNFT] = useState("Single NFT(721)");
 
   const Refresh = async () => {
     try {
@@ -131,6 +133,8 @@ export const Myitem: React.FC<RouteComponentProps> = (props) => {
   };
 
   const handleFilter = useCallback(async (param: string, value: string) => {
+    setcollectible([]);
+    setcollectible1155([]);
     const query = new URLSearchParams(props.location?.search).get("id");
     const result = query?.substring(query.indexOf("="));
     params.get(param) ? params.set(param, value) : params.append(param, value);
@@ -167,19 +171,17 @@ export const Myitem: React.FC<RouteComponentProps> = (props) => {
 
   const ChangeTab = (tab) => {
     setSelectedTabNFT(tab);
-    if (tab === "Single NFT(721)") {
-      if (selectedTab === "Created Items") {
-        initialItem();
-      }
-    } else {
-      setcollectible([]);
-    }
   };
+  useEffect(() => {
+    initialItem();
+  }, [selectedTabNFT]);
   const refreshitem = () => {
     if (refresh && refresh == true) window.location.reload();
   };
   const initialItem = async () => {
     try {
+      setcollectible1155([]);
+      setcollectible([]);
       setIsLoading(true);
       const query = new URLSearchParams(props.location?.search).get("id");
       const result = query?.substring(query.indexOf("="));
@@ -189,8 +191,15 @@ export const Myitem: React.FC<RouteComponentProps> = (props) => {
       // );
       // const collectible = initial_values.data.collectibles;
       //const result = "0xEC62F905D3fE305de1DA4F9274908DBc9d38De0E"; // wallet.account;
-      const token_address = "0xe8bb5b310c7f7b15af4a752fd35c3d5728fd61f1";
-      console.log("new", result);
+      let token_address = "";
+      console.log(selectedTabNFT);
+      if (selectedTabNFT === "Single NFT(721)") {
+        token_address = process.env.NFT_CONTRACT_ADDRESS_721;
+      } else {
+        token_address = process.env.NFT_CONTRACT_ADDRESS_1155;
+      }
+
+      console.log("new", token_address);
       const listNFT = await axios
         .get(
           `${process.env.ADDRESS_API}/wallet-nft?address=${result}&chain=bsc testnet&token_address=${token_address}`
@@ -212,8 +221,15 @@ export const Myitem: React.FC<RouteComponentProps> = (props) => {
             token_id: x.token_id,
             id: x.token_id,
             amount: x.amount,
+            contract_type: x.contract_type,
+            token_address: x.token_address,
+            info : JSON.parse(x.token_uri),
           }));
-          setcollectible(listData);
+          if (selectedTabNFT === "Single NFT(721)") {
+            setcollectible(listData);
+          } else {
+            setcollectible1155(listData);
+          }
         });
       //setcollectible(collectible);
       setoption("creator");
@@ -233,11 +249,6 @@ export const Myitem: React.FC<RouteComponentProps> = (props) => {
   useEffect(() => {
     refreshitem();
   }, [refresh]);
-
-  const [selectedTab, setSelectedTab] =
-    useState<ViewMyitemTabsType>("Created Items");
-  const [selectedTabNFT, setSelectedTabNFT] =
-    useState<ViewMyitemTabsTypeNFT>("Single NFT(721)");
 
   return (
     <div className="p-explore">
@@ -344,27 +355,62 @@ export const Myitem: React.FC<RouteComponentProps> = (props) => {
                         )}
 
                         <div className="p-explore_products">
-                          <ItemListMyItem
-                            searchBy={values.productCategory}
-                            next_cursor={store.next_cursor}
-                            list={collectible.map((item) => ({
-                              title: item.title,
-                              alt: "",
-                              src: item.upload_file,
-                              totallike: item.like.total,
-                              price: Number(item.instant_sale_price),
-                              unit: item.quote_token.name,
-                              view: item.view,
-                              tokenowner: item.token_owner,
-                              mediaType: getMediaType(item.upload_file),
-                              url: item.upload_file,
-                              userList: users,
-                              amount: item.amount,
-                              tokenid: item.token_id,
-                              id: item.id,
-                              optionres: { optionres },
-                            }))}
-                          />
+                          {selectedTabNFT === "Single NFT(721)" ? (
+                            <ItemListMyItem
+                              searchBy={values.productCategory}
+                              next_cursor={store.next_cursor}
+                              list={collectible.map((item) => ({
+                                title: item.title,
+                                alt: "",
+                                src: item.upload_file,
+                                totallike: item.like.total,
+                                price: Number(item.instant_sale_price),
+                                unit: item.quote_token.name,
+                                view: item.view,
+                                tokenowner: item.token_owner,
+                                mediaType: getMediaType(item.upload_file),
+                                url: item.upload_file,
+                                userList: users,
+                                amount: item.amount,
+                                tokenid: item.token_id,
+                                id: item.id,
+                                optionres: { optionres },
+                                selectedTabNFT: selectedTabNFT,
+                                token_address: item.token_address,
+                                account: wallet.account,
+                                info : item.info,
+                                contract_type :item.contract_type
+                              }))}
+                            />
+                          ) : (
+                            <ItemListMyItem
+                              searchBy={values.productCategory}
+                              next_cursor={store.next_cursor}
+                              list={collectible1155.map((item) => ({
+                                title: item.title,
+                                alt: "",
+                                src: item.upload_file,
+                                totallike: item.like.total,
+                                price: Number(item.instant_sale_price),
+                                unit: item.quote_token.name,
+                                view: item.view,
+                                tokenowner: item.token_owner,
+                                mediaType: getMediaType(item.upload_file),
+                                url: item.upload_file,
+                                userList: users,
+                                amount: item.amount,
+                                tokenid: item.token_id,
+                                id: item.id,
+                                optionres: { optionres },
+                                selectedTabNFT: selectedTabNFT,
+                                token_address: item.token_address,
+                                account: wallet.account,
+                                info : item.info,
+                                contract_type :item.contract_type
+                              }))}
+                              initialItem={initialItem}
+                            />
+                          )}
                         </div>
                       </Section>
                     </Section>

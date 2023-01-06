@@ -25,6 +25,8 @@ import axios from "axios";
 import { CardType, CardTypeNum, formatSaleBalance } from "util/formatBalance";
 import { Unit } from "components/pages/create/form";
 
+
+/////1155
 const createTokenURI_1155Epic: Epic = (action$, state$) =>
   action$.pipe(
     filter(createTokenURI1155.started.match),
@@ -120,7 +122,7 @@ const createURI_1155Epic: Epic = (action$, state$) =>
       const tokenUriTemp = action.payload.tokenID.toString();
       const NamefileDec = parseInt(action.payload.tokenID) + 1;
       const NamefileHec = NamefileDec.toString(16) + ".json";
-      const tokenlength = 64 - tokenUriTemp.length;
+      const tokenlength = 64 - NamefileDec.toString(16).length;
       for (let i = 0; i < tokenlength; i++) {
         strCount.push("0");
       }
@@ -128,10 +130,18 @@ const createURI_1155Epic: Epic = (action$, state$) =>
       const json = {
         Video: action.payload.URI,
         description: values.description,
+        title :values.name,
+        categories : values.categories,
+        Royalties :parseInt(values.Royalties) 
       };
+     
+      console.log(fileName);
+      console.log(strCount)
+     
       const file = new File([JSON.stringify(json)], fileName, {
         type: "application/json",
       });
+      console.log(file)
       data.append("image", file);
       data.append("retain_name", "true");
       console.log("data", action.payload);
@@ -174,9 +184,9 @@ const createNFT_1155Epic: Epic = (action$, store$) =>
       console.log("store.common.account", action);
       console.log("store store", store);
       console.log("step 2", values);
-
+      const Royalties = parseInt(values.Royalties) *100;
       return from(
-        UserDefined_1155.send("mint", store.common.account, values?.numbercopy)
+        UserDefined_1155.send("mint", store.common.account, values?.numbercopy,Royalties)
         // NFTContract.send('mint', store.common.account,quantity)
         // 0xe8bb5b310c7f7B15AF4a752fD35C3d5728FD61f1 , 100
         // NFTContract.send('create', store.common.account, action.payload.tokenURI || store.createNFT.tokenURI)
@@ -195,6 +205,7 @@ const createNFT_1155Epic: Epic = (action$, store$) =>
     })
   );
 
+///721
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
@@ -441,6 +452,8 @@ const sellNFTEpic: Epic = (action$, state$) =>
       );
     })
   );
+
+////MyNFTStorage
 
 export default combineEpics(
   createResellURIEpic,

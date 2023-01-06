@@ -96,7 +96,8 @@
 		"labelInvoiceOthers": "Hóa đơn khác",
     "Blockchain" :"Blockchain",
 		"Numbercopy" :"Số bản sao",
-		"Royalties" :"Tiền bản quyền"
+		"Royalties" :"Tiền bản quyền",
+    "Amount" :"Số lượng"
 
   },
   "Myitem": {
