@@ -12,9 +12,10 @@ export const PageProvider: React.FC = props => {
     <UseWalletProvider
       chainId={97} //testnet
       // chainId={56} //Mainet
+      //chainId={5} //testnet
       connectors={{
         // This is how connectors get configured
-        portis: { dAppId: 'my-dapp-id-123-xyz' },
+        portis: { dAppId: "my-dapp-id-123-xyz" },
       }}
     >
       <Provider store={store}>

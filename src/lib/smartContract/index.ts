@@ -5,9 +5,10 @@ import NFTDigitalABI from './abi/NFTDigital';
 import SimpleExchangeNFTABI from './abi/SimpleExchangeNFT';
 import UserDefined1155 from './abi/UserDefined1155';
 import NFTDigitalABI_1155 from './abi/NFTDigital_1155';
+import NFTStorageAddrress from "./abi/NFTStorageAddrress";
 
 export type MiddlewareMethods = {
-  [key in 'sending' | 'transactionHash' | 'receipt']?: () => void;
+  [key in "sending" | "transactionHash" | "receipt"]?: () => void;
 };
 
 const GAS_LIMIT = process.env.GAS_LIMIT;
@@ -18,7 +19,6 @@ class SmartContract {
   private _contract: any;
 
   constructor(ABI: object, address: string) {
-
     this._account = null;
     this._ABI = ABI;
     this._address = address;
@@ -27,38 +27,35 @@ class SmartContract {
   async initialize(account: string | null) {
     if (!window.web3?.eth) return;
     this._account = account;
-    this._contract = await new window.web3.eth.Contract(this._ABI, this._address);
+    this._contract = await new window.web3.eth.Contract(
+      this._ABI,
+      this._address
+    );
   }
 
   async call(method: string, ...args: any[]) {
     if (!this._contract) return;
-    return this._contract.methods[method](...args).call({ from: this._account });
+    return this._contract.methods[method](...args).call({
+      from: this._account,
+    });
   }
 
   async callFunc(method: string, ...args: any[]) {
     //console.log("this.method",process.env.NFT_CONTRACT_ADDRESS_1155)
     // if (!this._contract) return;
-    this._contract = await new window.web3.eth.Contract(UserDefined1155, 
-      process.env.NFT_CONTRACT_ADDRESS_1155);
+    this._contract = await new window.web3.eth.Contract(
+      UserDefined1155,
+      process.env.NFT_CONTRACT_ADDRESS_1155
+    );
     return this._contract.methods[method]().call();
   }
 
-  
   async send(method: string, ...args: any[]) {
-    console.log("method",method)
+    console.log("method", method);
     console.log("args", args);
-    console.log(
-      "process.env.NFT_CONTRACT_ADDRESS_1155",
-      process.env.NFT_CONTRACT_ADDRESS_1155
-    );
-    console.log(" this._account", this._account);
-    console.log(" this._address", this._address);
-    console.log(" this._ABI", this._ABI);
+
     if (!this._contract || !window.web3?.eth) return;
     const gasPrice = await window.web3.eth.getGasPrice();
-    console.log(" GAS_LIMIT", GAS_LIMIT);
-    console.log(" gasPrice", gasPrice);
-    console.log(" this._contract", this._contract);
 
     return this._contract.methods[method](...args).send({
       from: this._account ? this._account : args[0],
@@ -66,8 +63,48 @@ class SmartContract {
       gasPrice: gasPrice,
     });
   }
+  async callStoreAge(method: string, ...args: any[]) {
+    console.log("method", method);
+    console.log("args", args);
+    console.log("env", this._account);
+    console.log("env", process.env.NFT_STORAGE_ADDRESS);
 
-  async sendWithMiddleware(method: string, middlewareMethods: MiddlewareMethods, ...args: any[]) {
+    // this._contract = await new window.web3.eth.Contract(
+    //   NFTStorageAddrress,
+    //   process.env.NFT_STORAGE_ADDRESS
+    // );
+    const gasPrice = await window.web3.eth.getGasPrice();
+    console.log("_contract", this._ABI);
+    console.log("_contract", this._contract);
+    return this._contract.methods[method](...args).send({
+      from: this._account ? this._account : args[0],
+      gas: GAS_LIMIT,
+      gasPrice: gasPrice,
+    });
+  }
+  async AprroveSell(method: string, ...args: any[]) {
+    console.log("method", method);
+
+    const account = args[0];
+
+    this._contract = await new window.web3.eth.Contract(
+      UserDefined1155,
+      process.env.NFT_CONTRACT_ADDRESS_1155
+    );
+    console.log("_contract", this._contract);
+    console.log("_account", account);
+    const arr = [...args];
+    arr.splice(0, 1);
+    console.log("args", arr);
+    return this._contract.methods[method](...arr).send({
+      from: account,
+    });
+  }
+  async sendWithMiddleware(
+    method: string,
+    middlewareMethods: MiddlewareMethods,
+    ...args: any[]
+  ) {
     if (!this._contract || !window.web3?.eth) return;
     const gasPrice = await window.web3.eth.getGasPrice();
     return this._contract.methods[method](...args)
@@ -76,18 +113,24 @@ class SmartContract {
         gas: GAS_LIMIT,
         gasPrice: gasPrice,
       })
-      .on('sending', () => {
+      .on("sending", () => {
         middlewareMethods.sending && middlewareMethods.sending();
       })
-      .on('TransactionHash', () => {
-        middlewareMethods.transactionHash && middlewareMethods.transactionHash();
+      .on("TransactionHash", () => {
+        middlewareMethods.transactionHash &&
+          middlewareMethods.transactionHash();
       })
-      .on('receipt', () => {
+      .on("receipt", () => {
         middlewareMethods.receipt && middlewareMethods.receipt();
-    });
+      });
   }
 
-  async sendBNB(method: string, value: number, middlewareMethods: MiddlewareMethods, ...args: any[]) {
+  async sendBNB(
+    method: string,
+    value: number,
+    middlewareMethods: MiddlewareMethods,
+    ...args: any[]
+  ) {
     if (!this._contract || !window.web3?.eth) return;
     const gasPrice = await window.web3.eth.getGasPrice();
     return this._contract.methods[method](...args)
@@ -97,13 +140,14 @@ class SmartContract {
         gasPrice: gasPrice,
         value: value,
       })
-      .on('sending', () => {
+      .on("sending", () => {
         middlewareMethods.sending && middlewareMethods.sending();
       })
-      .on('transactionHash', () => {
-        middlewareMethods.transactionHash && middlewareMethods.transactionHash();
+      .on("transactionHash", () => {
+        middlewareMethods.transactionHash &&
+          middlewareMethods.transactionHash();
       })
-      .on('receipt', () => {
+      .on("receipt", () => {
         middlewareMethods.receipt && middlewareMethods.receipt();
       });
   }
@@ -117,16 +161,36 @@ class SmartContract {
   }
 }
 
-export const BUSDContract = new SmartContract(BEP20FixedSupplyABI, process.env.BUSD_CONTRACT_ADDRESS || '');
-export const CONTContract = new SmartContract(BEP20FixedSupplyABI, process.env.CONT_CONTRACT_ADDRESS || '');
-export const NFTContract = new SmartContract(NFTDigitalABI, process.env.NFT_CONTRACT_ADDRESS || '');
-export const NFTContract_1155 = new SmartContract(NFTDigitalABI_1155, process.env.NFT_CONTRACT_ADDRESS_1155 || '');
-
+export const BUSDContract = new SmartContract(
+  BEP20FixedSupplyABI,
+  process.env.BUSD_CONTRACT_ADDRESS || ""
+);
+export const CONTContract = new SmartContract(
+  BEP20FixedSupplyABI,
+  process.env.CONT_CONTRACT_ADDRESS || ""
+);
+export const NFTContract = new SmartContract(
+  NFTDigitalABI,
+  process.env.NFT_CONTRACT_ADDRESS || ""
+);
+export const NFTContract_1155 = new SmartContract(
+  NFTDigitalABI_1155,
+  process.env.NFT_CONTRACT_ADDRESS_1155 || ""
+);
 
 /////// 1155 //////////
-console.log("process.env.NFT_CONTRACT_ADDRESS_1155",process.env.NFT_CONTRACT_ADDRESS_1155)
-export const UserDefined_1155 = new SmartContract(UserDefined1155, process.env.NFT_CONTRACT_ADDRESS_1155 || '');
-
+console.log(
+  "process.env.NFT_CONTRACT_ADDRESS_1155",
+  process.env.NFT_CONTRACT_ADDRESS_1155
+);
+export const UserDefined_1155 = new SmartContract(
+  UserDefined1155,
+  process.env.NFT_CONTRACT_ADDRESS_1155 || ""
+);
+export const NFTContract_StorageAddrress = new SmartContract(
+  NFTStorageAddrress,
+  process.env.NFT_STORAGE_ADDRESS || ""
+);
 ///////////////////////
 export const SimpleExchangeContract = new SmartContract(
   SimpleExchangeNFTABI,

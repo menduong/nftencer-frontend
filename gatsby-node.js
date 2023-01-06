@@ -7,41 +7,63 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
       fs: "empty",
     },
     resolve: {
-      extensions: ['.js', '.ts', '.tsx'],
+      extensions: [".js", ".ts", ".tsx"],
       alias: {
-        process: 'process',
-        stream: 'stream-browserify',
-        zlib: 'browserify-zlib'
+        process: "process",
+        stream: "stream-browserify",
+        zlib: "browserify-zlib",
       },
       fallback: {
-        crypto: require.resolve('crypto-browserify'),
-        stream: require.resolve('stream-browserify'),
-        os: require.resolve('os-browserify/browser'),
-        http: require.resolve('stream-http'),
-        https: require.resolve('https-browserify'),
-        util: require.resolve('util/'),
+        crypto: require.resolve("crypto-browserify"),
+        stream: require.resolve("stream-browserify"),
+        os: require.resolve("os-browserify/browser"),
+        http: require.resolve("stream-http"),
+        https: require.resolve("https-browserify"),
+        util: require.resolve("util/"),
         path: require.resolve("path-browserify"),
-        electron: false
+        electron: false,
       },
     },
     plugins: [
       new webpack.ProvidePlugin({
-        process: 'process',
-        Buffer: ['buffer', 'Buffer'],
+        process: "process",
+        Buffer: ["buffer", "Buffer"],
       }),
       new webpack.DefinePlugin({
-        'process.env.NFT_CONTRACT_ADDRESS': JSON.stringify("0xda7a5df3178ec51aca2d36c5837d1c6fa8c82acb"),
-        'process.env.NFT_CONTRACT_ADDRESS_1155': JSON.stringify("0xe8bb5b310c7f7B15AF4a752fD35C3d5728FD61f1"),
-        'process.env.SIMPLE_EXCHANGE_ADDRESS': JSON.stringify("0xe0C336280CfCc278259b52b681Ce2efb90b648Eb"),
-        'process.env.BUSD_CONTRACT_ADDRESS': JSON.stringify("0x07db360b8a092ef4005cdba63780b597765a9435"),
-        'process.env.CONT_CONTRACT_ADDRESS': JSON.stringify("0xfa3ced40208b1fc44478ce507d9fca30770dc0fd"),
-        'process.env.GAS_LIMIT': 500000,
-        'process.env.SERVICE_FEE': "2.5",
+        "process.env.NFT_CONTRACT_ADDRESS": JSON.stringify(
+          "0xda7a5df3178ec51aca2d36c5837d1c6fa8c82acb"
+        ),
+        "process.env.NFT_CONTRACT_ADDRESS_1155": JSON.stringify(
+          "0x4C7759b241e44450C087F95F11FA1757610710F9"
+        ),
+        "process.env.SIMPLE_EXCHANGE_ADDRESS": JSON.stringify(
+          "0xe0C336280CfCc278259b52b681Ce2efb90b648Eb"
+        ),
+        "process.env.BUSD_CONTRACT_ADDRESS": JSON.stringify(
+          "0x07db360b8a092ef4005cdba63780b597765a9435"
+        ),
+        "process.env.CONT_CONTRACT_ADDRESS": JSON.stringify(
+          "0xfa3ced40208b1fc44478ce507d9fca30770dc0fd"
+        ),
+        "process.env.NFT_STORAGE_ADDRESS": JSON.stringify(
+          "0x1156e8a9b4fd56ba0f2eb1ceb2493a62e7da9eaf"
+        ),
+        "process.env.NFT_BINANCE_SMART_CHAIN": JSON.stringify(
+          "0xBFaC05454a89557be313274a9C6388024b21E803"
+        ),
+        "process.env.NFT_NFTC": JSON.stringify(
+          "0xfa3ced40208b1fc44478ce507d9fca30770dc0fd"
+        ),
+        "process.env.NFT_CONTRACT_ADDRESS_721": JSON.stringify(
+          "0xe8bb5b310c7f7b15af4a752fd35c3d5728fd61f1"
+        ),
+        "process.env.GAS_LIMIT": 500000,
+        "process.env.SERVICE_FEE": "2.5",
         // 'process.env.ADDRESS_API': JSON.stringify("https://api.coconut.global"),
-        'process.env.ADDRESS_API': JSON.stringify("https://api.nftencer.com"),
+        "process.env.ADDRESS_API": JSON.stringify("https://api.nftencer.com"),
         // 'process.env.chainID': "38", //mainet
-        'process.env.chainID': "61",  //testnet
-      })
+        "process.env.chainID": "61", //testnet
+      }),
     ],
   });
 
