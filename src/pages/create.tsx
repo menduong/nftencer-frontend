@@ -55,7 +55,7 @@ import { Modalconvert } from "components/organisms/modalconvert";
 import Grid from "@material-ui/core/Grid";
 import { Select as Selected, MenuItem, FormControl } from "@material-ui/core";
 import { Col, Row } from "reactstrap";
-import { loadJsonFile } from "load-json-file";
+
 
 export const Create: React.FC = () => {
   const wallet = useWallet();
