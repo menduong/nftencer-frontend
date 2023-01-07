@@ -8,8 +8,6 @@ import {
   UserDefined_1155,
 } from "lib/smartContract";
 import axios from "axios";
-import { CardType, CardTypeNum, formatSaleBalance } from "util/formatBalance";
-import { Unit } from "components/pages/create/form";
 const { ethers } = require("ethers");
 
 const UUID = require("uuid-int");
@@ -24,18 +22,6 @@ const CreateNFTEpic: Epic = (action$, state$) =>
       const state: State = state$.value;
       const values = action.payload.data || state.sellNFT.newProduct;
       const price = values.tokenPrice * values.quantity;
-      const data = new FormData();
-      data.append("unlock_once_purchased", "0");
-      data.append("instant_sale_price", `${price}`);
-      data.append("royalty_percent", `${values.Royalties}`);
-      data.append("title", values.title);
-      data.append("description", values.description);
-      data.append("upload_file", values.upload_file);
-      data.append("erc_type", values.contract_type);
-      data.append("creator", values.account);
-      data.append("token_payment", values.tokenPayment);
-      data.append("token_quantity", values.quantity);
-      data.append("uuid_transaction", uuidTransaction);
       let categories = "";
       values.categories?.map(
         (cate) => (categories += "&categories=" + cate.name.toLocaleLowerCase())
