@@ -10,7 +10,6 @@ import {
 import axios from "axios";
 import { CardType, CardTypeNum, formatSaleBalance } from "util/formatBalance";
 import { Unit } from "components/pages/create/form";
-import { uuid } from "uuidv4";
 const { ethers } = require("ethers");
 
 const UUID = require("uuid-int");
