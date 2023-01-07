@@ -8,12 +8,12 @@ import {
   UserDefined_1155,
 } from "lib/smartContract";
 import axios from "axios";
-// const { ethers } = require("ethers");
+const { ethers } = require("ethers");
 
-// const UUID = require("uuid-int");
-// const id = 0;
-// const generator = UUID(id);
-// const uuidTransaction = generator.uuid();
+const UUID = require("uuid-int");
+const id = 0;
+const generator = UUID(id);
+const uuidTransaction = generator.uuid();
 ////MyNFTStorage
 const CreateNFTEpic: Epic = (action$, state$) =>
   action$.pipe(
