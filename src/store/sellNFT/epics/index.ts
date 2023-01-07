@@ -8,12 +8,12 @@ import {
   UserDefined_1155,
 } from "lib/smartContract";
 import axios from "axios";
-const { ethers } = require("ethers");
+// const { ethers } = require("ethers");
 
-const UUID = require("uuid-int");
-const id = 0;
-const generator = UUID(id);
-const uuidTransaction = generator.uuid();
+// const UUID = require("uuid-int");
+// const id = 0;
+// const generator = UUID(id);
+// const uuidTransaction = generator.uuid();
 ////MyNFTStorage
 const CreateNFTEpic: Epic = (action$, state$) =>
   action$.pipe(
@@ -81,7 +81,7 @@ const createOder_NFTEpic: Epic = (action$, state$) =>
       console.log("pass 1");
       const values = action.payload.data || state.sellNFT.newProduct;
 
-      const price = ethers.utils.parseEther(values.tokenPrice.toString());
+     // const price = ethers.utils.parseEther(values.tokenPrice.toString());
       console.log("state", state);
       console.log("action", action);
       console.log("action", values);
@@ -90,10 +90,10 @@ const createOder_NFTEpic: Epic = (action$, state$) =>
           "createOrder",
           values.nftAddress,
           values.tokenId,
-          price,
+          0,
           values.quantity,
           values.tokenPayment,
-          uuidTransaction
+          null
         )
       ).pipe(
         map((res) => {
