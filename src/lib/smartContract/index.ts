@@ -5,7 +5,7 @@ import NFTDigitalABI from './abi/NFTDigital';
 import SimpleExchangeNFTABI from './abi/SimpleExchangeNFT';
 import UserDefined1155 from './abi/UserDefined1155';
 import NFTDigitalABI_1155 from './abi/NFTDigital_1155';
-import NFTStorageAddrress from "./abi/NFTStorageAddrress";
+//import NFTStorageAddrress from "./abi/NFTStorageAddrress";
 
 export type MiddlewareMethods = {
   [key in "sending" | "transactionHash" | "receipt"]?: () => void;
@@ -187,10 +187,10 @@ export const UserDefined_1155 = new SmartContract(
   UserDefined1155,
   process.env.NFT_CONTRACT_ADDRESS_1155 || ""
 );
-export const NFTContract_StorageAddrress = new SmartContract(
-  NFTStorageAddrress,
-  process.env.NFT_STORAGE_ADDRESS || ""
-);
+// export const NFTContract_StorageAddrress = new SmartContract(
+//   NFTStorageAddrress,
+//   process.env.NFT_STORAGE_ADDRESS || ""
+// );
 ///////////////////////
 export const SimpleExchangeContract = new SmartContract(
   SimpleExchangeNFTABI,
