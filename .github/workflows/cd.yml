@@ -29,5 +29,5 @@ jobs:
           git checkout .
           git pull origin stage
           git status
-          sudo npm install
+          yarn install
           pm2 restart nftencer-frontend
