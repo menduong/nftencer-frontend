@@ -29,7 +29,7 @@ const CreateNFTEpic: Epic = (action$, state$) =>
       console.log("step1", categories);
       return from(
         axios.post(`${process.env.ADDRESS_API}/nft1155?unlock_once_purchased=0&instant_sale_price=${price}&royalty_percent=${values.Royalties}&title=${values.title}&description=${values.description}
-        &upload_file=${values.upload_file}&erc_type=${values.contract_type}&creator=${values.account}&token_payment=${values.tokenPayment}&token_quantity=${values.quantity}&uuid_transaction=${values.quantity}${categories}`)
+        &upload_file=${values.upload_file}&erc_type=${values.contract_type}&creator=${values.account}&token_payment=${values.tokenPayment}&token_quantity=${values.quantity}&uuid_transaction=${uuidTransaction}${categories}`)
       ).pipe(
         mergeMap((res) => {
           return of(
