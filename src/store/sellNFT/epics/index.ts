@@ -81,7 +81,7 @@ const createOder_NFTEpic: Epic = (action$, state$) =>
       console.log("pass 1");
       const values = action.payload.data || state.sellNFT.newProduct;
 
-     // const price = ethers.utils.parseEther(values.tokenPrice.toString());
+      const price = ethers.utils.parseEther(values.tokenPrice.toString());
       console.log("state", state);
       console.log("action", action);
       console.log("action", values);
@@ -90,10 +90,10 @@ const createOder_NFTEpic: Epic = (action$, state$) =>
           "createOrder",
           values.nftAddress,
           values.tokenId,
-          0,
+          price,
           values.quantity,
           values.tokenPayment,
-          null
+          uuidTransaction
         )
       ).pipe(
         map((res) => {
