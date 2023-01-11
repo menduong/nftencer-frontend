@@ -14,6 +14,7 @@ export type PurchaseReq = {
   idNFT: number;
   bnbPrice?: number; //IF BUY BY BNB
   middlewareMethods: MiddlewareMethods;
+  erc_type: any;
 };
 export type ModalReq = {
   price: number;

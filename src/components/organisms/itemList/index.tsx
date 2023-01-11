@@ -28,7 +28,7 @@ interface Props {
 export const ItemList: React.FC<Props> = props => {
   const [isShowMore, setIsShowMore] = useState(false);
   useEffect(() => setIsShowMore(false), [props.searchBy]);
-
+  console.log(props.list);
   return (
     <div className="o-itemlist">
       {props.isLoading ? (

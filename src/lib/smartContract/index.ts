@@ -100,6 +100,32 @@ class SmartContract {
       from: account,
     });
   }
+  async AprroveBuy(method: string, ...args: any[]) {
+    console.log("method", method);
+
+    const account = args[0];
+    console.log("_contract", this._contract);
+    console.log("_account", account);
+    console.log("_account", account);
+    const arr = [...args];
+    arr.splice(0, 1);
+    console.log("args", arr);
+    return this._contract.methods[method](...arr).send({
+      from: this._account,
+    });
+  }
+  async BuyOrder1155(method: string, ...args: any[]) {
+    console.log("method", method);
+    console.log("this._account", this._account);
+    console.log("args", args);
+    const gasPrice = await window.web3.eth.getGasPrice();
+
+    return this._contract.methods[method](...args).send({
+      from: this._account,
+      gas: GAS_LIMIT,
+      gasPrice: gasPrice,
+    });
+  }
   async sendWithMiddleware(
     method: string,
     middlewareMethods: MiddlewareMethods,
