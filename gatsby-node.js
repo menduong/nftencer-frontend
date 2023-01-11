@@ -34,7 +34,7 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
           "0xda7a5df3178ec51aca2d36c5837d1c6fa8c82acb"
         ),
         "process.env.NFT_CONTRACT_ADDRESS_1155": JSON.stringify(
-          "0x4C7759b241e44450C087F95F11FA1757610710F9"
+          "0x06A57a809fC90f225E587f8a024961Ef32fa9c1f"
         ),
         "process.env.SIMPLE_EXCHANGE_ADDRESS": JSON.stringify(
           "0xe0C336280CfCc278259b52b681Ce2efb90b648Eb"
@@ -46,7 +46,7 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
           "0xfa3ced40208b1fc44478ce507d9fca30770dc0fd"
         ),
         "process.env.NFT_STORAGE_ADDRESS": JSON.stringify(
-          "0x1156e8a9b4fd56ba0f2eb1ceb2493a62e7da9eaf"
+          "0x7faab5927aca36996406f536284987f127f9f2a5"
         ),
         "process.env.NFT_BINANCE_SMART_CHAIN": JSON.stringify(
           "0xBFaC05454a89557be313274a9C6388024b21E803"

@@ -11,6 +11,9 @@ export const purchase = actionCreator.async<PurchaseReq, any, Error>('PURCHASE_N
 export const refreshLang = actionCreator.async<ModalLang, any, Error>('REFRESH_LANG');
 export const modalpurchase = actionCreator.async<ModalReq, any, Error>('MODAL_PURCHASE_NFT');
 export const getProduct = actionCreator.async<GetProductReq, GetProductRes, Error>('GET_PRODUCT');
+export const getOrder = actionCreator.async<any, any, Error>("GET_ORDER");
+export const ApproveBuyNFT =
+  actionCreator.async<any, any, Error>("Approve_BuyNFT");
 
 export const closeModal = actionCreator('CLOSE_MODAL');
 export const closeModalIn = actionCreator('CLOSE_MODAL_IN');

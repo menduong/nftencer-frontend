@@ -71,8 +71,8 @@ export const Home: React.FC<RouteComponentProps> = props => {
   const { t } = useTranslation();
   const store = useSelector(getExploreStore);
   const isMobile = useMediaQuery({
-    query: '(max-width: 600px)'
-  })
+    query: "(max-width: 600px)",
+  });
   const dispatch = useDispatch();
   const [state, setState] = React.useState({
     top: false,
@@ -80,25 +80,25 @@ export const Home: React.FC<RouteComponentProps> = props => {
     bottom: false,
     right: false,
   });
-  const toggleDrawer = (anchor: Anchor, open: boolean) => (
-    event: React.KeyboardEvent | React.MouseEvent,
-  ) => {
-    if (
-      event &&
-      event.type === 'keydown' &&
-      ((event as React.KeyboardEvent).key === 'Tab' ||
-        (event as React.KeyboardEvent).key === 'Shift')
-    ) {
-      return;
-    }
+  const toggleDrawer =
+    (anchor: Anchor, open: boolean) =>
+    (event: React.KeyboardEvent | React.MouseEvent) => {
+      if (
+        event &&
+        event.type === "keydown" &&
+        ((event as React.KeyboardEvent).key === "Tab" ||
+          (event as React.KeyboardEvent).key === "Shift")
+      ) {
+        return;
+      }
 
-    setState({ ...state, [anchor]: open });
-  };
+      setState({ ...state, [anchor]: open });
+    };
   const initialValue: ExploreSchema = useMemo(
     () => ({
       unit: Unit[0],
-      productCategory: params.get('category') || 'All',
-      productSort: params.get('sort') || SortDefaultValue,
+      productCategory: params.get("category") || "All",
+      productSort: params.get("sort") || SortDefaultValue,
       verify: false,
     }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -110,14 +110,13 @@ export const Home: React.FC<RouteComponentProps> = props => {
       getProductList.started({
         limit: req.limit,
         mode: req.mode,
-        filterAndSort: params.get('sort'),
-        category: params.get('category'),
+        filterAndSort: params.get("sort"),
+        category: params.get("category"),
         cursor: req.cursor,
         address: req.address,
       })
     );
   };
-
 
   const [reg, regSet] = useState(Array);
   const [res, resSet] = useState<any>(Array);
@@ -138,24 +137,24 @@ export const Home: React.FC<RouteComponentProps> = props => {
       const categories = await axios.get(`${process.env.ADDRESS_API}/category`);
       regSet(categories.data.category);
     } catch {
-      console.log("get categories error")
+      console.log("get categories error");
     }
   };
   useEffect(() => {
-    Get_categories()
-    if (wallet?.status === 'connected') {
+    Get_categories();
+    if (wallet?.status === "connected") {
       dispatch(getTotalVolume.started({ unit: 0 }));
       getProducts({
         limit: 7,
-        mode: 'refresh',
+        mode: "refresh",
         address: wallet.account,
       });
-      setIsLoading(true)
+      setIsLoading(true);
     } else {
       dispatch(getTotalVolume.started({ unit: 0 }));
       getProducts({
         limit: 7,
-        mode: 'refresh',
+        mode: "refresh",
         address: wallet.account,
       });
     }
@@ -164,75 +163,87 @@ export const Home: React.FC<RouteComponentProps> = props => {
   const handleFilter = useCallback((param: string, value: string) => {
     params.get(param) ? params.set(param, value) : params.append(param, value);
     const newPath = `${props.path}?${params.toString()}`;
-    window.history.pushState({ path: newPath }, '', newPath);
+    window.history.pushState({ path: newPath }, "", newPath);
     getProducts({
       limit: 7,
-      mode: 'refresh',
+      mode: "refresh",
       address: wallet.account,
     });
-    resSet(value)
-    setIsLoading1(true)
+    resSet(value);
+    setIsLoading1(true);
   }, []);
 
   useEffect(() => {
     const handleScroll = throttle(() => {
-      const header = document.querySelector('.o-header');
-      const layout = document.querySelector('.t-layout');
+      const header = document.querySelector(".o-header");
+      const layout = document.querySelector(".t-layout");
       const isSticky = (header && window.pageYOffset > 1100) || false;
       const onTop = window.pageYOffset === 0;
       setSticky(isSticky);
-      layout?.classList.toggle('u-sticky', isSticky && !onTop);
+      layout?.classList.toggle("u-sticky", isSticky && !onTop);
     }, 100);
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
-  console.log("issidebar", isSidebar)
 
   return (
     <div className="p-explore">
       {!isMobile && <div className="p-explore_theme"></div>}
-      <Grid
-        container
-        spacing={0}
-      >
+      <Grid container spacing={0}>
         <Grid justify="center" item xs={12} spacing={0}>
           <Header />
         </Grid>
-        {isSticky ===true  && (
+        {isSticky === true && (
           <>
-        {isSidebar === true &&
-          <Grid justify="center" item xs={1} spacing={0}>
-            <div className="o-header_miniMenu"></div>
-          </Grid>
-        }
-        <Grid justify="center" item xs={isSidebar === true ? 10 : 12} spacing={0}>
-          <div className="o-header_miniMenu">
-            {reg.map((cate, i) => (
-              <TabButton
-                category
-                modifiers="category"
-                handleClick={() => handleFilter('category',
-                  cate.name)}>{cate.name.charAt(0).toUpperCase() + cate.name.slice(1)}</TabButton>
-            ))}
-          </div>
-        </Grid>
-        </>
+            {isSidebar === true && (
+              <Grid justify="center" item xs={1} spacing={0}>
+                <div className="o-header_miniMenu"></div>
+              </Grid>
+            )}
+            <Grid
+              justify="center"
+              item
+              xs={isSidebar === true ? 10 : 12}
+              spacing={0}
+            >
+              <div className="o-header_miniMenu">
+                {reg.map((cate, i) => (
+                  <TabButton
+                    category
+                    modifiers="category"
+                    handleClick={() => handleFilter("category", cate.name)}
+                  >
+                    {cate.name.charAt(0).toUpperCase() + cate.name.slice(1)}
+                  </TabButton>
+                ))}
+              </div>
+            </Grid>
+          </>
         )}
 
         <Grid justify="center" item xs={isSidebar ? 2 : false} spacing={2}>
-          {isSidebar === true && !isMobile &&
-            <div className={isSticky? "p-explore_subMenu_Sticky":"p-explore_subMenu"}>
+          {isSidebar === true && !isMobile && (
+            <div
+              className={
+                isSticky ? "p-explore_subMenu_Sticky" : "p-explore_subMenu"
+              }
+            >
               <div className="p-explore_subMenuItem">
                 <Sidebar />
               </div>
             </div>
-          }
+          )}
         </Grid>
-        <Grid className="p-explore_section" justify="center" item xs={isSidebar === true ? 10 : 12} spacing={2}>
+        <Grid
+          className="p-explore_section"
+          justify="center"
+          item
+          xs={isSidebar === true ? 10 : 12}
+          spacing={2}
+        >
           <Grid
             className="p-explore_mainetNftEncer"
             container
@@ -247,74 +258,85 @@ export const Home: React.FC<RouteComponentProps> = props => {
             </Grid> */}
           </Grid>
           <Layout title="NFTencer Marketplace">
-            <ScrollToTop style={{ right: "20px", zIndex: "1000" }} easing="linear" showUnder={160}>
-              <span><big><big>&uarr;</big></big></span>
+            <ScrollToTop
+              style={{ right: "20px", zIndex: "1000" }}
+              easing="linear"
+              showUnder={160}
+            >
+              <span>
+                <big>
+                  <big>&uarr;</big>
+                </big>
+              </span>
             </ScrollToTop>
             {isMobile ? (
               <></>
             ) : (
-                <Sectionsub modifiers="padding5" className="p-explore_totalvolume p-explore_carousel">
-                  <Container>
-                    <Grid
-                      container
-                      spacing={0}
-                      direction="row"
-                      justify="center"
-                      alignItems="center"
-                    >
-                      <Grid item xs={12}>
-                        <img style={{width:"100%"}} src={banner_top} />
-                        <Carouselt />
-                      </Grid>
-                      {/* <Grid alignContent="center" direction="column" justify="center" alignItems="center" item xs={4} >
+              <Sectionsub
+                modifiers="padding5"
+                className="p-explore_totalvolume p-explore_carousel"
+              >
+                <Container>
+                  <Grid
+                    container
+                    spacing={0}
+                    direction="row"
+                    justify="center"
+                    alignItems="center"
+                  >
+                    <Grid item xs={12}>
+                      <img style={{ width: "100%" }} src={banner_top} />
+                      <Carouselt />
+                    </Grid>
+                    {/* <Grid alignContent="center" direction="column" justify="center" alignItems="center" item xs={4} >
                         <Text modifiers="Grand">Grand Opening!</Text>
                         <Text modifiers="marketplace">NFTencer Marketplace</Text>
                       </Grid> */}
-                      <Grid className="p-explore_totalvolumeMain" item xs={12}>
-                        <Grid justify="space-evenly" container spacing={1}>
-                          <Grid xs={5}>
-                          
-                            <Link to="/userguilde">
-                              <button className="p-explore_ButtonHowconnect">
-                                <Sectionsub modifiers="howconnect">
-                                  <div className="p-explore_Howconnect">
-                                    {/* <Grid justify="space-evenly" alignItems="center" container spacing={1}>
+                    <Grid className="p-explore_totalvolumeMain" item xs={12}>
+                      <Grid justify="space-evenly" container spacing={1}>
+                        <Grid xs={5}>
+                          <Link to="/userguilde">
+                            <button className="p-explore_ButtonHowconnect">
+                              <Sectionsub modifiers="howconnect">
+                                <div className="p-explore_Howconnect">
+                                  {/* <Grid justify="space-evenly" alignItems="center" container spacing={1}>
                                       <Grid xs={6}>
                                         <Heading modifiers={['left']}>{t("mainMenu.howtoconnect")}</Heading>
                                       </Grid>
                                       <Grid xs={5}> */}
-                                        {/* <div className="p-explore_HowconnectLogo"></div> */}
-                                        {/* <img alt="logo metamask" src={logo} />
+                                  {/* <div className="p-explore_HowconnectLogo"></div> */}
+                                  {/* <img alt="logo metamask" src={logo} />
                                       </Grid>
                                     </Grid> */}
-                                  </div>
-                                </Sectionsub>
-                              </button>
-                            </Link>
-                          </Grid>
-                          <Grid xs={5}>
-                            <Link to="/userguilde">
-                              <button className="p-explore_ButtonHowconnect">
-                                <Sectionsub modifiers="howsettup">
-                                  <div className="p-explore_Howconnect">
-                                   
-                                  </div>
-                                </Sectionsub>
-                              </button>
-                            </Link>
-                          </Grid>
+                                </div>
+                              </Sectionsub>
+                            </button>
+                          </Link>
+                        </Grid>
+                        <Grid xs={5}>
+                          <Link to="/userguilde">
+                            <button className="p-explore_ButtonHowconnect">
+                              <Sectionsub modifiers="howsettup">
+                                <div className="p-explore_Howconnect"></div>
+                              </Sectionsub>
+                            </button>
+                          </Link>
                         </Grid>
                       </Grid>
                     </Grid>
-                  </Container>
-                </Sectionsub>
-              )}
-            <Formik initialValues={initialValue} validationSchema={exploreSchema} onSubmit={values => {
-              if (values.search !== undefined) {
-                navigate(`/search?name=${values.search}`);
-              }
-            }
-            }>
+                  </Grid>
+                </Container>
+              </Sectionsub>
+            )}
+            <Formik
+              initialValues={initialValue}
+              validationSchema={exploreSchema}
+              onSubmit={(values) => {
+                if (values.search !== undefined) {
+                  navigate(`/search?name=${values.search}`);
+                }
+              }}
+            >
               {({ values }) => {
                 return (
                   <Form>
@@ -455,6 +477,8 @@ export const Home: React.FC<RouteComponentProps> = props => {
                                       })),
                                       amount: 0,
                                       id: item.collectible.id,
+                                      erc_type: item.erc_type,
+                                      order_id: item.order_id,
                                     }))
                                   : store?.products.map((item) => ({
                                       title: item.title,
@@ -493,6 +517,8 @@ export const Home: React.FC<RouteComponentProps> = props => {
                                       })),
                                       amount: 0,
                                       id: item.id,
+                                      erc_type: item.erc_type,
+                                      order_id: item.order_id,
                                     }))
                               }
                               userid={wallet.account}
@@ -509,12 +535,19 @@ export const Home: React.FC<RouteComponentProps> = props => {
         </Grid>
       </Grid>
 
-
-      <Modal modifiers="claim" isOpen={modalOpenClaim} handleClose={() => setModalOpenClaim(false)}>
+      <Modal
+        modifiers="claim"
+        isOpen={modalOpenClaim}
+        handleClose={() => setModalOpenClaim(false)}
+      >
         <ModalHeader title="" handleClose={() => setModalOpenClaim(false)} />
         <Modalclaim />
       </Modal>
-      <Modal modifiers="maintenance" isOpen={modalOpenMaint} handleClose={() => setModalOpenMaint(false)}>
+      <Modal
+        modifiers="maintenance"
+        isOpen={modalOpenMaint}
+        handleClose={() => setModalOpenMaint(false)}
+      >
         <Grid
           className="p-explore_mainet"
           container
@@ -527,7 +560,9 @@ export const Home: React.FC<RouteComponentProps> = props => {
             <Icon modifiers="ultra" iconName="maint" />
           </Grid>
 
-          <Heading modifiers="marginBot" type="h1">System Construction</Heading>
+          <Heading modifiers="marginBot" type="h1">
+            System Construction
+          </Heading>
         </Grid>
         <Grid
           className="p-explore_mainet"
@@ -537,10 +572,14 @@ export const Home: React.FC<RouteComponentProps> = props => {
           justify="flex-start"
           alignItems="stretch"
         >
-          <Text>Sorry for uncomfortable , We will change our system as soon as possible.</Text>
-          <Text>Our service is in the process of transitioning to Mainnet.</Text>
+          <Text>
+            Sorry for uncomfortable , We will change our system as soon as
+            possible.
+          </Text>
+          <Text>
+            Our service is in the process of transitioning to Mainnet.
+          </Text>
           <Text>우리 서비스는 Mainnet로 전환 작업을 진행 중입니다.</Text>
-
         </Grid>
       </Modal>
     </div>
