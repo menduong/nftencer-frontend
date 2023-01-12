@@ -1,7 +1,12 @@
 import { Epic, combineEpics } from "redux-observable";
 import { from, of } from "rxjs";
 import { map, mergeMap, catchError, filter } from "rxjs/operators";
-import { resellNFT, ApprovesellNFT, CreateNFT } from "store/sellNFT";
+import {
+  resellNFT,
+  ApprovesellNFT,
+  CreateNFT,
+  CancelNFT1155,
+} from "store/sellNFT";
 import { State } from "store";
 import {
   NFTContract_StorageAddrress,
@@ -15,6 +20,31 @@ const id = 0;
 const generator = UUID(id);
 const uuidTransaction = generator.uuid();
 ////MyNFTStorage
+const Cancel_NFTEpic: Epic = (action$, state$) =>
+  action$.pipe(
+    filter(CancelNFT1155.started.match),
+    mergeMap((action) => {
+      const state: State = state$.value;
+      const orderID = action.payload.orderID;
+      console.log("orderID", orderID);
+      // values.categories?.map(cate => data.append('categories', cate.name.toLocaleLowerCase()));
+      return from(
+        NFTContract_StorageAddrress.callStoreAge("cancelOrder", orderID)
+      ).pipe(
+        map((res) => {
+          return CancelNFT1155.done({
+            params: action.payload,
+            result: res,
+          });
+        }),
+        catchError((error) => {
+          return of(
+            CancelNFT1155.failed({ params: action.payload, error: error })
+          );
+        })
+      );
+    })
+  );
 const CreateNFTEpic: Epic = (action$, state$) =>
   action$.pipe(
     filter(CreateNFT.started.match),
@@ -114,4 +144,9 @@ const createOder_NFTEpic: Epic = (action$, state$) =>
       );
     })
   );
-export default combineEpics(createOder_NFTEpic, Aprrove_NFTEpic, CreateNFTEpic);
+export default combineEpics(
+  createOder_NFTEpic,
+  Aprrove_NFTEpic,
+  CreateNFTEpic,
+  Cancel_NFTEpic
+);

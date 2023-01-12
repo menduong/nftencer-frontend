@@ -68,11 +68,6 @@ class SmartContract {
     console.log("args", args);
     console.log("env", this._account);
     console.log("env", process.env.NFT_STORAGE_ADDRESS);
-
-    // this._contract = await new window.web3.eth.Contract(
-    //   NFTStorageAddrress,
-    //   process.env.NFT_STORAGE_ADDRESS
-    // );
     const gasPrice = await window.web3.eth.getGasPrice();
     console.log("_contract", this._ABI);
     console.log("_contract", this._contract);

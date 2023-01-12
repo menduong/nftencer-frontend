@@ -10,3 +10,5 @@ export const ApprovesellNFT =
   actionCreator.async<ReSellNFTReq, ReSellNFTRes, Error>("Approve_NFT");
 export const CreateNFT =
   actionCreator.async<ReSellNFTReq, ReSellNFTRes, Error>("Create_NFT");
+export const CancelNFT1155 =
+  actionCreator.async<ReSellNFTReq, ReSellNFTRes, Error>("Cancel_NFT");

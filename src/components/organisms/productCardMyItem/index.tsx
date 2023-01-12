@@ -46,6 +46,7 @@ import {
   getCreateStore,
   ApprovesellNFT,
   CreateNFT,
+  CancelNFT1155,
 } from "store/sellNFT";
 import { NFTContract_StorageAddrress } from "lib/smartContract";
 import {
@@ -89,7 +90,7 @@ export const ProductcardMyItem: React.FC<ProductProps> = (props) => {
   const open = Boolean(anchorEl);
   const wallet = useWallet();
   const [ModalResell, setModalResell] = useState(false);
-  const { currentStep, tokenURI } = useSelector(getCreateStore);
+  const { currentStep, tokenURI, refresh } = useSelector(getCreateStore);
   const [modalOpenShare, setModalOpenShare] = useState(false);
   const [displayResell, setDisplayResell] = useState(false);
   const [unit, setUnit] = useState(0);
@@ -143,12 +144,17 @@ export const ProductcardMyItem: React.FC<ProductProps> = (props) => {
       }, 3000);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentStep.number]);
+  useEffect(() => {
+    if (refresh) {
+      props.initialItem();
+    }
+  }, [refresh]);
 
   useEffect(() => {
     dispatch(tokenID({ tokenid: props.tokenid || "" }));
     NFTContract_StorageAddrress.initialize(props.account);
   }, []);
-
+  console.log(props);
   useEffect(() => {
     if (!modalOpenShare) {
       dispatch(resetStore());
@@ -238,7 +244,21 @@ export const ProductcardMyItem: React.FC<ProductProps> = (props) => {
                   </div>
                   <div className="o-productcard_resell_Transfer">
                     <Icon modifiers="resell" iconName="transfer" />
-                    <Text modifiers="inline">&nbsp;&nbsp;Cancel Trading</Text>
+                    <button
+                      onClick={() => {
+                        if (props.selectedTabNFT === "Multiple NFT(1155)") {
+                          dispatch(
+                            commonStart({
+                              nextAction: CancelNFT1155.started({
+                                orderID: objValue,
+                              }),
+                            })
+                          );
+                        }
+                      }}
+                    >
+                      <Text modifiers="inline">&nbsp;&nbsp;Cancel Trading</Text>
+                    </button>
                   </div>
                   <div className="o-productcard_resell_Transfer">
                     <Icon modifiers="resell" iconName="transfer" />

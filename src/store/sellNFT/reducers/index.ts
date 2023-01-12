@@ -2,7 +2,12 @@ import { StepIcon } from "components/molecules/stepItem";
 import produce from "immer";
 import { Reducer } from "redux";
 import { isType } from "typescript-fsa";
-import { resellNFT, ApprovesellNFT, CreateNFT } from "store/sellNFT";
+import {
+  resellNFT,
+  ApprovesellNFT,
+  CreateNFT,
+  CancelNFT1155,
+} from "store/sellNFT";
 import { resetStore } from "store/createNFT";
 import { CreateForm, initialValue as init } from "components/pages/create/form";
 
@@ -56,13 +61,20 @@ const reducer: Reducer<sellNFT> = (state = initialValue, action) => {
   }
   if (
     isType(action, ApprovesellNFT.started) ||
-    isType(action, CreateNFT.started)
+    isType(action, CreateNFT.started) ||
+    isType(action, CancelNFT1155.started)
   ) {
     return produce(state, (draft) => {
       if (draft.currentStep.status !== "loading")
         draft.currentStep.status = "loading";
       draft.currentStep.number += 1;
       if (action.payload.data) draft.newProduct = action.payload.data;
+    });
+  }
+  if (isType(action, CancelNFT1155.done)) {
+    return produce(state, (draft) => {
+      console.log("CancelNFT1155 done", action.payload);
+      draft.refresh = true;
     });
   }
   if (isType(action, CreateNFT.done)) {
@@ -75,7 +87,10 @@ const reducer: Reducer<sellNFT> = (state = initialValue, action) => {
       console.log("ApprovesellNFT done", action.payload);
     });
   }
-  if (isType(action, ApprovesellNFT.failed)) {
+  if (
+    isType(action, ApprovesellNFT.failed) ||
+    isType(action, CancelNFT1155.failed)
+  ) {
     return produce(state, (draft) => {
       console.log("fail", state);
       draft.currentStep.status = "try-again";
