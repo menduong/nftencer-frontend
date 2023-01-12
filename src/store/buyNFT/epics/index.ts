@@ -108,9 +108,8 @@ const purchaseEpic: Epic = (action$) =>
             result: res,
           });
         }),
-        catchError(
-          async (error) => console.log("error Buy", error)
-          //of(purchase.failed({ params: action.payload, error: error }))
+        catchError((error) =>
+          of(purchase.failed({ params: action.payload, error: error }))
         )
       );
     })
@@ -172,7 +171,9 @@ const AprroveBuy_NFTEpic: Epic = (action$, state$) =>
             })
           );
         }),
-        catchError((error) => of(console.log(error)))
+        catchError((error) =>
+          of(ApproveBuyNFT.failed({ params: action.payload, error: error }))
+        )
       );
     })
   );

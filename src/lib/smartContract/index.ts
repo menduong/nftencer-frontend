@@ -117,9 +117,9 @@ class SmartContract {
   async BuyOrder1155(method: string, ...args: any[]) {
     console.log("method", method);
     console.log("this._account", this._account);
-    console.log("args", args);
+   
     const gasPrice = await window.web3.eth.getGasPrice();
-
+    console.log("args", gasPrice);
     return this._contract.methods[method](...args).send({
       from: process.env.NFT_BUY_ADDRESS_1155,
       gas: GAS_LIMIT,

@@ -242,8 +242,8 @@ export const Viewtesy: React.FC<viewtesyProps> = (props) => {
       },
     },
     {
-      description: "Sign sell order using your wallet",
-      title: "Sign sell order",
+      description: "Sign Buy order using your wallet",
+      title: "Sign Buy order",
       handleClick: () => {
         dispatch(
           purchase.started({
@@ -482,7 +482,7 @@ export const Viewtesy: React.FC<viewtesyProps> = (props) => {
   }, [dispatch, modalOpen]);
 
   const productLink = `/view?id=${props?.id}`;
-
+  console.log(props);
   return (
     <div className="p-view">
       <Section className="p-view_main">
@@ -1256,6 +1256,7 @@ export const Viewtesy: React.FC<viewtesyProps> = (props) => {
                                       !stateB.checkedB
                                     }
                                     handleClick={() => {
+                                      setModalOpenBuy(true);
                                       dispatch(
                                         commonStart({
                                           nextAction: ApproveBuyNFT.started({

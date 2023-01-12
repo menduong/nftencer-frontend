@@ -74,8 +74,9 @@ const reducer: Reducer<BuyNFT> = (state = initialValue, action) => {
   if (isType(action, purchase.done)) {
     return produce(state, (draft) => {
       console.log("Success");
-      draft.isSuccess = true;
-      draft.isCancel = true;
+      // draft.isSuccess = true;
+      //draft.isCancel = true;
+      draft.currentStep.number += 1;
     });
   }
 
@@ -165,7 +166,10 @@ const reducer: Reducer<BuyNFT> = (state = initialValue, action) => {
     isType(action, getOrder.started)
   ) {
     return produce(state, (draft) => {
-      draft.isCancel = false;
+      //draft.isCancel = false;
+      if (draft.currentStep.status !== "loading")
+        draft.currentStep.status = "loading";
+      draft.currentStep.number += 1;
     });
   }
 

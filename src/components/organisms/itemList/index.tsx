@@ -28,72 +28,84 @@ interface Props {
 export const ItemList: React.FC<Props> = props => {
   const [isShowMore, setIsShowMore] = useState(false);
   useEffect(() => setIsShowMore(false), [props.searchBy]);
-  console.log(props.list);
+  const listData = props.list ? props.list.filter((x) => x.status === 0) : [];
   return (
     <div className="o-itemlist">
       {props.isLoading ? (
         <Spinner modifiers="big" />
       ) : (
-          <>
-            <InfiniteScroll
-              dataLength={props.list.length}
-              hasMore={!!props.next_cursor}
-              next={props.next}
-              loader={<Spinner modifiers="big" />}
-            >
-              {props.list.length ? (
-                <div className={mapModifiers('o-itemlist_wrapper', props.modifiers)}>
-                  {props.list.map((item, idx) => (
-                    <>
-                      {props.mobiless ? (
-
-                        <div key={idx} className="o-itemlist_item">
-                          {(item as ProductProps).title ? (
-                            <Productcard userid={props.userid}  {...(item as ProductProps)}></Productcard>
-                          ) : (
-                              <ProfileCard {...(item as ProfileProps)}></ProfileCard>
-                            )}
-                        </div>
-
-                      ) : props.search ? (
-                        <div key={idx} className="o-itemlist_Searchitem">
-                          {(item as ProductProps).title ? (
-                            <ProductCardSearch userid={props.userid}  {...(item as ProductProps)}></ProductCardSearch>
-                          ) : (
-                              <ProfileCard {...(item as ProfileProps)}></ProfileCard>
-                            )}
-                        </div>
-                      ) :
-                          (
-                            <div key={idx} className="o-itemlist_item">
-
-                              {(item as viewtesyProps).title && item.status === 0 ? (
-                                <Viewtesy userid={props.userid}  {...(item as viewtesyProps)}></Viewtesy>
-                              ) : item.status === 0 ? (
-                                <ProfileCard {...(item as ProfileProps)}></ProfileCard>
-                              ) : (
-                                    <></>
-                                  )
-                              }
-                            </div>
-                          )}
-                    </>
-                  ))}
-                </div>
-              ) : (
-                  <div className="o-itemlist_noresult">
-                    <Icon iconName="search-not-found" />
-                    <Text size="28" modifiers={['blue']}>
-                      Oops!
+        <>
+          <InfiniteScroll
+            dataLength={listData.length}
+            hasMore={!!props.next_cursor}
+            next={props.next}
+            loader={<Spinner modifiers="big" />}
+          >
+            {listData.length ? (
+              <div
+                className={mapModifiers("o-itemlist_wrapper", props.modifiers)}
+              >
+                {listData.map((item, idx) => (
+                  <>
+                    {props.mobiless ? (
+                      <div key={idx} className="o-itemlist_item">
+                        {(item as ProductProps).title ? (
+                          <Productcard
+                            userid={props.userid}
+                            {...(item as ProductProps)}
+                          ></Productcard>
+                        ) : (
+                          <ProfileCard
+                            {...(item as ProfileProps)}
+                          ></ProfileCard>
+                        )}
+                      </div>
+                    ) : props.search ? (
+                      <div key={idx} className="o-itemlist_Searchitem">
+                        {(item as ProductProps).title ? (
+                          <ProductCardSearch
+                            userid={props.userid}
+                            {...(item as ProductProps)}
+                          ></ProductCardSearch>
+                        ) : (
+                          <ProfileCard
+                            {...(item as ProfileProps)}
+                          ></ProfileCard>
+                        )}
+                      </div>
+                    ) : (
+                      <div key={idx} className="o-itemlist_item">
+                        {(item as viewtesyProps).title && item.status === 0 ? (
+                          <Viewtesy
+                            userid={props.userid}
+                            {...(item as viewtesyProps)}
+                          ></Viewtesy>
+                        ) : item.status === 0 ? (
+                          <ProfileCard
+                            {...(item as ProfileProps)}
+                          ></ProfileCard>
+                        ) : (
+                          <></>
+                        )}
+                      </div>
+                    )}
+                  </>
+                ))}
+              </div>
+            ) : (
+              <div className="o-itemlist_noresult">
+                <Icon iconName="search-not-found" />
+                <Text size="28" modifiers={["blue"]}>
+                  Oops!
                 </Text>
-                    <Text size="24" modifiers={['blue']}>
-                      No matching search results.
+                <Text size="24" modifiers={["blue"]}>
+                  No matching search results.
                 </Text>
-                  </div>
-                )}
-            </InfiniteScroll>
-          </>
-        )}
+              </div>
+            )}
+          </InfiniteScroll>
+        </>
+      )}
     </div>
   );
 };

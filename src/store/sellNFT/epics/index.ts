@@ -40,7 +40,9 @@ const CreateNFTEpic: Epic = (action$, state$) =>
             ApprovesellNFT.started({})
           );
         }),
-        catchError((error) => of(console.log(error)))
+        catchError((error) => {
+          return of(CreateNFT.failed({ params: action.payload, error: error }));
+        })
       );
     })
   );
@@ -69,7 +71,11 @@ const Aprrove_NFTEpic: Epic = (action$, state$) =>
             resellNFT.started({})
           );
         }),
-        catchError((error) => of(console.log(error)))
+        catchError((error) => {
+          return of(
+            ApprovesellNFT.failed({ params: action.payload, error: error })
+          );
+        })
       );
     })
   );
