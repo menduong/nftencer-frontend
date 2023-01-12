@@ -18,6 +18,7 @@ import {
 } from "lib/smartContract";
 import axios from "axios";
 import { formatSaleBalance } from "util/formatBalance";
+const { ethers } = require("ethers");
 
 const approveBUSDEpic: Epic = (action$) =>
   action$.pipe(
@@ -144,9 +145,10 @@ const AprroveBuy_NFTEpic: Epic = (action$, state$) =>
       const state: State = state$.value;
       const idNFT = action.payload.idNFT;
       const account = action.payload.account;
-      const price = action.payload.price;
+      const price = ethers.utils.parseEther(action.payload.price.toString());
       console.log("ApprovesellNFT", idNFT);
       console.log("ApprovesellNFT", account);
+      console.log("ApprovesellNFT", price);
       // values.categories?.map(cate => data.append('categories', cate.name.toLocaleLowerCase()));
       return from(
         CONTContract.AprroveBuy(
@@ -174,48 +176,11 @@ const AprroveBuy_NFTEpic: Epic = (action$, state$) =>
       );
     })
   );
-const GetOrder_NFTEpic: Epic = (action$, state$) =>
-  action$.pipe(
-    filter(getOrder.started.match),
-    mergeMap((action) => {
-      const state: State = state$.value;
-      const idNFT = action.payload.idNFT;
-      const account = action.payload.account;
-      const price = action.payload.price;
-      console.log("getOrder", idNFT);
-      console.log("getOrder", account);
-      // values.categories?.map(cate => data.append('categories', cate.name.toLocaleLowerCase()));
-      return from(
-        NFTContract_StorageAddrress.AprroveBuy(
-          "approve",
-          account,
-          process.env.NFT_STORAGE_ADDRESS,
-          price
-        )
-      ).pipe(
-        mergeMap((res) => {
-          return of(
-            getOrder.done({
-              params: action.payload,
-              result: res.data,
-            }),
-            purchase.started({
-              idNFT: action.payload.idNFT,
-              bnbPrice: undefined,
-              middlewareMethods: action.payload.middlewareMethods,
-              erc_type: action.payload.erc_type,
-            })
-          );
-        }),
-        catchError((error) => of(console.log(error)))
-      );
-    })
-  );
+
 export default combineEpics(
   approveBUSDEpic,
   approveCONTEpic,
   purchaseEpic,
   getProductEpic,
-  AprroveBuy_NFTEpic,
-  GetOrder_NFTEpic
+  AprroveBuy_NFTEpic
 );
