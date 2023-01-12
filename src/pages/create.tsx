@@ -162,349 +162,348 @@ export const Create: React.FC = () => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setState({ ...state, [event.target.name]: event.target.checked });
   };
-
-  return (
-    <div className="p-create">
-      <Layout title="Create NFT">
-        <Section className="p-create_main">
-          {/* <Heading>{t("create.CreateNFT")}</Heading> */}
-          <div
-            style={{
-              textAlign: "center",
-              marginBottom: "50px",
-              fontSize: "40px",
-              marginTop: "20px",
-            }}
-          >
-            Create collectible
-          </div>
-          <Formik
-            initialValues={initialValue}
-            validationSchema={!trigger ? createSchema : createSchema1155}
-            onSubmit={(values) => {
-              if (trigger) {
-                dispatch(
-                  commonStart({
-                    nextAction: createTokenURI1155.started({ data: values }),
-                  })
-                ); ///// 1155
-              } else {
-                dispatch(
-                  commonStart({
-                    nextAction: createTokenURI.started({ data: values }),
-                  })
-                ); ////751
-              }
-              setModalOpen(true);
-            }}
-            validateOnMount
-          >
-            {({ values, isValid, setTouched, touched }) => {
-              const previewSrc =
-                URL && values.file ? URL.createObjectURL(values.file) : "";
-              const previewType = values.file && values.file.type;
-              const addresspush = { address: wallet.account };
-              return (
-                <Form className="p-create_form">
-                  <Grid container spacing={0}>
-                    <Grid item xs={6}>
-                      <Fieldrow name="file">
-                        <button
-                          className="p-create_inputForm"
-                          onClick={() => setTrigger(false)}
-                          style={{
-                            background:
-                              trigger === false
-                                ? "linear-gradient(122.01deg, #A7D545 -9.61%, rgba(167, 213, 69, 0.27) -9.6%, #FFD5D5 73.45%)"
-                                : "",
-                            width: "90%",
+console.log(trigger);
+return (
+  <div className="p-create">
+    <Layout title="Create NFT">
+      <Section className="p-create_main">
+        {/* <Heading>{t("create.CreateNFT")}</Heading> */}
+        <div
+          style={{
+            textAlign: "center",
+            marginBottom: "50px",
+            fontSize: "40px",
+            marginTop: "20px",
+          }}
+        >
+          Create collectible
+        </div>
+        <Formik
+          initialValues={initialValue}
+          validationSchema={!trigger ? createSchema : createSchema1155}
+          onSubmit={(values) => {
+            if (trigger) {
+              dispatch(
+                commonStart({
+                  nextAction: createTokenURI1155.started({ data: values }),
+                })
+              ); ///// 1155
+            } else {
+              dispatch(
+                commonStart({
+                  nextAction: createTokenURI.started({ data: values }),
+                })
+              ); ////751
+            }
+            setModalOpen(true);
+          }}
+          validateOnMount
+        >
+          {({ values, isValid, setTouched, touched }) => {
+            const previewSrc =
+              URL && values.file ? URL.createObjectURL(values.file) : "";
+            const previewType = values.file && values.file.type;
+            const addresspush = { address: wallet.account };
+            return (
+              <Form className="p-create_form">
+                <Grid container spacing={0}>
+                  <Grid item xs={6}>
+                    <Fieldrow name="file">
+                      <button
+                        className="p-create_inputForm"
+                        onClick={() => setTrigger(false)}
+                        style={{
+                          background:
+                            trigger === false
+                              ? "linear-gradient(122.01deg, #A7D545 -9.61%, rgba(167, 213, 69, 0.27) -9.6%, #FFD5D5 73.45%)"
+                              : "",
+                          width: "90%",
+                          marginBottom: 15,
+                        }}
+                      >
+                        <FileInputcreate
+                          head="Single NFT (721)"
+                          name="file"
+                          label={t("create.type")}
+                          maxsize={t("create.maxsize")}
+                          setTouched={() => {
+                            setTrigger(false);
+                            !touched.file &&
+                              setTouched({ ...touched, file: true });
                           }}
-                        >
-                          <FileInputcreate
-                            head="Single NFT (721)"
-                            name="file"
-                            label={t("create.type")}
-                            maxsize={t("create.maxsize")}
-                            setTouched={() => {
-                              setTrigger(false);
-                              !touched.file &&
-                                setTouched({ ...touched, file: true });
-                            }}
-                          />
-                        </button>
-                      </Fieldrow>
-                    </Grid>
-                    <Grid item xs={6}>
-                      <Fieldrow name="file">
-                        <button
-                          disabled
-                          className="p-create_inputForm"
-                          style={{
-                            background:
-                              trigger === true
-                                ? "linear-gradient(122.01deg, #A7D545 -9.61%, rgba(167, 213, 69, 0.27) -9.6%, #FFD5D5 73.45%)"
-                                : "",
-                            opacity: "0.6",
-                            width: "90%",
+                        />
+                      </button>
+                    </Fieldrow>
+                  </Grid>
+                  <Grid item xs={6}>
+                    <Fieldrow name="file">
+                      <button
+                        className="p-create_inputForm"
+                        style={{
+                          background:
+                            trigger === true
+                              ? "linear-gradient(122.01deg, #A7D545 -9.61%, rgba(167, 213, 69, 0.27) -9.6%, #FFD5D5 73.45%)"
+                              : "",
+                          opacity: "0.6",
+                          width: "90%",
+                          marginBottom: 15,
+                        }}
+                        onClick={() => setTrigger(true)}
+                      >
+                        <FileInputcreate
+                          head="Multiple NFT (1155)"
+                          name="file"
+                          //CommingSoon
+                          label={t("create.type")}
+                          maxsize={t("create.maxsize")}
+                          setTouched={() => {
+                            setTrigger(true);
+                            !touched.file &&
+                              setTouched({ ...touched, file: true });
                           }}
-                          onClick={() => setTrigger(true)}
-                        >
-                          <FileInputcreate
-                            head="Multiple NFT (1155)"
-                            name="file"
-                            //CommingSoon
-                            label={t("create.type")}
-                            maxsize={t("create.maxsize")}
-                            setTouched={() => {
-                              setTrigger(true);
-                              !touched.file &&
-                                setTouched({ ...touched, file: true });
-                            }}
-                          />
-                        </button>
-                      </Fieldrow>
-                    </Grid>
-                    <Grid item xs={6}>
-                      <div className="p-create_inputs">
-                        {/* <Text> &gt;&nbsp;{t("create.nonPreview")}
+                        />
+                      </button>
+                    </Fieldrow>
+                  </Grid>
+                  <Grid item xs={6}>
+                    <div className="p-create_inputs">
+                      {/* <Text> &gt;&nbsp;{t("create.nonPreview")}
                     <Button handleClick={() => setModalOpenConvert(true)}  modifiers="inline">&nbsp;Click!</Button></Text>
                     
                     <Text> &gt;&nbsp;{t("create.over100mb")}
                     <Button handleClick={() => setModalOpenConvert(true)}  modifiers="inline">&nbsp;Click!</Button></Text> */}
-                        <Fieldrow
-                          className="p-create_instantsale"
-                          fieldName="Enter the price for which the item will be instantly sold"
-                          // lead={t("create.Enterprice")}
-                          caption={[
-                            `${t("create.Youwillreceive")} ${amountReceived(
-                              values.instantsaleprice
-                            )} ${Unit[values.unit]} (～$${
-                              values.unit == 0
-                                ? amountDollarBNBrevieved(
-                                    values.instantsaleprice
-                                  )
-                                : values.unit == 1
-                                ? amountDollarBUSDrecieved(
-                                    values.instantsaleprice
-                                  )
-                                : amountDollarCONTrecieved(
-                                    values.instantsaleprice
-                                  )
-                            })`,
-                          ]}
-                          captionfee
-                          isCaptionForInput
+                      <Fieldrow
+                        className="p-create_instantsale"
+                        fieldName="Enter the price for which the item will be instantly sold"
+                        // lead={t("create.Enterprice")}
+                        caption={[
+                          `${t("create.Youwillreceive")} ${amountReceived(
+                            values.instantsaleprice
+                          )} ${Unit[values.unit]} (～$${
+                            values.unit == 0
+                              ? amountDollarBNBrevieved(values.instantsaleprice)
+                              : values.unit == 1
+                              ? amountDollarBUSDrecieved(
+                                  values.instantsaleprice
+                                )
+                              : amountDollarCONTrecieved(
+                                  values.instantsaleprice
+                                )
+                          })`,
+                        ]}
+                        captionfee
+                        isCaptionForInput
+                        name="instantsaleprice"
+                      >
+                        <TextFieldFormik
                           name="instantsaleprice"
-                        >
-                          <TextFieldFormik
-                            name="instantsaleprice"
-                            placeholder="Enter price for one piecee"
-                            type="number"
-                          />
-                          <Select name="unit">
-                            {Unit.map((u, idx) => (
-                              <option value={idx} key={u}>
-                                {u}
-                              </option>
-                            ))}
-                          </Select>
-                        </Fieldrow>
+                          placeholder="Enter price for one piecee"
+                          type="number"
+                        />
+                        <Select name="unit">
+                          {Unit.map((u, idx) => (
+                            <option value={idx} key={u}>
+                              {u}
+                            </option>
+                          ))}
+                        </Select>
+                      </Fieldrow>
 
-                        <Fieldrow fieldName={t("create.Name")} name="name">
-                          <TextFieldFormik
-                            name="name"
-                            placeholder={t("create.itemName")}
-                          />
-                        </Fieldrow>
-                        <Fieldrow
-                          fieldName={t("create.Description")}
-                          isOptional
-                          className="p-create_description"
-                        >
-                          <Textarea
-                            name="description"
-                            placeholder={t("create.itemName")}
-                            maxLength={500}
-                          />
-                        </Fieldrow>
+                      <Fieldrow fieldName={t("create.Name")} name="name">
+                        <TextFieldFormik
+                          name="name"
+                          placeholder={t("create.itemName")}
+                        />
+                      </Fieldrow>
+                      <Fieldrow
+                        fieldName={t("create.Description")}
+                        isOptional
+                        className="p-create_description"
+                      >
+                        <Textarea
+                          name="description"
+                          placeholder={t("create.itemName")}
+                          maxLength={500}
+                        />
+                      </Fieldrow>
 
-                        {trigger && (
-                          <>
-                            <Fieldrow fieldName={t("create.Blockchain")}>
-                              <FormControl
-                                style={{
-                                  width: "100%",
-                                }}
+                      {trigger && (
+                        <>
+                          <Fieldrow fieldName={t("create.Blockchain")}>
+                            <FormControl
+                              style={{
+                                width: "100%",
+                              }}
+                            >
+                              <Selected name="blockchain">
+                                {listBlockChain.map((x) => (
+                                  <MenuItem value={x.value}>
+                                    <Icon
+                                      modifiers="small"
+                                      iconName="binance"
+                                    />
+                                    &nbsp;{x.label}
+                                  </MenuItem>
+                                ))}
+                              </Selected>
+                            </FormControl>
+                          </Fieldrow>
+                          <Row>
+                            <Col style={{ width: "45%" }}>
+                              <Fieldrow
+                                fieldName={t("create.Numbercopy")}
+                                name="numbercopy"
                               >
-                                <Selected name="blockchain">
-                                  {listBlockChain.map((x) => (
-                                    <MenuItem value={x.value}>
-                                      <Icon
-                                        modifiers="small"
-                                        iconName="binance"
-                                      />
-                                      &nbsp;{x.label}
-                                    </MenuItem>
-                                  ))}
-                                </Selected>
-                              </FormControl>
-                            </Fieldrow>
-                            <Row>
-                              <Col style={{ width: "45%" }}>
-                                <Fieldrow
-                                  fieldName={t("create.Numbercopy")}
+                                <TextFieldFormik
                                   name="numbercopy"
-                                >
-                                  <TextFieldFormik
-                                    name="numbercopy"
-                                    placeholder={t("create.Numbercopy")}
-                                  />
-                                </Fieldrow>
-                              </Col>
-                              <Col
-                                xs={6}
-                                style={{
-                                  width: "45%",
-                                  float: "right",
-                                  marginTop: -123,
-                                }}
+                                  placeholder={t("create.Numbercopy")}
+                                />
+                              </Fieldrow>
+                            </Col>
+                            <Col
+                              xs={6}
+                              style={{
+                                width: "45%",
+                                float: "right",
+                                marginTop: -123,
+                              }}
+                            >
+                              <Fieldrow
+                                fieldName={t("create.Royalties")}
+                                name="Royalties"
                               >
-                                <Fieldrow
-                                  fieldName={t("create.Royalties")}
+                                <TextFieldFormik
                                   name="Royalties"
-                                >
-                                  <TextFieldFormik
-                                    name="Royalties"
-                                    placeholder="Please input Royalties 1-50"
-                                  />
-                                </Fieldrow>
-                              </Col>
-                            </Row>
-                          </>
-                        )}
+                                  placeholder="Please input Royalties 1-50"
+                                />
+                              </Fieldrow>
+                            </Col>
+                          </Row>
+                        </>
+                      )}
 
-                        <Fieldrow
-                          fieldName={t("create.Category")}
-                          name="categories"
-                        >
-                          {typeof window !== `undefined` && (
-                            <MultiSelect
-                              options={reg}
-                              selectedValues={values.categories}
-                              name="categories"
-                              onBlur={() =>
-                                !touched.categories &&
-                                setTouched({ ...touched, categories: true })
-                              }
-                            />
-                          )}
-                        </Fieldrow>
-                      </div>
-                    </Grid>
-                    <Grid item xs={6}>
-                      <div className="p-create_review">
-                        <div className="p-create_reviewcontent">
-                          <div className="p-create_reviewbox">
-                            {/* <Button modifiers="review">
+                      <Fieldrow
+                        fieldName={t("create.Category")}
+                        name="categories"
+                      >
+                        {typeof window !== `undefined` && (
+                          <MultiSelect
+                            options={reg}
+                            selectedValues={values.categories}
+                            name="categories"
+                            onBlur={() =>
+                              !touched.categories &&
+                              setTouched({ ...touched, categories: true })
+                            }
+                          />
+                        )}
+                      </Fieldrow>
+                    </div>
+                  </Grid>
+                  <Grid item xs={6}>
+                    <div className="p-create_review">
+                      <div className="p-create_reviewcontent">
+                        <div className="p-create_reviewbox">
+                          {/* <Button modifiers="review">
                       <Icon iconName='playpink' modifiers="mini" />
                         &nbsp;{t("create.Review")}</Button> */}
-                            <Reviewcard
-                              title={values.name || ""}
-                              price={values.instantsaleprice || 0}
-                              unit={Unit[values.unit]}
-                              src={previewSrc}
-                              mediaType={previewType}
-                              alt=""
-                              isPreview
-                            />
-                          </div>
-                          <div className="p-create_reviewcheckbox"></div>
-                          <FormControlLabel
-                            control={
-                              <Checkbox
-                                checked={state.checkedB}
-                                onChange={handleChange}
-                                name="checkedB"
-                                color="primary"
-                              />
-                            }
-                            label={
-                              <div>
-                                {t("create.legal")}
-                                <Link href={"/termofservice"}>
-                                  &nbsp;(Term of service)
-                                </Link>
-                              </div>
-                            }
-                            labelPlacement="end"
+                          <Reviewcard
+                            title={values.name || ""}
+                            price={values.instantsaleprice || 0}
+                            unit={Unit[values.unit]}
+                            src={previewSrc}
+                            mediaType={previewType}
+                            alt=""
+                            isPreview
                           />
-                          <div className="p-create_reviewcheckbox">
-                            <ButtonContainer>
-                              <Button
-                                type="button"
-                                modifiers="bid"
-                                anchor={{ href: "/" }}
-                              >
-                                {t("create.Back")}
-                              </Button>
-                              <Button
-                                type="submit"
-                                disabled={!isValid || !state.checkedB}
-                                modifiers="buy"
-                              >
-                                {t("create.CreateNFT")}
-                              </Button>
-                            </ButtonContainer>
-                          </div>
+                        </div>
+                        <div className="p-create_reviewcheckbox"></div>
+                        <FormControlLabel
+                          control={
+                            <Checkbox
+                              checked={state.checkedB}
+                              onChange={handleChange}
+                              name="checkedB"
+                              color="primary"
+                            />
+                          }
+                          label={
+                            <div>
+                              {t("create.legal")}
+                              <Link href={"/termofservice"}>
+                                &nbsp;(Term of service)
+                              </Link>
+                            </div>
+                          }
+                          labelPlacement="end"
+                        />
+                        <div className="p-create_reviewcheckbox">
+                          <ButtonContainer>
+                            <Button
+                              type="button"
+                              modifiers="bid"
+                              anchor={{ href: "/" }}
+                            >
+                              {t("create.Back")}
+                            </Button>
+                            <Button
+                              type="submit"
+                              disabled={!isValid || !state.checkedB}
+                              modifiers="buy"
+                            >
+                              {t("create.CreateNFT")}
+                            </Button>
+                          </ButtonContainer>
                         </div>
                       </div>
-                    </Grid>
+                    </div>
                   </Grid>
-                </Form>
-              );
-            }}
-          </Formik>
-        </Section>
-        <Modal
-          modifiers="step"
-          isOpen={modalOpen}
-          handleClose={() => setModalOpen(false)}
-        >
-          <ModalHeader
-            title="FOLLOW STEPS"
-            handleClose={() => setModalOpen(false)}
-          />
-          <Steps>
-            {CreateSteps.map((step, idx) => {
-              const iconName =
-                currentStep.number > idx
-                  ? "tick-success"
-                  : currentStep.number === idx
-                  ? currentStep.status
-                  : "tick-step";
-              return (
-                <StepItem
-                  key={idx}
-                  iconName={iconName}
-                  {...step}
-                  handleClick={step.handleClick}
-                />
-              );
-            })}
-          </Steps>
-          {/* <Text> After processing , popup is automatically closed. Wait for a moment. </Text> */}
-        </Modal>
-      </Layout>
+                </Grid>
+              </Form>
+            );
+          }}
+        </Formik>
+      </Section>
       <Modal
-        modifiers="noticeCreate"
-        isOpen={modalOpenConvert}
-        handleClose={() => setModalOpenConvert(false)}
+        modifiers="step"
+        isOpen={modalOpen}
+        handleClose={() => setModalOpen(false)}
       >
-        <ModalHeader title="" handleClose={() => setModalOpenConvert(false)} />
-        <Modalconvert />
+        <ModalHeader
+          title="FOLLOW STEPS"
+          handleClose={() => setModalOpen(false)}
+        />
+        <Steps>
+          {CreateSteps.map((step, idx) => {
+            const iconName =
+              currentStep.number > idx
+                ? "tick-success"
+                : currentStep.number === idx
+                ? currentStep.status
+                : "tick-step";
+            return (
+              <StepItem
+                key={idx}
+                iconName={iconName}
+                {...step}
+                handleClick={step.handleClick}
+              />
+            );
+          })}
+        </Steps>
+        {/* <Text> After processing , popup is automatically closed. Wait for a moment. </Text> */}
       </Modal>
-    </div>
-  );
+    </Layout>
+    <Modal
+      modifiers="noticeCreate"
+      isOpen={modalOpenConvert}
+      handleClose={() => setModalOpenConvert(false)}
+    >
+      <ModalHeader title="" handleClose={() => setModalOpenConvert(false)} />
+      <Modalconvert />
+    </Modal>
+  </div>
+);
 };
 
 export default hot(Create);

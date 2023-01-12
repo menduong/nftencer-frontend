@@ -50,7 +50,9 @@ export const createSchemaData = object({
     .required("Please input sale price."),
   unit: number().required(),
   address: string(),
-  amount: number().required(),
+  amount: Yup.string()
+    .matches(RegExp, "amount is not valid")
+    .required("Please input amount > 0"),
   // blockchain: array(
   //   object().shape({
   //     value: string().required(),
@@ -87,6 +89,6 @@ export const initialValueData: CreateFormData = {
   unit: 0,
   numbercopy: "",
   Royalties: "",
-  amount: 0,
+  amount: "",
   blockchain: "",
 };
