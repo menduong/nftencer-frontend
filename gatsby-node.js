@@ -54,8 +54,17 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
         "process.env.NFT_NFTC": JSON.stringify(
           "0xfa3ced40208b1fc44478ce507d9fca30770dc0fd"
         ),
+        "process.env.NFT_BUSD": JSON.stringify(
+          "0xeD24FC36d5Ee211Ea25A80239Fb8C4Cfd80f12Ee"
+        ),
+        "process.env.NFT_BNB": JSON.stringify(
+          "0x0000000000000000000000000000000000000000"
+        ),
         "process.env.NFT_CONTRACT_ADDRESS_721": JSON.stringify(
           "0xe8bb5b310c7f7b15af4a752fd35c3d5728fd61f1"
+        ),
+        "process.env.NFT_BUY_ADDRESS_1155": JSON.stringify(
+          "0xa7c3BFA0c9a049050Df226C1247eB765b0B6dce8"
         ),
         "process.env.GAS_LIMIT": 500000,
         "process.env.SERVICE_FEE": "2.5",

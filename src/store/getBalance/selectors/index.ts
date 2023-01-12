@@ -6,5 +6,6 @@ export const getBalanceStore = createSelector(
   (balance): { [key: string]: number } => ({
     BUSD: Number(balance.busdBalance),
     CONUT: Number(balance.contBalance),
+    NFTC: Number(balance.contBalance),
   })
 );

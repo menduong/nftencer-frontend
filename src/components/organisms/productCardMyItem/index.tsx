@@ -17,10 +17,14 @@ import Fade from '@material-ui/core/Fade';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import { ButtonContainer } from 'components/molecules/buttonContainer';
-import { createSchemaData, initialValueData, Unit } from 'components/pages/create/form';
-import { StepItem } from 'components/molecules/stepItem';
-import { Steps } from 'components/organisms/steps';
-import { Form, Formik } from 'formik';
+import {
+  createSchemaData,
+  initialValueData,
+  UnitSell,
+} from "components/pages/create/form";
+import { StepItem } from "components/molecules/stepItem";
+import { Steps } from "components/organisms/steps";
+import { Form, Formik } from "formik";
 import { Modal } from "components/organisms/modal";
 import { Select } from "components/atoms/select";
 import { ModalHeader } from "components/molecules/modalHeader";
@@ -93,11 +97,9 @@ export const ProductcardMyItem: React.FC<ProductProps> = (props) => {
   var erc20TestAddress = process.env.NFT_BINANCE_SMART_CHAIN;
   const listBlockchain = [
     { value: erc20TestAddress, label: "Binance Smart Chain" },
-    { value: process.env.NFT_NFTC, label: "NFTCircle" },
+    // { value: process.env.NFT_NFTC, label: "NFTCircle" },
   ];
-  const [valueBlockChain, setValueBlockChain] = useState(
-    listBlockchain[0].value
-  );
+  const [valueBlockChain, setValueBlockChain] = useState(process.env.NFT_BNB);
   const CreateSteps = [
     {
       description: "Call contract method",
@@ -305,11 +307,22 @@ export const ProductcardMyItem: React.FC<ProductProps> = (props) => {
                 return (
                   <Form className="p-create_form">
                     <div className="p-create_inputssub">
-                      {Unit.map((u, idx) => (
+                      {UnitSell.map((u, idx) => (
                         <Button
                           modifiers="inlinType"
                           style={unit === idx ? "black" : ""}
-                          handleClick={() => ChangeUnit(idx)}
+                          handleClick={() => {
+                            ChangeUnit(idx);
+                            if (idx === 0) {
+                              setValueBlockChain(process.env.NFT_BNB);
+                            }
+                            if (idx === 1) {
+                              setValueBlockChain(process.env.NFT_BUSD);
+                            }
+                            if (idx === 2) {
+                              setValueBlockChain(process.env.NFT_NFTC);
+                            }
+                          }}
                         >
                           {u}
                         </Button>
@@ -321,7 +334,7 @@ export const ProductcardMyItem: React.FC<ProductProps> = (props) => {
                         caption={[
                           `${t("create.Youwillreceive")} ${amountReceived(
                             values.instantsaleprice
-                          )} ${Unit[unit]} (～$${
+                          )} ${UnitSell[unit]} (～$${
                             unit == 0
                               ? amountDollarBNBrevieved(values.instantsaleprice)
                               : unit == 1
@@ -351,10 +364,7 @@ export const ProductcardMyItem: React.FC<ProductProps> = (props) => {
                         >
                           <Selected
                             name="blockchain"
-                            defaultValue={valueBlockChain}
-                            onChange={(e) => {
-                              setValueBlockChain(e.target.value);
-                            }}
+                            defaultValue={listBlockchain[0].value}
                           >
                             {listBlockchain.map((x) => (
                               <MenuItemSelect value={x.value}>

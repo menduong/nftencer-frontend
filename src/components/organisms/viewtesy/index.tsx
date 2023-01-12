@@ -220,6 +220,8 @@ export const Viewtesy: React.FC<viewtesyProps> = (props) => {
   } = useSelector(getBuyStore);
   const balanceStore = useSelector(getBalanceStore);
   const bnbBalance = Number(wallet.balance);
+  
+
   const erc_type = props.erc_type;
   const [modalOpenBuy, setModalOpenBuy] = useState(false);
 
@@ -268,6 +270,7 @@ export const Viewtesy: React.FC<viewtesyProps> = (props) => {
       ? balanceStore[quote_token]
       : bnbBalance
     : 0;
+  console.log(process.env.NFT_BUY_ADDRESS_1155);
   const productPrice = pricePur;
   const totalPrice = Number(productPrice);
   const [selectedTab, setSelectedTab] = useState<ViewTabType>("Info");

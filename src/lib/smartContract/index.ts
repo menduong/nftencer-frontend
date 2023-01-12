@@ -105,13 +105,13 @@ class SmartContract {
 
     const account = args[0];
     console.log("_contract", this._contract);
-    console.log("_account", account);
+    console.log("_account", process.env.NFT_BUY_ADDRESS_1155);
     console.log("_account", account);
     const arr = [...args];
     arr.splice(0, 1);
     console.log("args", arr);
     return this._contract.methods[method](...arr).send({
-      from: this._account,
+      from:account,
     });
   }
   async BuyOrder1155(method: string, ...args: any[]) {
@@ -121,7 +121,7 @@ class SmartContract {
     const gasPrice = await window.web3.eth.getGasPrice();
 
     return this._contract.methods[method](...args).send({
-      from: this._account,
+      from: process.env.NFT_BUY_ADDRESS_1155,
       gas: GAS_LIMIT,
       gasPrice: gasPrice,
     });
